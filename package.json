@@ -1,0 +1,19 @@
+{
+  "name": "susu-ui",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm --filter @susu-ui/tokens build && pnpm --filter @susu-ui/theme build && pnpm --filter @susu-ui/vue build",
+    "dev": "pnpm --filter playground dev",
+    "typecheck": "pnpm --filter @susu-ui/tokens typecheck && pnpm --filter @susu-ui/theme typecheck && pnpm --filter @susu-ui/vue typecheck && pnpm --filter playground typecheck"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.4",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vue": "^3.5.16",
+    "vue-tsc": "^2.2.10"
+  },
+  "packageManager": "pnpm@10.12.1"
+}
