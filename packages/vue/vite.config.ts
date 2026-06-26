@@ -8,6 +8,7 @@ export default defineConfig({
     lib: {
       entry: {
         index: resolve(__dirname, 'src/index.ts'),
+        alert: resolve(__dirname, 'src/components/alert/index.ts'),
         button: resolve(__dirname, 'src/components/button/index.ts'),
         card: resolve(__dirname, 'src/components/card/index.ts'),
         divider: resolve(__dirname, 'src/components/divider/index.ts'),

@@ -6,6 +6,7 @@ import {
   SuConfigProvider,
   type SusuConfigProviderProps,
 } from './config-provider'
+import { SuAlert } from './components/alert'
 import { SuButton, SuButtonGroup } from './components/button'
 import { SuCard } from './components/card'
 import { SuDivider } from './components/divider'
@@ -22,6 +23,7 @@ import { SuSwitch } from './components/switch'
 import { SuTag } from './components/tag'
 
 export * from './config-provider'
+export * from './components/alert'
 export * from './components/button'
 export * from './components/card'
 export * from './components/divider'
@@ -40,6 +42,7 @@ export * from './locale'
 
 const components = [
   SuConfigProvider,
+  SuAlert,
   SuButton,
   SuButtonGroup,
   SuCard,

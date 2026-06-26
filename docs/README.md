@@ -9,6 +9,7 @@
 
 ## 组件
 
+- [Alert 提示](./组件/Alert%20提示.md)
 - [Button 按钮](./组件/Button%20按钮.md)
 - [Card 卡片](./组件/Card%20卡片.md)
 - [Divider 分割线](./组件/Divider%20分割线.md)

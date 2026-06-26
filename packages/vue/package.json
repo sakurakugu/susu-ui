@@ -11,6 +11,11 @@
       "import": "./dist/susu-ui-vue.js",
       "require": "./dist/susu-ui-vue.cjs"
     },
+    "./alert": {
+      "types": "./dist/components/alert/index.d.ts",
+      "import": "./dist/alert.js",
+      "require": "./dist/alert.cjs"
+    },
     "./button": {
       "types": "./dist/components/button/index.d.ts",
       "import": "./dist/button.js",

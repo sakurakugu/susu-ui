@@ -57,6 +57,7 @@ pnpm build
 - [文档入口](./docs/README.md)
 - [快速开始](./docs/指南/快速开始.md)
 - [主题](./docs/指南/主题.md)
+- [Alert 提示](./docs/组件/Alert%20提示.md)
 - [Button 按钮](./docs/组件/Button%20按钮.md)
 - [Card 卡片](./docs/组件/Card%20卡片.md)
 - [Divider 分割线](./docs/组件/Divider%20分割线.md)
