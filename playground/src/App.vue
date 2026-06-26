@@ -15,6 +15,7 @@ const themeMode = ref<ThemeMode>('light')
 const themePreset = ref<ThemePresetName | 'custom'>('blue')
 const themeHue = ref(DEFAULT_THEME_HUE)
 const localeName = ref<SusuLocale['name']>('zh-cn')
+const inputValue = ref('Susu UI')
 
 const currentLocale = computed(() =>
   localeName.value === 'zh-cn' ? zhCN : enUS,
@@ -122,6 +123,33 @@ function changeThemeHue(event: Event) {
             <SuDivider direction="vertical" dashed />
             <span>删除</span>
           </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>输入框</h2>
+        <div class="input-demo">
+          <SuInput v-model="inputValue" clearable placeholder="请输入内容" />
+          <SuInput size="small" placeholder="小尺寸输入框" />
+          <SuInput size="large" placeholder="大尺寸输入框" />
+          <SuInput disabled placeholder="禁用输入框" />
+          <SuInput readonly model-value="只读内容" />
+          <SuInput placeholder="请输入金额">
+            <template #prefix>¥</template>
+            <template #suffix>元</template>
+          </SuInput>
+          <SuInput type="password" placeholder="password：密码遮蔽" />
+          <SuInput type="email" placeholder="email：邮箱校验" />
+          <SuInput type="number" placeholder="number：数字输入" />
+          <SuInput type="search" placeholder="search：搜索语义" />
+          <SuInput type="tel" placeholder="tel：电话输入" />
+          <SuInput type="url" placeholder="url：网址校验" />
+          <SuInput type="id-card" placeholder="id-card：身份证号码校验" />
+          <SuInput
+            minlength="3"
+            maxlength="12"
+            placeholder="长度限制：3 到 12"
+          />
         </div>
       </section>
 

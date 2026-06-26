@@ -83,6 +83,13 @@ p {
   color: var(--su-color-text-muted);
 }
 
+.input-demo {
+  display: grid;
+  max-width: 720px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
 .toolbar-actions,
 .preset-row {
   display: flex;
@@ -208,5 +215,9 @@ p {
   .toolbar {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .input-demo {
+    grid-template-columns: 1fr;
   }
 }

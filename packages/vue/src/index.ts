@@ -9,11 +9,13 @@ import {
 import { SuButton, SuButtonGroup } from './components/button'
 import { SuDivider } from './components/divider'
 import { SuIcon } from './components/icon'
+import { SuInput } from './components/input'
 
 export * from './config-provider'
 export * from './components/button'
 export * from './components/divider'
 export * from './components/icon'
+export * from './components/input'
 export * from './locale'
 
 const components = [
@@ -22,6 +24,7 @@ const components = [
   SuButtonGroup,
   SuDivider,
   SuIcon,
+  SuInput,
 ]
 
 export const SusuUI: Plugin = {
