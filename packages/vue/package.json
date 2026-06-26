@@ -85,6 +85,11 @@
       "types": "./dist/components/switch/index.d.ts",
       "import": "./dist/switch.js",
       "require": "./dist/switch.cjs"
+    },
+    "./table": {
+      "types": "./dist/components/table/index.d.ts",
+      "import": "./dist/table.js",
+      "require": "./dist/table.cjs"
     }
   },
   "files": [

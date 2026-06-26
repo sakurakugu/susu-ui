@@ -118,6 +118,12 @@ p {
   gap: 12px;
 }
 
+.table-demo {
+  display: grid;
+  max-width: 920px;
+  gap: 16px;
+}
+
 .input-number-demo {
   display: grid;
   max-width: 720px;

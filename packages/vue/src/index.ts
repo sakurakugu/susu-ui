@@ -22,6 +22,7 @@ import { SuOption, SuSelect } from './components/select'
 import { SuSkeleton } from './components/skeleton'
 import { SuSpace } from './components/space'
 import { SuSwitch } from './components/switch'
+import { SuTable, SuTableColumn } from './components/table'
 import { SuTag } from './components/tag'
 
 export * from './config-provider'
@@ -41,6 +42,7 @@ export * from './components/select'
 export * from './components/skeleton'
 export * from './components/space'
 export * from './components/switch'
+export * from './components/table'
 export * from './components/tag'
 export * from './locale'
 
@@ -65,6 +67,8 @@ const components = [
   SuSkeleton,
   SuSpace,
   SuSwitch,
+  SuTable,
+  SuTableColumn,
   SuTag,
 ]
 

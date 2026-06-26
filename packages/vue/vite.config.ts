@@ -27,6 +27,7 @@ export default defineConfig({
         skeleton: resolve(__dirname, 'src/components/skeleton/index.ts'),
         space: resolve(__dirname, 'src/components/space/index.ts'),
         switch: resolve(__dirname, 'src/components/switch/index.ts'),
+        table: resolve(__dirname, 'src/components/table/index.ts'),
         tag: resolve(__dirname, 'src/components/tag/index.ts'),
       },
       formats: ['es', 'cjs'],
