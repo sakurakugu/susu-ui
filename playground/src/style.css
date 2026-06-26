@@ -88,6 +88,16 @@ p {
   color: var(--su-color-text-muted);
 }
 
+.space-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.space-demo .su-card__body p {
+  margin-top: 0;
+}
+
 .input-demo {
   display: grid;
   max-width: 720px;

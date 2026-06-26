@@ -19,6 +19,7 @@ export default defineConfig({
         rate: resolve(__dirname, 'src/components/rate/index.ts'),
         select: resolve(__dirname, 'src/components/select/index.ts'),
         skeleton: resolve(__dirname, 'src/components/skeleton/index.ts'),
+        space: resolve(__dirname, 'src/components/space/index.ts'),
         switch: resolve(__dirname, 'src/components/switch/index.ts'),
         tag: resolve(__dirname, 'src/components/tag/index.ts'),
       },
