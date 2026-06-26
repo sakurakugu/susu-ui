@@ -41,6 +41,11 @@
       "import": "./dist/descriptions.js",
       "require": "./dist/descriptions.cjs"
     },
+    "./dialog": {
+      "types": "./dist/components/dialog/index.d.ts",
+      "import": "./dist/dialog.js",
+      "require": "./dist/dialog.cjs"
+    },
     "./divider": {
       "types": "./dist/components/divider/index.d.ts",
       "import": "./dist/divider.js",

@@ -77,6 +77,17 @@ p {
   font-size: var(--su-font-size-md);
 }
 
+.dialog-demo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.dialog-demo-description {
+  margin-top: 0;
+}
+
 .alert-demo {
   display: grid;
   max-width: 760px;

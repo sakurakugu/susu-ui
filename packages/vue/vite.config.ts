@@ -20,6 +20,7 @@ export default defineConfig({
           __dirname,
           'src/components/descriptions/index.ts',
         ),
+        dialog: resolve(__dirname, 'src/components/dialog/index.ts'),
         divider: resolve(__dirname, 'src/components/divider/index.ts'),
         empty: resolve(__dirname, 'src/components/empty/index.ts'),
         form: resolve(__dirname, 'src/components/form/index.ts'),
@@ -39,6 +40,7 @@ export default defineConfig({
         table: resolve(__dirname, 'src/components/table/index.ts'),
         tag: resolve(__dirname, 'src/components/tag/index.ts'),
         text: resolve(__dirname, 'src/components/text/index.ts'),
+        tooltip: resolve(__dirname, 'src/components/tooltip/index.ts'),
       },
       formats: ['es', 'cjs'],
       fileName(format, entryName) {

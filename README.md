@@ -62,6 +62,7 @@ pnpm build
 - [Card 卡片](./docs/组件/Card%20卡片.md)
 - [Checkbox 复选框](./docs/组件/Checkbox%20复选框.md)
 - [Descriptions 描述列表](./docs/组件/Descriptions%20描述列表.md)
+- [Dialog 对话框](./docs/组件/Dialog%20对话框.md)
 - [Divider 分割线](./docs/组件/Divider%20分割线.md)
 - [Empty 空状态](./docs/组件/Empty%20空状态.md)
 - [Form 表单](./docs/组件/Form%20表单.md)
