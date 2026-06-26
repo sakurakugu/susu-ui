@@ -102,6 +102,13 @@ p {
   gap: 16px 24px;
 }
 
+.tag-demo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .toolbar-actions {
   display: flex;
   flex-wrap: wrap;

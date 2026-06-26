@@ -12,6 +12,7 @@ import { SuIcon } from './components/icon'
 import { SuInput } from './components/input'
 import { SuMessage } from './components/message'
 import { SuRate } from './components/rate'
+import { SuTag } from './components/tag'
 
 export * from './config-provider'
 export * from './components/button'
@@ -20,6 +21,7 @@ export * from './components/icon'
 export * from './components/input'
 export * from './components/message'
 export * from './components/rate'
+export * from './components/tag'
 export * from './locale'
 
 const components = [
@@ -31,6 +33,7 @@ const components = [
   SuInput,
   SuMessage,
   SuRate,
+  SuTag,
 ]
 
 export const SusuUI: Plugin = {

@@ -15,3 +15,4 @@
 - [Input 输入框](./组件/Input%20输入框.md)
 - [Message 消息](./组件/Message%20消息.md)
 - [Rate 评分](./组件/Rate%20评分.md)
+- [Tag 标签](./组件/Tag%20标签.md)
