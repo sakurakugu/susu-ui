@@ -9,6 +9,7 @@ export default defineConfig({
       entry: {
         index: resolve(__dirname, 'src/index.ts'),
         alert: resolve(__dirname, 'src/components/alert/index.ts'),
+        breadcrumb: resolve(__dirname, 'src/components/breadcrumb/index.ts'),
         button: resolve(__dirname, 'src/components/button/index.ts'),
         card: resolve(__dirname, 'src/components/card/index.ts'),
         checkbox: resolve(__dirname, 'src/components/checkbox/index.ts'),
@@ -31,6 +32,7 @@ export default defineConfig({
           __dirname,
           'src/components/input-number/index.ts',
         ),
+        menu: resolve(__dirname, 'src/components/menu/index.ts'),
         message: resolve(__dirname, 'src/components/message/index.ts'),
         rate: resolve(__dirname, 'src/components/rate/index.ts'),
         select: resolve(__dirname, 'src/components/select/index.ts'),

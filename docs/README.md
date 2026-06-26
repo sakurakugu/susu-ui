@@ -10,6 +10,7 @@
 ## 组件
 
 - [Alert 提示](./组件/Alert%20提示.md)
+- [Breadcrumb 面包屑](./组件/Breadcrumb%20面包屑.md)
 - [Button 按钮](./组件/Button%20按钮.md)
 - [Card 卡片](./组件/Card%20卡片.md)
 - [Checkbox 复选框](./组件/Checkbox%20复选框.md)
@@ -23,6 +24,7 @@
 - [Icon 图标](./组件/Icon%20图标.md)
 - [Input 输入框](./组件/Input%20输入框.md)
 - [InputNumber 数字输入框](./组件/InputNumber%20数字输入框.md)
+- [Menu 菜单](./组件/Menu%20菜单.md)
 - [Message 消息](./组件/Message%20消息.md)
 - [Pagination 分页](./组件/Pagination%20分页.md)
 - [Progress 进度条](./组件/Progress%20进度条.md)

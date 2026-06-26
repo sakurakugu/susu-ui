@@ -68,8 +68,16 @@ const uploadProgress = ref(45)
 const selectedTreeKey = ref<string | number>('components')
 const expandedTreeKeys = ref<(string | number)[]>(['docs', 'packages'])
 const checkedTreeKeys = ref<(string | number)[]>(['button'])
+const selectedMenuKey = ref<string | number>('overview')
+const openMenuKeys = ref<(string | number)[]>(['components'])
 const dropdownVisible = ref(false)
 const dropdownCommand = ref('尚未选择操作')
+
+const breadcrumbItems = [
+  { label: '首页', href: '#' },
+  { label: '组件', href: '#' },
+  { label: 'Breadcrumb 面包屑' },
+]
 
 const currentLocale = computed(() =>
   localeName.value === 'zh-cn' ? zhCN : enUS,
@@ -161,6 +169,28 @@ const treeData = [
       { key: 'theme-package', label: '@susu-ui/theme' },
     ],
   },
+]
+
+const menuItems = [
+  { key: 'overview', label: '概览' },
+  {
+    key: 'components',
+    label: '组件',
+    children: [
+      { key: 'button-menu', label: 'Button 按钮' },
+      { key: 'menu-menu', label: 'Menu 菜单' },
+      { key: 'table-menu', label: 'Table 表格', disabled: true },
+    ],
+  },
+  {
+    key: 'resources',
+    label: '资源',
+    children: [
+      { key: 'guide-menu', label: '指南' },
+      { key: 'theme-menu', label: '主题' },
+    ],
+  },
+  { key: 'divider-menu', label: '分割项', divided: true },
 ]
 
 function toggleThemeMode() {
@@ -536,6 +566,20 @@ function disableWeekend(date: Date) {
       </section>
 
       <section class="panel">
+        <h2>面包屑</h2>
+        <div class="breadcrumb-demo">
+          <SuBreadcrumb :items="breadcrumbItems" />
+          <SuBreadcrumb :items="breadcrumbItems" separator=">">
+            <template #item="{ item, isLast }">
+              <span :class="{ 'breadcrumb-demo-current': isLast }">
+                {{ item.label }}
+              </span>
+            </template>
+          </SuBreadcrumb>
+        </div>
+      </section>
+
+      <section class="panel">
         <h2>标签</h2>
         <div class="tag-demo">
           <SuTag>默认标签</SuTag>
@@ -818,6 +862,39 @@ function disableWeekend(date: Date) {
           />
           <SuSlider :model-value="30" size="small" readonly />
           <SuSlider :model-value="42" disabled />
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>菜单</h2>
+        <div class="menu-demo">
+          <SuMenu
+            v-model:selected-key="selectedMenuKey"
+            v-model:open-keys="openMenuKeys"
+            :items="menuItems"
+          />
+
+          <SuMenu
+            :items="menuItems"
+            mode="horizontal"
+            selected-key="overview"
+          />
+
+          <SuMenu :items="menuItems" default-open-all size="small" accordion>
+            <template #default="{ item }">
+              <span class="menu-demo-node">
+                <span>{{ item.label }}</span>
+                <SuTag
+                  v-if="item.disabled"
+                  size="small"
+                  type="info"
+                  variant="outline"
+                >
+                  禁用
+                </SuTag>
+              </span>
+            </template>
+          </SuMenu>
         </div>
       </section>
 

@@ -16,6 +16,11 @@
       "import": "./dist/alert.js",
       "require": "./dist/alert.cjs"
     },
+    "./breadcrumb": {
+      "types": "./dist/components/breadcrumb/index.d.ts",
+      "import": "./dist/breadcrumb.js",
+      "require": "./dist/breadcrumb.cjs"
+    },
     "./button": {
       "types": "./dist/components/button/index.d.ts",
       "import": "./dist/button.js",
@@ -75,6 +80,11 @@
       "types": "./dist/components/input-number/index.d.ts",
       "import": "./dist/input-number.js",
       "require": "./dist/input-number.cjs"
+    },
+    "./menu": {
+      "types": "./dist/components/menu/index.d.ts",
+      "import": "./dist/menu.js",
+      "require": "./dist/menu.cjs"
     },
     "./message": {
       "types": "./dist/components/message/index.d.ts",

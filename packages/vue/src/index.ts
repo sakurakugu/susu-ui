@@ -7,6 +7,7 @@ import {
   type SusuConfigProviderProps,
 } from './config-provider'
 import { SuAlert } from './components/alert'
+import { SuBreadcrumb } from './components/breadcrumb'
 import { SuButton, SuButtonGroup } from './components/button'
 import { SuCard } from './components/card'
 import { SuCheckbox } from './components/checkbox'
@@ -21,6 +22,7 @@ import { SuForm, SuFormItem } from './components/form'
 import { SuIcon } from './components/icon'
 import { SuInput } from './components/input'
 import { SuInputNumber } from './components/input-number'
+import { SuMenu } from './components/menu'
 import { SuMessage } from './components/message'
 import { SuPagination } from './components/pagination'
 import { SuProgress } from './components/progress'
@@ -39,6 +41,7 @@ import { SuTree } from './components/tree'
 
 export * from './config-provider'
 export * from './components/alert'
+export * from './components/breadcrumb'
 export * from './components/button'
 export * from './components/card'
 export * from './components/checkbox'
@@ -53,6 +56,7 @@ export * from './components/form'
 export * from './components/icon'
 export * from './components/input'
 export * from './components/input-number'
+export * from './components/menu'
 export * from './components/message'
 export * from './components/pagination'
 export * from './components/progress'
@@ -73,6 +77,7 @@ export * from './locale'
 const components = [
   SuConfigProvider,
   SuAlert,
+  SuBreadcrumb,
   SuButton,
   SuButtonGroup,
   SuCard,
@@ -90,6 +95,7 @@ const components = [
   SuIcon,
   SuInput,
   SuInputNumber,
+  SuMenu,
   SuMessage,
   SuPagination,
   SuProgress,
