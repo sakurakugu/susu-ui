@@ -27,6 +27,7 @@
 - [Menu 菜单](./组件/Menu%20菜单.md)
 - [Message 消息](./组件/Message%20消息.md)
 - [Pagination 分页](./组件/Pagination%20分页.md)
+- [Popover 气泡卡片](./组件/Popover%20气泡卡片.md)
 - [Progress 进度条](./组件/Progress%20进度条.md)
 - [Rate 评分](./组件/Rate%20评分.md)
 - [Select 选择器](./组件/Select%20选择器.md)

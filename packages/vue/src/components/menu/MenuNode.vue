@@ -15,11 +15,13 @@ defineSlots<{
   default?: (props: { item: MenuRenderItem }) => unknown
 }>()
 
-const menu = inject(menuKey)
+const injectedMenu = inject(menuKey)
 
-if (!menu) {
+if (!injectedMenu) {
   throw new Error('SuMenuNode 必须在 SuMenu 内部使用')
 }
+
+const menu = injectedMenu
 
 function getTabindex(item: MenuRenderItem) {
   if (menu.isItemDisabled(item)) {

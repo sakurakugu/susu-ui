@@ -25,6 +25,7 @@ import { SuInputNumber } from './components/input-number'
 import { SuMenu } from './components/menu'
 import { SuMessage } from './components/message'
 import { SuPagination } from './components/pagination'
+import { SuPopover } from './components/popover'
 import { SuProgress } from './components/progress'
 import { SuRate } from './components/rate'
 import { SuOption, SuSelect } from './components/select'
@@ -59,6 +60,7 @@ export * from './components/input-number'
 export * from './components/menu'
 export * from './components/message'
 export * from './components/pagination'
+export * from './components/popover'
 export * from './components/progress'
 export * from './components/rate'
 export * from './components/select'
@@ -98,6 +100,7 @@ const components = [
   SuMenu,
   SuMessage,
   SuPagination,
+  SuPopover,
   SuProgress,
   SuRate,
   SuOption,

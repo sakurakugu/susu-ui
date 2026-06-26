@@ -303,6 +303,22 @@ p {
   gap: 12px;
 }
 
+.popover-demo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.popover-demo-content {
+  display: grid;
+  gap: 12px;
+}
+
+.popover-demo-content p {
+  margin-top: 0;
+}
+
 .dropdown-demo {
   display: flex;
   align-items: center;

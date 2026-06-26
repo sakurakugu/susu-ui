@@ -91,6 +91,11 @@
       "import": "./dist/message.js",
       "require": "./dist/message.cjs"
     },
+    "./popover": {
+      "types": "./dist/components/popover/index.d.ts",
+      "import": "./dist/popover.js",
+      "require": "./dist/popover.cjs"
+    },
     "./rate": {
       "types": "./dist/components/rate/index.d.ts",
       "import": "./dist/rate.js",

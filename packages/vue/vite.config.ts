@@ -34,6 +34,7 @@ export default defineConfig({
         ),
         menu: resolve(__dirname, 'src/components/menu/index.ts'),
         message: resolve(__dirname, 'src/components/message/index.ts'),
+        popover: resolve(__dirname, 'src/components/popover/index.ts'),
         rate: resolve(__dirname, 'src/components/rate/index.ts'),
         select: resolve(__dirname, 'src/components/select/index.ts'),
         skeleton: resolve(__dirname, 'src/components/skeleton/index.ts'),
