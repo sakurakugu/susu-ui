@@ -7,6 +7,16 @@ defineOptions({
 })
 
 type InputSize = 'small' | 'medium' | 'large'
+type InputStatus = 'default' | 'success' | 'warning' | 'error'
+type InputMode =
+  | 'none'
+  | 'text'
+  | 'tel'
+  | 'url'
+  | 'email'
+  | 'numeric'
+  | 'decimal'
+  | 'search'
 type InputType =
   | 'text'
   | 'password'
@@ -16,6 +26,7 @@ type InputType =
   | 'tel'
   | 'url'
   | 'id-card'
+  | 'textarea'
 
 const model = defineModel<string | number>({
   default: '',
@@ -29,11 +40,29 @@ const props = withDefaults(
     disabled?: boolean
     readonly?: boolean
     clearable?: boolean
+    showPassword?: boolean
+    showWordLimit?: boolean
+    clearFocus?: boolean
+    selectOnFocus?: boolean
+    trim?: boolean
+    status?: InputStatus
+    allowInput?: (value: string, event: Event) => boolean
+    formatter?: (value: string | number) => string
+    parser?: (value: string) => string | number
     name?: string
     id?: string
     autocomplete?: string
+    inputmode?: InputMode
+    pattern?: string
+    required?: boolean
     minlength?: number | string
     maxlength?: number | string
+    min?: number | string
+    max?: number | string
+    step?: number | string
+    rows?: number | string
+    autosize?: boolean
+    resize?: 'none' | 'both' | 'horizontal' | 'vertical'
   }>(),
   {
     type: 'text',
@@ -42,11 +71,29 @@ const props = withDefaults(
     disabled: false,
     readonly: false,
     clearable: false,
+    showPassword: false,
+    showWordLimit: false,
+    clearFocus: false,
+    selectOnFocus: false,
+    trim: false,
+    status: 'default',
+    allowInput: undefined,
+    formatter: undefined,
+    parser: undefined,
     name: undefined,
     id: undefined,
     autocomplete: undefined,
+    inputmode: undefined,
+    pattern: undefined,
+    required: false,
     minlength: undefined,
     maxlength: undefined,
+    min: undefined,
+    max: undefined,
+    step: undefined,
+    rows: 2,
+    autosize: false,
+    resize: undefined,
   },
 )
 
@@ -56,10 +103,16 @@ const emit = defineEmits<{
   focus: [event: FocusEvent]
   blur: [event: FocusEvent]
   clear: []
+  enter: [event: KeyboardEvent]
+  invalid: [event: Event]
+  compositionstart: [event: CompositionEvent]
+  compositionend: [event: CompositionEvent]
 }>()
 
 const attrs = useAttrs()
-const inputRef = ref<HTMLInputElement>()
+const inputRef = ref<HTMLInputElement | HTMLTextAreaElement>()
+const passwordVisible = ref(false)
+const isComposing = ref(false)
 
 const showClear = computed(
   () =>
@@ -69,9 +122,41 @@ const showClear = computed(
     `${model.value}`.length > 0,
 )
 
+const isTextarea = computed(() => props.type === 'textarea')
+
 const nativeInputType = computed(() =>
-  props.type === 'id-card' ? 'text' : props.type,
+  props.type === 'id-card' || props.type === 'textarea'
+    ? 'text'
+    : props.showPassword && props.type === 'password' && passwordVisible.value
+      ? 'text'
+      : props.type,
 )
+
+const modelText = computed(() => `${model.value ?? ''}`)
+
+const displayValue = computed(() =>
+  props.formatter ? props.formatter(model.value) : model.value,
+)
+
+const showPasswordToggle = computed(
+  () =>
+    props.showPassword &&
+    props.type === 'password' &&
+    !props.disabled &&
+    !props.readonly,
+)
+
+const showWordLimit = computed(
+  () => props.showWordLimit && props.maxlength !== undefined,
+)
+
+const wordLimitText = computed(
+  () => `${modelText.value.length}/${props.maxlength}`,
+)
+
+const textareaStyle = computed(() => ({
+  resize: props.resize,
+}))
 
 function validateIdCard(value: string) {
   const normalizedValue = value.toUpperCase()
@@ -125,40 +210,134 @@ function updateCustomValidity(target = inputRef.value) {
   target.setCustomValidity('请输入有效的中国居民身份证号码')
 }
 
+function adjustTextareaHeight(target = inputRef.value) {
+  if (!props.autosize || !target || !isTextarea.value) {
+    return
+  }
+
+  target.style.height = 'auto'
+  target.style.height = `${target.scrollHeight}px`
+}
+
+function getNormalizedValue(value: string) {
+  return props.trim ? value.trim() : value
+}
+
+function restoreDisplayValue(target: HTMLInputElement | HTMLTextAreaElement) {
+  target.value = `${displayValue.value ?? ''}`
+}
+
 function handleInput(event: Event) {
-  const target = event.target as HTMLInputElement
-  model.value = props.type === 'number' ? target.valueAsNumber : target.value
+  const target = event.target as HTMLInputElement | HTMLTextAreaElement
+  const normalizedValue = getNormalizedValue(target.value)
+
+  if (
+    props.allowInput &&
+    !props.allowInput(normalizedValue, event) &&
+    !isComposing.value
+  ) {
+    restoreDisplayValue(target)
+    return
+  }
+
+  const parsedValue =
+    props.parser && !isComposing.value
+      ? props.parser(normalizedValue)
+      : normalizedValue
+  model.value =
+    props.type === 'number' && target instanceof HTMLInputElement
+      ? Number(parsedValue)
+      : parsedValue
   updateCustomValidity(target)
+  adjustTextareaHeight(target)
   emit('input', event)
 }
 
 function handleChange(event: Event) {
-  updateCustomValidity(event.target as HTMLInputElement)
+  updateCustomValidity(event.target as HTMLInputElement | HTMLTextAreaElement)
   emit('change', event)
 }
 
 function handleFocus(event: FocusEvent) {
+  if (props.selectOnFocus) {
+    select()
+  }
+
   emit('focus', event)
 }
 
 function handleBlur(event: FocusEvent) {
-  updateCustomValidity(event.target as HTMLInputElement)
+  updateCustomValidity(event.target as HTMLInputElement | HTMLTextAreaElement)
   emit('blur', event)
 }
 
 function clearValue() {
   model.value = ''
   updateCustomValidity()
+  adjustTextareaHeight()
   emit('clear')
+
+  if (props.clearFocus) {
+    focus()
+  }
+}
+
+function handleEnter(event: KeyboardEvent) {
+  emit('enter', event)
+}
+
+function handleInvalid(event: Event) {
+  emit('invalid', event)
+}
+
+function handleCompositionStart(event: CompositionEvent) {
+  isComposing.value = true
+  emit('compositionstart', event)
+}
+
+function handleCompositionEnd(event: CompositionEvent) {
+  isComposing.value = false
+  handleInput(event)
+  emit('compositionend', event)
+}
+
+function togglePasswordVisible() {
+  passwordVisible.value = !passwordVisible.value
+}
+
+function focus() {
+  inputRef.value?.focus()
+}
+
+function blur() {
+  inputRef.value?.blur()
+}
+
+function select() {
+  inputRef.value?.select()
 }
 
 watch(
   () => [props.type, model.value],
-  () => updateCustomValidity(),
+  () => {
+    updateCustomValidity()
+    adjustTextareaHeight()
+  },
   { flush: 'post' },
 )
 
-onMounted(() => updateCustomValidity())
+onMounted(() => {
+  updateCustomValidity()
+  adjustTextareaHeight()
+})
+
+defineExpose({
+  ref: inputRef,
+  focus,
+  blur,
+  select,
+  clear: clearValue,
+})
 </script>
 
 <template>
@@ -166,35 +345,82 @@ onMounted(() => updateCustomValidity())
     class="su-input"
     :class="[
       `su-input--${size}`,
+      `su-input--${status}`,
       {
         'is-disabled': disabled,
         'is-readonly': readonly,
+        'is-textarea': isTextarea,
+        'has-prepend': $slots.prepend,
+        'has-append': $slots.append,
         'has-prefix': $slots.prefix,
-        'has-suffix': $slots.suffix || showClear,
+        'has-suffix':
+          $slots.suffix || showClear || showPasswordToggle || showWordLimit,
       },
     ]"
   >
+    <span v-if="$slots.prepend" class="su-input__prepend">
+      <slot name="prepend" />
+    </span>
     <span v-if="$slots.prefix" class="su-input__prefix">
       <slot name="prefix" />
     </span>
-    <input
+    <textarea
+      v-if="isTextarea"
       v-bind="attrs"
       :id="id"
       ref="inputRef"
-      class="su-input__inner"
-      :type="nativeInputType"
-      :value="model"
+      class="su-input__inner su-input__textarea"
+      :value="displayValue"
       :placeholder="placeholder"
       :disabled="disabled"
       :readonly="readonly"
       :name="name"
       :autocomplete="autocomplete"
+      :inputmode="inputmode"
+      :pattern="pattern"
+      :required="required"
       :minlength="minlength"
       :maxlength="maxlength"
+      :rows="rows"
+      :style="textareaStyle"
       @input="handleInput"
       @change="handleChange"
       @focus="handleFocus"
       @blur="handleBlur"
+      @invalid="handleInvalid"
+      @keydown.enter="handleEnter"
+      @compositionstart="handleCompositionStart"
+      @compositionend="handleCompositionEnd"
+    />
+    <input
+      v-else
+      v-bind="attrs"
+      :id="id"
+      ref="inputRef"
+      class="su-input__inner"
+      :type="nativeInputType"
+      :value="displayValue"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      :readonly="readonly"
+      :name="name"
+      :autocomplete="autocomplete"
+      :inputmode="inputmode"
+      :pattern="pattern"
+      :required="required"
+      :minlength="minlength"
+      :maxlength="maxlength"
+      :min="min"
+      :max="max"
+      :step="step"
+      @input="handleInput"
+      @change="handleChange"
+      @focus="handleFocus"
+      @blur="handleBlur"
+      @invalid="handleInvalid"
+      @keydown.enter="handleEnter"
+      @compositionstart="handleCompositionStart"
+      @compositionend="handleCompositionEnd"
     />
     <button
       v-if="showClear"
@@ -205,8 +431,23 @@ onMounted(() => updateCustomValidity())
     >
       &times;
     </button>
+    <button
+      v-if="showPasswordToggle"
+      class="su-input__password"
+      type="button"
+      :aria-label="passwordVisible ? '隐藏密码' : '显示密码'"
+      @click="togglePasswordVisible"
+    >
+      {{ passwordVisible ? '隐' : '显' }}
+    </button>
+    <span v-if="showWordLimit" class="su-input__word-limit">
+      {{ wordLimitText }}
+    </span>
     <span v-if="$slots.suffix" class="su-input__suffix">
       <slot name="suffix" />
+    </span>
+    <span v-if="$slots.append" class="su-input__append">
+      <slot name="append" />
     </span>
   </label>
 </template>
@@ -241,6 +482,30 @@ onMounted(() => updateCustomValidity())
 .su-input:focus-within {
   border-color: var(--su-color-primary);
   box-shadow: var(--su-shadow-sm);
+}
+
+.su-input--success {
+  border-color: #16a34a;
+}
+
+.su-input--success:focus-within {
+  border-color: #15803d;
+}
+
+.su-input--warning {
+  border-color: #d97706;
+}
+
+.su-input--warning:focus-within {
+  border-color: #b45309;
+}
+
+.su-input--error {
+  border-color: #dc2626;
+}
+
+.su-input--error:focus-within {
+  border-color: #b91c1c;
 }
 
 .su-input--small {
@@ -282,6 +547,20 @@ onMounted(() => updateCustomValidity())
   padding: 0 var(--su-space-lg);
 }
 
+.su-input.is-textarea {
+  align-items: flex-start;
+}
+
+.su-input.is-textarea .su-input__inner {
+  padding-top: var(--su-space-sm);
+  padding-bottom: var(--su-space-sm);
+  line-height: var(--su-font-line-height);
+}
+
+.su-input__textarea {
+  min-height: 64px;
+}
+
 .su-input.has-prefix .su-input__inner {
   padding-left: var(--su-space-xs);
 }
@@ -296,7 +575,9 @@ onMounted(() => updateCustomValidity())
 }
 
 .su-input__prefix,
-.su-input__suffix {
+.su-input__suffix,
+.su-input__prepend,
+.su-input__append {
   display: inline-flex;
   align-items: center;
   flex: none;
@@ -311,7 +592,31 @@ onMounted(() => updateCustomValidity())
   padding-right: var(--su-space-md);
 }
 
-.su-input__clear {
+.su-input__prepend,
+.su-input__append {
+  align-self: stretch;
+  padding: 0 var(--su-space-md);
+  background: var(--su-color-bg-soft);
+}
+
+.su-input__prepend {
+  border-right: 1px solid var(--su-color-border);
+}
+
+.su-input__append {
+  border-left: 1px solid var(--su-color-border);
+}
+
+.su-input.has-prepend .su-input__inner {
+  padding-left: var(--su-space-sm);
+}
+
+.su-input.has-append .su-input__inner {
+  padding-right: var(--su-space-sm);
+}
+
+.su-input__clear,
+.su-input__password {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -328,9 +633,20 @@ onMounted(() => updateCustomValidity())
   cursor: pointer;
 }
 
-.su-input__clear:hover {
+.su-input__clear:hover,
+.su-input__password:hover {
   color: var(--su-color-primary-hover);
   background: var(--su-color-bg-soft);
+}
+
+.su-input__word-limit {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  padding-right: var(--su-space-md);
+  color: var(--su-color-text-muted);
+  font-size: var(--su-font-size-sm);
+  white-space: nowrap;
 }
 
 .su-input.is-disabled {

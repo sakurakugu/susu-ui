@@ -23,7 +23,7 @@ body {
 
 .toolbar {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 24px;
   margin-bottom: 32px;
@@ -76,13 +76,6 @@ p {
   color: var(--su-color-text-muted);
 }
 
-.config-demo {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  color: var(--su-color-text-muted);
-}
-
 .input-demo {
   display: grid;
   max-width: 720px;
@@ -90,28 +83,35 @@ p {
   gap: 12px;
 }
 
-.toolbar-actions,
-.preset-row {
+.toolbar-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
 }
 
-.preset-button {
-  display: inline-flex;
+.toolbar-actions {
   align-items: center;
-  gap: 8px;
-  height: 36px;
-  padding: 0 12px;
-  border: 1px solid var(--su-color-border);
-  border-radius: var(--su-radius-md);
-  color: var(--su-color-text);
-  background: var(--su-color-bg-elevated);
-  cursor: pointer;
-  transition:
-    color 0.16s ease,
-    background-color 0.16s ease,
-    border-color 0.16s ease;
+  justify-content: flex-end;
+}
+
+.theme-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.theme-toolbar-label {
+  color: var(--su-color-text-muted);
+  font-size: var(--su-font-size-sm);
+}
+
+.preset-button-group {
+  flex-shrink: 0;
+}
+
+.preset-button {
+  gap: 6px;
 }
 
 .preset-button:hover,
@@ -132,6 +132,11 @@ p {
 .hue-control {
   max-width: 520px;
   margin-top: 20px;
+}
+
+.toolbar-hue-control {
+  width: 220px;
+  margin-top: 0;
 }
 
 .hue-control-header {

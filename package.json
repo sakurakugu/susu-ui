@@ -5,13 +5,13 @@
   "type": "module",
   "scripts": {
     "build": "pnpm --filter @susu-ui/tokens build && pnpm --filter @susu-ui/theme build && pnpm --filter @susu-ui/vue build",
-    "check": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm test && pnpm build",
+    "check": "pnpm \"/^(lint|format:check|typecheck|test)$/\" && pnpm build",
     "dev": "pnpm --filter playground dev",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "lint": "eslint .",
     "test": "vitest run",
-    "typecheck": "pnpm --filter @susu-ui/tokens build && pnpm --filter @susu-ui/theme build && pnpm --filter @susu-ui/vue build && pnpm --filter playground typecheck"
+    "typecheck": "pnpm -r --parallel --if-present typecheck"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
