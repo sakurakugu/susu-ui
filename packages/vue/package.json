@@ -2,14 +2,44 @@
   "name": "@susu-ui/vue",
   "version": "0.1.0",
   "type": "module",
-  "main": "./dist/susu-ui-vue.umd.cjs",
+  "main": "./dist/susu-ui-vue.cjs",
   "module": "./dist/susu-ui-vue.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/susu-ui-vue.js",
-      "require": "./dist/susu-ui-vue.umd.cjs"
+      "require": "./dist/susu-ui-vue.cjs"
+    },
+    "./button": {
+      "types": "./dist/components/button/index.d.ts",
+      "import": "./dist/button.js",
+      "require": "./dist/button.cjs"
+    },
+    "./divider": {
+      "types": "./dist/components/divider/index.d.ts",
+      "import": "./dist/divider.js",
+      "require": "./dist/divider.cjs"
+    },
+    "./icon": {
+      "types": "./dist/components/icon/index.d.ts",
+      "import": "./dist/icon.js",
+      "require": "./dist/icon.cjs"
+    },
+    "./input": {
+      "types": "./dist/components/input/index.d.ts",
+      "import": "./dist/input.js",
+      "require": "./dist/input.cjs"
+    },
+    "./message": {
+      "types": "./dist/components/message/index.d.ts",
+      "import": "./dist/message.js",
+      "require": "./dist/message.cjs"
+    },
+    "./rate": {
+      "types": "./dist/components/rate/index.d.ts",
+      "import": "./dist/rate.js",
+      "require": "./dist/rate.cjs"
     }
   },
   "files": [

@@ -65,6 +65,18 @@ p {
   gap: 12px;
 }
 
+.message-demo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.message-demo span {
+  color: var(--su-color-text-muted);
+  font-size: var(--su-font-size-md);
+}
+
 .divider-demo {
   display: flex;
   flex-direction: column;

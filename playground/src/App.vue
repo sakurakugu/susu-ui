@@ -28,6 +28,8 @@ const enterValue = ref('')
 const trimValue = ref('')
 const digitsValue = ref('123')
 const invalidValue = ref('')
+const messageVisible = ref(false)
+const messageKey = ref(0)
 
 const currentLocale = computed(() =>
   localeName.value === 'zh-cn' ? zhCN : enUS,
@@ -79,11 +81,25 @@ function onlyDigits(value: string) {
 function markInvalidValue() {
   invalidValue.value = '校验失败'
 }
+
+function showTopMessage() {
+  messageKey.value += 1
+  messageVisible.value = true
+}
 </script>
 
 <template>
   <SuConfigProvider :locale="currentLocale">
     <main class="playground">
+      <SuMessage
+        v-if="messageVisible"
+        :key="messageKey"
+        type="success"
+        @close="messageVisible = false"
+      >
+        消息会在顶部展示，并于 3 秒后消失
+      </SuMessage>
+
       <section class="toolbar">
         <div>
           <h1>Susu UI</h1>
@@ -127,6 +143,16 @@ function markInvalidValue() {
           <SuButton type="primary" @click="toggleThemeMode">
             切换到{{ themeMode === 'light' ? '深色' : '浅色' }}
           </SuButton>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>消息</h2>
+        <div class="message-demo">
+          <SuButton type="primary" @click="showTopMessage"
+            >显示顶部消息</SuButton
+          >
+          <span>点击后消息会固定在页面顶部，并于 3 秒后自动消失</span>
         </div>
       </section>
 

@@ -58,7 +58,11 @@ pnpm build
 - [快速开始](./docs/指南/快速开始.md)
 - [主题](./docs/指南/主题.md)
 - [Button 按钮](./docs/组件/Button%20按钮.md)
+- [Divider 分割线](./docs/组件/Divider%20分割线.md)
 - [Icon 图标](./docs/组件/Icon%20图标.md)
+- [Input 输入框](./docs/组件/Input%20输入框.md)
+- [Message 消息](./docs/组件/Message%20消息.md)
+- [Rate 评分](./docs/组件/Rate%20评分.md)
 
 ## 技术设计
 

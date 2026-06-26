@@ -15,6 +15,13 @@ export default defineConfig({
         replacement: resolve(__dirname, '../packages/theme/src/index.ts'),
       },
       {
+        find: /^@susu-ui\/vue\/(button|divider|icon|input|message|rate)$/,
+        replacement: resolve(
+          __dirname,
+          '../packages/vue/src/components/$1/index.ts',
+        ),
+      },
+      {
         find: '@susu-ui/vue',
         replacement: resolve(__dirname, '../packages/vue/src/index.ts'),
       },
