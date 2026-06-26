@@ -169,6 +169,41 @@ p {
   opacity: 0.72;
 }
 
+.skeleton-demo {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.skeleton-demo-card,
+.skeleton-demo-profile {
+  min-height: 180px;
+  padding: 16px;
+  border: 1px solid var(--su-color-border);
+  border-radius: var(--su-radius-md);
+  background: var(--su-color-bg-soft);
+}
+
+.skeleton-demo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.skeleton-demo-profile {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.skeleton-demo-lines {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
 .toolbar-actions {
   display: flex;
   flex-wrap: wrap;
@@ -313,6 +348,10 @@ p {
   }
 
   .empty-demo {
+    grid-template-columns: 1fr;
+  }
+
+  .skeleton-demo {
     grid-template-columns: 1fr;
   }
 

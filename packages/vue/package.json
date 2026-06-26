@@ -45,6 +45,11 @@
       "types": "./dist/components/rate/index.d.ts",
       "import": "./dist/rate.js",
       "require": "./dist/rate.cjs"
+    },
+    "./skeleton": {
+      "types": "./dist/components/skeleton/index.d.ts",
+      "import": "./dist/skeleton.js",
+      "require": "./dist/skeleton.cjs"
     }
   },
   "files": [

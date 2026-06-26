@@ -16,6 +16,7 @@ export default defineConfig({
         input: resolve(__dirname, 'src/components/input/index.ts'),
         message: resolve(__dirname, 'src/components/message/index.ts'),
         rate: resolve(__dirname, 'src/components/rate/index.ts'),
+        skeleton: resolve(__dirname, 'src/components/skeleton/index.ts'),
         tag: resolve(__dirname, 'src/components/tag/index.ts'),
       },
       formats: ['es', 'cjs'],

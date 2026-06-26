@@ -241,6 +241,28 @@ function showTopMessage() {
       </section>
 
       <section class="panel">
+        <h2>骨架屏</h2>
+        <div class="skeleton-demo">
+          <div class="skeleton-demo-card">
+            <SuSkeleton variant="rect" height="132px" />
+            <SuSkeleton width="68%" />
+            <SuSkeleton :rows="3" />
+          </div>
+          <div class="skeleton-demo-profile">
+            <SuSkeleton variant="circle" :width="48" :height="48" />
+            <div class="skeleton-demo-lines">
+              <SuSkeleton width="40%" />
+              <SuSkeleton :rows="2" />
+            </div>
+          </div>
+          <div class="skeleton-demo-card">
+            <SuSkeleton variant="rect" height="32px" round />
+            <SuSkeleton :rows="4" :animated="false" />
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
         <h2>分割线</h2>
         <div class="divider-demo">
           <p>基础内容区域</p>
