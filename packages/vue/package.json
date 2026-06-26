@@ -51,6 +51,11 @@
       "import": "./dist/divider.js",
       "require": "./dist/divider.cjs"
     },
+    "./drawer": {
+      "types": "./dist/components/drawer/index.d.ts",
+      "import": "./dist/drawer.js",
+      "require": "./dist/drawer.cjs"
+    },
     "./icon": {
       "types": "./dist/components/icon/index.d.ts",
       "import": "./dist/icon.js",

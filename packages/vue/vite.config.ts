@@ -22,6 +22,7 @@ export default defineConfig({
         ),
         dialog: resolve(__dirname, 'src/components/dialog/index.ts'),
         divider: resolve(__dirname, 'src/components/divider/index.ts'),
+        drawer: resolve(__dirname, 'src/components/drawer/index.ts'),
         empty: resolve(__dirname, 'src/components/empty/index.ts'),
         form: resolve(__dirname, 'src/components/form/index.ts'),
         icon: resolve(__dirname, 'src/components/icon/index.ts'),

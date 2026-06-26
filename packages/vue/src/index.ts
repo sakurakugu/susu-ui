@@ -14,6 +14,7 @@ import { SuDatePicker } from './components/date-picker'
 import { SuDescriptions, SuDescriptionsItem } from './components/descriptions'
 import { SuDialog } from './components/dialog'
 import { SuDivider } from './components/divider'
+import { SuDrawer } from './components/drawer'
 import { SuEmpty } from './components/empty'
 import { SuForm, SuFormItem } from './components/form'
 import { SuIcon } from './components/icon'
@@ -42,6 +43,7 @@ export * from './components/date-picker'
 export * from './components/descriptions'
 export * from './components/dialog'
 export * from './components/divider'
+export * from './components/drawer'
 export * from './components/empty'
 export * from './components/form'
 export * from './components/icon'
@@ -74,6 +76,7 @@ const components = [
   SuDescriptionsItem,
   SuDialog,
   SuDivider,
+  SuDrawer,
   SuEmpty,
   SuForm,
   SuFormItem,

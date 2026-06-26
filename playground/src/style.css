@@ -88,6 +88,22 @@ p {
   margin-top: 0;
 }
 
+.drawer-demo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.drawer-demo-content {
+  display: grid;
+  gap: 16px;
+}
+
+.drawer-demo-content p {
+  margin-top: 0;
+}
+
 .alert-demo {
   display: grid;
   max-width: 760px;
