@@ -136,6 +136,19 @@ p {
   gap: 16px;
 }
 
+.progress-demo {
+  display: grid;
+  max-width: 760px;
+  gap: 16px;
+}
+
+.progress-demo-circles {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
 .input-number-demo {
   display: grid;
   max-width: 720px;
