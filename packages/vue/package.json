@@ -1,6 +1,6 @@
 {
   "name": "@susu-ui/vue",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "main": "./dist/susu-ui-vue.umd.cjs",
   "module": "./dist/susu-ui-vue.js",
@@ -11,6 +11,14 @@
       "import": "./dist/susu-ui-vue.js",
       "require": "./dist/susu-ui-vue.umd.cjs"
     }
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "build": "vite build && vue-tsc -p tsconfig.json --declaration --emitDeclarationOnly",
