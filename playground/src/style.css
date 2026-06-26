@@ -145,6 +145,13 @@ p {
   gap: 12px;
 }
 
+.autocomplete-demo {
+  display: grid;
+  max-width: 720px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
 .tabs-demo {
   display: grid;
   max-width: 760px;
@@ -611,6 +618,10 @@ p {
   }
 
   .select-demo {
+    grid-template-columns: 1fr;
+  }
+
+  .autocomplete-demo {
     grid-template-columns: 1fr;
   }
 

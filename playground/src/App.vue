@@ -36,6 +36,8 @@ const trimValue = ref('')
 const digitsValue = ref('123')
 const invalidValue = ref('')
 const cityValue = ref('')
+const autocompleteCityValue = ref('')
+const searchKeyword = ref('')
 const colorValue = ref('#1677ff')
 const alphaColorValue = ref('rgba(22, 119, 255, 0.64)')
 const dateValue = ref('2026-06-27')
@@ -93,6 +95,13 @@ const cityOptions = [
   { label: '北京', value: 'beijing' },
   { label: '深圳', value: 'shenzhen' },
   { label: '杭州', value: 'hangzhou', disabled: true },
+]
+
+const searchOptions = [
+  { label: 'Button 按钮', value: 'button' },
+  { label: 'Input 输入框', value: 'input' },
+  { label: 'Select 选择器', value: 'select' },
+  { label: 'Autocomplete 自动完成', value: 'autocomplete' },
 ]
 
 const monthOptions = [
@@ -251,6 +260,19 @@ function markEnterValue() {
 
 function onlyDigits(value: string) {
   return /^\d*$/.test(value)
+}
+
+function fetchComponentSuggestions(query: string) {
+  if (!query) {
+    return searchOptions
+  }
+
+  const normalizedQuery = query.toLowerCase()
+  return searchOptions.filter(
+    (option) =>
+      option.label.toLowerCase().includes(normalizedQuery) ||
+      `${option.value}`.includes(normalizedQuery),
+  )
 }
 
 function markInvalidValue() {
@@ -1112,6 +1134,31 @@ function disableWeekend(date: Date) {
           </SuSelect>
           <SuSelect status="warning" placeholder="警告状态" />
           <SuSelect disabled placeholder="禁用选择器" />
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>自动完成</h2>
+        <div class="autocomplete-demo">
+          <SuAutocomplete
+            v-model="autocompleteCityValue"
+            :options="cityOptions"
+            placeholder="请输入城市"
+            clearable
+          />
+          <SuAutocomplete
+            v-model="searchKeyword"
+            :fetch-suggestions="fetchComponentSuggestions"
+            placeholder="搜索组件"
+          />
+          <SuAutocomplete
+            :options="cityOptions"
+            :filterable="false"
+            size="small"
+            placeholder="聚焦展示全部城市"
+          />
+          <SuAutocomplete status="warning" placeholder="警告状态" />
+          <SuAutocomplete disabled placeholder="禁用自动完成" />
         </div>
       </section>
 

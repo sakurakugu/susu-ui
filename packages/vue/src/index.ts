@@ -7,6 +7,7 @@ import {
   type SusuConfigProviderProps,
 } from './config-provider'
 import { SuAlert } from './components/alert'
+import { SuAutocomplete } from './components/autocomplete'
 import { SuBreadcrumb } from './components/breadcrumb'
 import { SuButton, SuButtonGroup } from './components/button'
 import { SuCard } from './components/card'
@@ -44,6 +45,7 @@ import { SuTree } from './components/tree'
 
 export * from './config-provider'
 export * from './components/alert'
+export * from './components/autocomplete'
 export * from './components/breadcrumb'
 export * from './components/button'
 export * from './components/card'
@@ -83,6 +85,7 @@ export * from './locale'
 const components = [
   SuConfigProvider,
   SuAlert,
+  SuAutocomplete,
   SuBreadcrumb,
   SuButton,
   SuButtonGroup,
