@@ -28,6 +28,7 @@ import { SuPagination } from './components/pagination'
 import { SuPopover } from './components/popover'
 import { SuProgress } from './components/progress'
 import { SuRate } from './components/rate'
+import { SuRadioButton, SuRadioGroup } from './components/radio'
 import { SuOption, SuSelect } from './components/select'
 import { SuSkeleton } from './components/skeleton'
 import { SuSlider } from './components/slider'
@@ -63,6 +64,7 @@ export * from './components/pagination'
 export * from './components/popover'
 export * from './components/progress'
 export * from './components/rate'
+export * from './components/radio'
 export * from './components/select'
 export * from './components/skeleton'
 export * from './components/slider'
@@ -103,6 +105,8 @@ const components = [
   SuPopover,
   SuProgress,
   SuRate,
+  SuRadioButton,
+  SuRadioGroup,
   SuOption,
   SuSelect,
   SuSkeleton,

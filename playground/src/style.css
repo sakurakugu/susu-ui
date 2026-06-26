@@ -245,6 +245,13 @@ p {
   gap: 16px 24px;
 }
 
+.radio-demo {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px 32px;
+}
+
 .rate-demo {
   display: flex;
   align-items: center;
