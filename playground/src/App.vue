@@ -36,6 +36,8 @@ const trimValue = ref('')
 const digitsValue = ref('123')
 const invalidValue = ref('')
 const cityValue = ref('')
+const colorValue = ref('#1677ff')
+const alphaColorValue = ref('rgba(22, 119, 255, 0.64)')
 const dateValue = ref('2026-06-27')
 const limitedDateValue = ref('')
 const statusValue = ref('enabled')
@@ -1154,6 +1156,30 @@ function disableWeekend(date: Date) {
               </div>
             </SuTabPane>
           </SuTabs>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>颜色选择器</h2>
+        <div class="color-picker-demo">
+          <SuColorPicker
+            v-model="colorValue"
+            clearable
+            placeholder="请选择颜色"
+          />
+          <SuColorPicker
+            v-model="alphaColorValue"
+            show-alpha
+            format="rgb"
+            placeholder="支持透明度"
+          />
+          <SuColorPicker size="small" model-value="#52c41a" />
+          <SuColorPicker size="large" model-value="#faad14" />
+          <SuColorPicker status="success" model-value="#52c41a" />
+          <SuColorPicker status="warning" placeholder="警告状态" />
+          <SuColorPicker status="error" placeholder="错误状态" />
+          <SuColorPicker disabled placeholder="禁用颜色选择器" />
+          <SuColorPicker readonly model-value="#722ed1" />
         </div>
       </section>
 

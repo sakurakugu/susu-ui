@@ -36,6 +36,11 @@
       "import": "./dist/checkbox.js",
       "require": "./dist/checkbox.cjs"
     },
+    "./color-picker": {
+      "types": "./dist/components/color-picker/index.d.ts",
+      "import": "./dist/color-picker.js",
+      "require": "./dist/color-picker.cjs"
+    },
     "./date-picker": {
       "types": "./dist/components/date-picker/index.d.ts",
       "import": "./dist/date-picker.js",

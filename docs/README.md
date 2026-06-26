@@ -14,6 +14,7 @@
 - [Button 按钮](./组件/Button%20按钮.md)
 - [Card 卡片](./组件/Card%20卡片.md)
 - [Checkbox 复选框](./组件/Checkbox%20复选框.md)
+- [ColorPicker 颜色选择器](./组件/ColorPicker%20颜色选择器.md)
 - [Descriptions 描述列表](./组件/Descriptions%20描述列表.md)
 - [Dialog 对话框](./组件/Dialog%20对话框.md)
 - [Divider 分割线](./组件/Divider%20分割线.md)

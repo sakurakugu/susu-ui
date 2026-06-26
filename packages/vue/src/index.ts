@@ -11,6 +11,7 @@ import { SuBreadcrumb } from './components/breadcrumb'
 import { SuButton, SuButtonGroup } from './components/button'
 import { SuCard } from './components/card'
 import { SuCheckbox } from './components/checkbox'
+import { SuColorPicker } from './components/color-picker'
 import { SuDatePicker } from './components/date-picker'
 import { SuDescriptions, SuDescriptionsItem } from './components/descriptions'
 import { SuDialog } from './components/dialog'
@@ -47,6 +48,7 @@ export * from './components/breadcrumb'
 export * from './components/button'
 export * from './components/card'
 export * from './components/checkbox'
+export * from './components/color-picker'
 export * from './components/date-picker'
 export * from './components/descriptions'
 export * from './components/dialog'
@@ -86,6 +88,7 @@ const components = [
   SuButtonGroup,
   SuCard,
   SuCheckbox,
+  SuColorPicker,
   SuDatePicker,
   SuDescriptions,
   SuDescriptionsItem,
