@@ -76,6 +76,13 @@ p {
   color: var(--su-color-text-muted);
 }
 
+.config-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--su-color-text-muted);
+}
+
 .toolbar-actions,
 .preset-row {
   display: flex;

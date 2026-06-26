@@ -1,16 +1,36 @@
 import type { App, Plugin } from 'vue'
+import { computed } from 'vue'
+import {
+  configProviderKey,
+  mergeConfig,
+  SuConfigProvider,
+  type SusuConfigProviderProps,
+} from './config-provider'
 import { SuButton, SuButtonGroup } from './components/button'
 import { SuDivider } from './components/divider'
 import { SuIcon } from './components/icon'
 
+export * from './config-provider'
 export * from './components/button'
 export * from './components/divider'
 export * from './components/icon'
+export * from './locale'
 
-const components = [SuButton, SuButtonGroup, SuDivider, SuIcon]
+const components = [
+  SuConfigProvider,
+  SuButton,
+  SuButtonGroup,
+  SuDivider,
+  SuIcon,
+]
 
 export const SusuUI: Plugin = {
-  install(app: App) {
+  install(app: App, options?: SusuConfigProviderProps) {
+    app.provide(
+      configProviderKey,
+      computed(() => mergeConfig(options)),
+    )
+
     components.forEach((component) => {
       app.component(component.name ?? 'SuComponent', component)
     })

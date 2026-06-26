@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import {
   DEFAULT_THEME_HUE,
   setThemeHue,
@@ -9,14 +9,24 @@ import {
   type ThemeMode,
   type ThemePresetName,
 } from '@susu-ui/theme'
+import { enUS, zhCN, type SusuLocale } from '@susu-ui/vue'
 
 const themeMode = ref<ThemeMode>('light')
 const themePreset = ref<ThemePresetName | 'custom'>('blue')
 const themeHue = ref(DEFAULT_THEME_HUE)
+const localeName = ref<SusuLocale['name']>('zh-cn')
+
+const currentLocale = computed(() =>
+  localeName.value === 'zh-cn' ? zhCN : enUS,
+)
 
 function toggleThemeMode() {
   themeMode.value = themeMode.value === 'light' ? 'dark' : 'light'
   setThemeMode(themeMode.value)
+}
+
+function toggleLocale() {
+  localeName.value = localeName.value === 'zh-cn' ? 'en-us' : 'zh-cn'
 }
 
 function changeThemePreset(name: ThemePresetName) {
@@ -39,115 +49,128 @@ function changeThemeHue(event: Event) {
 </script>
 
 <template>
-  <main class="playground">
-    <section class="toolbar">
-      <div>
-        <h1>Susu UI</h1>
-        <p>基于 Vue 3、CSS 变量和双轴主题的组件库。</p>
-      </div>
-      <div class="toolbar-actions">
-        <SuButton type="primary" @click="toggleThemeMode">
-          切换到{{ themeMode === 'light' ? '深色' : '浅色' }}
-        </SuButton>
-      </div>
-    </section>
-
-    <section class="panel">
-      <h2>主题色</h2>
-      <div class="preset-row">
-        <button
-          v-for="preset in themePresets"
-          :key="preset.name"
-          class="preset-button"
-          :class="{ 'is-active': themePreset === preset.name }"
-          :style="{ '--preset-hue': preset.hue }"
-          type="button"
-          @click="changeThemePreset(preset.name)"
-        >
-          <span class="preset-swatch" />
-          {{ preset.label }}
-        </button>
-      </div>
-      <div class="hue-control">
-        <div class="hue-control-header">
-          <span>自定义色相</span>
-          <strong>{{ themeHue }}°</strong>
+  <SuConfigProvider :locale="currentLocale">
+    <main class="playground">
+      <section class="toolbar">
+        <div>
+          <h1>Susu UI</h1>
+          <p>基于 Vue 3、CSS 变量和双轴主题的组件库。</p>
         </div>
-        <input
-          class="hue-slider"
-          type="range"
-          min="0"
-          max="359"
-          :value="themeHue"
-          aria-label="自定义主题色相"
-          @input="changeThemeHue"
-        />
-      </div>
-    </section>
-
-    <section class="panel">
-      <h2>分割线</h2>
-      <div class="divider-demo">
-        <p>基础内容区域</p>
-        <SuDivider />
-        <p>下一段内容区域</p>
-        <SuDivider content-position="left">基础信息</SuDivider>
-        <SuDivider dashed>虚线分割</SuDivider>
-        <div class="inline-divider-demo">
-          <span>详情</span>
-          <SuDivider direction="vertical" />
-          <span>编辑</span>
-          <SuDivider direction="vertical" dashed />
-          <span>删除</span>
+        <div class="toolbar-actions">
+          <SuButton @click="toggleLocale">
+            切换到{{ localeName === 'zh-cn' ? '英文' : '中文' }}
+          </SuButton>
+          <SuButton type="primary" @click="toggleThemeMode">
+            切换到{{ themeMode === 'light' ? '深色' : '浅色' }}
+          </SuButton>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="panel">
-      <h2>按钮</h2>
-      <div class="row">
-        <SuButton>默认按钮</SuButton>
-        <SuButton type="primary">主要按钮</SuButton>
-        <SuButton disabled>禁用按钮</SuButton>
-      </div>
-      <div class="row">
-        <SuButton variant="outline">描边按钮</SuButton>
-        <SuButton variant="ghost">幽灵按钮</SuButton>
-        <SuButton variant="text">文本按钮</SuButton>
-        <SuButton type="primary" loading>加载中</SuButton>
-      </div>
-      <div class="row">
-        <SuButton size="small">小按钮</SuButton>
-        <SuButton>默认尺寸</SuButton>
-        <SuButton size="large">大按钮</SuButton>
-        <SuButton native-type="submit">
-          <template #prefix>
-            <SuIcon>
-              <svg viewBox="0 0 24 24">
-                <path d="M12 5v14M5 12h14" />
-              </svg>
-            </SuIcon>
-          </template>
-          新建
-        </SuButton>
-      </div>
-      <div class="row">
-        <SuButtonGroup type="primary" variant="outline" size="small">
-          <SuButton>左</SuButton>
-          <SuButton>中</SuButton>
-          <SuButton>右</SuButton>
-        </SuButtonGroup>
-        <SuButtonGroup>
-          <SuButton>日</SuButton>
-          <SuButton type="primary">周</SuButton>
-          <SuButton>月</SuButton>
-        </SuButtonGroup>
-        <SuButtonGroup direction="vertical" variant="outline">
-          <SuButton>上</SuButton>
-          <SuButton type="primary">中</SuButton>
-          <SuButton>下</SuButton>
-        </SuButtonGroup>
-      </div>
-    </section>
-  </main>
+      <section class="panel">
+        <h2>全局配置</h2>
+        <div class="config-demo">
+          <span>当前语言：{{ currentLocale.name }}</span>
+          <span>空状态文案：{{ currentLocale.empty.description }}</span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>主题色</h2>
+        <div class="preset-row">
+          <button
+            v-for="preset in themePresets"
+            :key="preset.name"
+            class="preset-button"
+            :class="{ 'is-active': themePreset === preset.name }"
+            :style="{ '--preset-hue': preset.hue }"
+            type="button"
+            @click="changeThemePreset(preset.name)"
+          >
+            <span class="preset-swatch" />
+            {{ preset.label }}
+          </button>
+        </div>
+        <div class="hue-control">
+          <div class="hue-control-header">
+            <span>自定义色相</span>
+            <strong>{{ themeHue }}°</strong>
+          </div>
+          <input
+            class="hue-slider"
+            type="range"
+            min="0"
+            max="359"
+            :value="themeHue"
+            aria-label="自定义主题色相"
+            @input="changeThemeHue"
+          />
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>分割线</h2>
+        <div class="divider-demo">
+          <p>基础内容区域</p>
+          <SuDivider />
+          <p>下一段内容区域</p>
+          <SuDivider content-position="left">基础信息</SuDivider>
+          <SuDivider dashed>虚线分割</SuDivider>
+          <div class="inline-divider-demo">
+            <span>详情</span>
+            <SuDivider direction="vertical" />
+            <span>编辑</span>
+            <SuDivider direction="vertical" dashed />
+            <span>删除</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>按钮</h2>
+        <div class="row">
+          <SuButton>默认按钮</SuButton>
+          <SuButton type="primary">主要按钮</SuButton>
+          <SuButton disabled>禁用按钮</SuButton>
+        </div>
+        <div class="row">
+          <SuButton variant="outline">描边按钮</SuButton>
+          <SuButton variant="ghost">幽灵按钮</SuButton>
+          <SuButton variant="text">文本按钮</SuButton>
+          <SuButton type="primary" loading>加载中</SuButton>
+        </div>
+        <div class="row">
+          <SuButton size="small">小按钮</SuButton>
+          <SuButton>默认尺寸</SuButton>
+          <SuButton size="large">大按钮</SuButton>
+          <SuButton native-type="submit">
+            <template #prefix>
+              <SuIcon>
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+              </SuIcon>
+            </template>
+            新建
+          </SuButton>
+        </div>
+        <div class="row">
+          <SuButtonGroup type="primary" variant="outline" size="small">
+            <SuButton>左</SuButton>
+            <SuButton>中</SuButton>
+            <SuButton>右</SuButton>
+          </SuButtonGroup>
+          <SuButtonGroup>
+            <SuButton>日</SuButton>
+            <SuButton type="primary">周</SuButton>
+            <SuButton>月</SuButton>
+          </SuButtonGroup>
+          <SuButtonGroup direction="vertical" variant="outline">
+            <SuButton>上</SuButton>
+            <SuButton type="primary">中</SuButton>
+            <SuButton>下</SuButton>
+          </SuButtonGroup>
+        </div>
+      </section>
+    </main>
+  </SuConfigProvider>
 </template>
