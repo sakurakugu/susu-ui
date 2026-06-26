@@ -36,6 +36,8 @@ const trimValue = ref('')
 const digitsValue = ref('123')
 const invalidValue = ref('')
 const cityValue = ref('')
+const dateValue = ref('2026-06-27')
+const limitedDateValue = ref('')
 const statusValue = ref('enabled')
 const monthValue = ref(2)
 const agreementValue = ref(false)
@@ -190,6 +192,10 @@ function searchInlineForm() {
   inlineStatus.value = inlineKeyword.value
     ? `正在搜索：${inlineKeyword.value}`
     : '请输入关键词'
+}
+
+function disableWeekend(date: Date) {
+  return date.getDay() === 0 || date.getDay() === 6
 }
 </script>
 
@@ -717,6 +723,35 @@ function searchInlineForm() {
           </SuSelect>
           <SuSelect status="warning" placeholder="警告状态" />
           <SuSelect disabled placeholder="禁用选择器" />
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>日期选择器</h2>
+        <div class="date-picker-demo">
+          <SuDatePicker
+            v-model="dateValue"
+            clearable
+            placeholder="请选择日期"
+          />
+          <SuDatePicker
+            v-model="limitedDateValue"
+            min="2026-06-01"
+            max="2026-06-30"
+            placeholder="限制在 2026 年 6 月"
+          />
+          <SuDatePicker
+            :model-value="dateValue"
+            :disabled-date="disableWeekend"
+            placeholder="禁用周末"
+          />
+          <SuDatePicker size="small" model-value="2026-06-27" />
+          <SuDatePicker size="large" model-value="2026-06-27" />
+          <SuDatePicker status="success" model-value="2026-06-27" />
+          <SuDatePicker status="warning" placeholder="警告状态" />
+          <SuDatePicker status="error" placeholder="错误状态" />
+          <SuDatePicker disabled placeholder="禁用日期选择器" />
+          <SuDatePicker readonly model-value="2026-06-27" />
         </div>
       </section>
 
