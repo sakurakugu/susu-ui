@@ -26,6 +26,10 @@ const percentValue = ref(0.35)
 const rateValue = ref(3)
 const halfRateValue = ref(3.5)
 const decimalRateValue = ref(3.7)
+const sliderValue = ref(36)
+const volumeValue = ref(60)
+const rangeSliderValue = ref<[number, number]>([20, 68])
+const temperatureValue = ref(24)
 const domainValue = ref('susu-ui')
 const enterValue = ref('')
 const trimValue = ref('')
@@ -140,6 +144,14 @@ function formatCurrency(value: string | number) {
 
 function parseCurrency(value: string) {
   return Number(value.replace(/[^\d.]/g, ''))
+}
+
+function formatPercent(value: number) {
+  return `${value}%`
+}
+
+function formatTemperature(value: number) {
+  return `${value}°C`
 }
 
 function markEnterValue() {
@@ -505,6 +517,31 @@ function searchInlineForm() {
               </svg>
             </template>
           </SuRate>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>滑块</h2>
+        <div class="slider-demo">
+          <SuSlider v-model="sliderValue" />
+          <SuSlider
+            v-model="volumeValue"
+            :step="10"
+            show-stops
+            :marks="{ 0: '静音', 50: '适中', 100: '最大' }"
+            :format-tooltip="formatPercent"
+          />
+          <SuSlider v-model="rangeSliderValue" range />
+          <SuSlider
+            v-model="temperatureValue"
+            :min="16"
+            :max="32"
+            :step="0.5"
+            size="large"
+            :format-tooltip="formatTemperature"
+          />
+          <SuSlider :model-value="30" size="small" readonly />
+          <SuSlider :model-value="42" disabled />
         </div>
       </section>
 

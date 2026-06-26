@@ -25,6 +25,7 @@ export default defineConfig({
         rate: resolve(__dirname, 'src/components/rate/index.ts'),
         select: resolve(__dirname, 'src/components/select/index.ts'),
         skeleton: resolve(__dirname, 'src/components/skeleton/index.ts'),
+        slider: resolve(__dirname, 'src/components/slider/index.ts'),
         space: resolve(__dirname, 'src/components/space/index.ts'),
         switch: resolve(__dirname, 'src/components/switch/index.ts'),
         table: resolve(__dirname, 'src/components/table/index.ts'),

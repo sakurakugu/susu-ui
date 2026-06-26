@@ -21,6 +21,7 @@ import { SuPagination } from './components/pagination'
 import { SuRate } from './components/rate'
 import { SuOption, SuSelect } from './components/select'
 import { SuSkeleton } from './components/skeleton'
+import { SuSlider } from './components/slider'
 import { SuSpace } from './components/space'
 import { SuSwitch } from './components/switch'
 import { SuTable, SuTableColumn } from './components/table'
@@ -44,6 +45,7 @@ export * from './components/pagination'
 export * from './components/rate'
 export * from './components/select'
 export * from './components/skeleton'
+export * from './components/slider'
 export * from './components/space'
 export * from './components/switch'
 export * from './components/table'
@@ -72,6 +74,7 @@ const components = [
   SuOption,
   SuSelect,
   SuSkeleton,
+  SuSlider,
   SuSpace,
   SuSwitch,
   SuTable,

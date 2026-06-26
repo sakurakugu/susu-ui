@@ -158,6 +158,12 @@ p {
   gap: 16px 24px;
 }
 
+.slider-demo {
+  display: grid;
+  max-width: 760px;
+  gap: 22px;
+}
+
 .form-demo {
   display: grid;
   max-width: 760px;

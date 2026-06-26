@@ -76,6 +76,11 @@
       "import": "./dist/skeleton.js",
       "require": "./dist/skeleton.cjs"
     },
+    "./slider": {
+      "types": "./dist/components/slider/index.d.ts",
+      "import": "./dist/slider.js",
+      "require": "./dist/slider.cjs"
+    },
     "./space": {
       "types": "./dist/components/space/index.d.ts",
       "import": "./dist/space.js",
