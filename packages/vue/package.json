@@ -26,6 +26,11 @@
       "import": "./dist/card.js",
       "require": "./dist/card.cjs"
     },
+    "./checkbox": {
+      "types": "./dist/components/checkbox/index.d.ts",
+      "import": "./dist/checkbox.js",
+      "require": "./dist/checkbox.cjs"
+    },
     "./divider": {
       "types": "./dist/components/divider/index.d.ts",
       "import": "./dist/divider.js",

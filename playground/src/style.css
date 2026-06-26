@@ -132,6 +132,13 @@ p {
   gap: 16px 24px;
 }
 
+.checkbox-demo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+}
+
 .rate-demo {
   display: flex;
   align-items: center;

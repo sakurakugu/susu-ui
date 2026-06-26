@@ -34,6 +34,9 @@ const invalidValue = ref('')
 const cityValue = ref('')
 const statusValue = ref('enabled')
 const monthValue = ref(2)
+const agreementValue = ref(false)
+const featureValue = ref('disabled')
+const indeterminateValue = ref(false)
 const autoSaveValue = ref(true)
 const noticeValue = ref('off')
 const loadingSwitchValue = ref(true)
@@ -577,6 +580,26 @@ function searchInlineForm() {
       </section>
 
       <section class="panel">
+        <h2>复选框</h2>
+        <div class="checkbox-demo">
+          <SuCheckbox v-model="agreementValue">同意服务协议</SuCheckbox>
+          <SuCheckbox
+            v-model="featureValue"
+            true-value="enabled"
+            false-value="disabled"
+          >
+            启用高级功能
+          </SuCheckbox>
+          <SuCheckbox v-model="indeterminateValue" indeterminate>
+            部分选中
+          </SuCheckbox>
+          <SuCheckbox size="small" model-value>小尺寸</SuCheckbox>
+          <SuCheckbox size="large" model-value>大尺寸</SuCheckbox>
+          <SuCheckbox disabled>禁用状态</SuCheckbox>
+        </div>
+      </section>
+
+      <section class="panel">
         <h2>开关</h2>
         <div class="switch-demo">
           <SuSwitch v-model="autoSaveValue" />
@@ -659,6 +682,11 @@ function searchInlineForm() {
                 active-text="开启"
                 inactive-text="关闭"
               />
+            </SuFormItem>
+            <SuFormItem label="协议" label-for="demo-agreement" required>
+              <SuCheckbox id="demo-agreement" v-model="agreementValue" required>
+                已阅读并同意服务协议
+              </SuCheckbox>
             </SuFormItem>
             <SuFormItem>
               <div class="form-demo-actions">
