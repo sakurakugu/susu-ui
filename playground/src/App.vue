@@ -829,6 +829,25 @@ function disableWeekend(date: Date) {
       </section>
 
       <section class="panel">
+        <h2>加载</h2>
+        <div class="loading-demo">
+          <div class="loading-demo-inline">
+            <SuLoading size="small" text="加载中" />
+            <SuLoading text="正在同步" />
+            <SuLoading size="large">提交数据</SuLoading>
+          </div>
+          <div class="loading-demo-box">
+            <p>当前区域正在刷新数据，遮罩会覆盖容器内容。</p>
+            <SuLoading overlay blur text="加载内容" />
+          </div>
+          <div class="loading-demo-box">
+            <p>关闭 loading 后不会渲染加载元素。</p>
+            <SuLoading :loading="false" text="不会显示" />
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
         <h2>分割线</h2>
         <div class="divider-demo">
           <p>基础内容区域</p>

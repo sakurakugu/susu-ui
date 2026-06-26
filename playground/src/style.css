@@ -474,6 +474,37 @@ p {
   min-width: 0;
 }
 
+.loading-demo {
+  display: grid;
+  max-width: 920px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.loading-demo-inline,
+.loading-demo-box {
+  min-height: 160px;
+  padding: 16px;
+  border: 1px solid var(--su-color-border);
+  border-radius: var(--su-radius-md);
+  background: var(--su-color-bg-soft);
+}
+
+.loading-demo-inline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.loading-demo-box {
+  position: relative;
+}
+
+.loading-demo-box p {
+  margin-top: 0;
+}
+
 .toolbar-actions {
   display: flex;
   flex-wrap: wrap;
@@ -642,6 +673,10 @@ p {
   }
 
   .skeleton-demo {
+    grid-template-columns: 1fr;
+  }
+
+  .loading-demo {
     grid-template-columns: 1fr;
   }
 

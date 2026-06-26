@@ -86,6 +86,11 @@
       "import": "./dist/input-number.js",
       "require": "./dist/input-number.cjs"
     },
+    "./loading": {
+      "types": "./dist/components/loading/index.d.ts",
+      "import": "./dist/loading.js",
+      "require": "./dist/loading.cjs"
+    },
     "./menu": {
       "types": "./dist/components/menu/index.d.ts",
       "import": "./dist/menu.js",

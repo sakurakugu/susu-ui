@@ -24,6 +24,7 @@ import { SuForm, SuFormItem } from './components/form'
 import { SuIcon } from './components/icon'
 import { SuInput } from './components/input'
 import { SuInputNumber } from './components/input-number'
+import { SuLoading } from './components/loading'
 import { SuMenu } from './components/menu'
 import { SuMessage } from './components/message'
 import { SuPagination } from './components/pagination'
@@ -62,6 +63,7 @@ export * from './components/form'
 export * from './components/icon'
 export * from './components/input'
 export * from './components/input-number'
+export * from './components/loading'
 export * from './components/menu'
 export * from './components/message'
 export * from './components/pagination'
@@ -105,6 +107,7 @@ const components = [
   SuIcon,
   SuInput,
   SuInputNumber,
+  SuLoading,
   SuMenu,
   SuMessage,
   SuPagination,

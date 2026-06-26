@@ -36,6 +36,7 @@ export default defineConfig({
           __dirname,
           'src/components/input-number/index.ts',
         ),
+        loading: resolve(__dirname, 'src/components/loading/index.ts'),
         menu: resolve(__dirname, 'src/components/menu/index.ts'),
         message: resolve(__dirname, 'src/components/message/index.ts'),
         popover: resolve(__dirname, 'src/components/popover/index.ts'),
