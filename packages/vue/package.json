@@ -31,6 +31,11 @@
       "import": "./dist/icon.js",
       "require": "./dist/icon.cjs"
     },
+    "./form": {
+      "types": "./dist/components/form/index.d.ts",
+      "import": "./dist/form.js",
+      "require": "./dist/form.cjs"
+    },
     "./input": {
       "types": "./dist/components/input/index.d.ts",
       "import": "./dist/input.js",

@@ -102,6 +102,18 @@ p {
   gap: 16px 24px;
 }
 
+.form-demo {
+  display: grid;
+  max-width: 760px;
+  gap: 20px;
+}
+
+.form-demo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .tag-demo {
   display: flex;
   align-items: center;

@@ -12,6 +12,7 @@ export default defineConfig({
         card: resolve(__dirname, 'src/components/card/index.ts'),
         divider: resolve(__dirname, 'src/components/divider/index.ts'),
         empty: resolve(__dirname, 'src/components/empty/index.ts'),
+        form: resolve(__dirname, 'src/components/form/index.ts'),
         icon: resolve(__dirname, 'src/components/icon/index.ts'),
         input: resolve(__dirname, 'src/components/input/index.ts'),
         message: resolve(__dirname, 'src/components/message/index.ts'),

@@ -10,6 +10,7 @@ import { SuButton, SuButtonGroup } from './components/button'
 import { SuCard } from './components/card'
 import { SuDivider } from './components/divider'
 import { SuEmpty } from './components/empty'
+import { SuForm, SuFormItem } from './components/form'
 import { SuIcon } from './components/icon'
 import { SuInput } from './components/input'
 import { SuMessage } from './components/message'
@@ -22,6 +23,7 @@ export * from './components/button'
 export * from './components/card'
 export * from './components/divider'
 export * from './components/empty'
+export * from './components/form'
 export * from './components/icon'
 export * from './components/input'
 export * from './components/message'
@@ -37,6 +39,8 @@ const components = [
   SuCard,
   SuDivider,
   SuEmpty,
+  SuForm,
+  SuFormItem,
   SuIcon,
   SuInput,
   SuMessage,
