@@ -86,6 +86,24 @@ function changeThemeHue(event: Event) {
     </section>
 
     <section class="panel">
+      <h2>分割线</h2>
+      <div class="divider-demo">
+        <p>基础内容区域</p>
+        <SuDivider />
+        <p>下一段内容区域</p>
+        <SuDivider content-position="left">基础信息</SuDivider>
+        <SuDivider dashed>虚线分割</SuDivider>
+        <div class="inline-divider-demo">
+          <span>详情</span>
+          <SuDivider direction="vertical" />
+          <span>编辑</span>
+          <SuDivider direction="vertical" dashed />
+          <span>删除</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
       <h2>按钮</h2>
       <div class="row">
         <SuButton>默认按钮</SuButton>
