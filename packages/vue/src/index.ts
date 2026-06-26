@@ -8,6 +8,7 @@ import {
 } from './config-provider'
 import { SuButton, SuButtonGroup } from './components/button'
 import { SuDivider } from './components/divider'
+import { SuEmpty } from './components/empty'
 import { SuIcon } from './components/icon'
 import { SuInput } from './components/input'
 import { SuMessage } from './components/message'
@@ -17,6 +18,7 @@ import { SuTag } from './components/tag'
 export * from './config-provider'
 export * from './components/button'
 export * from './components/divider'
+export * from './components/empty'
 export * from './components/icon'
 export * from './components/input'
 export * from './components/message'
@@ -29,6 +31,7 @@ const components = [
   SuButton,
   SuButtonGroup,
   SuDivider,
+  SuEmpty,
   SuIcon,
   SuInput,
   SuMessage,

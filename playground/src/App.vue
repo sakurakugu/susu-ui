@@ -187,6 +187,31 @@ function showTopMessage() {
       </section>
 
       <section class="panel">
+        <h2>空状态</h2>
+        <div class="empty-demo">
+          <SuEmpty />
+          <SuEmpty description="没有搜索结果">
+            <template #footer>
+              <SuButton type="primary" @click="showTopMessage">
+                清空筛选
+              </SuButton>
+            </template>
+          </SuEmpty>
+          <SuEmpty image-size="72px">
+            暂未添加成员
+            <template #image>
+              <SuIcon>
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+                  <path d="M4 21a8 8 0 0 1 16 0" />
+                </svg>
+              </SuIcon>
+            </template>
+          </SuEmpty>
+        </div>
+      </section>
+
+      <section class="panel">
         <h2>分割线</h2>
         <div class="divider-demo">
           <p>基础内容区域</p>

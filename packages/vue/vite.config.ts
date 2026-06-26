@@ -10,6 +10,7 @@ export default defineConfig({
         index: resolve(__dirname, 'src/index.ts'),
         button: resolve(__dirname, 'src/components/button/index.ts'),
         divider: resolve(__dirname, 'src/components/divider/index.ts'),
+        empty: resolve(__dirname, 'src/components/empty/index.ts'),
         icon: resolve(__dirname, 'src/components/icon/index.ts'),
         input: resolve(__dirname, 'src/components/input/index.ts'),
         message: resolve(__dirname, 'src/components/message/index.ts'),
