@@ -10,12 +10,14 @@ import { SuButton, SuButtonGroup } from './components/button'
 import { SuDivider } from './components/divider'
 import { SuIcon } from './components/icon'
 import { SuInput } from './components/input'
+import { SuRate } from './components/rate'
 
 export * from './config-provider'
 export * from './components/button'
 export * from './components/divider'
 export * from './components/icon'
 export * from './components/input'
+export * from './components/rate'
 export * from './locale'
 
 const components = [
@@ -25,6 +27,7 @@ const components = [
   SuDivider,
   SuIcon,
   SuInput,
+  SuRate,
 ]
 
 export const SusuUI: Plugin = {

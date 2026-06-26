@@ -83,6 +83,13 @@ p {
   gap: 12px;
 }
 
+.rate-demo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+}
+
 .toolbar-actions {
   display: flex;
   flex-wrap: wrap;
