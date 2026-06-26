@@ -1,15 +1,10 @@
-:root,
-[data-theme='light'] {
-  color-scheme: light;
-  --su-color-primary: #1677ff;
-  --su-color-primary-hover: #4096ff;
-  --su-color-primary-active: #0958d9;
+:root {
+  --su-theme-hue: 215;
+  --su-color-primary: oklch(0.62 0.16 var(--su-theme-hue));
+  --su-color-primary-hover: oklch(0.68 0.15 var(--su-theme-hue));
+  --su-color-primary-active: oklch(0.52 0.15 var(--su-theme-hue));
+  --su-color-primary-soft: oklch(0.94 0.05 var(--su-theme-hue));
   --su-color-primary-text: #ffffff;
-  --su-color-bg: #ffffff;
-  --su-color-bg-elevated: #ffffff;
-  --su-color-text: #1f2329;
-  --su-color-text-muted: #646a73;
-  --su-color-border: #d9d9d9;
   --su-radius-sm: 4px;
   --su-radius-md: 6px;
   --su-radius-lg: 8px;
@@ -23,22 +18,43 @@
   --su-font-size-md: 14px;
   --su-font-size-lg: 16px;
   --su-font-line-height: 1.5;
+}
+
+:root,
+[data-su-theme='light'] {
+  color-scheme: light;
+  --su-color-bg: #ffffff;
+  --su-color-bg-elevated: #ffffff;
+  --su-color-bg-soft: color-mix(in srgb, var(--su-color-primary-soft) 45%, #ffffff);
+  --su-color-text: #1f2329;
+  --su-color-text-muted: #646a73;
+  --su-color-border: color-mix(in srgb, var(--su-color-primary) 16%, #d9d9d9);
   --su-shadow-sm: 0 1px 2px rgb(0 0 0 / 8%);
   --su-shadow-md: 0 6px 16px rgb(0 0 0 / 12%);
 }
 
-[data-theme='dark'] {
+[data-su-theme='dark'] {
   color-scheme: dark;
-  --su-color-primary: #4096ff;
-  --su-color-primary-hover: #69b1ff;
-  --su-color-primary-active: #1677ff;
-  --su-color-primary-text: #ffffff;
   --su-color-bg: #141414;
   --su-color-bg-elevated: #1f1f1f;
+  --su-color-bg-soft: color-mix(in srgb, oklch(0.22 0.02 var(--su-theme-hue)) 82%, #141414);
   --su-color-text: #f0f0f0;
   --su-color-text-muted: #a6a6a6;
-  --su-color-border: #424242;
+  --su-color-border: color-mix(in srgb, var(--su-color-primary) 24%, #424242);
   --su-shadow-sm: 0 1px 2px rgb(0 0 0 / 32%);
   --su-shadow-md: 0 6px 16px rgb(0 0 0 / 36%);
 }
 
+@media (prefers-color-scheme: dark) {
+  [data-su-theme='system'] {
+    color-scheme: dark;
+    --su-color-bg: #141414;
+    --su-color-bg-elevated: #1f1f1f;
+    --su-color-bg-soft: color-mix(in srgb, oklch(0.22 0.02 var(--su-theme-hue)) 82%, #141414);
+    --su-color-text: #f0f0f0;
+    --su-color-text-muted: #a6a6a6;
+    --su-color-border: color-mix(in srgb, var(--su-color-primary) 24%, #424242);
+    --su-shadow-sm: 0 1px 2px rgb(0 0 0 / 32%);
+    --su-shadow-md: 0 6px 16px rgb(0 0 0 / 36%);
+  }
+}

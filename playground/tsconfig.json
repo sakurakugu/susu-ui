@@ -2,6 +2,7 @@
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "paths": {
+      "@susu-ui/tokens": ["../packages/tokens/src/index.ts"],
       "@susu-ui/theme": ["../packages/theme/src/index.ts"],
       "@susu-ui/vue": ["../packages/vue/src/index.ts"]
     }

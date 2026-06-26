@@ -6,7 +6,7 @@
   "scripts": {
     "build": "pnpm --filter @susu-ui/tokens build && pnpm --filter @susu-ui/theme build && pnpm --filter @susu-ui/vue build",
     "dev": "pnpm --filter playground dev",
-    "typecheck": "pnpm --filter @susu-ui/tokens typecheck && pnpm --filter @susu-ui/theme typecheck && pnpm --filter @susu-ui/vue typecheck && pnpm --filter playground typecheck"
+    "typecheck": "pnpm --filter @susu-ui/tokens build && pnpm --filter @susu-ui/theme build && pnpm --filter @susu-ui/vue build && pnpm --filter playground typecheck"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.4",
