@@ -58,6 +58,7 @@ pnpm build
 - [快速开始](./docs/指南/快速开始.md)
 - [主题](./docs/指南/主题.md)
 - [Button 按钮](./docs/组件/Button%20按钮.md)
+- [Icon 图标](./docs/组件/Icon%20图标.md)
 
 ## 技术设计
 

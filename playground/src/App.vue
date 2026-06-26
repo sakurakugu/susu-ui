@@ -103,7 +103,13 @@ function changeThemeHue(event: Event) {
         <SuButton>默认尺寸</SuButton>
         <SuButton size="large">大按钮</SuButton>
         <SuButton native-type="submit">
-          <template #prefix>+</template>
+          <template #prefix>
+            <SuIcon>
+              <svg viewBox="0 0 24 24">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </SuIcon>
+          </template>
           新建
         </SuButton>
       </div>

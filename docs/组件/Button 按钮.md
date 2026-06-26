@@ -75,6 +75,19 @@
 ```vue
 <template>
   <SuButton>
+    <template #prefix>
+      <SuIcon>
+        <svg viewBox="0 0 24 24">
+          <path d="M12 5v14M5 12h14" />
+        </svg>
+      </SuIcon>
+    </template>
+    新建
+  </SuButton>
+</template>
+
+<template>
+  <SuButton>
     <template #prefix>+</template>
     新建
   </SuButton>
