@@ -102,6 +102,13 @@ p {
   gap: 12px;
 }
 
+.switch-demo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+}
+
 .rate-demo {
   display: flex;
   align-items: center;

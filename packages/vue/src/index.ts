@@ -17,6 +17,7 @@ import { SuMessage } from './components/message'
 import { SuRate } from './components/rate'
 import { SuOption, SuSelect } from './components/select'
 import { SuSkeleton } from './components/skeleton'
+import { SuSwitch } from './components/switch'
 import { SuTag } from './components/tag'
 
 export * from './config-provider'
@@ -31,6 +32,7 @@ export * from './components/message'
 export * from './components/rate'
 export * from './components/select'
 export * from './components/skeleton'
+export * from './components/switch'
 export * from './components/tag'
 export * from './locale'
 
@@ -50,6 +52,7 @@ const components = [
   SuOption,
   SuSelect,
   SuSkeleton,
+  SuSwitch,
   SuTag,
 ]
 

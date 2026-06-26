@@ -60,6 +60,11 @@
       "types": "./dist/components/skeleton/index.d.ts",
       "import": "./dist/skeleton.js",
       "require": "./dist/skeleton.cjs"
+    },
+    "./switch": {
+      "types": "./dist/components/switch/index.d.ts",
+      "import": "./dist/switch.js",
+      "require": "./dist/switch.cjs"
     }
   },
   "files": [

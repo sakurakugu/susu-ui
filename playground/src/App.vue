@@ -31,6 +31,9 @@ const invalidValue = ref('')
 const cityValue = ref('')
 const statusValue = ref('enabled')
 const monthValue = ref(2)
+const autoSaveValue = ref(true)
+const noticeValue = ref('off')
+const loadingSwitchValue = ref(true)
 const formName = ref('苏苏')
 const formEmail = ref('susu@example.com')
 const formNote = ref('这是一个表单示例。')
@@ -473,6 +476,29 @@ function searchInlineForm() {
       </section>
 
       <section class="panel">
+        <h2>开关</h2>
+        <div class="switch-demo">
+          <SuSwitch v-model="autoSaveValue" />
+          <SuSwitch
+            v-model="autoSaveValue"
+            active-text="自动保存已开启"
+            inactive-text="自动保存已关闭"
+          />
+          <SuSwitch
+            v-model="noticeValue"
+            active-value="on"
+            inactive-value="off"
+            active-text="通知开启"
+            inactive-text="通知关闭"
+          />
+          <SuSwitch size="small" model-value />
+          <SuSwitch size="large" model-value active-text="大尺寸" />
+          <SuSwitch v-model="loadingSwitchValue" loading active-text="同步中" />
+          <SuSwitch disabled inactive-text="禁用状态" />
+        </div>
+      </section>
+
+      <section class="panel">
         <h2>表单</h2>
         <div class="form-demo">
           <SuForm
@@ -523,6 +549,14 @@ function searchInlineForm() {
                 :options="cityOptions"
                 required
                 placeholder="请选择城市"
+              />
+            </SuFormItem>
+            <SuFormItem label="自动保存" label-for="demo-auto-save">
+              <SuSwitch
+                id="demo-auto-save"
+                v-model="autoSaveValue"
+                active-text="开启"
+                inactive-text="关闭"
               />
             </SuFormItem>
             <SuFormItem>
