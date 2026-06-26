@@ -51,6 +51,11 @@
       "import": "./dist/rate.js",
       "require": "./dist/rate.cjs"
     },
+    "./select": {
+      "types": "./dist/components/select/index.d.ts",
+      "import": "./dist/select.js",
+      "require": "./dist/select.cjs"
+    },
     "./skeleton": {
       "types": "./dist/components/skeleton/index.d.ts",
       "import": "./dist/skeleton.js",

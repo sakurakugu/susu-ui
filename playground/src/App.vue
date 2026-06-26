@@ -28,6 +28,9 @@ const enterValue = ref('')
 const trimValue = ref('')
 const digitsValue = ref('123')
 const invalidValue = ref('')
+const cityValue = ref('')
+const statusValue = ref('enabled')
+const monthValue = ref(2)
 const formName = ref('苏苏')
 const formEmail = ref('susu@example.com')
 const formNote = ref('这是一个表单示例。')
@@ -39,6 +42,19 @@ const messageKey = ref(0)
 const currentLocale = computed(() =>
   localeName.value === 'zh-cn' ? zhCN : enUS,
 )
+
+const cityOptions = [
+  { label: '上海', value: 'shanghai' },
+  { label: '北京', value: 'beijing' },
+  { label: '深圳', value: 'shenzhen' },
+  { label: '杭州', value: 'hangzhou', disabled: true },
+]
+
+const monthOptions = [
+  { label: '一月', value: 1 },
+  { label: '二月', value: 2 },
+  { label: '三月', value: 3 },
+]
 
 function toggleThemeMode() {
   themeMode.value = themeMode.value === 'light' ? 'dark' : 'light'
@@ -433,6 +449,30 @@ function searchInlineForm() {
       </section>
 
       <section class="panel">
+        <h2>选择器</h2>
+        <div class="select-demo">
+          <SuSelect
+            v-model="cityValue"
+            :options="cityOptions"
+            placeholder="请选择城市"
+            clearable
+          />
+          <SuSelect v-model="statusValue">
+            <option value="enabled">启用</option>
+            <option value="disabled">停用</option>
+            <option value="archived">归档</option>
+          </SuSelect>
+          <SuSelect v-model="monthValue" :options="monthOptions" size="small" />
+          <SuSelect status="success" model-value="done">
+            <option value="done">已完成</option>
+            <option value="pending">待处理</option>
+          </SuSelect>
+          <SuSelect status="warning" placeholder="警告状态" />
+          <SuSelect disabled placeholder="禁用选择器" />
+        </div>
+      </section>
+
+      <section class="panel">
         <h2>表单</h2>
         <div class="form-demo">
           <SuForm
@@ -474,6 +514,15 @@ function searchInlineForm() {
                 type="textarea"
                 autosize
                 placeholder="请输入备注"
+              />
+            </SuFormItem>
+            <SuFormItem label="城市" label-for="demo-city" required>
+              <SuSelect
+                id="demo-city"
+                v-model="cityValue"
+                :options="cityOptions"
+                required
+                placeholder="请选择城市"
               />
             </SuFormItem>
             <SuFormItem>
