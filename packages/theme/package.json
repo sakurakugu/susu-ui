@@ -1,6 +1,6 @@
 {
   "name": "@susu-ui/theme",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -11,6 +11,15 @@
       "import": "./dist/index.js"
     },
     "./style.css": "./style.css"
+  },
+  "files": [
+    "dist",
+    "style.css",
+    "CHANGELOG.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
