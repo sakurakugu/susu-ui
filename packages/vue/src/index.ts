@@ -29,6 +29,7 @@ import { SuSkeleton } from './components/skeleton'
 import { SuSlider } from './components/slider'
 import { SuSpace } from './components/space'
 import { SuSwitch } from './components/switch'
+import { SuTabPane, SuTabs } from './components/tabs'
 import { SuTable, SuTableColumn } from './components/table'
 import { SuTag } from './components/tag'
 import { SuText } from './components/text'
@@ -58,6 +59,7 @@ export * from './components/skeleton'
 export * from './components/slider'
 export * from './components/space'
 export * from './components/switch'
+export * from './components/tabs'
 export * from './components/table'
 export * from './components/tag'
 export * from './components/text'
@@ -93,6 +95,8 @@ const components = [
   SuSlider,
   SuSpace,
   SuSwitch,
+  SuTabs,
+  SuTabPane,
   SuTable,
   SuTableColumn,
   SuTag,

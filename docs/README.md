@@ -31,6 +31,7 @@
 - [Slider 滑块](./组件/Slider%20滑块.md)
 - [Space 间距](./组件/Space%20间距.md)
 - [Switch 开关](./组件/Switch%20开关.md)
+- [Tabs 标签页](./组件/Tabs%20标签页.md)
 - [Table 表格](./组件/Table%20表格.md)
 - [Tag 标签](./组件/Tag%20标签.md)
 - [Text 文本](./组件/Text%20文本.md)

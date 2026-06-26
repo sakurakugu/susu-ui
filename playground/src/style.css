@@ -145,6 +145,25 @@ p {
   gap: 12px;
 }
 
+.tabs-demo {
+  display: grid;
+  max-width: 760px;
+  gap: 18px;
+}
+
+.tabs-demo-panel {
+  padding: 12px 0;
+}
+
+.tabs-demo-panel strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.tabs-demo-panel p {
+  margin-top: 0;
+}
+
 .date-picker-demo {
   display: grid;
   max-width: 720px;
