@@ -15,6 +15,7 @@ import { SuDescriptions, SuDescriptionsItem } from './components/descriptions'
 import { SuDialog } from './components/dialog'
 import { SuDivider } from './components/divider'
 import { SuDrawer } from './components/drawer'
+import { SuDropdown } from './components/dropdown'
 import { SuEmpty } from './components/empty'
 import { SuForm, SuFormItem } from './components/form'
 import { SuIcon } from './components/icon'
@@ -46,6 +47,7 @@ export * from './components/descriptions'
 export * from './components/dialog'
 export * from './components/divider'
 export * from './components/drawer'
+export * from './components/dropdown'
 export * from './components/empty'
 export * from './components/form'
 export * from './components/icon'
@@ -81,6 +83,7 @@ const components = [
   SuDialog,
   SuDivider,
   SuDrawer,
+  SuDropdown,
   SuEmpty,
   SuForm,
   SuFormItem,

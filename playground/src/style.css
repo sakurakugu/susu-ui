@@ -294,6 +294,18 @@ p {
   gap: 12px;
 }
 
+.dropdown-demo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.dropdown-demo-status {
+  color: var(--su-color-text-muted);
+  font-size: var(--su-font-size-md);
+}
+
 .card-demo {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
