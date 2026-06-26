@@ -9,6 +9,7 @@ export default defineConfig({
       entry: {
         index: resolve(__dirname, 'src/index.ts'),
         button: resolve(__dirname, 'src/components/button/index.ts'),
+        card: resolve(__dirname, 'src/components/card/index.ts'),
         divider: resolve(__dirname, 'src/components/divider/index.ts'),
         empty: resolve(__dirname, 'src/components/empty/index.ts'),
         icon: resolve(__dirname, 'src/components/icon/index.ts'),

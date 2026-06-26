@@ -10,6 +10,7 @@
 ## 组件
 
 - [Button 按钮](./组件/Button%20按钮.md)
+- [Card 卡片](./组件/Card%20卡片.md)
 - [Divider 分割线](./组件/Divider%20分割线.md)
 - [Empty 空状态](./组件/Empty%20空状态.md)
 - [Icon 图标](./组件/Icon%20图标.md)

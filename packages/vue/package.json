@@ -16,6 +16,11 @@
       "import": "./dist/button.js",
       "require": "./dist/button.cjs"
     },
+    "./card": {
+      "types": "./dist/components/card/index.d.ts",
+      "import": "./dist/card.js",
+      "require": "./dist/card.cjs"
+    },
     "./divider": {
       "types": "./dist/components/divider/index.d.ts",
       "import": "./dist/divider.js",

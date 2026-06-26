@@ -109,6 +109,36 @@ p {
   gap: 12px;
 }
 
+.card-demo {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.card-demo .su-card {
+  min-height: 180px;
+}
+
+.card-demo .su-card__body p {
+  margin-top: 0;
+}
+
+.card-demo-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-demo-metric strong {
+  color: var(--su-color-primary);
+  font-size: 32px;
+  line-height: 1;
+}
+
+.card-demo-metric span {
+  color: var(--su-color-text-muted);
+}
+
 .empty-demo {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -283,6 +313,10 @@ p {
   }
 
   .empty-demo {
+    grid-template-columns: 1fr;
+  }
+
+  .card-demo {
     grid-template-columns: 1fr;
   }
 }
