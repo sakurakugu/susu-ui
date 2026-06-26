@@ -36,13 +36,13 @@ import { SuButton } from '@susu-ui/vue'
 
 ## Props
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| `type` | 按钮类型 | `'default' \| 'primary'` | `'default'` |
-| `disabled` | 是否禁用 | `boolean` | `false` |
+| 参数       | 说明     | 类型                     | 默认值      |
+| ---------- | -------- | ------------------------ | ----------- |
+| `type`     | 按钮类型 | `'default' \| 'primary'` | `'default'` |
+| `disabled` | 是否禁用 | `boolean`                | `false`     |
 
 ## 插槽
 
-| 名称 | 说明 |
-| --- | --- |
+| 名称      | 说明     |
+| --------- | -------- |
 | `default` | 按钮内容 |

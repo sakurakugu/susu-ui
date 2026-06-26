@@ -14,4 +14,3 @@ export const SusuUI: Plugin = {
 }
 
 export default SusuUI
-

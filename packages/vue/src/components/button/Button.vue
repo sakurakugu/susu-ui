@@ -16,7 +16,11 @@ withDefaults(
 </script>
 
 <template>
-  <button class="su-button" :class="[`su-button--${type}`]" :disabled="disabled">
+  <button
+    class="su-button"
+    :class="[`su-button--${type}`]"
+    :disabled="disabled"
+  >
     <slot />
   </button>
 </template>
@@ -71,4 +75,3 @@ withDefaults(
   opacity: 0.55;
 }
 </style>
-

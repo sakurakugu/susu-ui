@@ -7,7 +7,12 @@ import {
 } from '@susu-ui/tokens'
 
 export { DEFAULT_THEME_HUE, DEFAULT_THEME_MODE, themePresets }
-export type { ResolvedThemeMode, ThemeMode, ThemePreset, ThemePresetName } from '@susu-ui/tokens'
+export type {
+  ResolvedThemeMode,
+  ThemeMode,
+  ThemePreset,
+  ThemePresetName,
+} from '@susu-ui/tokens'
 
 function 获取根元素(root?: HTMLElement) {
   if (root) return root
