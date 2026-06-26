@@ -177,6 +177,13 @@ p {
   gap: 12px;
 }
 
+.tooltip-demo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .card-demo {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

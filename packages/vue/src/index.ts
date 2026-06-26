@@ -25,6 +25,7 @@ import { SuSpace } from './components/space'
 import { SuSwitch } from './components/switch'
 import { SuTable, SuTableColumn } from './components/table'
 import { SuTag } from './components/tag'
+import { SuTooltip } from './components/tooltip'
 
 export * from './config-provider'
 export * from './components/alert'
@@ -46,6 +47,7 @@ export * from './components/space'
 export * from './components/switch'
 export * from './components/table'
 export * from './components/tag'
+export * from './components/tooltip'
 export * from './locale'
 
 const components = [
@@ -73,6 +75,7 @@ const components = [
   SuTable,
   SuTableColumn,
   SuTag,
+  SuTooltip,
 ]
 
 export const SusuUI: Plugin = {

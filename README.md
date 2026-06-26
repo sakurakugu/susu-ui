@@ -76,6 +76,7 @@ pnpm build
 - [Switch 开关](./docs/组件/Switch%20开关.md)
 - [Table 表格](./docs/组件/Table%20表格.md)
 - [Tag 标签](./docs/组件/Tag%20标签.md)
+- [Tooltip 文字提示](./docs/组件/Tooltip%20文字提示.md)
 
 ## 技术设计
 
