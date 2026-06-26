@@ -64,6 +64,7 @@ pnpm build
 - [Input 输入框](./docs/组件/Input%20输入框.md)
 - [Message 消息](./docs/组件/Message%20消息.md)
 - [Rate 评分](./docs/组件/Rate%20评分.md)
+- [Select 选择器](./docs/组件/Select%20选择器.md)
 
 ## 技术设计
 

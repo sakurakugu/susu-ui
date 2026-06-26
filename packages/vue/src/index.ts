@@ -15,7 +15,7 @@ import { SuIcon } from './components/icon'
 import { SuInput } from './components/input'
 import { SuMessage } from './components/message'
 import { SuRate } from './components/rate'
-import { SuSelect } from './components/select'
+import { SuOption, SuSelect } from './components/select'
 import { SuSkeleton } from './components/skeleton'
 import { SuTag } from './components/tag'
 
@@ -47,6 +47,7 @@ const components = [
   SuInput,
   SuMessage,
   SuRate,
+  SuOption,
   SuSelect,
   SuSkeleton,
   SuTag,

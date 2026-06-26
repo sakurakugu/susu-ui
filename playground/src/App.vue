@@ -458,9 +458,9 @@ function searchInlineForm() {
             clearable
           />
           <SuSelect v-model="statusValue">
-            <option value="enabled">启用</option>
-            <option value="disabled">停用</option>
-            <option value="archived">归档</option>
+            <SuOption value="enabled" label="启用" />
+            <SuOption value="disabled">停用</SuOption>
+            <SuOption value="archived" disabled>归档</SuOption>
           </SuSelect>
           <SuSelect v-model="monthValue" :options="monthOptions" size="small" />
           <SuSelect status="success" model-value="done">

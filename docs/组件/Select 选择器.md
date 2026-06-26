@@ -32,9 +32,25 @@ const options = [
 </template>
 ```
 
+## Option 选项
+
+也可以通过默认插槽传入 `SuOption`：
+
+```vue
+<template>
+  <SuSelect v-model="status">
+    <SuOption value="enabled" label="启用" />
+    <SuOption value="disabled">停用</SuOption>
+    <SuOption value="archived" disabled>归档</SuOption>
+  </SuSelect>
+</template>
+```
+
+`SuOption` 会渲染为原生 `option`，因此会保留浏览器选择器和表单行为。
+
 ## 原生选项
 
-也可以通过默认插槽传入原生 `option`：
+如需直接使用原生 `option`，也可以继续通过默认插槽传入：
 
 ```vue
 <template>
@@ -70,11 +86,13 @@ const options = [
 
 ```vue
 <script setup lang="ts">
-import { SuSelect } from '@susu-ui/vue'
+import { SuOption, SuSelect } from '@susu-ui/vue'
 </script>
 
 <template>
-  <SuSelect :options="options" />
+  <SuSelect v-model="status">
+    <SuOption value="enabled" label="启用" />
+  </SuSelect>
 </template>
 ```
 
@@ -101,6 +119,14 @@ import { SuSelect } from '@susu-ui/vue'
 | `value`    | 选项值       | `string \| number` | -       |
 | `disabled` | 是否禁用选项 | `boolean`          | `false` |
 
+## Option Props
+
+| 参数       | 说明         | 类型               | 默认值      |
+| ---------- | ------------ | ------------------ | ----------- |
+| `label`    | 选项展示文本 | `string`           | `undefined` |
+| `value`    | 选项值       | `string \| number` | -           |
+| `disabled` | 是否禁用选项 | `boolean`          | `false`     |
+
 ## 事件
 
 | 名称     | 说明             | 参数             |
@@ -112,6 +138,12 @@ import { SuSelect } from '@susu-ui/vue'
 
 ## 插槽
 
-| 名称      | 说明                   |
-| --------- | ---------------------- |
-| `default` | 自定义原生 `option` 项 |
+| 名称      | 说明                                 |
+| --------- | ------------------------------------ |
+| `default` | 自定义 `SuOption` 或原生 `option` 项 |
+
+## Option 插槽
+
+| 名称      | 说明                                    |
+| --------- | --------------------------------------- |
+| `default` | 自定义选项内容，不传时显示 `label` 属性 |

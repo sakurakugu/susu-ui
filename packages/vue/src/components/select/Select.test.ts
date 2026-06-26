@@ -1,7 +1,8 @@
 import { describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
-import { computed } from 'vue'
+import { computed, h } from 'vue'
 import Select from './Select.vue'
+import Option from './Option.vue'
 import { formKey } from '../form/context'
 
 const options = [
@@ -112,6 +113,26 @@ describe('Select', () => {
 
     expect(wrapper.findAll('option')).toHaveLength(2)
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['published'])
+  })
+
+  it('支持默认插槽传入 Option 组件', async () => {
+    const wrapper = mount(Select, {
+      slots: {
+        default: [
+          h(Option, { value: 'enabled', label: '启用' }),
+          h(Option, { value: 'disabled' }, () => '停用'),
+          h(Option, { value: 3, disabled: true }, () => '归档'),
+        ],
+      },
+    })
+
+    await wrapper.find('select').setValue('disabled')
+
+    const optionItems = wrapper.findAll('option')
+    expect(optionItems).toHaveLength(3)
+    expect(optionItems[0].text()).toBe('启用')
+    expect(optionItems[2].attributes('disabled')).toBeDefined()
+    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['disabled'])
   })
 
   it('转发原生属性和事件', async () => {
