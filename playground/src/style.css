@@ -124,6 +124,12 @@ p {
   gap: 16px;
 }
 
+.pagination-demo {
+  display: grid;
+  max-width: 920px;
+  gap: 16px;
+}
+
 .input-number-demo {
   display: grid;
   max-width: 720px;

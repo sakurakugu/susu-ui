@@ -20,6 +20,7 @@
 - [Input 输入框](./组件/Input%20输入框.md)
 - [InputNumber 数字输入框](./组件/InputNumber%20数字输入框.md)
 - [Message 消息](./组件/Message%20消息.md)
+- [Pagination 分页](./组件/Pagination%20分页.md)
 - [Rate 评分](./组件/Rate%20评分.md)
 - [Select 选择器](./组件/Select%20选择器.md)
 - [Skeleton 骨架屏](./组件/Skeleton%20骨架屏.md)
