@@ -13,6 +13,7 @@
 - [Button 按钮](./组件/Button%20按钮.md)
 - [Card 卡片](./组件/Card%20卡片.md)
 - [Checkbox 复选框](./组件/Checkbox%20复选框.md)
+- [Descriptions 描述列表](./组件/Descriptions%20描述列表.md)
 - [Divider 分割线](./组件/Divider%20分割线.md)
 - [Empty 空状态](./组件/Empty%20空状态.md)
 - [Form 表单](./组件/Form%20表单.md)

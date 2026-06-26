@@ -10,6 +10,7 @@ import { SuAlert } from './components/alert'
 import { SuButton, SuButtonGroup } from './components/button'
 import { SuCard } from './components/card'
 import { SuCheckbox } from './components/checkbox'
+import { SuDescriptions, SuDescriptionsItem } from './components/descriptions'
 import { SuDivider } from './components/divider'
 import { SuEmpty } from './components/empty'
 import { SuForm, SuFormItem } from './components/form'
@@ -34,6 +35,7 @@ export * from './components/alert'
 export * from './components/button'
 export * from './components/card'
 export * from './components/checkbox'
+export * from './components/descriptions'
 export * from './components/divider'
 export * from './components/empty'
 export * from './components/form'
@@ -61,6 +63,8 @@ const components = [
   SuButtonGroup,
   SuCard,
   SuCheckbox,
+  SuDescriptions,
+  SuDescriptionsItem,
   SuDivider,
   SuEmpty,
   SuForm,

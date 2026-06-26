@@ -124,6 +124,12 @@ p {
   gap: 16px;
 }
 
+.descriptions-demo {
+  display: grid;
+  max-width: 920px;
+  gap: 18px;
+}
+
 .pagination-demo {
   display: grid;
   max-width: 920px;

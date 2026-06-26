@@ -12,6 +12,10 @@ export default defineConfig({
         button: resolve(__dirname, 'src/components/button/index.ts'),
         card: resolve(__dirname, 'src/components/card/index.ts'),
         checkbox: resolve(__dirname, 'src/components/checkbox/index.ts'),
+        descriptions: resolve(
+          __dirname,
+          'src/components/descriptions/index.ts',
+        ),
         divider: resolve(__dirname, 'src/components/divider/index.ts'),
         empty: resolve(__dirname, 'src/components/empty/index.ts'),
         form: resolve(__dirname, 'src/components/form/index.ts'),
