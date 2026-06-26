@@ -46,6 +46,11 @@
       "import": "./dist/input.js",
       "require": "./dist/input.cjs"
     },
+    "./input-number": {
+      "types": "./dist/components/input-number/index.d.ts",
+      "import": "./dist/input-number.js",
+      "require": "./dist/input-number.cjs"
+    },
     "./message": {
       "types": "./dist/components/message/index.d.ts",
       "import": "./dist/message.js",

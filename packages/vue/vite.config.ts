@@ -16,6 +16,10 @@ export default defineConfig({
         form: resolve(__dirname, 'src/components/form/index.ts'),
         icon: resolve(__dirname, 'src/components/icon/index.ts'),
         input: resolve(__dirname, 'src/components/input/index.ts'),
+        'input-number': resolve(
+          __dirname,
+          'src/components/input-number/index.ts',
+        ),
         message: resolve(__dirname, 'src/components/message/index.ts'),
         rate: resolve(__dirname, 'src/components/rate/index.ts'),
         select: resolve(__dirname, 'src/components/select/index.ts'),

@@ -118,6 +118,13 @@ p {
   gap: 12px;
 }
 
+.input-number-demo {
+  display: grid;
+  max-width: 720px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
 .switch-demo {
   display: flex;
   align-items: center;
@@ -390,6 +397,10 @@ p {
   }
 
   .select-demo {
+    grid-template-columns: 1fr;
+  }
+
+  .input-number-demo {
     grid-template-columns: 1fr;
   }
 

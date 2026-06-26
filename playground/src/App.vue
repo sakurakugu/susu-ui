@@ -20,6 +20,9 @@ const passwordValue = ref('susu-ui')
 const textareaValue = ref('Susu UI 是一个基于 Vue 3 的组件库。')
 const nicknameValue = ref('苏苏')
 const priceValue = ref(12800)
+const countValue = ref(3)
+const amountValue = ref(12.5)
+const percentValue = ref(0.35)
 const rateValue = ref(3)
 const halfRateValue = ref(3.5)
 const decimalRateValue = ref(3.7)
@@ -504,6 +507,47 @@ function searchInlineForm() {
             minlength="3"
             maxlength="12"
             placeholder="长度限制：3 到 12"
+          />
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>数字输入框</h2>
+        <div class="input-number-demo">
+          <SuInputNumber v-model="countValue" placeholder="请输入数量" />
+          <SuInputNumber
+            v-model="amountValue"
+            :min="0"
+            :max="100"
+            :step="0.5"
+            :precision="1"
+            clearable
+            placeholder="0 到 100，步进 0.5"
+          />
+          <SuInputNumber size="small" :model-value="2" />
+          <SuInputNumber size="large" :model-value="8" />
+          <SuInputNumber :model-value="1" disabled />
+          <SuInputNumber :model-value="6" readonly />
+          <SuInputNumber status="success" :model-value="88" />
+          <SuInputNumber status="warning" :model-value="3" />
+          <SuInputNumber status="error" :model-value="-1" />
+          <SuInputNumber
+            v-model="percentValue"
+            :step="0.05"
+            :precision="2"
+            placeholder="百分比"
+          >
+            <template #suffix>%</template>
+          </SuInputNumber>
+          <SuInputNumber :model-value="128" :controls="false">
+            <template #prefix>¥</template>
+            <template #suffix>元</template>
+          </SuInputNumber>
+          <SuInputNumber
+            required
+            :min="1"
+            :max="10"
+            placeholder="原生必填，范围 1 到 10"
           />
         </div>
       </section>

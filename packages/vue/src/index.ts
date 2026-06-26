@@ -14,6 +14,7 @@ import { SuEmpty } from './components/empty'
 import { SuForm, SuFormItem } from './components/form'
 import { SuIcon } from './components/icon'
 import { SuInput } from './components/input'
+import { SuInputNumber } from './components/input-number'
 import { SuMessage } from './components/message'
 import { SuRate } from './components/rate'
 import { SuOption, SuSelect } from './components/select'
@@ -31,6 +32,7 @@ export * from './components/empty'
 export * from './components/form'
 export * from './components/icon'
 export * from './components/input'
+export * from './components/input-number'
 export * from './components/message'
 export * from './components/rate'
 export * from './components/select'
@@ -52,6 +54,7 @@ const components = [
   SuFormItem,
   SuIcon,
   SuInput,
+  SuInputNumber,
   SuMessage,
   SuRate,
   SuOption,

@@ -17,6 +17,7 @@
 - [Form 表单](./组件/Form%20表单.md)
 - [Icon 图标](./组件/Icon%20图标.md)
 - [Input 输入框](./组件/Input%20输入框.md)
+- [InputNumber 数字输入框](./组件/InputNumber%20数字输入框.md)
 - [Message 消息](./组件/Message%20消息.md)
 - [Rate 评分](./组件/Rate%20评分.md)
 - [Select 选择器](./组件/Select%20选择器.md)
