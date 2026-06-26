@@ -1,9 +1,9 @@
 import type { App, Plugin } from 'vue'
-import { SuButton } from './components/button'
+import { SuButton, SuButtonGroup } from './components/button'
 
 export * from './components/button'
 
-const components = [SuButton]
+const components = [SuButton, SuButtonGroup]
 
 export const SusuUI: Plugin = {
   install(app: App) {
