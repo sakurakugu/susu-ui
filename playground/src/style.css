@@ -177,6 +177,28 @@ p {
   gap: 16px;
 }
 
+.tree-demo {
+  display: grid;
+  max-width: 920px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.tree-demo .su-tree {
+  min-height: 260px;
+  padding: 12px;
+  border: 1px solid var(--su-color-border);
+  border-radius: var(--su-radius-md);
+  background: var(--su-color-bg-soft);
+}
+
+.tree-demo-node {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  gap: 8px;
+}
+
 .descriptions-demo {
   display: grid;
   max-width: 920px;
@@ -531,6 +553,10 @@ p {
   }
 
   .card-demo {
+    grid-template-columns: 1fr;
+  }
+
+  .tree-demo {
     grid-template-columns: 1fr;
   }
 }

@@ -34,6 +34,7 @@ import { SuTable, SuTableColumn } from './components/table'
 import { SuTag } from './components/tag'
 import { SuText } from './components/text'
 import { SuTooltip } from './components/tooltip'
+import { SuTree } from './components/tree'
 
 export * from './config-provider'
 export * from './components/alert'
@@ -64,6 +65,7 @@ export * from './components/table'
 export * from './components/tag'
 export * from './components/text'
 export * from './components/tooltip'
+export * from './components/tree'
 export * from './locale'
 
 const components = [
@@ -102,6 +104,7 @@ const components = [
   SuTag,
   SuText,
   SuTooltip,
+  SuTree,
 ]
 
 export const SusuUI: Plugin = {

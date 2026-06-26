@@ -65,6 +65,9 @@ const drawerConfirmLoading = ref(false)
 const paginationPage = ref(3)
 const paginationSize = ref(10)
 const uploadProgress = ref(45)
+const selectedTreeKey = ref<string | number>('components')
+const expandedTreeKeys = ref<(string | number)[]>(['docs', 'packages'])
+const checkedTreeKeys = ref<(string | number)[]>(['button'])
 
 const currentLocale = computed(() =>
   localeName.value === 'zh-cn' ? zhCN : enUS,
@@ -120,6 +123,34 @@ const tableColumns = [
     align: 'right' as const,
     formatter: (_row: unknown, _column: unknown, value: unknown) =>
       `${value} 分`,
+  },
+]
+
+const treeData = [
+  {
+    key: 'docs',
+    label: '文档',
+    children: [
+      { key: 'guide', label: '指南' },
+      { key: 'theme', label: '主题' },
+      { key: 'components', label: '组件' },
+    ],
+  },
+  {
+    key: 'packages',
+    label: '包',
+    children: [
+      {
+        key: 'vue',
+        label: '@susu-ui/vue',
+        children: [
+          { key: 'button', label: 'Button 按钮' },
+          { key: 'tree', label: 'Tree 树' },
+          { key: 'table', label: 'Table 表格', disabled: true },
+        ],
+      },
+      { key: 'theme-package', label: '@susu-ui/theme' },
+    ],
   },
 ]
 
@@ -1004,6 +1035,40 @@ function disableWeekend(date: Date) {
           </SuTable>
 
           <SuTable :columns="tableColumns" empty-text="暂无成员" />
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>树</h2>
+        <div class="tree-demo">
+          <SuTree
+            v-model:selected-key="selectedTreeKey"
+            v-model:expanded-keys="expandedTreeKeys"
+            :data="treeData"
+          />
+
+          <SuTree
+            v-model:checked-keys="checkedTreeKeys"
+            :data="treeData"
+            checkable
+            default-expand-all
+          />
+
+          <SuTree :data="treeData" default-expand-all size="small">
+            <template #default="{ node }">
+              <span class="tree-demo-node">
+                <span>{{ node.label }}</span>
+                <SuTag
+                  v-if="node.disabled"
+                  size="small"
+                  type="info"
+                  variant="outline"
+                >
+                  禁用
+                </SuTag>
+              </span>
+            </template>
+          </SuTree>
         </div>
       </section>
 
