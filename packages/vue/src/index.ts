@@ -25,6 +25,7 @@ import { SuSpace } from './components/space'
 import { SuSwitch } from './components/switch'
 import { SuTable, SuTableColumn } from './components/table'
 import { SuTag } from './components/tag'
+import { SuText } from './components/text'
 import { SuTooltip } from './components/tooltip'
 
 export * from './config-provider'
@@ -47,6 +48,7 @@ export * from './components/space'
 export * from './components/switch'
 export * from './components/table'
 export * from './components/tag'
+export * from './components/text'
 export * from './components/tooltip'
 export * from './locale'
 
@@ -75,6 +77,7 @@ const components = [
   SuTable,
   SuTableColumn,
   SuTag,
+  SuText,
   SuTooltip,
 ]
 

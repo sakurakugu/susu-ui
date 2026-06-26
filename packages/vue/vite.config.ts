@@ -29,6 +29,7 @@ export default defineConfig({
         switch: resolve(__dirname, 'src/components/switch/index.ts'),
         table: resolve(__dirname, 'src/components/table/index.ts'),
         tag: resolve(__dirname, 'src/components/tag/index.ts'),
+        text: resolve(__dirname, 'src/components/text/index.ts'),
       },
       formats: ['es', 'cjs'],
       fileName(format, entryName) {

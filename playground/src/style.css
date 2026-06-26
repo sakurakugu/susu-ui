@@ -177,6 +177,16 @@ p {
   gap: 12px;
 }
 
+.text-demo {
+  display: grid;
+  max-width: 720px;
+  gap: 14px;
+}
+
+.text-demo-ellipsis {
+  max-width: 360px;
+}
+
 .tooltip-demo {
   display: flex;
   align-items: center;
