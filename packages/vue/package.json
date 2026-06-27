@@ -146,6 +146,11 @@
       "import": "./dist/form.js",
       "require": "./dist/form.cjs"
     },
+    "./grid": {
+      "types": "./dist/components/grid/index.d.ts",
+      "import": "./dist/grid.js",
+      "require": "./dist/grid.cjs"
+    },
     "./input": {
       "types": "./dist/components/input/index.d.ts",
       "import": "./dist/input.js",
@@ -160,6 +165,11 @@
       "types": "./dist/components/layout/index.d.ts",
       "import": "./dist/layout.js",
       "require": "./dist/layout.cjs"
+    },
+    "./list": {
+      "types": "./dist/components/list/index.d.ts",
+      "import": "./dist/list.js",
+      "require": "./dist/list.cjs"
     },
     "./loading": {
       "types": "./dist/components/loading/index.d.ts",

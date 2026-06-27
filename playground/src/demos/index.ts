@@ -30,6 +30,7 @@ import ResizableDemo from './ResizableDemo.vue'
 import SplitterDemo from './SplitterDemo.vue'
 import DividerDemo from './DividerDemo.vue'
 import SpaceDemo from './SpaceDemo.vue'
+import GridDemo from './GridDemo.vue'
 import RateDemo from './RateDemo.vue'
 import SliderDemo from './SliderDemo.vue'
 import MenuDemo from './MenuDemo.vue'
@@ -49,6 +50,7 @@ import DateRangePickerDemo from './DateRangePickerDemo.vue'
 import TimePickerDemo from './TimePickerDemo.vue'
 import TimeRangePickerDemo from './TimeRangePickerDemo.vue'
 import TableDemo from './TableDemo.vue'
+import ListDemo from './ListDemo.vue'
 import VirtualListDemo from './VirtualListDemo.vue'
 import TreeDemo from './TreeDemo.vue'
 import TransferDemo from './TransferDemo.vue'
@@ -99,6 +101,7 @@ export const playgroundDemos = [
   { id: 'splitter', component: SplitterDemo },
   { id: 'divider', component: DividerDemo },
   { id: 'space', component: SpaceDemo },
+  { id: 'grid', component: GridDemo },
   { id: 'rate', component: RateDemo },
   { id: 'slider', component: SliderDemo },
   { id: 'menu', component: MenuDemo },
@@ -118,6 +121,7 @@ export const playgroundDemos = [
   { id: 'time-picker', component: TimePickerDemo },
   { id: 'time-range-picker', component: TimeRangePickerDemo },
   { id: 'table', component: TableDemo },
+  { id: 'list', component: ListDemo },
   { id: 'virtual-list', component: VirtualListDemo },
   { id: 'tree', component: TreeDemo },
   { id: 'transfer', component: TransferDemo },

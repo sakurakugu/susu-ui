@@ -31,6 +31,7 @@ import { SuDrawer } from './components/drawer'
 import { SuDropdown } from './components/dropdown'
 import { SuEmpty } from './components/empty'
 import { SuForm, SuFormItem } from './components/form'
+import { SuGrid, SuGridItem } from './components/grid'
 import { SuIcon } from './components/icon'
 import { SuImage } from './components/image'
 import { SuInput } from './components/input'
@@ -42,6 +43,7 @@ import {
   SuLayout,
   SuSider,
 } from './components/layout'
+import { SuList, SuListItem } from './components/list'
 import { SuLoading } from './components/loading'
 import { SuMenu } from './components/menu'
 import { SuMention } from './components/mention'
@@ -106,11 +108,13 @@ export * from './components/drawer'
 export * from './components/dropdown'
 export * from './components/empty'
 export * from './components/form'
+export * from './components/grid'
 export * from './components/icon'
 export * from './components/image'
 export * from './components/input'
 export * from './components/input-number'
 export * from './components/layout'
+export * from './components/list'
 export * from './components/loading'
 export * from './components/menu'
 export * from './components/mention'
@@ -181,6 +185,8 @@ const components = [
   SuEmpty,
   SuForm,
   SuFormItem,
+  SuGrid,
+  SuGridItem,
   SuIcon,
   SuImage,
   SuInput,
@@ -190,6 +196,8 @@ const components = [
   SuSider,
   SuContent,
   SuFooter,
+  SuList,
+  SuListItem,
   SuLoading,
   SuMenu,
   SuMention,
