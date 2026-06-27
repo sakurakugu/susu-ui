@@ -332,6 +332,13 @@ p {
   gap: 12px;
 }
 
+.calendar-demo {
+  display: grid;
+  max-width: 920px;
+  grid-template-columns: repeat(2, max-content);
+  gap: 16px;
+}
+
 .table-demo {
   display: grid;
   max-width: 920px;
@@ -919,6 +926,10 @@ p {
   }
 
   .color-picker-demo {
+    grid-template-columns: 1fr;
+  }
+
+  .calendar-demo {
     grid-template-columns: 1fr;
   }
 

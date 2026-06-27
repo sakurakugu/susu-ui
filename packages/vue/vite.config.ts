@@ -13,6 +13,7 @@ export default defineConfig({
         badge: resolve(__dirname, 'src/components/badge/index.ts'),
         breadcrumb: resolve(__dirname, 'src/components/breadcrumb/index.ts'),
         button: resolve(__dirname, 'src/components/button/index.ts'),
+        calendar: resolve(__dirname, 'src/components/calendar/index.ts'),
         card: resolve(__dirname, 'src/components/card/index.ts'),
         cascader: resolve(__dirname, 'src/components/cascader/index.ts'),
         checkbox: resolve(__dirname, 'src/components/checkbox/index.ts'),

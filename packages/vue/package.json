@@ -36,6 +36,11 @@
       "import": "./dist/button.js",
       "require": "./dist/button.cjs"
     },
+    "./calendar": {
+      "types": "./dist/components/calendar/index.d.ts",
+      "import": "./dist/calendar.js",
+      "require": "./dist/calendar.cjs"
+    },
     "./card": {
       "types": "./dist/components/card/index.d.ts",
       "import": "./dist/card.js",

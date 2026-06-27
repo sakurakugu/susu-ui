@@ -15,6 +15,7 @@
 - [Badge 角标](./组件/Badge%20角标.md)
 - [Breadcrumb 面包屑](./组件/Breadcrumb%20面包屑.md)
 - [Button 按钮](./组件/Button%20按钮.md)
+- [Calendar 日历](./组件/Calendar%20日历.md)
 - [Card 卡片](./组件/Card%20卡片.md)
 - [Cascader 级联选择](./组件/Cascader%20级联选择.md)
 - [Checkbox 复选框](./组件/Checkbox%20复选框.md)

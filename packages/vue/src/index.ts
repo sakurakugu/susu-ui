@@ -12,6 +12,7 @@ import { SuAvatar } from './components/avatar'
 import { SuBadge } from './components/badge'
 import { SuBreadcrumb } from './components/breadcrumb'
 import { SuButton, SuButtonGroup } from './components/button'
+import { SuCalendar } from './components/calendar'
 import { SuCard } from './components/card'
 import { SuCascader } from './components/cascader'
 import { SuCheckbox } from './components/checkbox'
@@ -64,6 +65,7 @@ export * from './components/avatar'
 export * from './components/badge'
 export * from './components/breadcrumb'
 export * from './components/button'
+export * from './components/calendar'
 export * from './components/card'
 export * from './components/cascader'
 export * from './components/checkbox'
@@ -119,6 +121,7 @@ const components = [
   SuBreadcrumb,
   SuButton,
   SuButtonGroup,
+  SuCalendar,
   SuCard,
   SuCascader,
   SuCheckbox,

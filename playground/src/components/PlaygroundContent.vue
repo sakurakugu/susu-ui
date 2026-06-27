@@ -35,6 +35,8 @@ const autocompleteCityValue = ref('')
 const searchKeyword = ref('')
 const colorValue = ref('#1677ff')
 const alphaColorValue = ref('rgba(22, 119, 255, 0.64)')
+const calendarValue = ref('2026-06-27')
+const limitedCalendarValue = ref('')
 const dateValue = ref('2026-06-27')
 const limitedDateValue = ref('')
 const dateRangeValue = ref<[string, string]>(['2026-06-01', '2026-06-15'])
@@ -1547,6 +1549,22 @@ function limitUploadSize(file: File) {
         <SuColorPicker status="error" placeholder="错误状态" />
         <SuColorPicker disabled placeholder="禁用颜色选择器" />
         <SuColorPicker readonly model-value="#722ed1" />
+      </div>
+    </section>
+
+    <section id="calendar" class="panel">
+      <h2>日历</h2>
+      <div class="calendar-demo">
+        <SuCalendar v-model="calendarValue" />
+        <SuCalendar
+          v-model="limitedCalendarValue"
+          min="2026-06-01"
+          max="2026-06-30"
+          :disabled-date="disableWeekend"
+          :show-adjacent-months="false"
+        />
+        <SuCalendar size="small" model-value="2026-06-15" />
+        <SuCalendar size="large" model-value="2026-06-15" readonly />
       </div>
     </section>
 

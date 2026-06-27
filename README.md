@@ -63,6 +63,7 @@ pnpm build
 - [Badge 角标](./docs/组件/Badge%20角标.md)
 - [Breadcrumb 面包屑](./docs/组件/Breadcrumb%20面包屑.md)
 - [Button 按钮](./docs/组件/Button%20按钮.md)
+- [Calendar 日历](./docs/组件/Calendar%20日历.md)
 - [Card 卡片](./docs/组件/Card%20卡片.md)
 - [Cascader 级联选择](./docs/组件/Cascader%20级联选择.md)
 - [Checkbox 复选框](./docs/组件/Checkbox%20复选框.md)
