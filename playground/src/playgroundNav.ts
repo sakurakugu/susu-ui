@@ -24,6 +24,8 @@ export const playgroundNavItems = [
   { id: 'skeleton', label: '骨架屏' },
   { id: 'loading', label: '加载' },
   { id: 'watermark', label: '水印' },
+  { id: 'resizable', label: '可调整尺寸' },
+  { id: 'splitter', label: '分割面板' },
   { id: 'divider', label: '分割线' },
   { id: 'space', label: '间距' },
   { id: 'rate', label: '评分' },

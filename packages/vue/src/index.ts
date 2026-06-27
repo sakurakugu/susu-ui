@@ -46,11 +46,13 @@ import { SuQRCode } from './components/qrcode'
 import { SuRate } from './components/rate'
 import { SuRadioButton, SuRadioGroup } from './components/radio'
 import { SuResult } from './components/result'
+import { SuResizable } from './components/resizable'
 import { SuOption, SuSelect } from './components/select'
 import { SuSegmented } from './components/segmented'
 import { SuSkeleton } from './components/skeleton'
 import { SuSlider } from './components/slider'
 import { SuSpace } from './components/space'
+import { SuSplitter } from './components/splitter'
 import { SuStatistic } from './components/statistic'
 import { SuSteps } from './components/steps'
 import { SuSwitch } from './components/switch'
@@ -110,11 +112,13 @@ export * from './components/qrcode'
 export * from './components/rate'
 export * from './components/radio'
 export * from './components/result'
+export * from './components/resizable'
 export * from './components/select'
 export * from './components/segmented'
 export * from './components/skeleton'
 export * from './components/slider'
 export * from './components/space'
+export * from './components/splitter'
 export * from './components/statistic'
 export * from './components/steps'
 export * from './components/switch'
@@ -181,12 +185,14 @@ const components = [
   SuRadioButton,
   SuRadioGroup,
   SuResult,
+  SuResizable,
   SuOption,
   SuSelect,
   SuSegmented,
   SuSkeleton,
   SuSlider,
   SuSpace,
+  SuSplitter,
   SuStatistic,
   SuSteps,
   SuSwitch,

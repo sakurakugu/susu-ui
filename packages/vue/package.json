@@ -176,6 +176,11 @@
       "import": "./dist/result.js",
       "require": "./dist/result.cjs"
     },
+    "./resizable": {
+      "types": "./dist/components/resizable/index.d.ts",
+      "import": "./dist/resizable.js",
+      "require": "./dist/resizable.cjs"
+    },
     "./select": {
       "types": "./dist/components/select/index.d.ts",
       "import": "./dist/select.js",
@@ -200,6 +205,11 @@
       "types": "./dist/components/space/index.d.ts",
       "import": "./dist/space.js",
       "require": "./dist/space.cjs"
+    },
+    "./splitter": {
+      "types": "./dist/components/splitter/index.d.ts",
+      "import": "./dist/splitter.js",
+      "require": "./dist/splitter.cjs"
     },
     "./statistic": {
       "types": "./dist/components/statistic/index.d.ts",

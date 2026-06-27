@@ -23,6 +23,8 @@ import ResultDemo from './ResultDemo.vue'
 import SkeletonDemo from './SkeletonDemo.vue'
 import LoadingDemo from './LoadingDemo.vue'
 import WatermarkDemo from './WatermarkDemo.vue'
+import ResizableDemo from './ResizableDemo.vue'
+import SplitterDemo from './SplitterDemo.vue'
 import DividerDemo from './DividerDemo.vue'
 import SpaceDemo from './SpaceDemo.vue'
 import RateDemo from './RateDemo.vue'
@@ -86,6 +88,8 @@ export const playgroundDemos = [
   { id: 'skeleton', component: SkeletonDemo },
   { id: 'loading', component: LoadingDemo },
   { id: 'watermark', component: WatermarkDemo },
+  { id: 'resizable', component: ResizableDemo },
+  { id: 'splitter', component: SplitterDemo },
   { id: 'divider', component: DividerDemo },
   { id: 'space', component: SpaceDemo },
   { id: 'rate', component: RateDemo },
