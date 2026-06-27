@@ -39,6 +39,7 @@ import { SuProgress } from './components/progress'
 import { SuRate } from './components/rate'
 import { SuRadioButton, SuRadioGroup } from './components/radio'
 import { SuOption, SuSelect } from './components/select'
+import { SuSegmented } from './components/segmented'
 import { SuSkeleton } from './components/skeleton'
 import { SuSlider } from './components/slider'
 import { SuSpace } from './components/space'
@@ -89,6 +90,7 @@ export * from './components/progress'
 export * from './components/rate'
 export * from './components/radio'
 export * from './components/select'
+export * from './components/segmented'
 export * from './components/skeleton'
 export * from './components/slider'
 export * from './components/space'
@@ -147,6 +149,7 @@ const components = [
   SuRadioGroup,
   SuOption,
   SuSelect,
+  SuSegmented,
   SuSkeleton,
   SuSlider,
   SuSpace,

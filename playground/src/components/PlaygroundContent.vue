@@ -46,6 +46,8 @@ const shortTimeRangeValue = ref<[string, string]>(['09:30', '17:30'])
 const limitedTimeRangeValue = ref<[string, string]>(['', ''])
 const statusValue = ref('enabled')
 const tabsValue = ref('overview')
+const segmentedRangeValue = ref('week')
+const segmentedViewValue = ref('list')
 const collapseValue = ref<(string | number)[]>(['overview'])
 const accordionValue = ref<string | number>('basic')
 const monthValue = ref(2)
@@ -169,6 +171,18 @@ const actionOptions = [
   { label: '复制链接', value: 'copy' },
   { label: '导出数据', value: 'export' },
   { label: '删除项目', value: 'delete', divided: true, disabled: true },
+]
+
+const segmentedRangeOptions = [
+  { label: '日', value: 'day' },
+  { label: '周', value: 'week' },
+  { label: '月', value: 'month' },
+]
+
+const segmentedViewOptions = [
+  { label: '列表', value: 'list' },
+  { label: '网格', value: 'grid' },
+  { label: '看板', value: 'board', disabled: true },
 ]
 
 const avatarImage =
@@ -1423,6 +1437,37 @@ function limitUploadSize(file: File) {
             </div>
           </SuTabPane>
         </SuTabs>
+      </div>
+    </section>
+
+    <section id="segmented" class="panel">
+      <h2>分段控制器</h2>
+      <div class="segmented-demo">
+        <SuSegmented
+          v-model="segmentedRangeValue"
+          :options="segmentedRangeOptions"
+          name="range"
+        />
+        <SuSegmented
+          v-model="segmentedViewValue"
+          :options="segmentedViewOptions"
+        />
+        <SuSegmented
+          size="small"
+          model-value="day"
+          :options="segmentedRangeOptions"
+        />
+        <SuSegmented
+          size="large"
+          model-value="month"
+          :options="segmentedRangeOptions"
+        />
+        <SuSegmented
+          disabled
+          model-value="week"
+          :options="segmentedRangeOptions"
+        />
+        <SuSegmented block model-value="grid" :options="segmentedViewOptions" />
       </div>
     </section>
 

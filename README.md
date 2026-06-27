@@ -88,6 +88,7 @@ pnpm build
 - [Radio 单选框](./docs/组件/Radio%20单选框.md)
 - [Rate 评分](./docs/组件/Rate%20评分.md)
 - [Select 选择器](./docs/组件/Select%20选择器.md)
+- [Segmented 分段控制器](./docs/组件/Segmented%20分段控制器.md)
 - [Skeleton 骨架屏](./docs/组件/Skeleton%20骨架屏.md)
 - [Slider 滑块](./docs/组件/Slider%20滑块.md)
 - [Space 间距](./docs/组件/Space%20间距.md)

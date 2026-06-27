@@ -28,6 +28,7 @@ export const playgroundNavItems = [
   { id: 'cascader', label: '级联选择' },
   { id: 'autocomplete', label: '自动完成' },
   { id: 'tabs', label: '标签页' },
+  { id: 'segmented', label: '分段控制器' },
   { id: 'color-picker', label: '颜色选择器' },
   { id: 'date-picker', label: '日期选择器' },
   { id: 'date-range-picker', label: '日期范围选择器' },

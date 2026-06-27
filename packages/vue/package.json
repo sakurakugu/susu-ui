@@ -141,6 +141,11 @@
       "import": "./dist/select.js",
       "require": "./dist/select.cjs"
     },
+    "./segmented": {
+      "types": "./dist/components/segmented/index.d.ts",
+      "import": "./dist/segmented.js",
+      "require": "./dist/segmented.cjs"
+    },
     "./skeleton": {
       "types": "./dist/components/skeleton/index.d.ts",
       "import": "./dist/skeleton.js",
