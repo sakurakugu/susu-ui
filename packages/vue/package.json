@@ -51,6 +51,11 @@
       "import": "./dist/checkbox.js",
       "require": "./dist/checkbox.cjs"
     },
+    "./collapse": {
+      "types": "./dist/components/collapse/index.d.ts",
+      "import": "./dist/collapse.js",
+      "require": "./dist/collapse.cjs"
+    },
     "./color-picker": {
       "types": "./dist/components/color-picker/index.d.ts",
       "import": "./dist/color-picker.js",
@@ -180,6 +185,11 @@
       "types": "./dist/components/time-picker/index.d.ts",
       "import": "./dist/time-picker.js",
       "require": "./dist/time-picker.cjs"
+    },
+    "./timeline": {
+      "types": "./dist/components/timeline/index.d.ts",
+      "import": "./dist/timeline.js",
+      "require": "./dist/timeline.cjs"
     },
     "./tooltip": {
       "types": "./dist/components/tooltip/index.d.ts",

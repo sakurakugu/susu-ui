@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {
   type StepsItem,
+  type TimelineItem,
   type UploadFile,
   type UploadRequestOptions,
 } from '@susu-ui/vue'
@@ -45,6 +46,8 @@ const shortTimeRangeValue = ref<[string, string]>(['09:30', '17:30'])
 const limitedTimeRangeValue = ref<[string, string]>(['', ''])
 const statusValue = ref('enabled')
 const tabsValue = ref('overview')
+const collapseValue = ref<(string | number)[]>(['overview'])
+const accordionValue = ref<string | number>('basic')
 const monthValue = ref(2)
 const planValue = ref('weekly')
 const channelValue = ref('email')
@@ -277,6 +280,49 @@ const simpleSteps: StepsItem[] = [
   { title: '草稿', value: 'draft' },
   { title: '审核', value: 'review' },
   { title: '发布', value: 'publish' },
+]
+
+const timelineItems: TimelineItem[] = [
+  {
+    time: '09:00',
+    title: '创建发布任务',
+    description: '负责人完成标题、摘要和素材录入。',
+    type: 'primary',
+  },
+  {
+    time: '10:20',
+    title: '内容审核通过',
+    description: '审核记录已归档，进入排期阶段。',
+    type: 'success',
+  },
+  {
+    time: '11:45',
+    title: '等待定时发布',
+    description: '系统将在指定时间同步到线上环境。',
+    type: 'warning',
+    hollow: true,
+  },
+]
+
+const alternateTimelineItems: TimelineItem[] = [
+  {
+    time: '周一',
+    title: '需求确认',
+    description: '确认组件范围和示例内容。',
+    type: 'info',
+  },
+  {
+    time: '周三',
+    title: '设计走查',
+    description: '核对布局、状态和主题变量使用。',
+    color: '#7c3aed',
+  },
+  {
+    time: '周五',
+    title: '版本发布',
+    description: '完成构建检查后发布组件包。',
+    type: 'success',
+  },
 ]
 
 function formatCurrency(value: string | number) {
@@ -876,6 +922,42 @@ function limitUploadSize(file: File) {
         <SuCard padding="small" shadow="never">
           <p>轻量卡片适合承载简短信息或列表项。</p>
         </SuCard>
+      </div>
+    </section>
+
+    <section id="collapse" class="panel">
+      <h2>折叠面板</h2>
+      <div class="collapse-demo">
+        <SuCollapse v-model="collapseValue">
+          <SuCollapseItem title="项目概览" name="overview">
+            <p>当前版本聚焦基础组件、主题能力和文档体验。</p>
+          </SuCollapseItem>
+          <SuCollapseItem name="task">
+            <template #title>任务进度</template>
+            <template #extra>
+              <SuTag size="small" type="primary">68%</SuTag>
+            </template>
+            <p>本周目标完成率稳步提升，待处理项集中在组件文档补充。</p>
+          </SuCollapseItem>
+          <SuCollapseItem title="审计记录" name="audit" disabled>
+            <p>禁用面板不会响应点击和键盘切换。</p>
+          </SuCollapseItem>
+        </SuCollapse>
+
+        <SuCollapse
+          v-model="accordionValue"
+          accordion
+          ghost
+          size="small"
+          destroy-inactive-panel
+        >
+          <SuCollapseItem title="基础信息" name="basic">
+            <p>手风琴模式同一时间只展开一个面板。</p>
+          </SuCollapseItem>
+          <SuCollapseItem title="权限配置" name="permission">
+            <p>幽灵样式适合放在详情页或配置页的轻量分组中。</p>
+          </SuCollapseItem>
+        </SuCollapse>
       </div>
     </section>
 
@@ -1694,6 +1776,25 @@ function limitUploadSize(file: File) {
         />
 
         <SuSteps :items="simpleSteps" current="review" size="small" simple />
+      </div>
+    </section>
+
+    <section id="timeline" class="panel">
+      <h2>时间轴</h2>
+      <div class="timeline-demo">
+        <SuTimeline :items="timelineItems" />
+
+        <SuTimeline
+          :items="alternateTimelineItems"
+          position="alternate"
+          size="small"
+        >
+          <template #dot="{ index }">
+            {{ index + 1 }}
+          </template>
+        </SuTimeline>
+
+        <SuTimeline :items="timelineItems" position="right" reverse hide-tail />
       </div>
     </section>
 

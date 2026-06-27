@@ -15,6 +15,7 @@ import { SuButton, SuButtonGroup } from './components/button'
 import { SuCard } from './components/card'
 import { SuCascader } from './components/cascader'
 import { SuCheckbox } from './components/checkbox'
+import { SuCollapse, SuCollapseItem } from './components/collapse'
 import { SuColorPicker } from './components/color-picker'
 import { SuDateRangePicker } from './components/date-range-picker'
 import { SuDatePicker } from './components/date-picker'
@@ -49,6 +50,7 @@ import { SuTag } from './components/tag'
 import { SuText } from './components/text'
 import { SuTimeRangePicker } from './components/time-range-picker'
 import { SuTimePicker } from './components/time-picker'
+import { SuTimeline } from './components/timeline'
 import { SuTooltip } from './components/tooltip'
 import { SuTree } from './components/tree'
 import { SuUpload } from './components/upload'
@@ -63,6 +65,7 @@ export * from './components/button'
 export * from './components/card'
 export * from './components/cascader'
 export * from './components/checkbox'
+export * from './components/collapse'
 export * from './components/color-picker'
 export * from './components/date-range-picker'
 export * from './components/date-picker'
@@ -97,6 +100,7 @@ export * from './components/tag'
 export * from './components/text'
 export * from './components/time-range-picker'
 export * from './components/time-picker'
+export * from './components/timeline'
 export * from './components/tooltip'
 export * from './components/tree'
 export * from './components/upload'
@@ -114,6 +118,8 @@ const components = [
   SuCard,
   SuCascader,
   SuCheckbox,
+  SuCollapse,
+  SuCollapseItem,
   SuColorPicker,
   SuDateRangePicker,
   SuDatePicker,
@@ -154,6 +160,7 @@ const components = [
   SuText,
   SuTimeRangePicker,
   SuTimePicker,
+  SuTimeline,
   SuTooltip,
   SuTree,
   SuUpload,

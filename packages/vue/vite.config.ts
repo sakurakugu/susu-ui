@@ -16,6 +16,7 @@ export default defineConfig({
         card: resolve(__dirname, 'src/components/card/index.ts'),
         cascader: resolve(__dirname, 'src/components/cascader/index.ts'),
         checkbox: resolve(__dirname, 'src/components/checkbox/index.ts'),
+        collapse: resolve(__dirname, 'src/components/collapse/index.ts'),
         'color-picker': resolve(
           __dirname,
           'src/components/color-picker/index.ts',
@@ -61,6 +62,7 @@ export default defineConfig({
           __dirname,
           'src/components/time-picker/index.ts',
         ),
+        timeline: resolve(__dirname, 'src/components/timeline/index.ts'),
         tooltip: resolve(__dirname, 'src/components/tooltip/index.ts'),
         tree: resolve(__dirname, 'src/components/tree/index.ts'),
         upload: resolve(__dirname, 'src/components/upload/index.ts'),
