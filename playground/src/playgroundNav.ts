@@ -21,6 +21,7 @@ export const playgroundNavItems = [
   { id: 'input', label: '输入框' },
   { id: 'input-number', label: '数字输入框' },
   { id: 'select', label: '选择器' },
+  { id: 'cascader', label: '级联选择' },
   { id: 'autocomplete', label: '自动完成' },
   { id: 'tabs', label: '标签页' },
   { id: 'color-picker', label: '颜色选择器' },

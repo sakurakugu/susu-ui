@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { playgroundNavItems } from '../playgroundNav';
+import { playgroundNavItems } from '../playgroundNav'
 </script>
 
 <template>

@@ -241,6 +241,13 @@ p {
   gap: 12px;
 }
 
+.cascader-demo {
+  display: grid;
+  max-width: 720px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
 .autocomplete-demo {
   display: grid;
   max-width: 720px;
@@ -780,6 +787,10 @@ p {
   }
 
   .select-demo {
+    grid-template-columns: 1fr;
+  }
+
+  .cascader-demo {
     grid-template-columns: 1fr;
   }
 

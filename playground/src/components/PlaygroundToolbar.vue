@@ -7,9 +7,9 @@ import {
   themePresets,
   type ThemeMode,
   type ThemePresetName,
-} from '@susu-ui/theme';
-import type { SusuLocale } from '@susu-ui/vue';
-import { ref } from 'vue';
+} from '@susu-ui/theme'
+import type { SusuLocale } from '@susu-ui/vue'
+import { ref } from 'vue'
 
 const emit = defineEmits<{
   localeChange: [name: SusuLocale['name']]

@@ -11,6 +11,7 @@ import { SuAutocomplete } from './components/autocomplete'
 import { SuBreadcrumb } from './components/breadcrumb'
 import { SuButton, SuButtonGroup } from './components/button'
 import { SuCard } from './components/card'
+import { SuCascader } from './components/cascader'
 import { SuCheckbox } from './components/checkbox'
 import { SuColorPicker } from './components/color-picker'
 import { SuDatePicker } from './components/date-picker'
@@ -51,6 +52,7 @@ export * from './components/autocomplete'
 export * from './components/breadcrumb'
 export * from './components/button'
 export * from './components/card'
+export * from './components/cascader'
 export * from './components/checkbox'
 export * from './components/color-picker'
 export * from './components/date-picker'
@@ -94,6 +96,7 @@ const components = [
   SuButton,
   SuButtonGroup,
   SuCard,
+  SuCascader,
   SuCheckbox,
   SuColorPicker,
   SuDatePicker,

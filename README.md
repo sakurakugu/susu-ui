@@ -62,6 +62,7 @@ pnpm build
 - [Breadcrumb 面包屑](./docs/组件/Breadcrumb%20面包屑.md)
 - [Button 按钮](./docs/组件/Button%20按钮.md)
 - [Card 卡片](./docs/组件/Card%20卡片.md)
+- [Cascader 级联选择](./docs/组件/Cascader%20级联选择.md)
 - [Checkbox 复选框](./docs/组件/Checkbox%20复选框.md)
 - [ColorPicker 颜色选择器](./docs/组件/ColorPicker%20颜色选择器.md)
 - [DatePicker 日期选择器](./docs/组件/DatePicker%20日期选择器.md)

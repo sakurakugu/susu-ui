@@ -12,6 +12,7 @@ export default defineConfig({
         breadcrumb: resolve(__dirname, 'src/components/breadcrumb/index.ts'),
         button: resolve(__dirname, 'src/components/button/index.ts'),
         card: resolve(__dirname, 'src/components/card/index.ts'),
+        cascader: resolve(__dirname, 'src/components/cascader/index.ts'),
         checkbox: resolve(__dirname, 'src/components/checkbox/index.ts'),
         'color-picker': resolve(
           __dirname,
