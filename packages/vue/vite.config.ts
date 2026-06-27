@@ -50,6 +50,10 @@ export default defineConfig({
         table: resolve(__dirname, 'src/components/table/index.ts'),
         tag: resolve(__dirname, 'src/components/tag/index.ts'),
         text: resolve(__dirname, 'src/components/text/index.ts'),
+        'time-picker': resolve(
+          __dirname,
+          'src/components/time-picker/index.ts',
+        ),
         tooltip: resolve(__dirname, 'src/components/tooltip/index.ts'),
         tree: resolve(__dirname, 'src/components/tree/index.ts'),
         upload: resolve(__dirname, 'src/components/upload/index.ts'),

@@ -156,6 +156,11 @@
       "import": "./dist/text.js",
       "require": "./dist/text.cjs"
     },
+    "./time-picker": {
+      "types": "./dist/components/time-picker/index.d.ts",
+      "import": "./dist/time-picker.js",
+      "require": "./dist/time-picker.cjs"
+    },
     "./tooltip": {
       "types": "./dist/components/tooltip/index.d.ts",
       "import": "./dist/tooltip.js",

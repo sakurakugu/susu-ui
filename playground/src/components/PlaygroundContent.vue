@@ -31,6 +31,9 @@ const colorValue = ref('#1677ff')
 const alphaColorValue = ref('rgba(22, 119, 255, 0.64)')
 const dateValue = ref('2026-06-27')
 const limitedDateValue = ref('')
+const timeValue = ref('09:30:00')
+const shortTimeValue = ref('18:00')
+const limitedTimeValue = ref('')
 const statusValue = ref('enabled')
 const tabsValue = ref('overview')
 const monthValue = ref(2)
@@ -359,6 +362,14 @@ function searchInlineForm() {
 
 function disableWeekend(date: Date) {
   return date.getDay() === 0 || date.getDay() === 6
+}
+
+function disableLunchTime(time: {
+  hour: number
+  minute: number
+  second: number
+}) {
+  return time.hour === 12
 }
 
 function mockUploadRequest(options: UploadRequestOptions) {
@@ -1265,6 +1276,37 @@ function limitUploadSize(file: File) {
         <SuDatePicker status="error" placeholder="错误状态" />
         <SuDatePicker disabled placeholder="禁用日期选择器" />
         <SuDatePicker readonly model-value="2026-06-27" />
+      </div>
+    </section>
+
+    <section id="time-picker" class="panel">
+      <h2>时间选择器</h2>
+      <div class="time-picker-demo">
+        <SuTimePicker v-model="timeValue" clearable placeholder="请选择时间" />
+        <SuTimePicker
+          v-model="shortTimeValue"
+          format="HH:mm"
+          :minute-step="15"
+          placeholder="选择小时和分钟"
+        />
+        <SuTimePicker
+          v-model="limitedTimeValue"
+          min="09:00:00"
+          max="18:00:00"
+          placeholder="限制在工作时间"
+        />
+        <SuTimePicker
+          :model-value="timeValue"
+          :disabled-time="disableLunchTime"
+          placeholder="禁用 12 点"
+        />
+        <SuTimePicker size="small" model-value="09:30:00" />
+        <SuTimePicker size="large" model-value="09:30:00" />
+        <SuTimePicker status="success" model-value="09:30:00" />
+        <SuTimePicker status="warning" placeholder="警告状态" />
+        <SuTimePicker status="error" placeholder="错误状态" />
+        <SuTimePicker disabled placeholder="禁用时间选择器" />
+        <SuTimePicker readonly model-value="09:30:00" />
       </div>
     </section>
 

@@ -42,6 +42,7 @@ import { SuTabPane, SuTabs } from './components/tabs'
 import { SuTable, SuTableColumn } from './components/table'
 import { SuTag } from './components/tag'
 import { SuText } from './components/text'
+import { SuTimePicker } from './components/time-picker'
 import { SuTooltip } from './components/tooltip'
 import { SuTree } from './components/tree'
 import { SuUpload } from './components/upload'
@@ -83,6 +84,7 @@ export * from './components/tabs'
 export * from './components/table'
 export * from './components/tag'
 export * from './components/text'
+export * from './components/time-picker'
 export * from './components/tooltip'
 export * from './components/tree'
 export * from './components/upload'
@@ -133,6 +135,7 @@ const components = [
   SuTableColumn,
   SuTag,
   SuText,
+  SuTimePicker,
   SuTooltip,
   SuTree,
   SuUpload,
