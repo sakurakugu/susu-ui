@@ -2,6 +2,7 @@ import AffixDemo from './AffixDemo.vue'
 import AlertDemo from './AlertDemo.vue'
 import MessageDemo from './MessageDemo.vue'
 import NotificationDemo from './NotificationDemo.vue'
+import BackTopDemo from './BackTopDemo.vue'
 import DialogDemo from './DialogDemo.vue'
 import DrawerDemo from './DrawerDemo.vue'
 import TextDemo from './TextDemo.vue'
@@ -58,6 +59,7 @@ export const playgroundDemos = [
   { id: 'alert', component: AlertDemo },
   { id: 'message', component: MessageDemo },
   { id: 'notification', component: NotificationDemo },
+  { id: 'back-top', component: BackTopDemo },
   { id: 'dialog', component: DialogDemo },
   { id: 'drawer', component: DrawerDemo },
   { id: 'text', component: TextDemo },

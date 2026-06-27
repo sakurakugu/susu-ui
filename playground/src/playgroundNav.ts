@@ -3,6 +3,7 @@ export const playgroundNavItems = [
   { id: 'alert', label: '提示' },
   { id: 'message', label: '消息' },
   { id: 'notification', label: '通知' },
+  { id: 'back-top', label: '回到顶部' },
   { id: 'dialog', label: '对话框' },
   { id: 'drawer', label: '抽屉' },
   { id: 'text', label: '文本' },

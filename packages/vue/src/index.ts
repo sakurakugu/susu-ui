@@ -10,6 +10,7 @@ import { SuAffix } from './components/affix'
 import { SuAlert } from './components/alert'
 import { SuAutocomplete } from './components/autocomplete'
 import { SuAvatar } from './components/avatar'
+import { SuBackTop } from './components/back-top'
 import { SuBadge } from './components/badge'
 import { SuBreadcrumb } from './components/breadcrumb'
 import { SuButton, SuButtonGroup } from './components/button'
@@ -67,6 +68,7 @@ export * from './components/affix'
 export * from './components/alert'
 export * from './components/autocomplete'
 export * from './components/avatar'
+export * from './components/back-top'
 export * from './components/badge'
 export * from './components/breadcrumb'
 export * from './components/button'
@@ -126,6 +128,7 @@ const components = [
   SuAlert,
   SuAutocomplete,
   SuAvatar,
+  SuBackTop,
   SuBadge,
   SuBreadcrumb,
   SuButton,

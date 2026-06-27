@@ -11,6 +11,7 @@ export default defineConfig({
         affix: resolve(__dirname, 'src/components/affix/index.ts'),
         alert: resolve(__dirname, 'src/components/alert/index.ts'),
         avatar: resolve(__dirname, 'src/components/avatar/index.ts'),
+        'back-top': resolve(__dirname, 'src/components/back-top/index.ts'),
         badge: resolve(__dirname, 'src/components/badge/index.ts'),
         breadcrumb: resolve(__dirname, 'src/components/breadcrumb/index.ts'),
         button: resolve(__dirname, 'src/components/button/index.ts'),

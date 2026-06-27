@@ -33,3 +33,6 @@ temp/
 
 # python
 __pycache__/
+
+# 参考文件
+other/
