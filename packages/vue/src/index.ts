@@ -21,6 +21,7 @@ import { SuCascader } from './components/cascader'
 import { SuCheckbox } from './components/checkbox'
 import { SuCollapse, SuCollapseItem } from './components/collapse'
 import { SuColorPicker } from './components/color-picker'
+import { SuCommandPalette } from './components/command-palette'
 import { SuDateRangePicker } from './components/date-range-picker'
 import { SuDatePicker } from './components/date-picker'
 import { SuDescriptions, SuDescriptionsItem } from './components/descriptions'
@@ -87,6 +88,7 @@ export * from './components/cascader'
 export * from './components/checkbox'
 export * from './components/collapse'
 export * from './components/color-picker'
+export * from './components/command-palette'
 export * from './components/date-range-picker'
 export * from './components/date-picker'
 export * from './components/descriptions'
@@ -157,6 +159,7 @@ const components = [
   SuCollapse,
   SuCollapseItem,
   SuColorPicker,
+  SuCommandPalette,
   SuDateRangePicker,
   SuDatePicker,
   SuDescriptions,

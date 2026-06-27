@@ -6,7 +6,9 @@ import NotificationDemo from './NotificationDemo.vue'
 import BackTopDemo from './BackTopDemo.vue'
 import DialogDemo from './DialogDemo.vue'
 import DrawerDemo from './DrawerDemo.vue'
+import CommandPaletteDemo from './CommandPaletteDemo.vue'
 import TextDemo from './TextDemo.vue'
+import IconDemo from './IconDemo.vue'
 import AvatarDemo from './AvatarDemo.vue'
 import ImageDemo from './ImageDemo.vue'
 import BadgeDemo from './BadgeDemo.vue'
@@ -71,7 +73,9 @@ export const playgroundDemos = [
   { id: 'back-top', component: BackTopDemo },
   { id: 'dialog', component: DialogDemo },
   { id: 'drawer', component: DrawerDemo },
+  { id: 'command-palette', component: CommandPaletteDemo },
   { id: 'text', component: TextDemo },
+  { id: 'icon', component: IconDemo },
   { id: 'avatar', component: AvatarDemo },
   { id: 'image', component: ImageDemo },
   { id: 'badge', component: BadgeDemo },

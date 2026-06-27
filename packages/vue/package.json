@@ -26,6 +26,11 @@
       "import": "./dist/anchor.js",
       "require": "./dist/anchor.cjs"
     },
+    "./autocomplete": {
+      "types": "./dist/components/autocomplete/index.d.ts",
+      "import": "./dist/autocomplete.js",
+      "require": "./dist/autocomplete.cjs"
+    },
     "./avatar": {
       "types": "./dist/components/avatar/index.d.ts",
       "import": "./dist/avatar.js",
@@ -81,6 +86,16 @@
       "import": "./dist/color-picker.js",
       "require": "./dist/color-picker.cjs"
     },
+    "./command-palette": {
+      "types": "./dist/components/command-palette/index.d.ts",
+      "import": "./dist/command-palette.js",
+      "require": "./dist/command-palette.cjs"
+    },
+    "./date-range-picker": {
+      "types": "./dist/components/date-range-picker/index.d.ts",
+      "import": "./dist/date-range-picker.js",
+      "require": "./dist/date-range-picker.cjs"
+    },
     "./date-picker": {
       "types": "./dist/components/date-picker/index.d.ts",
       "import": "./dist/date-picker.js",
@@ -105,6 +120,16 @@
       "types": "./dist/components/drawer/index.d.ts",
       "import": "./dist/drawer.js",
       "require": "./dist/drawer.cjs"
+    },
+    "./dropdown": {
+      "types": "./dist/components/dropdown/index.d.ts",
+      "import": "./dist/dropdown.js",
+      "require": "./dist/dropdown.cjs"
+    },
+    "./empty": {
+      "types": "./dist/components/empty/index.d.ts",
+      "import": "./dist/empty.js",
+      "require": "./dist/empty.cjs"
     },
     "./icon": {
       "types": "./dist/components/icon/index.d.ts",
@@ -156,15 +181,30 @@
       "import": "./dist/notification.js",
       "require": "./dist/notification.cjs"
     },
+    "./pagination": {
+      "types": "./dist/components/pagination/index.d.ts",
+      "import": "./dist/pagination.js",
+      "require": "./dist/pagination.cjs"
+    },
     "./popover": {
       "types": "./dist/components/popover/index.d.ts",
       "import": "./dist/popover.js",
       "require": "./dist/popover.cjs"
     },
+    "./progress": {
+      "types": "./dist/components/progress/index.d.ts",
+      "import": "./dist/progress.js",
+      "require": "./dist/progress.cjs"
+    },
     "./qrcode": {
       "types": "./dist/components/qrcode/index.d.ts",
       "import": "./dist/qrcode.js",
       "require": "./dist/qrcode.cjs"
+    },
+    "./radio": {
+      "types": "./dist/components/radio/index.d.ts",
+      "import": "./dist/radio.js",
+      "require": "./dist/radio.cjs"
     },
     "./rate": {
       "types": "./dist/components/rate/index.d.ts",
@@ -226,6 +266,11 @@
       "import": "./dist/switch.js",
       "require": "./dist/switch.cjs"
     },
+    "./tabs": {
+      "types": "./dist/components/tabs/index.d.ts",
+      "import": "./dist/tabs.js",
+      "require": "./dist/tabs.cjs"
+    },
     "./table": {
       "types": "./dist/components/table/index.d.ts",
       "import": "./dist/table.js",
@@ -245,6 +290,11 @@
       "types": "./dist/components/time-picker/index.d.ts",
       "import": "./dist/time-picker.js",
       "require": "./dist/time-picker.cjs"
+    },
+    "./time-range-picker": {
+      "types": "./dist/components/time-range-picker/index.d.ts",
+      "import": "./dist/time-range-picker.js",
+      "require": "./dist/time-range-picker.cjs"
     },
     "./timeline": {
       "types": "./dist/components/timeline/index.d.ts",
