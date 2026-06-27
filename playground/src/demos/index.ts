@@ -35,6 +35,7 @@ import SliderDemo from './SliderDemo.vue'
 import MenuDemo from './MenuDemo.vue'
 import InputDemo from './InputDemo.vue'
 import InputNumberDemo from './InputNumberDemo.vue'
+import LayoutDemo from './LayoutDemo.vue'
 import SelectDemo from './SelectDemo.vue'
 import CascaderDemo from './CascaderDemo.vue'
 import AutocompleteDemo from './AutocompleteDemo.vue'
@@ -103,6 +104,7 @@ export const playgroundDemos = [
   { id: 'menu', component: MenuDemo },
   { id: 'input', component: InputDemo },
   { id: 'input-number', component: InputNumberDemo },
+  { id: 'layout', component: LayoutDemo },
   { id: 'select', component: SelectDemo },
   { id: 'cascader', component: CascaderDemo },
   { id: 'autocomplete', component: AutocompleteDemo },

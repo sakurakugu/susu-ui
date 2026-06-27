@@ -156,6 +156,11 @@
       "import": "./dist/input-number.js",
       "require": "./dist/input-number.cjs"
     },
+    "./layout": {
+      "types": "./dist/components/layout/index.d.ts",
+      "import": "./dist/layout.js",
+      "require": "./dist/layout.cjs"
+    },
     "./loading": {
       "types": "./dist/components/loading/index.d.ts",
       "import": "./dist/loading.js",

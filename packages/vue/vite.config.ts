@@ -58,6 +58,7 @@ export default defineConfig({
           __dirname,
           'src/components/input-number/index.ts',
         ),
+        layout: resolve(__dirname, 'src/components/layout/index.ts'),
         loading: resolve(__dirname, 'src/components/loading/index.ts'),
         menu: resolve(__dirname, 'src/components/menu/index.ts'),
         mention: resolve(__dirname, 'src/components/mention/index.ts'),

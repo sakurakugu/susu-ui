@@ -35,6 +35,13 @@ import { SuIcon } from './components/icon'
 import { SuImage } from './components/image'
 import { SuInput } from './components/input'
 import { SuInputNumber } from './components/input-number'
+import {
+  SuContent,
+  SuFooter,
+  SuHeader,
+  SuLayout,
+  SuSider,
+} from './components/layout'
 import { SuLoading } from './components/loading'
 import { SuMenu } from './components/menu'
 import { SuMention } from './components/mention'
@@ -103,6 +110,7 @@ export * from './components/icon'
 export * from './components/image'
 export * from './components/input'
 export * from './components/input-number'
+export * from './components/layout'
 export * from './components/loading'
 export * from './components/menu'
 export * from './components/mention'
@@ -177,6 +185,11 @@ const components = [
   SuImage,
   SuInput,
   SuInputNumber,
+  SuLayout,
+  SuHeader,
+  SuSider,
+  SuContent,
+  SuFooter,
   SuLoading,
   SuMenu,
   SuMention,

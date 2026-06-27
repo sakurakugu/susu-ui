@@ -36,6 +36,7 @@ export const playgroundNavItems = [
   { id: 'menu', label: '菜单' },
   { id: 'input', label: '输入框' },
   { id: 'input-number', label: '数字输入框' },
+  { id: 'layout', label: '布局' },
   { id: 'select', label: '选择器' },
   { id: 'cascader', label: '级联选择' },
   { id: 'autocomplete', label: '自动完成' },
