@@ -59,6 +59,7 @@
 - [TimeRangePicker 时间范围选择器](./组件/TimeRangePicker%20时间范围选择器.md)
 - [Timeline 时间轴](./组件/Timeline%20时间轴.md)
 - [Tooltip 文字提示](./组件/Tooltip%20文字提示.md)
+- [Tour 漫游式引导](./组件/Tour%20漫游式引导.md)
 - [Tree 树](./组件/Tree%20树.md)
 - [Upload 上传](./组件/Upload%20上传.md)
 - [VirtualList 虚拟列表](./组件/VirtualList%20虚拟列表.md)

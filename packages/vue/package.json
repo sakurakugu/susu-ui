@@ -236,6 +236,11 @@
       "import": "./dist/tooltip.js",
       "require": "./dist/tooltip.cjs"
     },
+    "./tour": {
+      "types": "./dist/components/tour/index.d.ts",
+      "import": "./dist/tour.js",
+      "require": "./dist/tour.cjs"
+    },
     "./transfer": {
       "types": "./dist/components/transfer/index.d.ts",
       "import": "./dist/transfer.js",

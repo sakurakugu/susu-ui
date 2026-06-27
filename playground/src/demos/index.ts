@@ -13,6 +13,7 @@ import BreadcrumbDemo from './BreadcrumbDemo.vue'
 import TagDemo from './TagDemo.vue'
 import TooltipDemo from './TooltipDemo.vue'
 import PopoverDemo from './PopoverDemo.vue'
+import TourDemo from './TourDemo.vue'
 import DropdownDemo from './DropdownDemo.vue'
 import CardDemo from './CardDemo.vue'
 import CollapseDemo from './CollapseDemo.vue'
@@ -72,6 +73,7 @@ export const playgroundDemos = [
   { id: 'tag', component: TagDemo },
   { id: 'tooltip', component: TooltipDemo },
   { id: 'popover', component: PopoverDemo },
+  { id: 'tour', component: TourDemo },
   { id: 'dropdown', component: DropdownDemo },
   { id: 'card', component: CardDemo },
   { id: 'collapse', component: CollapseDemo },

@@ -106,6 +106,7 @@ pnpm build
 - [Text 文本](./docs/组件/Text%20文本.md)
 - [TimeRangePicker 时间范围选择器](./docs/组件/TimeRangePicker%20时间范围选择器.md)
 - [Tooltip 文字提示](./docs/组件/Tooltip%20文字提示.md)
+- [Tour 漫游式引导](./docs/组件/Tour%20漫游式引导.md)
 - [Tree 树](./docs/组件/Tree%20树.md)
 - [VirtualList 虚拟列表](./docs/组件/VirtualList%20虚拟列表.md)
 
