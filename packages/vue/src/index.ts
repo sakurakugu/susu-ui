@@ -43,6 +43,7 @@ import { SuTag } from './components/tag'
 import { SuText } from './components/text'
 import { SuTooltip } from './components/tooltip'
 import { SuTree } from './components/tree'
+import { SuUpload } from './components/upload'
 
 export * from './config-provider'
 export * from './components/alert'
@@ -82,6 +83,7 @@ export * from './components/tag'
 export * from './components/text'
 export * from './components/tooltip'
 export * from './components/tree'
+export * from './components/upload'
 export * from './locale'
 
 const components = [
@@ -130,6 +132,7 @@ const components = [
   SuText,
   SuTooltip,
   SuTree,
+  SuUpload,
 ]
 
 export const SusuUI: Plugin = {

@@ -51,6 +51,7 @@ export default defineConfig({
         text: resolve(__dirname, 'src/components/text/index.ts'),
         tooltip: resolve(__dirname, 'src/components/tooltip/index.ts'),
         tree: resolve(__dirname, 'src/components/tree/index.ts'),
+        upload: resolve(__dirname, 'src/components/upload/index.ts'),
       },
       formats: ['es', 'cjs'],
       fileName(format, entryName) {

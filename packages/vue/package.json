@@ -160,6 +160,11 @@
       "types": "./dist/components/tree/index.d.ts",
       "import": "./dist/tree.js",
       "require": "./dist/tree.cjs"
+    },
+    "./upload": {
+      "types": "./dist/components/upload/index.d.ts",
+      "import": "./dist/upload.js",
+      "require": "./dist/upload.cjs"
     }
   },
   "files": [
