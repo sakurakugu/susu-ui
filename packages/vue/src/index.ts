@@ -46,6 +46,7 @@ import { SuSegmented } from './components/segmented'
 import { SuSkeleton } from './components/skeleton'
 import { SuSlider } from './components/slider'
 import { SuSpace } from './components/space'
+import { SuStatistic } from './components/statistic'
 import { SuSteps } from './components/steps'
 import { SuSwitch } from './components/switch'
 import { SuTabPane, SuTabs } from './components/tabs'
@@ -101,6 +102,7 @@ export * from './components/segmented'
 export * from './components/skeleton'
 export * from './components/slider'
 export * from './components/space'
+export * from './components/statistic'
 export * from './components/steps'
 export * from './components/switch'
 export * from './components/tabs'
@@ -164,6 +166,7 @@ const components = [
   SuSkeleton,
   SuSlider,
   SuSpace,
+  SuStatistic,
   SuSteps,
   SuSwitch,
   SuTabs,

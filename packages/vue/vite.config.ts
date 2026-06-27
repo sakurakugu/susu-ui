@@ -57,6 +57,7 @@ export default defineConfig({
         skeleton: resolve(__dirname, 'src/components/skeleton/index.ts'),
         slider: resolve(__dirname, 'src/components/slider/index.ts'),
         space: resolve(__dirname, 'src/components/space/index.ts'),
+        statistic: resolve(__dirname, 'src/components/statistic/index.ts'),
         steps: resolve(__dirname, 'src/components/steps/index.ts'),
         switch: resolve(__dirname, 'src/components/switch/index.ts'),
         table: resolve(__dirname, 'src/components/table/index.ts'),

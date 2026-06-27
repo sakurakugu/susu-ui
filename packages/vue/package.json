@@ -176,6 +176,11 @@
       "import": "./dist/space.js",
       "require": "./dist/space.cjs"
     },
+    "./statistic": {
+      "types": "./dist/components/statistic/index.d.ts",
+      "import": "./dist/statistic.js",
+      "require": "./dist/statistic.cjs"
+    },
     "./steps": {
       "types": "./dist/components/steps/index.d.ts",
       "import": "./dist/steps.js",

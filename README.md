@@ -95,6 +95,7 @@ pnpm build
 - [Skeleton 骨架屏](./docs/组件/Skeleton%20骨架屏.md)
 - [Slider 滑块](./docs/组件/Slider%20滑块.md)
 - [Space 间距](./docs/组件/Space%20间距.md)
+- [Statistic 统计数值](./docs/组件/Statistic%20统计数值.md)
 - [Switch 开关](./docs/组件/Switch%20开关.md)
 - [Tabs 标签页](./docs/组件/Tabs%20标签页.md)
 - [Table 表格](./docs/组件/Table%20表格.md)

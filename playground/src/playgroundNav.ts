@@ -43,6 +43,7 @@ export const playgroundNavItems = [
   { id: 'descriptions', label: '描述列表' },
   { id: 'pagination', label: '分页' },
   { id: 'progress', label: '进度条' },
+  { id: 'statistic', label: '统计数值' },
   { id: 'steps', label: '步骤条' },
   { id: 'timeline', label: '时间轴' },
   { id: 'upload', label: '上传' },
