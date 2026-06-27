@@ -136,6 +136,11 @@
       "import": "./dist/menu.js",
       "require": "./dist/menu.cjs"
     },
+    "./mention": {
+      "types": "./dist/components/mention/index.d.ts",
+      "import": "./dist/mention.js",
+      "require": "./dist/mention.cjs"
+    },
     "./message": {
       "types": "./dist/components/message/index.d.ts",
       "import": "./dist/message.js",
@@ -245,6 +250,11 @@
       "types": "./dist/components/upload/index.d.ts",
       "import": "./dist/upload.js",
       "require": "./dist/upload.cjs"
+    },
+    "./virtual-list": {
+      "types": "./dist/components/virtual-list/index.d.ts",
+      "import": "./dist/virtual-list.js",
+      "require": "./dist/virtual-list.cjs"
     }
   },
   "files": [

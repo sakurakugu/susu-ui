@@ -36,6 +36,7 @@
 - [Input 输入框](./组件/Input%20输入框.md)
 - [InputNumber 数字输入框](./组件/InputNumber%20数字输入框.md)
 - [Menu 菜单](./组件/Menu%20菜单.md)
+- [Mention 提及](./组件/Mention%20提及.md)
 - [Message 消息](./组件/Message%20消息.md)
 - [Notification 通知](./组件/Notification%20通知.md)
 - [Pagination 分页](./组件/Pagination%20分页.md)
@@ -60,3 +61,4 @@
 - [Tooltip 文字提示](./组件/Tooltip%20文字提示.md)
 - [Tree 树](./组件/Tree%20树.md)
 - [Upload 上传](./组件/Upload%20上传.md)
+- [VirtualList 虚拟列表](./组件/VirtualList%20虚拟列表.md)

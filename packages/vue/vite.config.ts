@@ -46,6 +46,7 @@ export default defineConfig({
         ),
         loading: resolve(__dirname, 'src/components/loading/index.ts'),
         menu: resolve(__dirname, 'src/components/menu/index.ts'),
+        mention: resolve(__dirname, 'src/components/mention/index.ts'),
         message: resolve(__dirname, 'src/components/message/index.ts'),
         notification: resolve(
           __dirname,
@@ -74,6 +75,10 @@ export default defineConfig({
         transfer: resolve(__dirname, 'src/components/transfer/index.ts'),
         tree: resolve(__dirname, 'src/components/tree/index.ts'),
         upload: resolve(__dirname, 'src/components/upload/index.ts'),
+        'virtual-list': resolve(
+          __dirname,
+          'src/components/virtual-list/index.ts',
+        ),
       },
       formats: ['es', 'cjs'],
       fileName(format, entryName) {

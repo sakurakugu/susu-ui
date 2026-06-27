@@ -30,6 +30,7 @@ import InputNumberDemo from './InputNumberDemo.vue'
 import SelectDemo from './SelectDemo.vue'
 import CascaderDemo from './CascaderDemo.vue'
 import AutocompleteDemo from './AutocompleteDemo.vue'
+import MentionDemo from './MentionDemo.vue'
 import TabsDemo from './TabsDemo.vue'
 import SegmentedDemo from './SegmentedDemo.vue'
 import ColorPickerDemo from './ColorPickerDemo.vue'
@@ -39,6 +40,7 @@ import DateRangePickerDemo from './DateRangePickerDemo.vue'
 import TimePickerDemo from './TimePickerDemo.vue'
 import TimeRangePickerDemo from './TimeRangePickerDemo.vue'
 import TableDemo from './TableDemo.vue'
+import VirtualListDemo from './VirtualListDemo.vue'
 import TreeDemo from './TreeDemo.vue'
 import TransferDemo from './TransferDemo.vue'
 import DescriptionsDemo from './DescriptionsDemo.vue'
@@ -87,6 +89,7 @@ export const playgroundDemos = [
   { id: 'select', component: SelectDemo },
   { id: 'cascader', component: CascaderDemo },
   { id: 'autocomplete', component: AutocompleteDemo },
+  { id: 'mention', component: MentionDemo },
   { id: 'tabs', component: TabsDemo },
   { id: 'segmented', component: SegmentedDemo },
   { id: 'color-picker', component: ColorPickerDemo },
@@ -96,6 +99,7 @@ export const playgroundDemos = [
   { id: 'time-picker', component: TimePickerDemo },
   { id: 'time-range-picker', component: TimeRangePickerDemo },
   { id: 'table', component: TableDemo },
+  { id: 'virtual-list', component: VirtualListDemo },
   { id: 'tree', component: TreeDemo },
   { id: 'transfer', component: TransferDemo },
   { id: 'descriptions', component: DescriptionsDemo },

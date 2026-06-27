@@ -35,6 +35,7 @@ import { SuInput } from './components/input'
 import { SuInputNumber } from './components/input-number'
 import { SuLoading } from './components/loading'
 import { SuMenu } from './components/menu'
+import { SuMention } from './components/mention'
 import { SuMessage } from './components/message'
 import { SuNotification } from './components/notification'
 import { SuPagination } from './components/pagination'
@@ -62,6 +63,7 @@ import { SuTooltip } from './components/tooltip'
 import { SuTransfer } from './components/transfer'
 import { SuTree } from './components/tree'
 import { SuUpload } from './components/upload'
+import { SuVirtualList } from './components/virtual-list'
 
 export * from './config-provider'
 export * from './components/affix'
@@ -93,6 +95,7 @@ export * from './components/input'
 export * from './components/input-number'
 export * from './components/loading'
 export * from './components/menu'
+export * from './components/mention'
 export * from './components/message'
 export * from './components/notification'
 export * from './components/pagination'
@@ -120,6 +123,7 @@ export * from './components/tooltip'
 export * from './components/transfer'
 export * from './components/tree'
 export * from './components/upload'
+export * from './components/virtual-list'
 export * from './locale'
 
 const components = [
@@ -157,6 +161,7 @@ const components = [
   SuInputNumber,
   SuLoading,
   SuMenu,
+  SuMention,
   SuMessage,
   SuNotification,
   SuPagination,
@@ -188,6 +193,7 @@ const components = [
   SuTransfer,
   SuTree,
   SuUpload,
+  SuVirtualList,
 ]
 
 export const SusuUI: Plugin = {

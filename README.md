@@ -84,6 +84,7 @@ pnpm build
 - [Input 输入框](./docs/组件/Input%20输入框.md)
 - [InputNumber 数字输入框](./docs/组件/InputNumber%20数字输入框.md)
 - [Menu 菜单](./docs/组件/Menu%20菜单.md)
+- [Mention 提及](./docs/组件/Mention%20提及.md)
 - [Message 消息](./docs/组件/Message%20消息.md)
 - [Notification 通知](./docs/组件/Notification%20通知.md)
 - [Pagination 分页](./docs/组件/Pagination%20分页.md)
@@ -106,6 +107,7 @@ pnpm build
 - [TimeRangePicker 时间范围选择器](./docs/组件/TimeRangePicker%20时间范围选择器.md)
 - [Tooltip 文字提示](./docs/组件/Tooltip%20文字提示.md)
 - [Tree 树](./docs/组件/Tree%20树.md)
+- [VirtualList 虚拟列表](./docs/组件/VirtualList%20虚拟列表.md)
 
 ## 技术设计
 
