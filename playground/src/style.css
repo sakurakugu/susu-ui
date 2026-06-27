@@ -508,6 +508,17 @@ p {
   gap: 14px;
 }
 
+.image-demo {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.image-demo-placeholder {
+  color: var(--su-color-text-muted);
+}
+
 .breadcrumb-demo {
   display: grid;
   gap: 14px;

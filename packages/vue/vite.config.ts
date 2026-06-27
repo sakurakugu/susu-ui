@@ -36,6 +36,7 @@ export default defineConfig({
         empty: resolve(__dirname, 'src/components/empty/index.ts'),
         form: resolve(__dirname, 'src/components/form/index.ts'),
         icon: resolve(__dirname, 'src/components/icon/index.ts'),
+        image: resolve(__dirname, 'src/components/image/index.ts'),
         input: resolve(__dirname, 'src/components/input/index.ts'),
         'input-number': resolve(
           __dirname,

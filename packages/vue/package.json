@@ -96,6 +96,11 @@
       "import": "./dist/icon.js",
       "require": "./dist/icon.cjs"
     },
+    "./image": {
+      "types": "./dist/components/image/index.d.ts",
+      "import": "./dist/image.js",
+      "require": "./dist/image.cjs"
+    },
     "./form": {
       "types": "./dist/components/form/index.d.ts",
       "import": "./dist/form.js",

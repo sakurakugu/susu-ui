@@ -28,6 +28,7 @@ import { SuDropdown } from './components/dropdown'
 import { SuEmpty } from './components/empty'
 import { SuForm, SuFormItem } from './components/form'
 import { SuIcon } from './components/icon'
+import { SuImage } from './components/image'
 import { SuInput } from './components/input'
 import { SuInputNumber } from './components/input-number'
 import { SuLoading } from './components/loading'
@@ -81,6 +82,7 @@ export * from './components/dropdown'
 export * from './components/empty'
 export * from './components/form'
 export * from './components/icon'
+export * from './components/image'
 export * from './components/input'
 export * from './components/input-number'
 export * from './components/loading'
@@ -140,6 +142,7 @@ const components = [
   SuForm,
   SuFormItem,
   SuIcon,
+  SuImage,
   SuInput,
   SuInputNumber,
   SuLoading,
