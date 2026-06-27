@@ -450,6 +450,13 @@ p {
   gap: 12px;
 }
 
+.badge-demo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
 .avatar-demo {
   display: flex;
   align-items: center;
