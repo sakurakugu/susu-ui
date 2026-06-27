@@ -53,6 +53,7 @@ import { SuTimeRangePicker } from './components/time-range-picker'
 import { SuTimePicker } from './components/time-picker'
 import { SuTimeline } from './components/timeline'
 import { SuTooltip } from './components/tooltip'
+import { SuTransfer } from './components/transfer'
 import { SuTree } from './components/tree'
 import { SuUpload } from './components/upload'
 
@@ -104,6 +105,7 @@ export * from './components/time-range-picker'
 export * from './components/time-picker'
 export * from './components/timeline'
 export * from './components/tooltip'
+export * from './components/transfer'
 export * from './components/tree'
 export * from './components/upload'
 export * from './locale'
@@ -165,6 +167,7 @@ const components = [
   SuTimePicker,
   SuTimeline,
   SuTooltip,
+  SuTransfer,
   SuTree,
   SuUpload,
 ]

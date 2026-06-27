@@ -36,6 +36,7 @@ export const playgroundNavItems = [
   { id: 'time-range-picker', label: '时间范围选择器' },
   { id: 'table', label: '表格' },
   { id: 'tree', label: '树' },
+  { id: 'transfer', label: '穿梭框' },
   { id: 'descriptions', label: '描述列表' },
   { id: 'pagination', label: '分页' },
   { id: 'progress', label: '进度条' },

@@ -360,6 +360,26 @@ p {
   gap: 8px;
 }
 
+.transfer-demo {
+  display: grid;
+  max-width: 920px;
+  gap: 18px;
+}
+
+.transfer-demo-option {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.transfer-demo-option span {
+  overflow: hidden;
+  color: var(--su-color-text-muted);
+  font-size: var(--su-font-size-sm);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .descriptions-demo {
   display: grid;
   max-width: 920px;
