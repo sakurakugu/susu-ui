@@ -1,5 +1,6 @@
 import AffixDemo from './AffixDemo.vue'
 import AlertDemo from './AlertDemo.vue'
+import AnchorDemo from './AnchorDemo.vue'
 import MessageDemo from './MessageDemo.vue'
 import NotificationDemo from './NotificationDemo.vue'
 import BackTopDemo from './BackTopDemo.vue'
@@ -62,6 +63,7 @@ import ButtonDemo from './ButtonDemo.vue'
 export const playgroundDemos = [
   { id: 'affix', component: AffixDemo },
   { id: 'alert', component: AlertDemo },
+  { id: 'anchor', component: AnchorDemo },
   { id: 'message', component: MessageDemo },
   { id: 'notification', component: NotificationDemo },
   { id: 'back-top', component: BackTopDemo },

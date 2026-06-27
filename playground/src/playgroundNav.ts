@@ -1,6 +1,7 @@
 export const playgroundNavItems = [
   { id: 'affix', label: '固钉' },
   { id: 'alert', label: '提示' },
+  { id: 'anchor', label: '锚点' },
   { id: 'message', label: '消息' },
   { id: 'notification', label: '通知' },
   { id: 'back-top', label: '回到顶部' },

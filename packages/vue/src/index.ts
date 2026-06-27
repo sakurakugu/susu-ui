@@ -8,6 +8,7 @@ import {
 } from './config-provider'
 import { SuAffix } from './components/affix'
 import { SuAlert } from './components/alert'
+import { SuAnchor } from './components/anchor'
 import { SuAutocomplete } from './components/autocomplete'
 import { SuAvatar } from './components/avatar'
 import { SuBackTop } from './components/back-top'
@@ -71,6 +72,7 @@ import { SuWatermark } from './components/watermark'
 export * from './config-provider'
 export * from './components/affix'
 export * from './components/alert'
+export * from './components/anchor'
 export * from './components/autocomplete'
 export * from './components/avatar'
 export * from './components/back-top'
@@ -136,6 +138,7 @@ const components = [
   SuConfigProvider,
   SuAffix,
   SuAlert,
+  SuAnchor,
   SuAutocomplete,
   SuAvatar,
   SuBackTop,

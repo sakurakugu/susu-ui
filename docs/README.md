@@ -11,6 +11,7 @@
 
 - [Affix 固钉](./组件/Affix%20固钉.md)
 - [Alert 提示](./组件/Alert%20提示.md)
+- [Anchor 锚点](./组件/Anchor%20锚点.md)
 - [Autocomplete 自动完成](./组件/Autocomplete%20自动完成.md)
 - [Avatar 头像](./组件/Avatar%20头像.md)
 - [BackTop 回到顶部](./组件/BackTop%20回到顶部.md)
