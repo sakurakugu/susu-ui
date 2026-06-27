@@ -8,6 +8,7 @@ import {
 } from './config-provider'
 import { SuAlert } from './components/alert'
 import { SuAutocomplete } from './components/autocomplete'
+import { SuAvatar } from './components/avatar'
 import { SuBreadcrumb } from './components/breadcrumb'
 import { SuButton, SuButtonGroup } from './components/button'
 import { SuCard } from './components/card'
@@ -54,6 +55,7 @@ import { SuUpload } from './components/upload'
 export * from './config-provider'
 export * from './components/alert'
 export * from './components/autocomplete'
+export * from './components/avatar'
 export * from './components/breadcrumb'
 export * from './components/button'
 export * from './components/card'
@@ -102,6 +104,7 @@ const components = [
   SuConfigProvider,
   SuAlert,
   SuAutocomplete,
+  SuAvatar,
   SuBreadcrumb,
   SuButton,
   SuButtonGroup,

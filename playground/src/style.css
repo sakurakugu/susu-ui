@@ -450,6 +450,13 @@ p {
   gap: 12px;
 }
 
+.avatar-demo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
 .breadcrumb-demo {
   display: grid;
   gap: 14px;

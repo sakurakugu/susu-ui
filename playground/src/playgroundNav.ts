@@ -5,6 +5,7 @@ export const playgroundNavItems = [
   { id: 'dialog', label: '对话框' },
   { id: 'drawer', label: '抽屉' },
   { id: 'text', label: '文本' },
+  { id: 'avatar', label: '头像' },
   { id: 'breadcrumb', label: '面包屑' },
   { id: 'tag', label: '标签' },
   { id: 'tooltip', label: '文字提示' },

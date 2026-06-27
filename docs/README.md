@@ -11,6 +11,7 @@
 
 - [Alert 提示](./组件/Alert%20提示.md)
 - [Autocomplete 自动完成](./组件/Autocomplete%20自动完成.md)
+- [Avatar 头像](./组件/Avatar%20头像.md)
 - [Breadcrumb 面包屑](./组件/Breadcrumb%20面包屑.md)
 - [Button 按钮](./组件/Button%20按钮.md)
 - [Card 卡片](./组件/Card%20卡片.md)
