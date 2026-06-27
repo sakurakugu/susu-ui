@@ -16,6 +16,7 @@ export const playgroundNavItems = [
   { id: 'card', label: '卡片' },
   { id: 'collapse', label: '折叠面板' },
   { id: 'empty', label: '空状态' },
+  { id: 'result', label: '结果' },
   { id: 'skeleton', label: '骨架屏' },
   { id: 'loading', label: '加载' },
   { id: 'divider', label: '分割线' },

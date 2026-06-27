@@ -89,6 +89,7 @@ pnpm build
 - [Progress 进度条](./docs/组件/Progress%20进度条.md)
 - [Radio 单选框](./docs/组件/Radio%20单选框.md)
 - [Rate 评分](./docs/组件/Rate%20评分.md)
+- [Result 结果](./docs/组件/Result%20结果.md)
 - [Select 选择器](./docs/组件/Select%20选择器.md)
 - [Segmented 分段控制器](./docs/组件/Segmented%20分段控制器.md)
 - [Skeleton 骨架屏](./docs/组件/Skeleton%20骨架屏.md)

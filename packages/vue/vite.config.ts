@@ -51,6 +51,7 @@ export default defineConfig({
         ),
         popover: resolve(__dirname, 'src/components/popover/index.ts'),
         rate: resolve(__dirname, 'src/components/rate/index.ts'),
+        result: resolve(__dirname, 'src/components/result/index.ts'),
         select: resolve(__dirname, 'src/components/select/index.ts'),
         segmented: resolve(__dirname, 'src/components/segmented/index.ts'),
         skeleton: resolve(__dirname, 'src/components/skeleton/index.ts'),

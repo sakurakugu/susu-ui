@@ -146,6 +146,11 @@
       "import": "./dist/rate.js",
       "require": "./dist/rate.cjs"
     },
+    "./result": {
+      "types": "./dist/components/result/index.d.ts",
+      "import": "./dist/result.js",
+      "require": "./dist/result.cjs"
+    },
     "./select": {
       "types": "./dist/components/select/index.d.ts",
       "import": "./dist/select.js",

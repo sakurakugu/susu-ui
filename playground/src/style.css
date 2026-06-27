@@ -670,6 +670,34 @@ p {
   opacity: 0.72;
 }
 
+.result-demo {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.result-demo .su-result {
+  min-height: 280px;
+  border: 1px solid var(--su-color-border);
+  border-radius: var(--su-radius-md);
+  background: var(--su-color-bg-soft);
+}
+
+.result-demo .su-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.result-demo .su-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  fill: none;
+}
+
 .skeleton-demo {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -949,6 +977,10 @@ p {
   }
 
   .empty-demo {
+    grid-template-columns: 1fr;
+  }
+
+  .result-demo {
     grid-template-columns: 1fr;
   }
 
