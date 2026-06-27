@@ -29,6 +29,7 @@ import { SuInputNumber } from './components/input-number'
 import { SuLoading } from './components/loading'
 import { SuMenu } from './components/menu'
 import { SuMessage } from './components/message'
+import { SuNotification } from './components/notification'
 import { SuPagination } from './components/pagination'
 import { SuPopover } from './components/popover'
 import { SuProgress } from './components/progress'
@@ -38,6 +39,7 @@ import { SuOption, SuSelect } from './components/select'
 import { SuSkeleton } from './components/skeleton'
 import { SuSlider } from './components/slider'
 import { SuSpace } from './components/space'
+import { SuSteps } from './components/steps'
 import { SuSwitch } from './components/switch'
 import { SuTabPane, SuTabs } from './components/tabs'
 import { SuTable, SuTableColumn } from './components/table'
@@ -73,6 +75,7 @@ export * from './components/input-number'
 export * from './components/loading'
 export * from './components/menu'
 export * from './components/message'
+export * from './components/notification'
 export * from './components/pagination'
 export * from './components/popover'
 export * from './components/progress'
@@ -82,6 +85,7 @@ export * from './components/select'
 export * from './components/skeleton'
 export * from './components/slider'
 export * from './components/space'
+export * from './components/steps'
 export * from './components/switch'
 export * from './components/tabs'
 export * from './components/table'
@@ -122,6 +126,7 @@ const components = [
   SuLoading,
   SuMenu,
   SuMessage,
+  SuNotification,
   SuPagination,
   SuPopover,
   SuProgress,
@@ -133,6 +138,7 @@ const components = [
   SuSkeleton,
   SuSlider,
   SuSpace,
+  SuSteps,
   SuSwitch,
   SuTabs,
   SuTabPane,

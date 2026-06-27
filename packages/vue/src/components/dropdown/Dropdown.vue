@@ -14,12 +14,7 @@ defineOptions({
 })
 
 type DropdownPlacement =
-  | 'top'
-  | 'top-start'
-  | 'top-end'
-  | 'bottom'
-  | 'bottom-start'
-  | 'bottom-end'
+  'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end'
 type DropdownTrigger = 'click' | 'hover' | 'manual'
 
 export type DropdownValue = string | number

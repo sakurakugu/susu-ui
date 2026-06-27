@@ -6,25 +6,11 @@ defineOptions({
 })
 
 type TextType =
-  | 'default'
-  | 'primary'
-  | 'success'
-  | 'warning'
-  | 'error'
-  | 'info'
-  | 'muted'
+  'default' | 'primary' | 'success' | 'warning' | 'error' | 'info' | 'muted'
 type TextSize = 'small' | 'medium' | 'large'
 type TextWeight = 'regular' | 'medium' | 'semibold' | 'bold'
 type TextTag =
-  | 'span'
-  | 'p'
-  | 'strong'
-  | 'em'
-  | 'small'
-  | 'mark'
-  | 'del'
-  | 'ins'
-  | 'code'
+  'span' | 'p' | 'strong' | 'em' | 'small' | 'mark' | 'del' | 'ins' | 'code'
 
 const props = withDefaults(
   defineProps<{

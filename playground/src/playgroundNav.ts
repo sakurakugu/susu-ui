@@ -1,6 +1,7 @@
 export const playgroundNavItems = [
   { id: 'alert', label: '提示' },
   { id: 'message', label: '消息' },
+  { id: 'notification', label: '通知' },
   { id: 'dialog', label: '对话框' },
   { id: 'drawer', label: '抽屉' },
   { id: 'text', label: '文本' },
@@ -34,6 +35,7 @@ export const playgroundNavItems = [
   { id: 'descriptions', label: '描述列表' },
   { id: 'pagination', label: '分页' },
   { id: 'progress', label: '进度条' },
+  { id: 'steps', label: '步骤条' },
   { id: 'upload', label: '上传' },
   { id: 'checkbox', label: '复选框' },
   { id: 'radio', label: '单选框' },

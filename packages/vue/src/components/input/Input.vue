@@ -9,14 +9,7 @@ defineOptions({
 type InputSize = 'small' | 'medium' | 'large'
 type InputStatus = 'default' | 'success' | 'warning' | 'error'
 type InputMode =
-  | 'none'
-  | 'text'
-  | 'tel'
-  | 'url'
-  | 'email'
-  | 'numeric'
-  | 'decimal'
-  | 'search'
+  'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search'
 type InputType =
   | 'text'
   | 'password'

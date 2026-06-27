@@ -8,6 +8,9 @@ import PlaygroundToolbar from './components/PlaygroundToolbar.vue'
 const localeName = ref<SusuLocale['name']>('zh-cn')
 const messageVisible = ref(false)
 const messageKey = ref(0)
+const notificationVisible = ref(false)
+const notificationKey = ref(0)
+const notificationPlacement = ref<'top-right' | 'bottom-left'>('top-right')
 
 const currentLocale = computed(() =>
   localeName.value === 'zh-cn' ? zhCN : enUS,
@@ -16,6 +19,12 @@ const currentLocale = computed(() =>
 function showTopMessage() {
   messageKey.value += 1
   messageVisible.value = true
+}
+
+function showNotification(placement: 'top-right' | 'bottom-left') {
+  notificationKey.value += 1
+  notificationPlacement.value = placement
+  notificationVisible.value = true
 }
 </script>
 
@@ -35,7 +44,21 @@ function showTopMessage() {
             消息会在顶部展示，并于 3 秒后消失
           </SuMessage>
 
-          <PlaygroundContent @show-message="showTopMessage" />
+          <SuNotification
+            v-if="notificationVisible"
+            :key="notificationKey"
+            type="warning"
+            title="构建提醒"
+            :placement="notificationPlacement"
+            @close="notificationVisible = false"
+          >
+            当前任务队列还有 3 个检查项需要处理。
+          </SuNotification>
+
+          <PlaygroundContent
+            @show-message="showTopMessage"
+            @show-notification="showNotification"
+          />
         </main>
       </div>
     </div>

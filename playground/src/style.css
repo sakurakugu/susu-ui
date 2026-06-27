@@ -173,6 +173,18 @@ p {
   font-size: var(--su-font-size-md);
 }
 
+.notification-demo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.notification-demo span {
+  color: var(--su-color-text-muted);
+  font-size: var(--su-font-size-md);
+}
+
 .dialog-demo {
   display: flex;
   align-items: center;
@@ -360,6 +372,16 @@ p {
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
+}
+
+.steps-demo {
+  display: grid;
+  max-width: 820px;
+  gap: 24px;
+}
+
+.steps-demo .su-steps--vertical {
+  max-width: 420px;
 }
 
 .upload-demo {

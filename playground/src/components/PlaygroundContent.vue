@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { type UploadFile, type UploadRequestOptions } from '@susu-ui/vue'
+import {
+  type StepsItem,
+  type UploadFile,
+  type UploadRequestOptions,
+} from '@susu-ui/vue'
 import { ref } from 'vue'
 
 const inputValue = ref('Susu UI')
@@ -65,6 +69,7 @@ const asyncDrawerVisible = ref(false)
 const drawerConfirmLoading = ref(false)
 const paginationPage = ref(3)
 const paginationSize = ref(10)
+const stepsCurrent = ref(1)
 const uploadProgress = ref(45)
 const uploadFiles = ref<UploadFile[]>([])
 const pictureUploadFiles = ref<UploadFile[]>([])
@@ -253,6 +258,24 @@ const menuItems = [
   { key: 'divider-menu', label: '分割项', divided: true },
 ]
 
+const publishSteps: StepsItem[] = [
+  { title: '填写信息', description: '录入标题、分类和基础说明' },
+  { title: '确认内容', description: '检查附件、权限和发布范围' },
+  { title: '提交发布', description: '等待系统完成发布流程' },
+]
+
+const reviewSteps: StepsItem[] = [
+  { title: '创建草稿', description: '内容已保存为草稿' },
+  { title: '内容审核', description: '字段缺失，需要补充说明', status: 'error' },
+  { title: '重新提交', description: '修正后再次进入审核' },
+]
+
+const simpleSteps: StepsItem[] = [
+  { title: '草稿', value: 'draft' },
+  { title: '审核', value: 'review' },
+  { title: '发布', value: 'publish' },
+]
+
 function formatCurrency(value: string | number) {
   return `¥ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 }
@@ -300,14 +323,24 @@ function markInvalidValue() {
 
 const emit = defineEmits<{
   showMessage: []
+  showNotification: [placement: 'top-right' | 'bottom-left']
 }>()
 
 function showTopMessage() {
   emit('showMessage')
 }
 
+function showNotification(placement: 'top-right' | 'bottom-left') {
+  emit('showNotification', placement)
+}
+
 function handleDropdownCommand(value: string | number) {
   dropdownCommand.value = `已选择：${value}`
+  showTopMessage()
+}
+
+function handleStepChange(value: string | number) {
+  stepsCurrent.value = Number(value)
   showTopMessage()
 }
 
@@ -436,6 +469,19 @@ function limitUploadSize(file: File) {
           显示顶部消息
         </SuButton>
         <span>点击后消息会固定在页面顶部，并于 3 秒后自动消失</span>
+      </div>
+    </section>
+
+    <section id="notification" class="panel">
+      <h2>通知</h2>
+      <div class="notification-demo">
+        <SuButton type="primary" @click="showNotification('top-right')">
+          右上通知
+        </SuButton>
+        <SuButton variant="outline" @click="showNotification('bottom-left')">
+          左下通知
+        </SuButton>
+        <span>通知用于承载标题和描述，适合较完整的系统反馈</span>
       </div>
     </section>
 
@@ -1576,6 +1622,27 @@ function limitUploadSize(file: File) {
             :stroke-width="6"
           />
         </div>
+      </div>
+    </section>
+
+    <section id="steps" class="panel">
+      <h2>步骤条</h2>
+      <div class="steps-demo">
+        <SuSteps
+          :items="publishSteps"
+          :current="stepsCurrent"
+          clickable
+          @change="handleStepChange"
+        />
+
+        <SuSteps
+          :items="reviewSteps"
+          :current="1"
+          direction="vertical"
+          status="error"
+        />
+
+        <SuSteps :items="simpleSteps" current="review" size="small" simple />
       </div>
     </section>
 

@@ -79,6 +79,7 @@ pnpm build
 - [InputNumber 数字输入框](./docs/组件/InputNumber%20数字输入框.md)
 - [Menu 菜单](./docs/组件/Menu%20菜单.md)
 - [Message 消息](./docs/组件/Message%20消息.md)
+- [Notification 通知](./docs/组件/Notification%20通知.md)
 - [Pagination 分页](./docs/组件/Pagination%20分页.md)
 - [Popover 气泡卡片](./docs/组件/Popover%20气泡卡片.md)
 - [Progress 进度条](./docs/组件/Progress%20进度条.md)
