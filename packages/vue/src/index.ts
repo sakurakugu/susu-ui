@@ -6,6 +6,7 @@ import {
   SuConfigProvider,
   type SusuConfigProviderProps,
 } from './config-provider'
+import { SuAffix } from './components/affix'
 import { SuAlert } from './components/alert'
 import { SuAutocomplete } from './components/autocomplete'
 import { SuAvatar } from './components/avatar'
@@ -62,6 +63,7 @@ import { SuTree } from './components/tree'
 import { SuUpload } from './components/upload'
 
 export * from './config-provider'
+export * from './components/affix'
 export * from './components/alert'
 export * from './components/autocomplete'
 export * from './components/avatar'
@@ -120,6 +122,7 @@ export * from './locale'
 
 const components = [
   SuConfigProvider,
+  SuAffix,
   SuAlert,
   SuAutocomplete,
   SuAvatar,

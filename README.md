@@ -57,6 +57,7 @@ pnpm build
 - [文档入口](./docs/README.md)
 - [快速开始](./docs/指南/快速开始.md)
 - [主题](./docs/指南/主题.md)
+- [Affix 固钉](./docs/组件/Affix%20固钉.md)
 - [Alert 提示](./docs/组件/Alert%20提示.md)
 - [Autocomplete 自动完成](./docs/组件/Autocomplete%20自动完成.md)
 - [Avatar 头像](./docs/组件/Avatar%20头像.md)

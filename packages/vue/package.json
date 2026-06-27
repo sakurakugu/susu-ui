@@ -11,6 +11,11 @@
       "import": "./dist/susu-ui-vue.js",
       "require": "./dist/susu-ui-vue.cjs"
     },
+    "./affix": {
+      "types": "./dist/components/affix/index.d.ts",
+      "import": "./dist/affix.js",
+      "require": "./dist/affix.cjs"
+    },
     "./alert": {
       "types": "./dist/components/alert/index.d.ts",
       "import": "./dist/alert.js",
