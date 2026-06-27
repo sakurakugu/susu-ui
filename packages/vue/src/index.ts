@@ -41,6 +41,7 @@ import { SuNotification } from './components/notification'
 import { SuPagination } from './components/pagination'
 import { SuPopover } from './components/popover'
 import { SuProgress } from './components/progress'
+import { SuQRCode } from './components/qrcode'
 import { SuRate } from './components/rate'
 import { SuRadioButton, SuRadioGroup } from './components/radio'
 import { SuResult } from './components/result'
@@ -103,6 +104,7 @@ export * from './components/notification'
 export * from './components/pagination'
 export * from './components/popover'
 export * from './components/progress'
+export * from './components/qrcode'
 export * from './components/rate'
 export * from './components/radio'
 export * from './components/result'
@@ -171,6 +173,7 @@ const components = [
   SuPagination,
   SuPopover,
   SuProgress,
+  SuQRCode,
   SuRate,
   SuRadioButton,
   SuRadioGroup,

@@ -53,6 +53,7 @@ export default defineConfig({
           'src/components/notification/index.ts',
         ),
         popover: resolve(__dirname, 'src/components/popover/index.ts'),
+        qrcode: resolve(__dirname, 'src/components/qrcode/index.ts'),
         rate: resolve(__dirname, 'src/components/rate/index.ts'),
         result: resolve(__dirname, 'src/components/result/index.ts'),
         select: resolve(__dirname, 'src/components/select/index.ts'),

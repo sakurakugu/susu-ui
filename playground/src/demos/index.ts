@@ -48,6 +48,7 @@ import TransferDemo from './TransferDemo.vue'
 import DescriptionsDemo from './DescriptionsDemo.vue'
 import PaginationDemo from './PaginationDemo.vue'
 import ProgressDemo from './ProgressDemo.vue'
+import QRCodeDemo from './QRCodeDemo.vue'
 import StatisticDemo from './StatisticDemo.vue'
 import StepsDemo from './StepsDemo.vue'
 import TimelineDemo from './TimelineDemo.vue'
@@ -109,6 +110,7 @@ export const playgroundDemos = [
   { id: 'descriptions', component: DescriptionsDemo },
   { id: 'pagination', component: PaginationDemo },
   { id: 'progress', component: ProgressDemo },
+  { id: 'qrcode', component: QRCodeDemo },
   { id: 'statistic', component: StatisticDemo },
   { id: 'steps', component: StepsDemo },
   { id: 'timeline', component: TimelineDemo },

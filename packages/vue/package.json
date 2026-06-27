@@ -156,6 +156,11 @@
       "import": "./dist/popover.js",
       "require": "./dist/popover.cjs"
     },
+    "./qrcode": {
+      "types": "./dist/components/qrcode/index.d.ts",
+      "import": "./dist/qrcode.js",
+      "require": "./dist/qrcode.cjs"
+    },
     "./rate": {
       "types": "./dist/components/rate/index.d.ts",
       "import": "./dist/rate.js",
@@ -280,7 +285,8 @@
     "typecheck": "vue-tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@susu-ui/theme": "workspace:*"
+    "@susu-ui/theme": "workspace:*",
+    "qrcode": "^1.5.4"
   },
   "peerDependencies": {
     "vue": "^3.5.0"

@@ -8,5 +8,5 @@
       "@susu-ui/vue/*": ["../packages/vue/src/components/*/index.ts"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.vue"]
+  "include": ["src/**/*.ts", "src/**/*.vue", "../packages/vue/src/**/*.d.ts"]
 }
