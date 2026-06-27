@@ -14,6 +14,7 @@ import { SuCard } from './components/card'
 import { SuCascader } from './components/cascader'
 import { SuCheckbox } from './components/checkbox'
 import { SuColorPicker } from './components/color-picker'
+import { SuDateRangePicker } from './components/date-range-picker'
 import { SuDatePicker } from './components/date-picker'
 import { SuDescriptions, SuDescriptionsItem } from './components/descriptions'
 import { SuDialog } from './components/dialog'
@@ -42,6 +43,7 @@ import { SuTabPane, SuTabs } from './components/tabs'
 import { SuTable, SuTableColumn } from './components/table'
 import { SuTag } from './components/tag'
 import { SuText } from './components/text'
+import { SuTimeRangePicker } from './components/time-range-picker'
 import { SuTimePicker } from './components/time-picker'
 import { SuTooltip } from './components/tooltip'
 import { SuTree } from './components/tree'
@@ -56,6 +58,7 @@ export * from './components/card'
 export * from './components/cascader'
 export * from './components/checkbox'
 export * from './components/color-picker'
+export * from './components/date-range-picker'
 export * from './components/date-picker'
 export * from './components/descriptions'
 export * from './components/dialog'
@@ -84,6 +87,7 @@ export * from './components/tabs'
 export * from './components/table'
 export * from './components/tag'
 export * from './components/text'
+export * from './components/time-range-picker'
 export * from './components/time-picker'
 export * from './components/tooltip'
 export * from './components/tree'
@@ -101,6 +105,7 @@ const components = [
   SuCascader,
   SuCheckbox,
   SuColorPicker,
+  SuDateRangePicker,
   SuDatePicker,
   SuDescriptions,
   SuDescriptionsItem,
@@ -135,6 +140,7 @@ const components = [
   SuTableColumn,
   SuTag,
   SuText,
+  SuTimeRangePicker,
   SuTimePicker,
   SuTooltip,
   SuTree,

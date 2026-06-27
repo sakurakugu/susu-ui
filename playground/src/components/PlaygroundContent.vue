@@ -31,9 +31,14 @@ const colorValue = ref('#1677ff')
 const alphaColorValue = ref('rgba(22, 119, 255, 0.64)')
 const dateValue = ref('2026-06-27')
 const limitedDateValue = ref('')
+const dateRangeValue = ref<[string, string]>(['2026-06-01', '2026-06-15'])
+const limitedDateRangeValue = ref<[string, string]>(['', ''])
 const timeValue = ref('09:30:00')
 const shortTimeValue = ref('18:00')
 const limitedTimeValue = ref('')
+const timeRangeValue = ref<[string, string]>(['09:00:00', '18:00:00'])
+const shortTimeRangeValue = ref<[string, string]>(['09:30', '17:30'])
+const limitedTimeRangeValue = ref<[string, string]>(['', ''])
 const statusValue = ref('enabled')
 const tabsValue = ref('overview')
 const monthValue = ref(2)
@@ -364,7 +369,19 @@ function disableWeekend(date: Date) {
   return date.getDay() === 0 || date.getDay() === 6
 }
 
+function disableRangeWeekend(date: Date) {
+  return disableWeekend(date)
+}
+
 function disableLunchTime(time: {
+  hour: number
+  minute: number
+  second: number
+}) {
+  return time.hour === 12
+}
+
+function disableRangeLunchTime(time: {
   hour: number
   minute: number
   second: number
@@ -1279,6 +1296,50 @@ function limitUploadSize(file: File) {
       </div>
     </section>
 
+    <section id="date-range-picker" class="panel">
+      <h2>日期范围选择器</h2>
+      <div class="date-range-picker-demo">
+        <SuDateRangePicker
+          v-model="dateRangeValue"
+          clearable
+          start-placeholder="开始日期"
+          end-placeholder="结束日期"
+        />
+        <SuDateRangePicker
+          v-model="limitedDateRangeValue"
+          min="2026-06-01"
+          max="2026-06-30"
+          start-placeholder="开始"
+          end-placeholder="结束"
+        />
+        <SuDateRangePicker
+          :model-value="dateRangeValue"
+          :disabled-date="disableRangeWeekend"
+          start-placeholder="禁用周末"
+          end-placeholder="禁用周末"
+        />
+        <SuDateRangePicker
+          size="small"
+          :model-value="['2026-06-01', '2026-06-15']"
+        />
+        <SuDateRangePicker
+          size="large"
+          :model-value="['2026-06-01', '2026-06-15']"
+        />
+        <SuDateRangePicker
+          status="success"
+          :model-value="['2026-06-01', '2026-06-15']"
+        />
+        <SuDateRangePicker status="warning" start-placeholder="警告状态" />
+        <SuDateRangePicker status="error" start-placeholder="错误状态" />
+        <SuDateRangePicker disabled start-placeholder="禁用日期范围" />
+        <SuDateRangePicker
+          readonly
+          :model-value="['2026-06-01', '2026-06-15']"
+        />
+      </div>
+    </section>
+
     <section id="time-picker" class="panel">
       <h2>时间选择器</h2>
       <div class="time-picker-demo">
@@ -1307,6 +1368,54 @@ function limitUploadSize(file: File) {
         <SuTimePicker status="error" placeholder="错误状态" />
         <SuTimePicker disabled placeholder="禁用时间选择器" />
         <SuTimePicker readonly model-value="09:30:00" />
+      </div>
+    </section>
+
+    <section id="time-range-picker" class="panel">
+      <h2>时间范围选择器</h2>
+      <div class="time-range-picker-demo">
+        <SuTimeRangePicker
+          v-model="timeRangeValue"
+          clearable
+          start-placeholder="开始时间"
+          end-placeholder="结束时间"
+        />
+        <SuTimeRangePicker
+          v-model="shortTimeRangeValue"
+          format="HH:mm"
+          :minute-step="30"
+          start-placeholder="开始"
+          end-placeholder="结束"
+        />
+        <SuTimeRangePicker
+          v-model="limitedTimeRangeValue"
+          min="09:00:00"
+          max="18:00:00"
+          start-placeholder="工作开始"
+          end-placeholder="工作结束"
+        />
+        <SuTimeRangePicker
+          :model-value="timeRangeValue"
+          :disabled-time="disableRangeLunchTime"
+          start-placeholder="禁用 12 点"
+          end-placeholder="禁用 12 点"
+        />
+        <SuTimeRangePicker
+          size="small"
+          :model-value="['09:00:00', '18:00:00']"
+        />
+        <SuTimeRangePicker
+          size="large"
+          :model-value="['09:00:00', '18:00:00']"
+        />
+        <SuTimeRangePicker
+          status="success"
+          :model-value="['09:00:00', '18:00:00']"
+        />
+        <SuTimeRangePicker status="warning" start-placeholder="警告状态" />
+        <SuTimeRangePicker status="error" start-placeholder="错误状态" />
+        <SuTimeRangePicker disabled start-placeholder="禁用时间范围" />
+        <SuTimeRangePicker readonly :model-value="['09:00:00', '18:00:00']" />
       </div>
     </section>
 

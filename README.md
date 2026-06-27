@@ -65,6 +65,7 @@ pnpm build
 - [Cascader 级联选择](./docs/组件/Cascader%20级联选择.md)
 - [Checkbox 复选框](./docs/组件/Checkbox%20复选框.md)
 - [ColorPicker 颜色选择器](./docs/组件/ColorPicker%20颜色选择器.md)
+- [DateRangePicker 日期范围选择器](./docs/组件/DateRangePicker%20日期范围选择器.md)
 - [DatePicker 日期选择器](./docs/组件/DatePicker%20日期选择器.md)
 - [Descriptions 描述列表](./docs/组件/Descriptions%20描述列表.md)
 - [Dialog 对话框](./docs/组件/Dialog%20对话框.md)
@@ -92,6 +93,7 @@ pnpm build
 - [Table 表格](./docs/组件/Table%20表格.md)
 - [Tag 标签](./docs/组件/Tag%20标签.md)
 - [Text 文本](./docs/组件/Text%20文本.md)
+- [TimeRangePicker 时间范围选择器](./docs/组件/TimeRangePicker%20时间范围选择器.md)
 - [Tooltip 文字提示](./docs/组件/Tooltip%20文字提示.md)
 - [Tree 树](./docs/组件/Tree%20树.md)
 
