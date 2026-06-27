@@ -41,6 +41,7 @@ import { SuMention } from './components/mention'
 import { SuMessage } from './components/message'
 import { SuNotification } from './components/notification'
 import { SuPagination } from './components/pagination'
+import { SuPopconfirm } from './components/popconfirm'
 import { SuPopover } from './components/popover'
 import { SuProgress } from './components/progress'
 import { SuQRCode } from './components/qrcode'
@@ -108,6 +109,7 @@ export * from './components/mention'
 export * from './components/message'
 export * from './components/notification'
 export * from './components/pagination'
+export * from './components/popconfirm'
 export * from './components/popover'
 export * from './components/progress'
 export * from './components/qrcode'
@@ -181,6 +183,7 @@ const components = [
   SuMessage,
   SuNotification,
   SuPagination,
+  SuPopconfirm,
   SuPopover,
   SuProgress,
   SuQRCode,

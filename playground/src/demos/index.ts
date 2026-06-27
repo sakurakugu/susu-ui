@@ -15,6 +15,7 @@ import BadgeDemo from './BadgeDemo.vue'
 import BreadcrumbDemo from './BreadcrumbDemo.vue'
 import TagDemo from './TagDemo.vue'
 import TooltipDemo from './TooltipDemo.vue'
+import PopconfirmDemo from './PopconfirmDemo.vue'
 import PopoverDemo from './PopoverDemo.vue'
 import TourDemo from './TourDemo.vue'
 import DropdownDemo from './DropdownDemo.vue'
@@ -82,6 +83,7 @@ export const playgroundDemos = [
   { id: 'breadcrumb', component: BreadcrumbDemo },
   { id: 'tag', component: TagDemo },
   { id: 'tooltip', component: TooltipDemo },
+  { id: 'popconfirm', component: PopconfirmDemo },
   { id: 'popover', component: PopoverDemo },
   { id: 'tour', component: TourDemo },
   { id: 'dropdown', component: DropdownDemo },

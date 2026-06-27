@@ -44,6 +44,7 @@
 - [Message 消息](./组件/Message%20消息.md)
 - [Notification 通知](./组件/Notification%20通知.md)
 - [Pagination 分页](./组件/Pagination%20分页.md)
+- [Popconfirm 气泡确认框](./组件/Popconfirm%20气泡确认框.md)
 - [Popover 气泡卡片](./组件/Popover%20气泡卡片.md)
 - [Progress 进度条](./组件/Progress%20进度条.md)
 - [QRCode 二维码](./组件/QRCode%20二维码.md)

@@ -67,6 +67,7 @@ export default defineConfig({
           'src/components/notification/index.ts',
         ),
         pagination: resolve(__dirname, 'src/components/pagination/index.ts'),
+        popconfirm: resolve(__dirname, 'src/components/popconfirm/index.ts'),
         popover: resolve(__dirname, 'src/components/popover/index.ts'),
         progress: resolve(__dirname, 'src/components/progress/index.ts'),
         qrcode: resolve(__dirname, 'src/components/qrcode/index.ts'),

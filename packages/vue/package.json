@@ -186,6 +186,11 @@
       "import": "./dist/pagination.js",
       "require": "./dist/pagination.cjs"
     },
+    "./popconfirm": {
+      "types": "./dist/components/popconfirm/index.d.ts",
+      "import": "./dist/popconfirm.js",
+      "require": "./dist/popconfirm.cjs"
+    },
     "./popover": {
       "types": "./dist/components/popover/index.d.ts",
       "import": "./dist/popover.js",

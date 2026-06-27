@@ -16,6 +16,7 @@ export const playgroundNavItems = [
   { id: 'breadcrumb', label: '面包屑' },
   { id: 'tag', label: '标签' },
   { id: 'tooltip', label: '文字提示' },
+  { id: 'popconfirm', label: '气泡确认框' },
   { id: 'popover', label: '气泡卡片' },
   { id: 'tour', label: '漫游式引导' },
   { id: 'dropdown', label: '下拉菜单' },
