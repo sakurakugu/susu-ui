@@ -1,0 +1,109 @@
+import AlertDemo from './AlertDemo.vue'
+import MessageDemo from './MessageDemo.vue'
+import NotificationDemo from './NotificationDemo.vue'
+import DialogDemo from './DialogDemo.vue'
+import DrawerDemo from './DrawerDemo.vue'
+import TextDemo from './TextDemo.vue'
+import AvatarDemo from './AvatarDemo.vue'
+import ImageDemo from './ImageDemo.vue'
+import BadgeDemo from './BadgeDemo.vue'
+import BreadcrumbDemo from './BreadcrumbDemo.vue'
+import TagDemo from './TagDemo.vue'
+import TooltipDemo from './TooltipDemo.vue'
+import PopoverDemo from './PopoverDemo.vue'
+import DropdownDemo from './DropdownDemo.vue'
+import CardDemo from './CardDemo.vue'
+import CollapseDemo from './CollapseDemo.vue'
+import EmptyDemo from './EmptyDemo.vue'
+import ResultDemo from './ResultDemo.vue'
+import SkeletonDemo from './SkeletonDemo.vue'
+import LoadingDemo from './LoadingDemo.vue'
+import DividerDemo from './DividerDemo.vue'
+import SpaceDemo from './SpaceDemo.vue'
+import RateDemo from './RateDemo.vue'
+import SliderDemo from './SliderDemo.vue'
+import MenuDemo from './MenuDemo.vue'
+import InputDemo from './InputDemo.vue'
+import InputNumberDemo from './InputNumberDemo.vue'
+import SelectDemo from './SelectDemo.vue'
+import CascaderDemo from './CascaderDemo.vue'
+import AutocompleteDemo from './AutocompleteDemo.vue'
+import TabsDemo from './TabsDemo.vue'
+import SegmentedDemo from './SegmentedDemo.vue'
+import ColorPickerDemo from './ColorPickerDemo.vue'
+import CalendarDemo from './CalendarDemo.vue'
+import DatePickerDemo from './DatePickerDemo.vue'
+import DateRangePickerDemo from './DateRangePickerDemo.vue'
+import TimePickerDemo from './TimePickerDemo.vue'
+import TimeRangePickerDemo from './TimeRangePickerDemo.vue'
+import TableDemo from './TableDemo.vue'
+import TreeDemo from './TreeDemo.vue'
+import TransferDemo from './TransferDemo.vue'
+import DescriptionsDemo from './DescriptionsDemo.vue'
+import PaginationDemo from './PaginationDemo.vue'
+import ProgressDemo from './ProgressDemo.vue'
+import StatisticDemo from './StatisticDemo.vue'
+import StepsDemo from './StepsDemo.vue'
+import TimelineDemo from './TimelineDemo.vue'
+import UploadDemo from './UploadDemo.vue'
+import CheckboxDemo from './CheckboxDemo.vue'
+import RadioDemo from './RadioDemo.vue'
+import SwitchDemo from './SwitchDemo.vue'
+import FormDemo from './FormDemo.vue'
+import ButtonDemo from './ButtonDemo.vue'
+
+export const playgroundDemos = [
+  { id: 'alert', component: AlertDemo },
+  { id: 'message', component: MessageDemo },
+  { id: 'notification', component: NotificationDemo },
+  { id: 'dialog', component: DialogDemo },
+  { id: 'drawer', component: DrawerDemo },
+  { id: 'text', component: TextDemo },
+  { id: 'avatar', component: AvatarDemo },
+  { id: 'image', component: ImageDemo },
+  { id: 'badge', component: BadgeDemo },
+  { id: 'breadcrumb', component: BreadcrumbDemo },
+  { id: 'tag', component: TagDemo },
+  { id: 'tooltip', component: TooltipDemo },
+  { id: 'popover', component: PopoverDemo },
+  { id: 'dropdown', component: DropdownDemo },
+  { id: 'card', component: CardDemo },
+  { id: 'collapse', component: CollapseDemo },
+  { id: 'empty', component: EmptyDemo },
+  { id: 'result', component: ResultDemo },
+  { id: 'skeleton', component: SkeletonDemo },
+  { id: 'loading', component: LoadingDemo },
+  { id: 'divider', component: DividerDemo },
+  { id: 'space', component: SpaceDemo },
+  { id: 'rate', component: RateDemo },
+  { id: 'slider', component: SliderDemo },
+  { id: 'menu', component: MenuDemo },
+  { id: 'input', component: InputDemo },
+  { id: 'input-number', component: InputNumberDemo },
+  { id: 'select', component: SelectDemo },
+  { id: 'cascader', component: CascaderDemo },
+  { id: 'autocomplete', component: AutocompleteDemo },
+  { id: 'tabs', component: TabsDemo },
+  { id: 'segmented', component: SegmentedDemo },
+  { id: 'color-picker', component: ColorPickerDemo },
+  { id: 'calendar', component: CalendarDemo },
+  { id: 'date-picker', component: DatePickerDemo },
+  { id: 'date-range-picker', component: DateRangePickerDemo },
+  { id: 'time-picker', component: TimePickerDemo },
+  { id: 'time-range-picker', component: TimeRangePickerDemo },
+  { id: 'table', component: TableDemo },
+  { id: 'tree', component: TreeDemo },
+  { id: 'transfer', component: TransferDemo },
+  { id: 'descriptions', component: DescriptionsDemo },
+  { id: 'pagination', component: PaginationDemo },
+  { id: 'progress', component: ProgressDemo },
+  { id: 'statistic', component: StatisticDemo },
+  { id: 'steps', component: StepsDemo },
+  { id: 'timeline', component: TimelineDemo },
+  { id: 'upload', component: UploadDemo },
+  { id: 'checkbox', component: CheckboxDemo },
+  { id: 'radio', component: RadioDemo },
+  { id: 'switch', component: SwitchDemo },
+  { id: 'form', component: FormDemo },
+  { id: 'button', component: ButtonDemo },
+]
