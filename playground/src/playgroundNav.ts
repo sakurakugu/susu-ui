@@ -22,6 +22,7 @@ export const playgroundNavItems = [
   { id: 'result', label: '结果' },
   { id: 'skeleton', label: '骨架屏' },
   { id: 'loading', label: '加载' },
+  { id: 'watermark', label: '水印' },
   { id: 'divider', label: '分割线' },
   { id: 'space', label: '间距' },
   { id: 'rate', label: '评分' },

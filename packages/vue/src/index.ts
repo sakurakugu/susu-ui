@@ -65,6 +65,7 @@ import { SuTransfer } from './components/transfer'
 import { SuTree } from './components/tree'
 import { SuUpload } from './components/upload'
 import { SuVirtualList } from './components/virtual-list'
+import { SuWatermark } from './components/watermark'
 
 export * from './config-provider'
 export * from './components/affix'
@@ -126,6 +127,7 @@ export * from './components/transfer'
 export * from './components/tree'
 export * from './components/upload'
 export * from './components/virtual-list'
+export * from './components/watermark'
 export * from './locale'
 
 const components = [
@@ -197,6 +199,7 @@ const components = [
   SuTree,
   SuUpload,
   SuVirtualList,
+  SuWatermark,
 ]
 
 export const SusuUI: Plugin = {

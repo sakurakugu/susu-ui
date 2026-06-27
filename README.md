@@ -109,6 +109,7 @@ pnpm build
 - [Tour 漫游式引导](./docs/组件/Tour%20漫游式引导.md)
 - [Tree 树](./docs/组件/Tree%20树.md)
 - [VirtualList 虚拟列表](./docs/组件/VirtualList%20虚拟列表.md)
+- [Watermark 水印](./docs/组件/Watermark%20水印.md)
 
 ## 技术设计
 

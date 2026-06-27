@@ -80,6 +80,7 @@ export default defineConfig({
           __dirname,
           'src/components/virtual-list/index.ts',
         ),
+        watermark: resolve(__dirname, 'src/components/watermark/index.ts'),
       },
       formats: ['es', 'cjs'],
       fileName(format, entryName) {

@@ -260,6 +260,11 @@
       "types": "./dist/components/virtual-list/index.d.ts",
       "import": "./dist/virtual-list.js",
       "require": "./dist/virtual-list.cjs"
+    },
+    "./watermark": {
+      "types": "./dist/components/watermark/index.d.ts",
+      "import": "./dist/watermark.js",
+      "require": "./dist/watermark.cjs"
     }
   },
   "files": [
