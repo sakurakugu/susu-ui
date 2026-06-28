@@ -13,6 +13,7 @@ export type {
   ThemePreset,
   ThemePresetName,
 } from '@susu-ui/tokens'
+export { withThemeTransition, type ThemeTransitionOptions } from './transition'
 
 function 获取根元素(root?: HTMLElement) {
   if (root) return root

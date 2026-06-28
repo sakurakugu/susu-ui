@@ -5,6 +5,7 @@ import {
   setThemeMode,
   setThemePreset,
   themePresets,
+  withThemeTransition,
   type ThemeMode,
   type ThemePresetName,
 } from '@susu-ui/theme'
@@ -20,9 +21,16 @@ const themePreset = ref<ThemePresetName | 'custom'>('blue')
 const themeHue = ref(DEFAULT_THEME_HUE)
 const localeName = ref<SusuLocale['name']>('zh-cn')
 
-function toggleThemeMode() {
-  themeMode.value = themeMode.value === 'light' ? 'dark' : 'light'
-  setThemeMode(themeMode.value)
+async function toggleThemeMode(event: MouseEvent) {
+  const nextMode = themeMode.value === 'light' ? 'dark' : 'light'
+
+  await withThemeTransition(
+    () => {
+      themeMode.value = nextMode
+      setThemeMode(nextMode)
+    },
+    { event },
+  )
 }
 
 function toggleLocale() {
@@ -30,13 +38,18 @@ function toggleLocale() {
   emit('localeChange', localeName.value)
 }
 
-function changeThemePreset(name: ThemePresetName) {
-  const preset = themePresets.find((item) => item.name === name)
-  if (preset) {
-    themeHue.value = preset.hue
-  }
-  themePreset.value = name
-  setThemePreset(name)
+async function changeThemePreset(name: ThemePresetName, event: MouseEvent) {
+  await withThemeTransition(
+    () => {
+      const preset = themePresets.find((item) => item.name === name)
+      if (preset) {
+        themeHue.value = preset.hue
+      }
+      themePreset.value = name
+      setThemePreset(name)
+    },
+    { event },
+  )
 }
 
 function changeThemeHue(event: Event) {
@@ -65,7 +78,7 @@ function changeThemeHue(event: Event) {
             class="preset-button"
             :class="{ 'is-active': themePreset === preset.name }"
             :style="{ '--preset-hue': preset.hue }"
-            @click="changeThemePreset(preset.name)"
+            @click="changeThemePreset(preset.name, $event)"
           >
             <span class="preset-swatch" />
             {{ preset.label }}

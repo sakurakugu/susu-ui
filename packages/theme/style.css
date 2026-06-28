@@ -70,3 +70,14 @@
     --su-shadow-md: 0 6px 16px rgb(0 0 0 / 36%);
   }
 }
+
+/* ===点击后形成扩散的圆，然后切换主题=== */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  z-index: 1;
+}
