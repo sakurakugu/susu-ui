@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, ref, useAttrs } from 'vue'
+import { useLocale } from '../../config-provider'
 import { formKey, type FormItemStatus, type FormSize } from '../form/context'
 
 defineOptions({
@@ -54,6 +55,7 @@ const emit = defineEmits<{
 const attrs = useAttrs()
 const form = inject(formKey, undefined)
 const selectRef = ref<HTMLSelectElement>()
+const locale = useLocale()
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
 
@@ -155,7 +157,7 @@ defineExpose({
       v-if="showClear"
       class="su-select__clear"
       type="button"
-      aria-label="清空选择"
+      :aria-label="locale.select.clear"
       @click="clearValue"
     >
       &times;

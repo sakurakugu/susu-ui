@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { useLocale } from '../../config-provider'
 import AnchorNode from './AnchorNode.vue'
 
 defineOptions({
@@ -45,7 +46,7 @@ const props = withDefaults(
     target: undefined,
     behavior: 'smooth',
     disabled: false,
-    emptyText: '暂无锚点',
+    emptyText: undefined,
   },
 )
 
@@ -60,6 +61,7 @@ defineSlots<{
 }>()
 
 const scrollingByClick = ref(false)
+const locale = useLocale()
 let activeTarget: AnchorTarget | undefined
 let frame: number | undefined
 let clickTimer: number | undefined
@@ -72,6 +74,9 @@ const enabledItems = computed(() =>
   flatItems.value.filter((item) => !item.disabled),
 )
 const hasItems = computed(() => normalizedItems.value.length > 0)
+const mergedEmptyText = computed(
+  () => props.emptyText ?? locale.value.anchor.empty,
+)
 
 function normalizeItems(items: AnchorItem[], level = 1): AnchorRenderItem[] {
   return items.map((item) => ({
@@ -334,7 +339,7 @@ onBeforeUnmount(() => {
     </ul>
 
     <div v-else class="su-anchor__empty">
-      <slot name="empty">{{ emptyText }}</slot>
+      <slot name="empty">{{ mergedEmptyText }}</slot>
     </div>
   </nav>
 </template>

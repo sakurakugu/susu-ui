@@ -2,6 +2,8 @@ import { describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { computed } from 'vue'
 import DatePicker from './DatePicker.vue'
+import { configProviderKey, mergeConfig } from '../../config-provider'
+import { enUS } from '../../locale'
 import { formKey } from '../form/context'
 
 describe('DatePicker', () => {
@@ -15,6 +17,32 @@ describe('DatePicker', () => {
     expect(wrapper.classes()).toContain('su-date-picker')
     expect(wrapper.classes()).toContain('su-date-picker--medium')
     expect(wrapper.classes()).toContain('is-empty')
+    expect(wrapper.find('input').attributes('placeholder')).toBe('选择日期')
+  })
+
+  it('默认文案跟随 locale，且 props 覆盖优先', async () => {
+    const wrapper = mount(DatePicker, {
+      global: {
+        provide: {
+          [configProviderKey as symbol]: computed(() =>
+            mergeConfig({ locale: enUS }),
+          ),
+        },
+      },
+    })
+
+    expect(wrapper.find('input').attributes('placeholder')).toBe('Select date')
+    expect(wrapper.find('input').attributes('aria-label')).toBe('Date picker')
+
+    await wrapper.find('.su-date-picker__trigger').trigger('click')
+    expect(
+      wrapper.find('.su-date-picker__panel').attributes('aria-label'),
+    ).toBe('Date panel')
+    expect(wrapper.find('.su-date-picker__title').text()).toMatch(
+      /^\d{4}-\d{2}$/,
+    )
+
+    await wrapper.setProps({ placeholder: '选择日期' })
     expect(wrapper.find('input').attributes('placeholder')).toBe('选择日期')
   })
 

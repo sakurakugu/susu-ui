@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, ref, watch } from 'vue'
+import { useLocale } from '../../config-provider'
 import { formKey, type FormSize } from '../form/context'
 
 defineOptions({
@@ -38,14 +39,14 @@ const props = withDefaults(
   }>(),
   {
     data: () => [],
-    titles: () => ['源列表', '目标列表'],
+    titles: undefined,
     size: undefined,
     disabled: false,
     filterable: false,
-    filterPlaceholder: '请输入搜索内容',
-    emptyText: '暂无数据',
-    leftButtonText: '移到左侧',
-    rightButtonText: '移到右侧',
+    filterPlaceholder: undefined,
+    emptyText: undefined,
+    leftButtonText: undefined,
+    rightButtonText: undefined,
     filterMethod: undefined,
   },
 )
@@ -71,12 +72,28 @@ defineSlots<{
 }>()
 
 const form = inject(formKey, undefined)
+const locale = useLocale()
 const leftChecked = ref<TransferValue[]>([])
 const rightChecked = ref<TransferValue[]>([])
 const leftQuery = ref('')
 const rightQuery = ref('')
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
+const mergedTitles = computed(
+  () => props.titles ?? locale.value.transfer.titles,
+)
+const mergedFilterPlaceholder = computed(
+  () => props.filterPlaceholder ?? locale.value.transfer.filterPlaceholder,
+)
+const mergedEmptyText = computed(
+  () => props.emptyText ?? locale.value.transfer.empty,
+)
+const mergedLeftButtonText = computed(
+  () => props.leftButtonText ?? locale.value.transfer.moveLeft,
+)
+const mergedRightButtonText = computed(
+  () => props.rightButtonText ?? locale.value.transfer.moveRight,
+)
 
 const mergedDisabled = computed(
   () => props.disabled || Boolean(form?.disabled.value),
@@ -341,7 +358,7 @@ function moveLeft() {
             <span class="su-transfer__checkbox-mark" />
           </span>
           <span class="su-transfer__title">
-            <slot name="left-title">{{ titles[0] }}</slot>
+            <slot name="left-title">{{ mergedTitles[0] }}</slot>
           </span>
         </label>
         <span class="su-transfer__count">
@@ -355,8 +372,8 @@ function moveLeft() {
           class="su-transfer__filter-input"
           type="search"
           :disabled="mergedDisabled"
-          :placeholder="filterPlaceholder"
-          aria-label="筛选源列表"
+          :placeholder="mergedFilterPlaceholder"
+          :aria-label="locale.transfer.filterSource"
         />
       </div>
 
@@ -408,7 +425,7 @@ function moveLeft() {
         </ul>
 
         <div v-else class="su-transfer__empty">
-          <slot name="empty" direction="left">{{ emptyText }}</slot>
+          <slot name="empty" direction="left">{{ mergedEmptyText }}</slot>
         </div>
       </div>
     </div>
@@ -418,7 +435,7 @@ function moveLeft() {
         class="su-transfer__button"
         type="button"
         :disabled="!canMoveRight"
-        :aria-label="rightButtonText"
+        :aria-label="mergedRightButtonText"
         @click="moveRight"
       >
         <span class="su-transfer__arrow su-transfer__arrow--right" />
@@ -427,7 +444,7 @@ function moveLeft() {
         class="su-transfer__button"
         type="button"
         :disabled="!canMoveLeft"
-        :aria-label="leftButtonText"
+        :aria-label="mergedLeftButtonText"
         @click="moveLeft"
       >
         <span class="su-transfer__arrow su-transfer__arrow--left" />
@@ -456,7 +473,7 @@ function moveLeft() {
             <span class="su-transfer__checkbox-mark" />
           </span>
           <span class="su-transfer__title">
-            <slot name="right-title">{{ titles[1] }}</slot>
+            <slot name="right-title">{{ mergedTitles[1] }}</slot>
           </span>
         </label>
         <span class="su-transfer__count">
@@ -470,8 +487,8 @@ function moveLeft() {
           class="su-transfer__filter-input"
           type="search"
           :disabled="mergedDisabled"
-          :placeholder="filterPlaceholder"
-          aria-label="筛选目标列表"
+          :placeholder="mergedFilterPlaceholder"
+          :aria-label="locale.transfer.filterTarget"
         />
       </div>
 
@@ -523,7 +540,7 @@ function moveLeft() {
         </ul>
 
         <div v-else class="su-transfer__empty">
-          <slot name="empty" direction="right">{{ emptyText }}</slot>
+          <slot name="empty" direction="right">{{ mergedEmptyText }}</slot>
         </div>
       </div>
     </div>

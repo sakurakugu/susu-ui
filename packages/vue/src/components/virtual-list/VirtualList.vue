@@ -8,6 +8,7 @@ import {
   watch,
   type CSSProperties,
 } from 'vue'
+import { useLocale } from '../../config-provider'
 import type { VirtualListItemKey, VirtualListScrollState } from './context'
 
 defineOptions({
@@ -29,7 +30,7 @@ const props = withDefaults(
     itemHeight: 40,
     itemKey: undefined,
     buffer: 5,
-    emptyText: '暂无数据',
+    emptyText: undefined,
   },
 )
 
@@ -43,6 +44,7 @@ defineSlots<{
 }>()
 
 const viewportRef = ref<HTMLElement>()
+const locale = useLocale()
 const scrollTop = ref(0)
 const measuredHeight = ref(
   typeof props.height === 'number' ? props.height : props.itemHeight * 10,
@@ -51,6 +53,9 @@ const measuredHeight = ref(
 let resizeObserver: ResizeObserver | undefined
 
 const normalizedItemHeight = computed(() => Math.max(1, props.itemHeight))
+const mergedEmptyText = computed(
+  () => props.emptyText ?? locale.value.virtualList.empty,
+)
 const normalizedBuffer = computed(() => Math.max(0, Math.floor(props.buffer)))
 
 const viewportStyle = computed<CSSProperties>(() => ({
@@ -260,7 +265,7 @@ defineExpose({
       </div>
 
       <div v-else class="su-virtual-list__empty">
-        <slot name="empty">{{ emptyText }}</slot>
+        <slot name="empty">{{ mergedEmptyText }}</slot>
       </div>
     </div>
   </div>

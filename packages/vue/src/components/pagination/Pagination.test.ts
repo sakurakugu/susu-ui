@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
+import { computed } from 'vue'
 import Pagination from './Pagination.vue'
+import { configProviderKey, mergeConfig } from '../../config-provider'
+import { enUS } from '../../locale'
 
 describe('Pagination', () => {
   it('渲染默认分页', () => {
@@ -114,6 +117,29 @@ describe('Pagination', () => {
     expect(wrapper.find('.su-pagination__total').text()).toBe('共 35 条')
     expect(wrapper.find('.su-pagination__simple').text()).toBe('2 / 4')
     expect(wrapper.find('.su-pagination__pager').exists()).toBe(false)
+  })
+
+  it('默认分页文案跟随 locale，且 props 覆盖优先', () => {
+    const wrapper = mount(Pagination, {
+      props: {
+        total: 35,
+        showTotal: true,
+        showSizeChanger: true,
+        prevText: '向前',
+      },
+      global: {
+        provide: {
+          [configProviderKey as symbol]: computed(() =>
+            mergeConfig({ locale: enUS }),
+          ),
+        },
+      },
+    })
+
+    expect(wrapper.find('.su-pagination__total').text()).toBe('35 items')
+    expect(wrapper.find('.su-pagination__prev').text()).toBe('向前')
+    expect(wrapper.find('.su-pagination__next').text()).toBe('Next')
+    expect(wrapper.find('option').text()).toBe('10 / page')
   })
 
   it('支持禁用和单页隐藏', async () => {

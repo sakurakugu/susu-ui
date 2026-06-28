@@ -10,6 +10,7 @@ import {
   watch,
   type CSSProperties,
 } from 'vue'
+import { useLocale } from '../../config-provider'
 import { formKey, type FormItemStatus, type FormSize } from '../form/context'
 
 defineOptions({
@@ -60,16 +61,16 @@ const props = withDefaults(
     options: () => [],
     size: undefined,
     status: 'default',
-    placeholder: '请选择',
+    placeholder: undefined,
     disabled: false,
     clearable: false,
     changeOnSelect: false,
     separator: ' / ',
-    emptyText: '暂无数据',
+    emptyText: undefined,
     name: undefined,
     id: undefined,
     required: false,
-    ariaLabel: '级联选择',
+    ariaLabel: undefined,
   },
 )
 
@@ -92,6 +93,7 @@ const form = inject(formKey, undefined)
 const rootRef = ref<HTMLElement>()
 const triggerRef = ref<HTMLButtonElement>()
 const panelRef = ref<HTMLElement>()
+const locale = useLocale()
 const isOpen = ref(false)
 const activePath = ref<CascaderValue[]>([])
 const activeIndex = ref(0)
@@ -99,6 +101,15 @@ const panelStyle = ref<CSSProperties>({})
 const panelId = `su-cascader-${useId()}`
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
+const mergedPlaceholder = computed(
+  () => props.placeholder ?? locale.value.cascader.placeholder,
+)
+const mergedEmptyText = computed(
+  () => props.emptyText ?? locale.value.cascader.empty,
+)
+const mergedAriaLabel = computed(
+  () => props.ariaLabel ?? locale.value.cascader.ariaLabel,
+)
 
 const mergedDisabled = computed(
   () => props.disabled || Boolean(form?.disabled.value),
@@ -469,7 +480,7 @@ defineExpose({
       class="su-cascader__trigger"
       type="button"
       :disabled="mergedDisabled"
-      :aria-label="ariaLabel"
+      :aria-label="mergedAriaLabel"
       :aria-controls="isOpen ? panelId : undefined"
       :aria-expanded="isOpen"
       aria-haspopup="listbox"
@@ -480,7 +491,9 @@ defineExpose({
     >
       <span class="su-cascader__value">
         <span v-if="hasValue">{{ displayText }}</span>
-        <span v-else class="su-cascader__placeholder">{{ placeholder }}</span>
+        <span v-else class="su-cascader__placeholder">
+          {{ mergedPlaceholder }}
+        </span>
       </span>
       <span class="su-cascader__arrow" aria-hidden="true" />
     </button>
@@ -488,7 +501,7 @@ defineExpose({
       v-if="showClear"
       class="su-cascader__clear"
       type="button"
-      aria-label="清空选择"
+      :aria-label="locale.cascader.clear"
       @click="clearValue"
     >
       &times;
@@ -554,7 +567,7 @@ defineExpose({
           </div>
         </div>
         <div v-else class="su-cascader__empty">
-          <slot name="empty">{{ emptyText }}</slot>
+          <slot name="empty">{{ mergedEmptyText }}</slot>
         </div>
       </div>
     </Transition>

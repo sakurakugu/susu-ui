@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, provide, ref, watch } from 'vue'
+import { useLocale } from '../../config-provider'
 import MenuNode from './MenuNode.vue'
 import { menuKey } from './context'
 
@@ -56,7 +57,7 @@ const props = withDefaults(
     selectable: true,
     defaultOpenAll: false,
     disabled: false,
-    emptyText: '暂无菜单',
+    emptyText: undefined,
   },
 )
 
@@ -71,12 +72,16 @@ defineSlots<{
 }>()
 
 const autoOpenKeys = ref<MenuKey[]>([])
+const locale = useLocale()
 
 const normalizedItems = computed<MenuRenderItem[]>(() =>
   normalizeItems(props.items),
 )
 
 const hasItems = computed(() => normalizedItems.value.length > 0)
+const mergedEmptyText = computed(
+  () => props.emptyText ?? locale.value.menu.empty,
+)
 const isHorizontal = computed(() => props.mode === 'horizontal')
 const isCollapsed = computed(() => props.collapse && !isHorizontal.value)
 const allSubmenuKeys = computed(() =>
@@ -248,7 +253,7 @@ function handleItemKeydown(item: MenuRenderItem, event: KeyboardEvent) {
     </ul>
 
     <div v-else class="su-menu__empty">
-      <slot name="empty">{{ emptyText }}</slot>
+      <slot name="empty">{{ mergedEmptyText }}</slot>
     </div>
   </nav>
 </template>

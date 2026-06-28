@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { mergeConfig, provideConfig } from './context'
-import type { SusuLocale } from '../locale'
+import type { DeepPartial, SusuLocale } from '../locale'
 
 defineOptions({
   name: 'SuConfigProvider',
 })
 
 const props = defineProps<{
-  locale?: SusuLocale
+  locale?: DeepPartial<SusuLocale>
 }>()
 
 const config = computed(() =>

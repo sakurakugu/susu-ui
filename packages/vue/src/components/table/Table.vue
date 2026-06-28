@@ -6,6 +6,7 @@ import {
   type CSSProperties,
   type VNodeChild,
 } from 'vue'
+import { useLocale } from '../../config-provider'
 import {
   tableKey,
   type RegisteredTableColumn,
@@ -39,7 +40,7 @@ const props = withDefaults(
     stripe: false,
     border: false,
     loading: false,
-    emptyText: '暂无数据',
+    emptyText: undefined,
     height: undefined,
     maxHeight: undefined,
   },
@@ -63,6 +64,10 @@ defineSlots<{
 }>()
 
 const slotColumns = ref<RegisteredTableColumn[]>([])
+const locale = useLocale()
+const mergedEmptyText = computed(
+  () => props.emptyText ?? locale.value.empty.description,
+)
 
 const normalizedPropColumns = computed<RegisteredTableColumn[]>(() =>
   (props.columns ?? []).map((column, index) => ({
@@ -258,12 +263,12 @@ function handleCellClick(
       </table>
 
       <div v-if="!hasData" class="su-table__empty">
-        <slot name="empty">{{ emptyText }}</slot>
+        <slot name="empty">{{ mergedEmptyText }}</slot>
       </div>
     </div>
 
     <div v-if="loading" class="su-table__loading">
-      <slot name="loading">加载中</slot>
+      <slot name="loading">{{ locale.table.loading }}</slot>
     </div>
   </div>
 </template>

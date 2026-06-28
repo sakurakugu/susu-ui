@@ -1,6 +1,9 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import Dialog from './Dialog.vue'
+import { configProviderKey, mergeConfig } from '../../config-provider'
+import { computed } from 'vue'
+import { enUS } from '../../locale'
 
 describe('Dialog', () => {
   afterEach(() => {
@@ -32,6 +35,36 @@ describe('Dialog', () => {
       '发布后将同步到线上环境。',
     )
     expect(document.body.querySelectorAll('.su-dialog__button')).toHaveLength(2)
+
+    wrapper.unmount()
+  })
+
+  it('默认按钮文案跟随 locale', async () => {
+    const wrapper = mount(Dialog, {
+      props: {
+        modelValue: true,
+      },
+      global: {
+        provide: {
+          [configProviderKey as symbol]: computed(() =>
+            mergeConfig({ locale: enUS }),
+          ),
+        },
+      },
+      attachTo: document.body,
+    })
+
+    await wrapper.vm.$nextTick()
+    const buttons =
+      document.body.querySelectorAll<HTMLButtonElement>('.su-dialog__button')
+
+    expect(buttons[0]?.textContent?.trim()).toBe('Cancel')
+    expect(buttons[1]?.textContent?.trim()).toBe('OK')
+    expect(
+      document.body
+        .querySelector<HTMLButtonElement>('.su-dialog__close')
+        ?.getAttribute('aria-label'),
+    ).toBe('Close dialog')
 
     wrapper.unmount()
   })

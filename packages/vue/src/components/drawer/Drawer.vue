@@ -8,6 +8,7 @@ import {
   watch,
   type CSSProperties,
 } from 'vue'
+import { useLocale } from '../../config-provider'
 
 defineOptions({
   name: 'SuDrawer',
@@ -42,8 +43,8 @@ const props = withDefaults(
     closeOnPressEscape: true,
     showClose: true,
     showFooter: true,
-    confirmText: '确定',
-    cancelText: '取消',
+    confirmText: undefined,
+    cancelText: undefined,
     confirmLoading: false,
     zIndex: undefined,
   },
@@ -66,9 +67,17 @@ defineSlots<{
 }>()
 
 const drawerRef = ref<HTMLElement>()
+const locale = useLocale()
 const titleId = `su-drawer-title-${useId()}`
 let previousBodyOverflow = ''
 let bodyScrollLocked = false
+
+const mergedConfirmText = computed(
+  () => props.confirmText ?? locale.value.common.confirm,
+)
+const mergedCancelText = computed(
+  () => props.cancelText ?? locale.value.common.cancel,
+)
 
 const isHorizontal = computed(
   () => props.placement === 'left' || props.placement === 'right',
@@ -215,7 +224,7 @@ onBeforeUnmount(() => {
               v-if="showClose"
               class="su-drawer__close"
               type="button"
-              aria-label="关闭抽屉"
+              :aria-label="locale.drawer.close"
               @click="handleCloseClick"
             >
               &times;
@@ -233,7 +242,7 @@ onBeforeUnmount(() => {
                 type="button"
                 @click="handleCancel"
               >
-                {{ cancelText }}
+                {{ mergedCancelText }}
               </button>
               <button
                 class="su-drawer__button su-drawer__button--primary"
@@ -247,7 +256,7 @@ onBeforeUnmount(() => {
                   class="su-drawer__loading"
                   aria-hidden="true"
                 />
-                {{ confirmText }}
+                {{ mergedConfirmText }}
               </button>
             </slot>
           </footer>

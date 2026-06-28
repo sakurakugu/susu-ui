@@ -5,13 +5,15 @@ import {
   type ComputedRef,
   type InjectionKey,
 } from 'vue'
-import { zhCN, type SusuLocale } from '../locale'
+import { zhCN, type DeepPartial, type SusuLocale } from '../locale'
 
 export type SusuConfig = {
   locale: SusuLocale
 }
 
-export type SusuConfigProviderProps = Partial<SusuConfig>
+export type SusuConfigProviderProps = {
+  locale?: DeepPartial<SusuLocale>
+}
 
 export const defaultConfig: SusuConfig = {
   locale: zhCN,
@@ -24,6 +26,93 @@ export function mergeConfig(config?: SusuConfigProviderProps): SusuConfig {
   return {
     ...defaultConfig,
     ...config,
+    locale: mergeLocale(defaultConfig.locale, config?.locale),
+  }
+}
+
+function mergeLocale(
+  defaultLocale: SusuLocale,
+  locale?: DeepPartial<SusuLocale>,
+): SusuLocale {
+  if (!locale) {
+    return defaultLocale
+  }
+
+  return {
+    ...defaultLocale,
+    ...locale,
+    common: {
+      ...defaultLocale.common,
+      ...locale.common,
+    },
+    empty: {
+      ...defaultLocale.empty,
+      ...locale.empty,
+    },
+    dialog: {
+      ...defaultLocale.dialog,
+      ...locale.dialog,
+    },
+    drawer: {
+      ...defaultLocale.drawer,
+      ...locale.drawer,
+    },
+    datePicker: {
+      ...defaultLocale.datePicker,
+      ...locale.datePicker,
+    },
+    pagination: {
+      ...defaultLocale.pagination,
+      ...locale.pagination,
+    },
+    list: {
+      ...defaultLocale.list,
+      ...locale.list,
+    },
+    table: {
+      ...defaultLocale.table,
+      ...locale.table,
+    },
+    popconfirm: {
+      ...defaultLocale.popconfirm,
+      ...locale.popconfirm,
+    },
+    upload: {
+      ...defaultLocale.upload,
+      ...locale.upload,
+    },
+    autocomplete: {
+      ...defaultLocale.autocomplete,
+      ...locale.autocomplete,
+    },
+    cascader: {
+      ...defaultLocale.cascader,
+      ...locale.cascader,
+    },
+    tree: {
+      ...defaultLocale.tree,
+      ...locale.tree,
+    },
+    virtualList: {
+      ...defaultLocale.virtualList,
+      ...locale.virtualList,
+    },
+    anchor: {
+      ...defaultLocale.anchor,
+      ...locale.anchor,
+    },
+    menu: {
+      ...defaultLocale.menu,
+      ...locale.menu,
+    },
+    select: {
+      ...defaultLocale.select,
+      ...locale.select,
+    },
+    transfer: {
+      ...defaultLocale.transfer,
+      ...locale.transfer,
+    },
   }
 }
 

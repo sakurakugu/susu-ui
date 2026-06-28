@@ -10,6 +10,7 @@ import {
   watch,
   type CSSProperties,
 } from 'vue'
+import { useLocale } from '../../config-provider'
 import { formKey, type FormItemStatus, type FormSize } from '../form/context'
 
 defineOptions({
@@ -56,7 +57,7 @@ const props = withDefaults(
     clearable: false,
     filterable: true,
     fetchSuggestions: undefined,
-    emptyText: '暂无匹配结果',
+    emptyText: undefined,
     name: undefined,
     id: undefined,
     autocomplete: 'off',
@@ -78,12 +79,16 @@ const form = inject(formKey, undefined)
 const rootRef = ref<HTMLElement>()
 const inputRef = ref<HTMLInputElement>()
 const panelRef = ref<HTMLElement>()
+const locale = useLocale()
 const innerVisible = ref(false)
 const activeIndex = ref(-1)
 const panelStyle = ref<CSSProperties>({})
 const listboxId = `su-autocomplete-${useId()}`
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
+const mergedEmptyText = computed(
+  () => props.emptyText ?? locale.value.autocomplete.empty,
+)
 
 const mergedDisabled = computed(
   () => props.disabled || Boolean(form?.disabled.value),
@@ -121,7 +126,7 @@ const visible = computed(
     innerVisible.value &&
     !mergedDisabled.value &&
     !props.readonly &&
-    (suggestions.value.length > 0 || Boolean(props.emptyText)),
+    (suggestions.value.length > 0 || Boolean(mergedEmptyText.value)),
 )
 
 const showClear = computed(
@@ -382,7 +387,7 @@ defineExpose({
       v-if="showClear"
       class="su-autocomplete__clear"
       type="button"
-      aria-label="清空输入"
+      :aria-label="locale.autocomplete.clear"
       @click="clearValue"
     >
       &times;
@@ -419,7 +424,7 @@ defineExpose({
           </slot>
         </button>
         <div v-if="suggestions.length === 0" class="su-autocomplete__empty">
-          <slot name="empty">{{ emptyText }}</slot>
+          <slot name="empty">{{ mergedEmptyText }}</slot>
         </div>
       </div>
     </Transition>

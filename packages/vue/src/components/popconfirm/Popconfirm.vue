@@ -8,6 +8,7 @@ import {
   watch,
   type CSSProperties,
 } from 'vue'
+import { useLocale } from '../../config-provider'
 import { SuButton } from '../button'
 
 defineOptions({
@@ -64,8 +65,8 @@ const props = withDefaults(
     width: 280,
     popperClass: undefined,
     zIndex: undefined,
-    confirmText: '确定',
-    cancelText: '取消',
+    confirmText: undefined,
+    cancelText: undefined,
     confirmType: 'primary',
     confirmVariant: 'solid',
     cancelType: 'default',
@@ -93,6 +94,7 @@ defineSlots<{
 
 const triggerRef = ref<HTMLElement>()
 const popperRef = ref<HTMLElement>()
+const locale = useLocale()
 const innerVisible = ref(false)
 const popconfirmId = `su-popconfirm-${useId()}`
 const popperStyle = ref<CSSProperties>({})
@@ -108,6 +110,12 @@ const visible = computed(() =>
 const placementSide = computed(() => props.placement.split('-')[0])
 const normalizedWidth = computed(() =>
   typeof props.width === 'number' ? `${props.width}px` : props.width,
+)
+const mergedConfirmText = computed(
+  () => props.confirmText ?? locale.value.popconfirm.confirm,
+)
+const mergedCancelText = computed(
+  () => props.cancelText ?? locale.value.popconfirm.cancel,
 )
 
 function setVisible(value: boolean) {
@@ -371,7 +379,7 @@ onBeforeUnmount(() => {
               :variant="cancelVariant"
               @click="handleCancel"
             >
-              {{ cancelText }}
+              {{ mergedCancelText }}
             </SuButton>
             <SuButton
               size="small"
@@ -380,7 +388,7 @@ onBeforeUnmount(() => {
               :loading="confirmLoading"
               @click="handleConfirm"
             >
-              {{ confirmText }}
+              {{ mergedConfirmText }}
             </SuButton>
           </slot>
         </div>

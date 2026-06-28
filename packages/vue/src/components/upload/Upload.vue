@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { useLocale } from '../../config-provider'
 import type { FormSize } from '../form/context'
 
 defineOptions({
@@ -88,10 +89,14 @@ const emit = defineEmits<{
 }>()
 
 const inputRef = ref<HTMLInputElement>()
+const locale = useLocale()
 const isDragging = ref(false)
 
 const canSelectMore = computed(
   () => props.limit === undefined || model.value.length < props.limit,
+)
+const triggerText = computed(() =>
+  props.drag ? locale.value.upload.dragFile : locale.value.upload.selectFile,
 )
 
 function createUploadFile(file: File): UploadFile {
@@ -293,12 +298,12 @@ function defaultRequest(options: UploadRequestOptions) {
         options.onSuccess(parseResponse(xhr.responseText))
         resolve()
       } else {
-        reject(new Error(`上传失败：${xhr.status}`))
+        reject(new Error(locale.value.upload.uploadError(xhr.status)))
       }
     })
 
     xhr.addEventListener('error', () => {
-      reject(new Error('上传请求失败'))
+      reject(new Error(locale.value.upload.requestError))
     })
 
     xhr.open('POST', options.action ?? '')
@@ -369,7 +374,7 @@ defineExpose({
       <slot>
         <span class="su-upload__icon" aria-hidden="true">+</span>
         <span class="su-upload__text">
-          {{ drag ? '点击或拖拽文件到此处上传' : '选择文件' }}
+          {{ triggerText }}
         </span>
       </slot>
     </div>
@@ -399,10 +404,10 @@ defineExpose({
                 file.status === 'uploading'
                   ? `${file.percentage}%`
                   : file.status === 'success'
-                    ? '完成'
+                    ? locale.upload.success
                     : file.status === 'error'
-                      ? '失败'
-                      : '待上传'
+                      ? locale.upload.error
+                      : locale.upload.ready
               }}
             </span>
           </slot>
@@ -418,7 +423,7 @@ defineExpose({
           class="su-upload__remove"
           type="button"
           :disabled="disabled"
-          aria-label="移除文件"
+          :aria-label="locale.upload.remove"
           @click="removeFile(file)"
         >
           ×

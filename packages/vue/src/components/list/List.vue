@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useLocale } from '../../config-provider'
 
 defineOptions({
   name: 'SuList',
@@ -29,7 +30,7 @@ const props = withDefaults(
     size: 'medium',
     itemLayout: 'horizontal',
     loading: false,
-    emptyText: '暂无数据',
+    emptyText: undefined,
   },
 )
 
@@ -40,7 +41,11 @@ defineSlots<{
   empty?: () => unknown
 }>()
 
+const locale = useLocale()
 const hasHeader = computed(() => Boolean(props.title))
+const mergedEmptyText = computed(
+  () => props.emptyText ?? locale.value.empty.description,
+)
 </script>
 
 <template>
@@ -67,7 +72,9 @@ const hasHeader = computed(() => Boolean(props.title))
       </slot>
     </div>
 
-    <div v-if="loading" class="su-list__loading" role="status">加载中...</div>
+    <div v-if="loading" class="su-list__loading" role="status">
+      {{ locale.list.loading }}
+    </div>
 
     <div v-else-if="$slots.default" class="su-list__body">
       <slot />
@@ -75,7 +82,7 @@ const hasHeader = computed(() => Boolean(props.title))
 
     <div v-else class="su-list__empty">
       <slot name="empty">
-        {{ emptyText }}
+        {{ mergedEmptyText }}
       </slot>
     </div>
 

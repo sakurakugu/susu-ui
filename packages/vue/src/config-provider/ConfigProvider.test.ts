@@ -51,4 +51,23 @@ describe('ConfigProvider', () => {
 
     expect(wrapper.find('[data-locale-name]').text()).toBe('en-us')
   })
+
+  it('支持局部覆盖 locale 并保留默认字段', () => {
+    const wrapper = mount(ConfigProvider, {
+      props: {
+        locale: {
+          name: 'custom',
+          empty: {
+            description: '没有记录',
+          },
+        },
+      },
+      slots: {
+        default: ConfigConsumer,
+      },
+    })
+
+    expect(wrapper.find('[data-locale-description]').text()).toBe('没有记录')
+    expect(wrapper.find('[data-locale-name]').text()).toBe('custom')
+  })
 })

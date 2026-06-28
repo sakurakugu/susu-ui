@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
+import { useLocale } from '../../config-provider'
 import TreeNodeItem from './TreeNode.vue'
 
 defineOptions({
@@ -60,7 +61,7 @@ const props = withDefaults(
     expandOnClickNode: true,
     checkOnClickNode: false,
     disabled: false,
-    emptyText: '暂无数据',
+    emptyText: undefined,
   },
 )
 
@@ -76,6 +77,10 @@ defineSlots<{
 }>()
 
 const autoExpandedKeys = ref<TreeNodeKey[]>([])
+const locale = useLocale()
+const mergedEmptyText = computed(
+  () => props.emptyText ?? locale.value.tree.empty,
+)
 
 const normalizedData = computed<TreeRenderNode[]>(() =>
   normalizeNodes(props.data),
@@ -318,7 +323,7 @@ function handleNodeKeydown(node: TreeRenderNode, event: KeyboardEvent) {
     </ul>
 
     <div v-else class="su-tree__empty">
-      <slot name="empty">{{ emptyText }}</slot>
+      <slot name="empty">{{ mergedEmptyText }}</slot>
     </div>
   </div>
 </template>

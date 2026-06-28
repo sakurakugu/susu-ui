@@ -8,6 +8,7 @@ import {
   watch,
   type CSSProperties,
 } from 'vue'
+import { useLocale } from '../../config-provider'
 
 defineOptions({
   name: 'SuDialog',
@@ -41,8 +42,8 @@ const props = withDefaults(
     closeOnPressEscape: true,
     showClose: true,
     showFooter: true,
-    confirmText: '确定',
-    cancelText: '取消',
+    confirmText: undefined,
+    cancelText: undefined,
     confirmLoading: false,
     zIndex: undefined,
   },
@@ -65,9 +66,17 @@ defineSlots<{
 }>()
 
 const dialogRef = ref<HTMLElement>()
+const locale = useLocale()
 const titleId = `su-dialog-title-${useId()}`
 let previousBodyOverflow = ''
 let bodyScrollLocked = false
+
+const mergedConfirmText = computed(
+  () => props.confirmText ?? locale.value.common.confirm,
+)
+const mergedCancelText = computed(
+  () => props.cancelText ?? locale.value.common.cancel,
+)
 
 const dialogStyle = computed<CSSProperties>(() => ({
   width: typeof props.width === 'number' ? `${props.width}px` : props.width,
@@ -203,7 +212,7 @@ onBeforeUnmount(() => {
               v-if="showClose"
               class="su-dialog__close"
               type="button"
-              aria-label="关闭弹窗"
+              :aria-label="locale.dialog.close"
               @click="handleCloseClick"
             >
               &times;
@@ -221,7 +230,7 @@ onBeforeUnmount(() => {
                 type="button"
                 @click="handleCancel"
               >
-                {{ cancelText }}
+                {{ mergedCancelText }}
               </button>
               <button
                 class="su-dialog__button su-dialog__button--primary"
@@ -235,7 +244,7 @@ onBeforeUnmount(() => {
                   class="su-dialog__loading"
                   aria-hidden="true"
                 />
-                {{ confirmText }}
+                {{ mergedConfirmText }}
               </button>
             </slot>
           </footer>

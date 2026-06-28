@@ -8,6 +8,7 @@ import {
   useAttrs,
   watch,
 } from 'vue'
+import { useLocale } from '../../config-provider'
 import { formKey, type FormItemStatus, type FormSize } from '../form/context'
 
 defineOptions({
@@ -52,7 +53,7 @@ const props = withDefaults(
   {
     size: undefined,
     status: 'default',
-    placeholder: '请选择日期',
+    placeholder: undefined,
     disabled: false,
     readonly: false,
     clearable: false,
@@ -63,7 +64,7 @@ const props = withDefaults(
     id: undefined,
     required: false,
     autocomplete: undefined,
-    ariaLabel: '日期选择',
+    ariaLabel: undefined,
   },
 )
 
@@ -82,11 +83,18 @@ const form = inject(formKey, undefined)
 const rootRef = ref<HTMLElement>()
 const inputRef = ref<HTMLInputElement>()
 const panelRef = ref<HTMLElement>()
+const locale = useLocale()
 const isOpen = ref(false)
 const viewYear = ref(new Date().getFullYear())
 const viewMonth = ref(new Date().getMonth())
 
-const weekdays = ['一', '二', '三', '四', '五', '六', '日']
+const weekdays = computed(() => locale.value.datePicker.weekdays)
+const mergedPlaceholder = computed(
+  () => props.placeholder ?? locale.value.datePicker.placeholder,
+)
+const mergedAriaLabel = computed(
+  () => props.ariaLabel ?? locale.value.datePicker.ariaLabel,
+)
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
 const mergedDisabled = computed(
@@ -103,8 +111,8 @@ const displayValue = computed(() => {
   return date ? formatDate(date) : ''
 })
 
-const monthTitle = computed(
-  () => `${viewYear.value} 年 ${viewMonth.value + 1} 月`,
+const monthTitle = computed(() =>
+  locale.value.datePicker.monthTitle(viewYear.value, viewMonth.value + 1),
 )
 
 const showClear = computed(
@@ -387,13 +395,13 @@ defineExpose({
         type="text"
         inputmode="numeric"
         :value="model"
-        :placeholder="placeholder"
+        :placeholder="mergedPlaceholder"
         :disabled="mergedDisabled"
         :readonly="readonly"
         :name="name"
         :required="required"
         :autocomplete="autocomplete"
-        :aria-label="ariaLabel"
+        :aria-label="mergedAriaLabel"
         :aria-expanded="isOpen"
         aria-haspopup="dialog"
         @input="handleInput"
@@ -407,7 +415,7 @@ defineExpose({
         v-if="showClear"
         class="su-date-picker__clear"
         type="button"
-        aria-label="清空日期"
+        :aria-label="locale.datePicker.clear"
         @click="clearValue"
       >
         &times;
@@ -415,7 +423,7 @@ defineExpose({
       <button
         class="su-date-picker__trigger"
         type="button"
-        aria-label="打开日期面板"
+        :aria-label="locale.datePicker.openPanel"
         :disabled="!isInteractive"
         @click="togglePanel"
       >
@@ -428,14 +436,14 @@ defineExpose({
       ref="panelRef"
       class="su-date-picker__panel"
       role="dialog"
-      aria-label="日期面板"
+      :aria-label="locale.datePicker.panel"
       @keydown="handlePanelKeydown"
     >
       <div class="su-date-picker__header">
         <button
           class="su-date-picker__nav"
           type="button"
-          aria-label="上一月"
+          :aria-label="locale.datePicker.previousMonth"
           @click="changeMonth(-1)"
         >
           ‹
@@ -444,7 +452,7 @@ defineExpose({
         <button
           class="su-date-picker__nav"
           type="button"
-          aria-label="下一月"
+          :aria-label="locale.datePicker.nextMonth"
           @click="changeMonth(1)"
         >
           ›

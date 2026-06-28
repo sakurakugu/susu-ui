@@ -1,6 +1,9 @@
 import { describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
+import { computed } from 'vue'
 import Upload from './Upload.vue'
+import { configProviderKey, mergeConfig } from '../../config-provider'
+import { enUS } from '../../locale'
 
 function createFile(name = 'avatar.png', type = 'image/png') {
   return new File(['hello'], name, { type })
@@ -13,6 +16,36 @@ describe('Upload', () => {
     expect(wrapper.classes()).toContain('su-upload')
     expect(wrapper.find('.su-upload__trigger').text()).toContain('选择文件')
     expect(wrapper.find('input[type="file"]').exists()).toBe(true)
+  })
+
+  it('默认上传文案跟随 locale', () => {
+    const wrapper = mount(Upload, {
+      props: {
+        modelValue: [
+          {
+            uid: '1',
+            name: 'demo.txt',
+            size: 1,
+            type: 'text/plain',
+            status: 'ready',
+            percentage: 0,
+          },
+        ],
+      },
+      global: {
+        provide: {
+          [configProviderKey as symbol]: computed(() =>
+            mergeConfig({ locale: enUS }),
+          ),
+        },
+      },
+    })
+
+    expect(wrapper.find('.su-upload__trigger').text()).toContain('Select file')
+    expect(wrapper.find('.su-upload__status').text()).toBe('Ready')
+    expect(wrapper.find('.su-upload__remove').attributes('aria-label')).toBe(
+      'Remove file',
+    )
   })
 
   it('选择文件后更新列表并触发上传成功', async () => {

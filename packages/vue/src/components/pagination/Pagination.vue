@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, watch } from 'vue'
+import { useLocale } from '../../config-provider'
 import type { FormSize } from '../form/context'
 
 defineOptions({
@@ -43,8 +44,8 @@ const props = withDefaults(
     showQuickJumper: false,
     simple: false,
     hideOnSinglePage: false,
-    prevText: '上一页',
-    nextText: '下一页',
+    prevText: undefined,
+    nextText: undefined,
   },
 )
 
@@ -57,6 +58,13 @@ const emit = defineEmits<{
 }>()
 
 const normalizedTotal = computed(() => Math.max(0, Math.floor(props.total)))
+const locale = useLocale()
+const mergedPrevText = computed(
+  () => props.prevText ?? locale.value.pagination.prev,
+)
+const mergedNextText = computed(
+  () => props.nextText ?? locale.value.pagination.next,
+)
 const normalizedPageSize = computed(() =>
   Math.max(1, Math.floor(pageSize.value)),
 )
@@ -228,20 +236,20 @@ watch(
         'is-simple': simple,
       },
     ]"
-    aria-label="分页"
+    :aria-label="locale.pagination.ariaLabel"
   >
     <span v-if="showTotal" class="su-pagination__total">
-      共 {{ normalizedTotal }} 条
+      {{ locale.pagination.total(normalizedTotal) }}
     </span>
 
     <button
       class="su-pagination__button su-pagination__prev"
       type="button"
       :disabled="disabled || isFirstPage"
-      :aria-label="prevText"
+      :aria-label="mergedPrevText"
       @click="goPrev"
     >
-      {{ prevText }}
+      {{ mergedPrevText }}
     </button>
 
     <span v-if="simple" class="su-pagination__simple">
@@ -257,7 +265,7 @@ watch(
           :class="{ 'is-active': item === normalizedCurrentPage }"
           :disabled="disabled"
           :aria-current="item === normalizedCurrentPage ? 'page' : undefined"
-          :aria-label="`第 ${item} 页`"
+          :aria-label="locale.pagination.page(item)"
           @click="setCurrentPage(item)"
         >
           {{ item }}
@@ -267,7 +275,7 @@ watch(
           class="su-pagination__button su-pagination__more"
           type="button"
           :disabled="disabled"
-          aria-label="更多页码"
+          :aria-label="locale.pagination.more"
           @click="jumpMore(item)"
         >
           ...
@@ -279,10 +287,10 @@ watch(
       class="su-pagination__button su-pagination__next"
       type="button"
       :disabled="disabled || isLastPage"
-      :aria-label="nextText"
+      :aria-label="mergedNextText"
       @click="goNext"
     >
-      {{ nextText }}
+      {{ mergedNextText }}
     </button>
 
     <label v-if="showSizeChanger" class="su-pagination__size">
@@ -290,17 +298,17 @@ watch(
         class="su-pagination__select"
         :value="normalizedPageSize"
         :disabled="disabled"
-        aria-label="每页条数"
+        :aria-label="locale.pagination.pageSize"
         @change="handlePageSizeChange"
       >
         <option v-for="item in pageSizes" :key="item" :value="item">
-          {{ item }} 条/页
+          {{ locale.pagination.pageSizeOption(item) }}
         </option>
       </select>
     </label>
 
     <label v-if="showQuickJumper" class="su-pagination__jumper">
-      跳至
+      {{ locale.pagination.jumpTo }}
       <input
         class="su-pagination__input"
         type="number"
@@ -308,10 +316,10 @@ watch(
         :max="pageCount"
         :disabled="disabled"
         :value="normalizedCurrentPage"
-        aria-label="跳转页码"
+        :aria-label="locale.pagination.jumpPage"
         @change="handleQuickJump"
       />
-      页
+      {{ locale.pagination.pageUnit }}
     </label>
   </nav>
 </template>
