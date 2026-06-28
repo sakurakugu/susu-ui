@@ -63,6 +63,7 @@ import TreeSelectDemo from './TreeSelectDemo.vue'
 import TransferDemo from './TransferDemo.vue'
 import DescriptionsDemo from './DescriptionsDemo.vue'
 import PaginationDemo from './PaginationDemo.vue'
+import PageHeaderDemo from './PageHeaderDemo.vue'
 import ProgressDemo from './ProgressDemo.vue'
 import QRCodeDemo from './QRCodeDemo.vue'
 import StatisticDemo from './StatisticDemo.vue'
@@ -141,6 +142,7 @@ export const playgroundDemos = [
   { id: 'transfer', component: TransferDemo },
   { id: 'descriptions', component: DescriptionsDemo },
   { id: 'pagination', component: PaginationDemo },
+  { id: 'page-header', component: PageHeaderDemo },
   { id: 'progress', component: ProgressDemo },
   { id: 'qrcode', component: QRCodeDemo },
   { id: 'statistic', component: StatisticDemo },

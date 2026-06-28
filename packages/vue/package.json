@@ -211,6 +211,11 @@
       "import": "./dist/otp-input.js",
       "require": "./dist/otp-input.cjs"
     },
+    "./page-header": {
+      "types": "./dist/components/page-header/index.d.ts",
+      "import": "./dist/page-header.js",
+      "require": "./dist/page-header.cjs"
+    },
     "./pagination": {
       "types": "./dist/components/pagination/index.d.ts",
       "import": "./dist/pagination.js",

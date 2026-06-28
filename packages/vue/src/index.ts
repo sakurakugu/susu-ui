@@ -52,6 +52,7 @@ import { SuMention } from './components/mention'
 import { SuMessage } from './components/message'
 import { SuNotification } from './components/notification'
 import { SuOtpInput } from './components/otp-input'
+import { SuPageHeader } from './components/page-header'
 import { SuPagination } from './components/pagination'
 import { SuPopconfirm } from './components/popconfirm'
 import { SuPopover } from './components/popover'
@@ -130,6 +131,7 @@ export * from './components/mention'
 export * from './components/message'
 export * from './components/notification'
 export * from './components/otp-input'
+export * from './components/page-header'
 export * from './components/pagination'
 export * from './components/popconfirm'
 export * from './components/popover'
@@ -221,6 +223,7 @@ const components = [
   SuMessage,
   SuNotification,
   SuOtpInput,
+  SuPageHeader,
   SuPagination,
   SuPopconfirm,
   SuPopover,

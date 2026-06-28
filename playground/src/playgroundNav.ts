@@ -490,6 +490,13 @@ export const playgroundNavItems: PlaygroundNavItem[] = [
     scenarios: ['表格分页', '搜索结果', '列表翻页'],
   },
   {
+    id: 'page-header',
+    label: '页头',
+    group: 'navigation',
+    description: '用于承载页面标题、返回入口、层级路径和页面级操作。',
+    scenarios: ['详情页头', '列表页操作栏', '配置页面导航'],
+  },
+  {
     id: 'progress',
     label: '进度条',
     group: 'feedback',

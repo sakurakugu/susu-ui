@@ -75,6 +75,10 @@ export default defineConfig({
           'src/components/notification/index.ts',
         ),
         'otp-input': resolve(__dirname, 'src/components/otp-input/index.ts'),
+        'page-header': resolve(
+          __dirname,
+          'src/components/page-header/index.ts',
+        ),
         pagination: resolve(__dirname, 'src/components/pagination/index.ts'),
         popconfirm: resolve(__dirname, 'src/components/popconfirm/index.ts'),
         popover: resolve(__dirname, 'src/components/popover/index.ts'),
