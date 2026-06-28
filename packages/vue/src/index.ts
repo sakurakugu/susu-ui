@@ -48,6 +48,7 @@ import {
 import { SuLink } from './components/link'
 import { SuList, SuListItem } from './components/list'
 import { SuLoading } from './components/loading'
+import { SuMasonry } from './components/masonry'
 import { SuMenu } from './components/menu'
 import { SuMention } from './components/mention'
 import { SuMessage } from './components/message'
@@ -129,6 +130,7 @@ export * from './components/layout'
 export * from './components/link'
 export * from './components/list'
 export * from './components/loading'
+export * from './components/masonry'
 export * from './components/menu'
 export * from './components/mention'
 export * from './components/message'
@@ -223,6 +225,7 @@ const components = [
   SuList,
   SuListItem,
   SuLoading,
+  SuMasonry,
   SuMenu,
   SuMention,
   SuMessage,

@@ -35,6 +35,7 @@ import SplitterDemo from './SplitterDemo.vue'
 import DividerDemo from './DividerDemo.vue'
 import SpaceDemo from './SpaceDemo.vue'
 import GridDemo from './GridDemo.vue'
+import MasonryDemo from './MasonryDemo.vue'
 import RateDemo from './RateDemo.vue'
 import SliderDemo from './SliderDemo.vue'
 import MenuDemo from './MenuDemo.vue'
@@ -116,6 +117,7 @@ export const playgroundDemos = [
   { id: 'divider', component: DividerDemo },
   { id: 'space', component: SpaceDemo },
   { id: 'grid', component: GridDemo },
+  { id: 'masonry', component: MasonryDemo },
   { id: 'rate', component: RateDemo },
   { id: 'slider', component: SliderDemo },
   { id: 'menu', component: MenuDemo },

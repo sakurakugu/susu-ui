@@ -294,6 +294,13 @@ export const playgroundNavItems: PlaygroundNavItem[] = [
     scenarios: ['指标栅格', '商品列表', '表单布局'],
   },
   {
+    id: 'masonry',
+    label: '瀑布流',
+    group: 'layout',
+    description: '用于展示高度不一的卡片内容，并保持纵向空间利用率。',
+    scenarios: ['灵感看板', '内容瀑布流', '素材库'],
+  },
+  {
     id: 'rate',
     label: '评分',
     group: 'input',

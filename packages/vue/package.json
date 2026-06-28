@@ -191,6 +191,11 @@
       "import": "./dist/loading.js",
       "require": "./dist/loading.cjs"
     },
+    "./masonry": {
+      "types": "./dist/components/masonry/index.d.ts",
+      "import": "./dist/masonry.js",
+      "require": "./dist/masonry.cjs"
+    },
     "./menu": {
       "types": "./dist/components/menu/index.d.ts",
       "import": "./dist/menu.js",

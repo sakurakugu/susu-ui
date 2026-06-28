@@ -68,6 +68,7 @@ export default defineConfig({
         link: resolve(__dirname, 'src/components/link/index.ts'),
         list: resolve(__dirname, 'src/components/list/index.ts'),
         loading: resolve(__dirname, 'src/components/loading/index.ts'),
+        masonry: resolve(__dirname, 'src/components/masonry/index.ts'),
         menu: resolve(__dirname, 'src/components/menu/index.ts'),
         mention: resolve(__dirname, 'src/components/mention/index.ts'),
         message: resolve(__dirname, 'src/components/message/index.ts'),
