@@ -58,6 +58,7 @@ import ListDemo from './ListDemo.vue'
 import VirtualListDemo from './VirtualListDemo.vue'
 import VirtualizedSelectDemo from './VirtualizedSelectDemo.vue'
 import TreeDemo from './TreeDemo.vue'
+import TreeSelectDemo from './TreeSelectDemo.vue'
 import TransferDemo from './TransferDemo.vue'
 import DescriptionsDemo from './DescriptionsDemo.vue'
 import PaginationDemo from './PaginationDemo.vue'
@@ -134,6 +135,7 @@ export const playgroundDemos = [
   { id: 'virtual-list', component: VirtualListDemo },
   { id: 'virtualized-select', component: VirtualizedSelectDemo },
   { id: 'tree', component: TreeDemo },
+  { id: 'tree-select', component: TreeSelectDemo },
   { id: 'transfer', component: TransferDemo },
   { id: 'descriptions', component: DescriptionsDemo },
   { id: 'pagination', component: PaginationDemo },

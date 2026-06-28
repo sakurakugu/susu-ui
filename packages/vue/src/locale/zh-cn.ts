@@ -75,6 +75,13 @@ export const zhCN: SusuLocale = {
   tree: {
     empty: '暂无数据',
   },
+  treeSelect: {
+    placeholder: '请选择',
+    empty: '暂无数据',
+    filterPlaceholder: '请输入搜索内容',
+    ariaLabel: '树选择',
+    clear: '清空选择',
+  },
   virtualList: {
     empty: '暂无数据',
   },

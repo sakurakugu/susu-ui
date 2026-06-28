@@ -361,6 +361,11 @@
       "import": "./dist/tree.js",
       "require": "./dist/tree.cjs"
     },
+    "./tree-select": {
+      "types": "./dist/components/tree-select/index.d.ts",
+      "import": "./dist/tree-select.js",
+      "require": "./dist/tree-select.cjs"
+    },
     "./upload": {
       "types": "./dist/components/upload/index.d.ts",
       "import": "./dist/upload.js",

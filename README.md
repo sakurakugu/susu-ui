@@ -128,6 +128,7 @@ pnpm build
 - [Tour 漫游式引导](./docs/组件/Tour%20漫游式引导.md)
 - [Transfer 穿梭框](./docs/组件/Transfer%20穿梭框.md)
 - [Tree 树](./docs/组件/Tree%20树.md)
+- [TreeSelect 树选择](./docs/组件/TreeSelect%20树选择.md)
 - [Upload 上传](./docs/组件/Upload%20上传.md)
 - [VirtualList 虚拟列表](./docs/组件/VirtualList%20虚拟列表.md)
 - [VirtualizedSelect 虚拟选择器](./docs/组件/VirtualizedSelect%20虚拟选择器.md)

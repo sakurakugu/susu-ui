@@ -93,6 +93,10 @@ function mergeLocale(
       ...defaultLocale.tree,
       ...locale.tree,
     },
+    treeSelect: {
+      ...defaultLocale.treeSelect,
+      ...locale.treeSelect,
+    },
     virtualList: {
       ...defaultLocale.virtualList,
       ...locale.virtualList,

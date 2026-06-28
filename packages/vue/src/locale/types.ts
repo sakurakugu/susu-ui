@@ -73,6 +73,13 @@ export type SusuLocale = {
   tree: {
     empty: string
   }
+  treeSelect: {
+    placeholder: string
+    empty: string
+    filterPlaceholder: string
+    ariaLabel: string
+    clear: string
+  }
   virtualList: {
     empty: string
   }

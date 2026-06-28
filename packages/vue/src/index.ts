@@ -82,6 +82,7 @@ import { SuTooltip } from './components/tooltip'
 import { SuTour } from './components/tour'
 import { SuTransfer } from './components/transfer'
 import { SuTree } from './components/tree'
+import { SuTreeSelect } from './components/tree-select'
 import { SuUpload } from './components/upload'
 import { SuVirtualList } from './components/virtual-list'
 import { SuVirtualizedSelect } from './components/virtualized-select'
@@ -158,6 +159,7 @@ export * from './components/tooltip'
 export * from './components/tour'
 export * from './components/transfer'
 export * from './components/tree'
+export * from './components/tree-select'
 export * from './components/upload'
 export * from './components/virtual-list'
 export * from './components/virtualized-select'
@@ -251,6 +253,7 @@ const components = [
   SuTour,
   SuTransfer,
   SuTree,
+  SuTreeSelect,
   SuUpload,
   SuVirtualList,
   SuVirtualizedSelect,

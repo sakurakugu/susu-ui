@@ -75,6 +75,13 @@ export const enUS: SusuLocale = {
   tree: {
     empty: 'No data',
   },
+  treeSelect: {
+    placeholder: 'Select',
+    empty: 'No data',
+    filterPlaceholder: 'Search',
+    ariaLabel: 'Tree select',
+    clear: 'Clear selection',
+  },
   virtualList: {
     empty: 'No data',
   },

@@ -455,6 +455,13 @@ export const playgroundNavItems: PlaygroundNavItem[] = [
     scenarios: ['组织架构', '目录树', '权限节点'],
   },
   {
+    id: 'tree-select',
+    label: '树选择',
+    group: 'input',
+    description: '用于在层级数据中选择单个节点，并支持搜索和清空。',
+    scenarios: ['部门选择', '权限范围', '目录归属'],
+  },
+  {
     id: 'transfer',
     label: '穿梭框',
     group: 'data',

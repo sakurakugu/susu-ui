@@ -108,6 +108,10 @@ export default defineConfig({
         tour: resolve(__dirname, 'src/components/tour/index.ts'),
         transfer: resolve(__dirname, 'src/components/transfer/index.ts'),
         tree: resolve(__dirname, 'src/components/tree/index.ts'),
+        'tree-select': resolve(
+          __dirname,
+          'src/components/tree-select/index.ts',
+        ),
         upload: resolve(__dirname, 'src/components/upload/index.ts'),
         'virtual-list': resolve(
           __dirname,
