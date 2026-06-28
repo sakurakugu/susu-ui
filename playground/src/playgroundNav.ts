@@ -462,6 +462,13 @@ export const playgroundNavItems: PlaygroundNavItem[] = [
     scenarios: ['日志列表', '成员名录', '消息历史'],
   },
   {
+    id: 'virtual-tree',
+    label: '虚拟树',
+    group: 'data',
+    description: '用于大量层级数据的高性能展开、选择和滚动浏览。',
+    scenarios: ['大型组织架构', '权限资源树', '文件目录'],
+  },
+  {
     id: 'tree',
     label: '树',
     group: 'data',

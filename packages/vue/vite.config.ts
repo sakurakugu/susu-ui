@@ -126,6 +126,10 @@ export default defineConfig({
           __dirname,
           'src/components/virtual-list/index.ts',
         ),
+        'virtual-tree': resolve(
+          __dirname,
+          'src/components/virtual-tree/index.ts',
+        ),
         'virtualized-select': resolve(
           __dirname,
           'src/components/virtualized-select/index.ts',

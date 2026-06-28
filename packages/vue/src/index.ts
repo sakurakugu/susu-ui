@@ -88,6 +88,7 @@ import { SuTree } from './components/tree'
 import { SuTreeSelect } from './components/tree-select'
 import { SuUpload } from './components/upload'
 import { SuVirtualList } from './components/virtual-list'
+import { SuVirtualTree } from './components/virtual-tree'
 import { SuVirtualizedSelect } from './components/virtualized-select'
 import { SuWatermark } from './components/watermark'
 
@@ -168,6 +169,7 @@ export * from './components/tree'
 export * from './components/tree-select'
 export * from './components/upload'
 export * from './components/virtual-list'
+export * from './components/virtual-tree'
 export * from './components/virtualized-select'
 export * from './components/watermark'
 export * from './locale'
@@ -265,6 +267,7 @@ const components = [
   SuTreeSelect,
   SuUpload,
   SuVirtualList,
+  SuVirtualTree,
   SuVirtualizedSelect,
   SuWatermark,
 ]

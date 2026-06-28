@@ -391,6 +391,11 @@
       "import": "./dist/virtual-list.js",
       "require": "./dist/virtual-list.cjs"
     },
+    "./virtual-tree": {
+      "types": "./dist/components/virtual-tree/index.d.ts",
+      "import": "./dist/virtual-tree.js",
+      "require": "./dist/virtual-tree.cjs"
+    },
     "./virtualized-select": {
       "types": "./dist/components/virtualized-select/index.d.ts",
       "import": "./dist/virtualized-select.js",
