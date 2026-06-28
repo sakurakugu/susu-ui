@@ -8,6 +8,7 @@ import DialogDemo from './DialogDemo.vue'
 import DrawerDemo from './DrawerDemo.vue'
 import CommandPaletteDemo from './CommandPaletteDemo.vue'
 import TextDemo from './TextDemo.vue'
+import LinkDemo from './LinkDemo.vue'
 import IconDemo from './IconDemo.vue'
 import AvatarDemo from './AvatarDemo.vue'
 import ImageDemo from './ImageDemo.vue'
@@ -79,6 +80,7 @@ export const playgroundDemos = [
   { id: 'drawer', component: DrawerDemo },
   { id: 'command-palette', component: CommandPaletteDemo },
   { id: 'text', component: TextDemo },
+  { id: 'link', component: LinkDemo },
   { id: 'icon', component: IconDemo },
   { id: 'avatar', component: AvatarDemo },
   { id: 'image', component: ImageDemo },

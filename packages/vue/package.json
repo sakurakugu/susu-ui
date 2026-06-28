@@ -166,6 +166,11 @@
       "import": "./dist/layout.js",
       "require": "./dist/layout.cjs"
     },
+    "./link": {
+      "types": "./dist/components/link/index.d.ts",
+      "import": "./dist/link.js",
+      "require": "./dist/link.cjs"
+    },
     "./list": {
       "types": "./dist/components/list/index.d.ts",
       "import": "./dist/list.js",

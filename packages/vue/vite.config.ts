@@ -60,6 +60,7 @@ export default defineConfig({
           'src/components/input-number/index.ts',
         ),
         layout: resolve(__dirname, 'src/components/layout/index.ts'),
+        link: resolve(__dirname, 'src/components/link/index.ts'),
         list: resolve(__dirname, 'src/components/list/index.ts'),
         loading: resolve(__dirname, 'src/components/loading/index.ts'),
         menu: resolve(__dirname, 'src/components/menu/index.ts'),

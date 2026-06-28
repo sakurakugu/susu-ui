@@ -88,6 +88,7 @@ pnpm build
 - [Input 输入框](./docs/组件/Input%20输入框.md)
 - [InputNumber 数字输入框](./docs/组件/InputNumber%20数字输入框.md)
 - [Layout 布局](./docs/组件/Layout%20布局.md)
+- [Link 链接](./docs/组件/Link%20链接.md)
 - [List 列表](./docs/组件/List%20列表.md)
 - [Loading 加载](./docs/组件/Loading%20加载.md)
 - [Menu 菜单](./docs/组件/Menu%20菜单.md)

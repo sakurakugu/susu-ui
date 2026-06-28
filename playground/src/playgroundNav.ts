@@ -9,6 +9,7 @@ export const playgroundNavItems = [
   { id: 'drawer', label: '抽屉' },
   { id: 'command-palette', label: '命令面板' },
   { id: 'text', label: '文本' },
+  { id: 'link', label: '链接' },
   { id: 'icon', label: '图标' },
   { id: 'avatar', label: '头像' },
   { id: 'image', label: '图片' },

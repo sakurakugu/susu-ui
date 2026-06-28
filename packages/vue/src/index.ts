@@ -43,6 +43,7 @@ import {
   SuLayout,
   SuSider,
 } from './components/layout'
+import { SuLink } from './components/link'
 import { SuList, SuListItem } from './components/list'
 import { SuLoading } from './components/loading'
 import { SuMenu } from './components/menu'
@@ -114,6 +115,7 @@ export * from './components/image'
 export * from './components/input'
 export * from './components/input-number'
 export * from './components/layout'
+export * from './components/link'
 export * from './components/list'
 export * from './components/loading'
 export * from './components/menu'
@@ -196,6 +198,7 @@ const components = [
   SuSider,
   SuContent,
   SuFooter,
+  SuLink,
   SuList,
   SuListItem,
   SuLoading,
