@@ -70,6 +70,7 @@
 - [Tabs 标签页](./组件/Tabs%20标签页.md)
 - [Table 表格](./组件/Table%20表格.md)
 - [Tag 标签](./组件/Tag%20标签.md)
+- [TagInput 标签输入](./组件/TagInput%20标签输入.md)
 - [Text 文本](./组件/Text%20文本.md)
 - [TimeRangePicker 时间范围选择器](./组件/TimeRangePicker%20时间范围选择器.md)
 - [TimePicker 时间选择器](./组件/TimePicker%20时间选择器.md)

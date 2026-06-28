@@ -153,6 +153,13 @@ export const playgroundNavItems: PlaygroundNavItem[] = [
     scenarios: ['订单状态', '用户分组', '筛选条件'],
   },
   {
+    id: 'tag-input',
+    label: '标签输入',
+    group: 'input',
+    description: '用于录入多个短文本标签，并支持快速创建、删除和限制数量。',
+    scenarios: ['客户画像', '任务标记', '内容关键词'],
+  },
+  {
     id: 'tooltip',
     label: '文字提示',
     group: 'feedback',

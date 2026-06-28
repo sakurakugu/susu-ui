@@ -311,6 +311,11 @@
       "import": "./dist/tag.js",
       "require": "./dist/tag.cjs"
     },
+    "./tag-input": {
+      "types": "./dist/components/tag-input/index.d.ts",
+      "import": "./dist/tag-input.js",
+      "require": "./dist/tag-input.cjs"
+    },
     "./text": {
       "types": "./dist/components/text/index.d.ts",
       "import": "./dist/text.js",

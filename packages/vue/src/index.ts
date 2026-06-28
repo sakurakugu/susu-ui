@@ -72,6 +72,7 @@ import { SuSwitch } from './components/switch'
 import { SuTabPane, SuTabs } from './components/tabs'
 import { SuTable, SuTableColumn } from './components/table'
 import { SuTag } from './components/tag'
+import { SuTagInput } from './components/tag-input'
 import { SuText } from './components/text'
 import { SuTimeRangePicker } from './components/time-range-picker'
 import { SuTimePicker } from './components/time-picker'
@@ -145,6 +146,7 @@ export * from './components/switch'
 export * from './components/tabs'
 export * from './components/table'
 export * from './components/tag'
+export * from './components/tag-input'
 export * from './components/text'
 export * from './components/time-range-picker'
 export * from './components/time-picker'
@@ -235,6 +237,7 @@ const components = [
   SuTable,
   SuTableColumn,
   SuTag,
+  SuTagInput,
   SuText,
   SuTimeRangePicker,
   SuTimePicker,
