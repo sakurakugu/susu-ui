@@ -133,6 +133,13 @@ export const playgroundNavItems: PlaygroundNavItem[] = [
     scenarios: ['商品图', '内容封面', '附件预览'],
   },
   {
+    id: 'infinite-scroll',
+    label: '无限滚动',
+    group: 'data',
+    description: '用于滚动接近底部时自动加载下一批数据。',
+    scenarios: ['消息流', '动态列表', '搜索结果追加'],
+  },
+  {
     id: 'badge',
     label: '角标',
     group: 'display',

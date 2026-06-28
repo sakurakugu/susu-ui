@@ -34,6 +34,7 @@ import { SuForm, SuFormItem } from './components/form'
 import { SuGrid, SuGridItem } from './components/grid'
 import { SuIcon } from './components/icon'
 import { SuImage } from './components/image'
+import { SuInfiniteScroll } from './components/infinite-scroll'
 import { SuInput } from './components/input'
 import { SuInputNumber } from './components/input-number'
 import {
@@ -117,6 +118,7 @@ export * from './components/form'
 export * from './components/grid'
 export * from './components/icon'
 export * from './components/image'
+export * from './components/infinite-scroll'
 export * from './components/input'
 export * from './components/input-number'
 export * from './components/layout'
@@ -202,6 +204,7 @@ const components = [
   SuGridItem,
   SuIcon,
   SuImage,
+  SuInfiniteScroll,
   SuInput,
   SuInputNumber,
   SuLayout,

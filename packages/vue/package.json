@@ -141,6 +141,11 @@
       "import": "./dist/image.js",
       "require": "./dist/image.cjs"
     },
+    "./infinite-scroll": {
+      "types": "./dist/components/infinite-scroll/index.d.ts",
+      "import": "./dist/infinite-scroll.js",
+      "require": "./dist/infinite-scroll.cjs"
+    },
     "./form": {
       "types": "./dist/components/form/index.d.ts",
       "import": "./dist/form.js",

@@ -54,6 +54,10 @@ export default defineConfig({
         grid: resolve(__dirname, 'src/components/grid/index.ts'),
         icon: resolve(__dirname, 'src/components/icon/index.ts'),
         image: resolve(__dirname, 'src/components/image/index.ts'),
+        'infinite-scroll': resolve(
+          __dirname,
+          'src/components/infinite-scroll/index.ts',
+        ),
         input: resolve(__dirname, 'src/components/input/index.ts'),
         'input-number': resolve(
           __dirname,

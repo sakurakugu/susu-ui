@@ -12,6 +12,7 @@ import LinkDemo from './LinkDemo.vue'
 import IconDemo from './IconDemo.vue'
 import AvatarDemo from './AvatarDemo.vue'
 import ImageDemo from './ImageDemo.vue'
+import InfiniteScrollDemo from './InfiniteScrollDemo.vue'
 import BadgeDemo from './BadgeDemo.vue'
 import BreadcrumbDemo from './BreadcrumbDemo.vue'
 import TagDemo from './TagDemo.vue'
@@ -89,6 +90,7 @@ export const playgroundDemos = [
   { id: 'icon', component: IconDemo },
   { id: 'avatar', component: AvatarDemo },
   { id: 'image', component: ImageDemo },
+  { id: 'infinite-scroll', component: InfiniteScrollDemo },
   { id: 'badge', component: BadgeDemo },
   { id: 'breadcrumb', component: BreadcrumbDemo },
   { id: 'tag', component: TagDemo },

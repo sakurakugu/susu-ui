@@ -38,6 +38,7 @@
 - [Grid 网格](./组件/Grid%20网格.md)
 - [Icon 图标](./组件/Icon%20图标.md)
 - [Image 图片](./组件/Image%20图片.md)
+- [InfiniteScroll 无限滚动](./组件/InfiniteScroll%20无限滚动.md)
 - [Input 输入框](./组件/Input%20输入框.md)
 - [InputNumber 数字输入框](./组件/InputNumber%20数字输入框.md)
 - [Layout 布局](./组件/Layout%20布局.md)

@@ -85,6 +85,11 @@ export const zhCN: SusuLocale = {
   virtualList: {
     empty: '暂无数据',
   },
+  infiniteScroll: {
+    loading: '加载中...',
+    finished: '没有更多了',
+    error: '加载失败，请稍后重试',
+  },
   anchor: {
     empty: '暂无锚点',
   },

@@ -83,6 +83,11 @@ export type SusuLocale = {
   virtualList: {
     empty: string
   }
+  infiniteScroll: {
+    loading: string
+    finished: string
+    error: string
+  }
   anchor: {
     empty: string
   }

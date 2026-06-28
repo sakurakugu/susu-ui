@@ -85,6 +85,11 @@ export const enUS: SusuLocale = {
   virtualList: {
     empty: 'No data',
   },
+  infiniteScroll: {
+    loading: 'Loading...',
+    finished: 'No more data',
+    error: 'Load failed. Please try again later.',
+  },
   anchor: {
     empty: 'No anchors',
   },

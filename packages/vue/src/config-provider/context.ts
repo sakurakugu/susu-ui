@@ -101,6 +101,10 @@ function mergeLocale(
       ...defaultLocale.virtualList,
       ...locale.virtualList,
     },
+    infiniteScroll: {
+      ...defaultLocale.infiniteScroll,
+      ...locale.infiniteScroll,
+    },
     anchor: {
       ...defaultLocale.anchor,
       ...locale.anchor,
