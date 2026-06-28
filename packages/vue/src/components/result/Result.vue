@@ -95,18 +95,30 @@ const iconStyle = computed(() => {
 }
 
 .su-result--success {
-  --su-result-color: #16a34a;
-  --su-result-bg: color-mix(in srgb, #dcfce7 72%, var(--su-color-bg-elevated));
+  --su-result-color: var(--su-color-success);
+  --su-result-bg: color-mix(
+    in srgb,
+    var(--su-color-success-soft) 72%,
+    var(--su-color-bg-elevated)
+  );
 }
 
 .su-result--warning {
-  --su-result-color: #d97706;
-  --su-result-bg: color-mix(in srgb, #fef3c7 72%, var(--su-color-bg-elevated));
+  --su-result-color: var(--su-color-warning);
+  --su-result-bg: color-mix(
+    in srgb,
+    var(--su-color-warning-soft) 72%,
+    var(--su-color-bg-elevated)
+  );
 }
 
 .su-result--error {
-  --su-result-color: #dc2626;
-  --su-result-bg: color-mix(in srgb, #fee2e2 72%, var(--su-color-bg-elevated));
+  --su-result-color: var(--su-color-error);
+  --su-result-bg: color-mix(
+    in srgb,
+    var(--su-color-error-soft) 72%,
+    var(--su-color-bg-elevated)
+  );
 }
 
 .su-result__icon {

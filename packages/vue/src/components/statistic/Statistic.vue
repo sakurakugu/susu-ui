@@ -181,20 +181,20 @@ const formattedValue = computed(() => {
 
 .su-statistic--success,
 .su-statistic--trend-up {
-  --su-statistic-color: #15803d;
+  --su-statistic-color: var(--su-color-success-text);
 }
 
 .su-statistic--warning {
-  --su-statistic-color: #b45309;
+  --su-statistic-color: var(--su-color-warning-text);
 }
 
 .su-statistic--error,
 .su-statistic--trend-down {
-  --su-statistic-color: #b91c1c;
+  --su-statistic-color: var(--su-color-error-text);
 }
 
 .su-statistic--info {
-  --su-statistic-color: #2563eb;
+  --su-statistic-color: var(--su-color-info);
 }
 
 .su-statistic--trend-stable {

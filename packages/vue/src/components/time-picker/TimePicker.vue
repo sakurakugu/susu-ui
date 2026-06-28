@@ -609,27 +609,27 @@ defineExpose({
 }
 
 .su-time-picker--success .su-time-picker__control {
-  border-color: #16a34a;
+  border-color: var(--su-color-success);
 }
 
 .su-time-picker--success:focus-within .su-time-picker__control {
-  border-color: #15803d;
+  border-color: var(--su-color-success-active);
 }
 
 .su-time-picker--warning .su-time-picker__control {
-  border-color: #d97706;
+  border-color: var(--su-color-warning);
 }
 
 .su-time-picker--warning:focus-within .su-time-picker__control {
-  border-color: #b45309;
+  border-color: var(--su-color-warning-active);
 }
 
 .su-time-picker--error .su-time-picker__control {
-  border-color: #dc2626;
+  border-color: var(--su-color-error);
 }
 
 .su-time-picker--error:focus-within .su-time-picker__control {
-  border-color: #b91c1c;
+  border-color: var(--su-color-error-active);
 }
 
 .su-time-picker--small {

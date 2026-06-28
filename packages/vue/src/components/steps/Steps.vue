@@ -433,13 +433,13 @@ function getStepLabel(item: StepsItem, index: number) {
 }
 
 .su-steps__item.is-error .su-steps__icon {
-  border-color: #dc2626;
+  border-color: var(--su-color-error);
   color: #fff;
-  background: #dc2626;
+  background: var(--su-color-error);
 }
 
 .su-steps__item.is-error .su-steps__title {
-  color: #dc2626;
+  color: var(--su-color-error);
 }
 
 .su-steps__item.is-disabled {
@@ -479,7 +479,7 @@ function getStepLabel(item: StepsItem, index: number) {
 }
 
 .su-steps.is-simple .su-steps__item.is-error .su-steps__icon {
-  color: #dc2626;
+  color: var(--su-color-error);
 }
 
 .su-steps.is-simple .su-steps__icon > span {

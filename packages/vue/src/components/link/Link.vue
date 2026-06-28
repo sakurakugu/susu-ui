@@ -119,27 +119,27 @@ function handleClick(event: MouseEvent) {
 }
 
 .su-link--success {
-  --su-link-color: #15803d;
-  --su-link-hover-color: #16a34a;
-  --su-link-active-color: #166534;
+  --su-link-color: var(--su-color-success-text);
+  --su-link-hover-color: var(--su-color-success);
+  --su-link-active-color: var(--su-color-success-active);
 }
 
 .su-link--warning {
-  --su-link-color: #b45309;
-  --su-link-hover-color: #d97706;
-  --su-link-active-color: #92400e;
+  --su-link-color: var(--su-color-warning-text);
+  --su-link-hover-color: var(--su-color-warning);
+  --su-link-active-color: var(--su-color-warning-active);
 }
 
 .su-link--error {
-  --su-link-color: #b91c1c;
-  --su-link-hover-color: #dc2626;
-  --su-link-active-color: #991b1b;
+  --su-link-color: var(--su-color-error-text);
+  --su-link-hover-color: var(--su-color-error);
+  --su-link-active-color: var(--su-color-error-active);
 }
 
 .su-link--info {
-  --su-link-color: #2563eb;
-  --su-link-hover-color: #3b82f6;
-  --su-link-active-color: #1d4ed8;
+  --su-link-color: var(--su-color-info);
+  --su-link-hover-color: var(--su-color-info-hover);
+  --su-link-active-color: var(--su-color-info-active);
 }
 
 .su-link--underline-always {

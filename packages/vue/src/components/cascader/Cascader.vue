@@ -621,27 +621,27 @@ defineExpose({
 }
 
 .su-cascader--success .su-cascader__trigger {
-  border-color: #16a34a;
+  border-color: var(--su-color-success);
 }
 
 .su-cascader--success .su-cascader__trigger:focus-visible {
-  border-color: #15803d;
+  border-color: var(--su-color-success-active);
 }
 
 .su-cascader--warning .su-cascader__trigger {
-  border-color: #d97706;
+  border-color: var(--su-color-warning);
 }
 
 .su-cascader--warning .su-cascader__trigger:focus-visible {
-  border-color: #b45309;
+  border-color: var(--su-color-warning-active);
 }
 
 .su-cascader--error .su-cascader__trigger {
-  border-color: #dc2626;
+  border-color: var(--su-color-error);
 }
 
 .su-cascader--error .su-cascader__trigger:focus-visible {
-  border-color: #b91c1c;
+  border-color: var(--su-color-error-active);
 }
 
 .su-cascader--small {

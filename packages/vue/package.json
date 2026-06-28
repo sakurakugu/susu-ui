@@ -11,6 +11,7 @@
       "import": "./dist/susu-ui-vue.js",
       "require": "./dist/susu-ui-vue.cjs"
     },
+    "./style.css": "./dist/vue.css",
     "./affix": {
       "types": "./dist/components/affix/index.d.ts",
       "import": "./dist/affix.js",
@@ -415,6 +416,10 @@
   "files": [
     "dist",
     "CHANGELOG.md"
+  ],
+  "sideEffects": [
+    "*.css",
+    "**/*.css"
   ],
   "publishConfig": {
     "access": "public",

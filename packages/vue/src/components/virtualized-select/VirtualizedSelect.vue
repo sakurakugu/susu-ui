@@ -602,27 +602,27 @@ defineExpose({
 }
 
 .su-virtualized-select--success .su-virtualized-select__trigger {
-  border-color: #16a34a;
+  border-color: var(--su-color-success);
 }
 
 .su-virtualized-select--success .su-virtualized-select__trigger:focus-visible {
-  border-color: #15803d;
+  border-color: var(--su-color-success-active);
 }
 
 .su-virtualized-select--warning .su-virtualized-select__trigger {
-  border-color: #d97706;
+  border-color: var(--su-color-warning);
 }
 
 .su-virtualized-select--warning .su-virtualized-select__trigger:focus-visible {
-  border-color: #b45309;
+  border-color: var(--su-color-warning-active);
 }
 
 .su-virtualized-select--error .su-virtualized-select__trigger {
-  border-color: #dc2626;
+  border-color: var(--su-color-error);
 }
 
 .su-virtualized-select--error .su-virtualized-select__trigger:focus-visible {
-  border-color: #b91c1c;
+  border-color: var(--su-color-error-active);
 }
 
 .su-virtualized-select--small {

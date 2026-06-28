@@ -155,15 +155,15 @@ const roleAttributes = computed(() =>
 }
 
 .su-progress--success {
-  --su-progress-color: #16a34a;
+  --su-progress-color: var(--su-color-success);
 }
 
 .su-progress--warning {
-  --su-progress-color: #d97706;
+  --su-progress-color: var(--su-color-warning);
 }
 
 .su-progress--error {
-  --su-progress-color: #dc2626;
+  --su-progress-color: var(--su-color-error);
 }
 
 .su-progress--small {

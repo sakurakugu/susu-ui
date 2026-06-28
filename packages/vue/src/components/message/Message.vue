@@ -132,43 +132,43 @@ onBeforeUnmount(clearTimer)
 }
 
 .su-message--success {
-  --su-message-text-color: #15803d;
+  --su-message-text-color: var(--su-color-success-text);
   --su-message-border-color: color-mix(
     in srgb,
-    #22c55e 28%,
+    var(--su-color-success-hover) 28%,
     var(--su-color-border)
   );
   --su-message-bg-color: color-mix(
     in srgb,
-    #dcfce7 72%,
+    var(--su-color-success-soft) 72%,
     var(--su-color-bg-elevated)
   );
 }
 
 .su-message--warning {
-  --su-message-text-color: #b45309;
+  --su-message-text-color: var(--su-color-warning-text);
   --su-message-border-color: color-mix(
     in srgb,
-    #f59e0b 32%,
+    var(--su-color-warning-hover) 32%,
     var(--su-color-border)
   );
   --su-message-bg-color: color-mix(
     in srgb,
-    #fef3c7 72%,
+    var(--su-color-warning-soft) 72%,
     var(--su-color-bg-elevated)
   );
 }
 
 .su-message--error {
-  --su-message-text-color: #b91c1c;
+  --su-message-text-color: var(--su-color-error-text);
   --su-message-border-color: color-mix(
     in srgb,
-    #ef4444 32%,
+    var(--su-color-error-hover) 32%,
     var(--su-color-border)
   );
   --su-message-bg-color: color-mix(
     in srgb,
-    #fee2e2 72%,
+    var(--su-color-error-soft) 72%,
     var(--su-color-bg-elevated)
   );
 }

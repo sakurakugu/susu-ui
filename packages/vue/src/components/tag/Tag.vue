@@ -109,31 +109,31 @@ function handleClose(event: MouseEvent) {
 }
 
 .su-tag--success {
-  --su-tag-color: #15803d;
-  --su-tag-border-color: #86efac;
-  --su-tag-bg: #f0fdf4;
-  --su-tag-solid-bg: #16a34a;
+  --su-tag-color: var(--su-color-success-text);
+  --su-tag-border-color: var(--su-color-success-border);
+  --su-tag-bg: var(--su-color-success-bg);
+  --su-tag-solid-bg: var(--su-color-success);
 }
 
 .su-tag--warning {
-  --su-tag-color: #b45309;
-  --su-tag-border-color: #fcd34d;
-  --su-tag-bg: #fffbeb;
-  --su-tag-solid-bg: #d97706;
+  --su-tag-color: var(--su-color-warning-text);
+  --su-tag-border-color: var(--su-color-warning-border);
+  --su-tag-bg: var(--su-color-warning-bg);
+  --su-tag-solid-bg: var(--su-color-warning);
 }
 
 .su-tag--error {
-  --su-tag-color: #b91c1c;
-  --su-tag-border-color: #fca5a5;
-  --su-tag-bg: #fef2f2;
-  --su-tag-solid-bg: #dc2626;
+  --su-tag-color: var(--su-color-error-text);
+  --su-tag-border-color: var(--su-color-error-border);
+  --su-tag-bg: var(--su-color-error-bg);
+  --su-tag-solid-bg: var(--su-color-error);
 }
 
 .su-tag--info {
-  --su-tag-color: #2563eb;
-  --su-tag-border-color: #bfdbfe;
-  --su-tag-bg: #eff6ff;
-  --su-tag-solid-bg: #2563eb;
+  --su-tag-color: var(--su-color-info);
+  --su-tag-border-color: var(--su-color-info-border);
+  --su-tag-bg: var(--su-color-info-bg);
+  --su-tag-solid-bg: var(--su-color-info);
 }
 
 .su-tag--outline {

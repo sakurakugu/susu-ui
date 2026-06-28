@@ -177,7 +177,7 @@ const labelStyle = computed(() => {
 
 .su-form-item.is-required .su-form-item__label::before {
   margin-right: 4px;
-  color: #dc2626;
+  color: var(--su-color-error);
   content: '*';
 }
 
@@ -198,15 +198,15 @@ const labelStyle = computed(() => {
 }
 
 .su-form-item--success .su-form-item__message {
-  color: #15803d;
+  color: var(--su-color-success-text);
 }
 
 .su-form-item--warning .su-form-item__message {
-  color: #b45309;
+  color: var(--su-color-warning-text);
 }
 
 .su-form-item--error .su-form-item__message {
-  color: #b91c1c;
+  color: var(--su-color-error-text);
 }
 
 .su-form-item.is-disabled {

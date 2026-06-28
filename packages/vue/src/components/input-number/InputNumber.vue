@@ -391,27 +391,27 @@ defineExpose({
 }
 
 .su-input-number--success {
-  border-color: #16a34a;
+  border-color: var(--su-color-success);
 }
 
 .su-input-number--success:focus-within {
-  border-color: #15803d;
+  border-color: var(--su-color-success-active);
 }
 
 .su-input-number--warning {
-  border-color: #d97706;
+  border-color: var(--su-color-warning);
 }
 
 .su-input-number--warning:focus-within {
-  border-color: #b45309;
+  border-color: var(--su-color-warning-active);
 }
 
 .su-input-number--error {
-  border-color: #dc2626;
+  border-color: var(--su-color-error);
 }
 
 .su-input-number--error:focus-within {
-  border-color: #b91c1c;
+  border-color: var(--su-color-error-active);
 }
 
 .su-input-number--small {

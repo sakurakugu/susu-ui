@@ -99,19 +99,19 @@ const textStyle = computed(() => {
 }
 
 .su-text--success {
-  --su-text-color: #15803d;
+  --su-text-color: var(--su-color-success-text);
 }
 
 .su-text--warning {
-  --su-text-color: #b45309;
+  --su-text-color: var(--su-color-warning-text);
 }
 
 .su-text--error {
-  --su-text-color: #b91c1c;
+  --su-text-color: var(--su-color-error-text);
 }
 
 .su-text--info {
-  --su-text-color: #2563eb;
+  --su-text-color: var(--su-color-info);
 }
 
 .su-text--muted {

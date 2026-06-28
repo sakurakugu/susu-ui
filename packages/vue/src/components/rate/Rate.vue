@@ -255,7 +255,7 @@ function getFillWidth(index: number) {
   display: inline-flex;
   align-items: center;
   gap: var(--su-space-xs);
-  color: #f59e0b;
+  color: var(--su-color-warning-hover);
   font-size: var(--su-font-size-md);
   line-height: 1;
 }

@@ -185,28 +185,28 @@ onBeforeUnmount(clearTimer)
 }
 
 .su-notification--success {
-  --su-notification-color: #15803d;
+  --su-notification-color: var(--su-color-success-text);
   --su-notification-border-color: color-mix(
     in srgb,
-    #22c55e 24%,
+    var(--su-color-success-hover) 24%,
     var(--su-color-border)
   );
 }
 
 .su-notification--warning {
-  --su-notification-color: #b45309;
+  --su-notification-color: var(--su-color-warning-text);
   --su-notification-border-color: color-mix(
     in srgb,
-    #f59e0b 28%,
+    var(--su-color-warning-hover) 28%,
     var(--su-color-border)
   );
 }
 
 .su-notification--error {
-  --su-notification-color: #b91c1c;
+  --su-notification-color: var(--su-color-error-text);
   --su-notification-border-color: color-mix(
     in srgb,
-    #ef4444 28%,
+    var(--su-color-error-hover) 28%,
     var(--su-color-border)
   );
 }

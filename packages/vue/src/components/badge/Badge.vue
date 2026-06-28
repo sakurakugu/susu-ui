@@ -101,7 +101,7 @@ const ariaLabel = computed(() => {
 }
 
 .su-badge__content {
-  --su-badge-color: #dc2626;
+  --su-badge-color: var(--su-color-error);
 
   position: absolute;
   z-index: 1;
@@ -134,19 +134,19 @@ const ariaLabel = computed(() => {
 }
 
 .su-badge--success {
-  --su-badge-color: #16a34a;
+  --su-badge-color: var(--su-color-success);
 }
 
 .su-badge--warning {
-  --su-badge-color: #d97706;
+  --su-badge-color: var(--su-color-warning);
 }
 
 .su-badge--error {
-  --su-badge-color: #dc2626;
+  --su-badge-color: var(--su-color-error);
 }
 
 .su-badge--info {
-  --su-badge-color: #2563eb;
+  --su-badge-color: var(--su-color-info);
 }
 
 .su-badge--small {

@@ -124,33 +124,45 @@ function close(event: MouseEvent) {
 }
 
 .su-alert--success {
-  --su-alert-color: #15803d;
+  --su-alert-color: var(--su-color-success-text);
   --su-alert-border-color: color-mix(
     in srgb,
-    #22c55e 28%,
+    var(--su-color-success-hover) 28%,
     var(--su-color-border)
   );
-  --su-alert-bg: color-mix(in srgb, #dcfce7 72%, var(--su-color-bg-elevated));
+  --su-alert-bg: color-mix(
+    in srgb,
+    var(--su-color-success-soft) 72%,
+    var(--su-color-bg-elevated)
+  );
 }
 
 .su-alert--warning {
-  --su-alert-color: #b45309;
+  --su-alert-color: var(--su-color-warning-text);
   --su-alert-border-color: color-mix(
     in srgb,
-    #f59e0b 32%,
+    var(--su-color-warning-hover) 32%,
     var(--su-color-border)
   );
-  --su-alert-bg: color-mix(in srgb, #fef3c7 72%, var(--su-color-bg-elevated));
+  --su-alert-bg: color-mix(
+    in srgb,
+    var(--su-color-warning-soft) 72%,
+    var(--su-color-bg-elevated)
+  );
 }
 
 .su-alert--error {
-  --su-alert-color: #b91c1c;
+  --su-alert-color: var(--su-color-error-text);
   --su-alert-border-color: color-mix(
     in srgb,
-    #ef4444 32%,
+    var(--su-color-error-hover) 32%,
     var(--su-color-border)
   );
-  --su-alert-bg: color-mix(in srgb, #fee2e2 72%, var(--su-color-bg-elevated));
+  --su-alert-bg: color-mix(
+    in srgb,
+    var(--su-color-error-soft) 72%,
+    var(--su-color-bg-elevated)
+  );
 }
 
 .su-alert__icon {

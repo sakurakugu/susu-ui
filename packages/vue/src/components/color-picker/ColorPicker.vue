@@ -555,27 +555,27 @@ defineExpose({
 }
 
 .su-color-picker--success .su-color-picker__control {
-  border-color: #16a34a;
+  border-color: var(--su-color-success);
 }
 
 .su-color-picker--success:focus-within .su-color-picker__control {
-  border-color: #15803d;
+  border-color: var(--su-color-success-active);
 }
 
 .su-color-picker--warning .su-color-picker__control {
-  border-color: #d97706;
+  border-color: var(--su-color-warning);
 }
 
 .su-color-picker--warning:focus-within .su-color-picker__control {
-  border-color: #b45309;
+  border-color: var(--su-color-warning-active);
 }
 
 .su-color-picker--error .su-color-picker__control {
-  border-color: #dc2626;
+  border-color: var(--su-color-error);
 }
 
 .su-color-picker--error:focus-within .su-color-picker__control {
-  border-color: #b91c1c;
+  border-color: var(--su-color-error-active);
 }
 
 .su-color-picker--small {

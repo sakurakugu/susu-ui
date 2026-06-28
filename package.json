@@ -6,14 +6,16 @@
   "scripts": {
     "build": "pnpm --filter @susu-ui/tokens build && pnpm --filter @susu-ui/theme build && pnpm --filter @susu-ui/vue build",
     "changeset": "changeset",
-    "check": "pnpm \"/^(lint|format:check|typecheck|test)$/\" && pnpm build",
+    "check": "pnpm check:components && pnpm \"/^(lint|format:check|typecheck|test)$/\" && pnpm build && pnpm check:exports",
+    "check:components": "node scripts/check-component-manifest.mjs",
+    "check:exports": "node scripts/check-package-exports.mjs",
     "check:fix": "pnpm format && pnpm lint:fix && pnpm format && pnpm typecheck && pnpm test && pnpm build",
     "dev": "pnpm --filter playground dev",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "release": "pnpm build && changeset publish",
+    "release": "pnpm build && pnpm check:exports && changeset publish",
     "test": "vitest run",
     "typecheck": "pnpm -r --parallel --if-present typecheck",
     "version-packages": "changeset version"

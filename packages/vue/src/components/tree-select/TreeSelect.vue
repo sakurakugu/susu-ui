@@ -723,27 +723,27 @@ defineExpose({
 }
 
 .su-tree-select--success .su-tree-select__trigger {
-  border-color: #16a34a;
+  border-color: var(--su-color-success);
 }
 
 .su-tree-select--success .su-tree-select__trigger:focus-visible {
-  border-color: #15803d;
+  border-color: var(--su-color-success-active);
 }
 
 .su-tree-select--warning .su-tree-select__trigger {
-  border-color: #d97706;
+  border-color: var(--su-color-warning);
 }
 
 .su-tree-select--warning .su-tree-select__trigger:focus-visible {
-  border-color: #b45309;
+  border-color: var(--su-color-warning-active);
 }
 
 .su-tree-select--error .su-tree-select__trigger {
-  border-color: #dc2626;
+  border-color: var(--su-color-error);
 }
 
 .su-tree-select--error .su-tree-select__trigger:focus-visible {
-  border-color: #b91c1c;
+  border-color: var(--su-color-error-active);
 }
 
 .su-tree-select--small {

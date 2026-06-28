@@ -527,27 +527,27 @@ defineExpose({
 }
 
 .su-date-picker--success .su-date-picker__control {
-  border-color: #16a34a;
+  border-color: var(--su-color-success);
 }
 
 .su-date-picker--success:focus-within .su-date-picker__control {
-  border-color: #15803d;
+  border-color: var(--su-color-success-active);
 }
 
 .su-date-picker--warning .su-date-picker__control {
-  border-color: #d97706;
+  border-color: var(--su-color-warning);
 }
 
 .su-date-picker--warning:focus-within .su-date-picker__control {
-  border-color: #b45309;
+  border-color: var(--su-color-warning-active);
 }
 
 .su-date-picker--error .su-date-picker__control {
-  border-color: #dc2626;
+  border-color: var(--su-color-error);
 }
 
 .su-date-picker--error:focus-within .su-date-picker__control {
-  border-color: #b91c1c;
+  border-color: var(--su-color-error-active);
 }
 
 .su-date-picker--small {

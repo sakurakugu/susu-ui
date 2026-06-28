@@ -565,11 +565,19 @@ defineExpose({
 }
 
 .su-upload__item.is-success {
-  border-color: color-mix(in srgb, #16a34a 36%, var(--su-color-border));
+  border-color: color-mix(
+    in srgb,
+    var(--su-color-success) 36%,
+    var(--su-color-border)
+  );
 }
 
 .su-upload__item.is-error {
-  border-color: color-mix(in srgb, #dc2626 52%, var(--su-color-border));
+  border-color: color-mix(
+    in srgb,
+    var(--su-color-error) 52%,
+    var(--su-color-border)
+  );
 }
 
 .su-upload__thumb {
@@ -634,7 +642,7 @@ defineExpose({
 }
 
 .su-upload__remove:hover:not(:disabled) {
-  color: #dc2626;
+  color: var(--su-color-error);
   background: var(--su-color-bg-soft);
 }
 

@@ -335,23 +335,23 @@ function getItemStyle(item: TimelineItem) {
 }
 
 .su-timeline__item.is-success {
-  --su-timeline-dot-color: #16a34a;
-  --su-timeline-tail-color: #bbf7d0;
+  --su-timeline-dot-color: var(--su-color-success);
+  --su-timeline-tail-color: var(--su-color-success-border-soft);
 }
 
 .su-timeline__item.is-warning {
-  --su-timeline-dot-color: #d97706;
-  --su-timeline-tail-color: #fde68a;
+  --su-timeline-dot-color: var(--su-color-warning);
+  --su-timeline-tail-color: var(--su-color-warning-border-soft);
 }
 
 .su-timeline__item.is-error {
-  --su-timeline-dot-color: #dc2626;
-  --su-timeline-tail-color: #fecaca;
+  --su-timeline-dot-color: var(--su-color-error);
+  --su-timeline-tail-color: var(--su-color-error-border-soft);
 }
 
 .su-timeline__item.is-info {
-  --su-timeline-dot-color: #2563eb;
-  --su-timeline-tail-color: #bfdbfe;
+  --su-timeline-dot-color: var(--su-color-info);
+  --su-timeline-tail-color: var(--su-color-info-border);
 }
 
 .su-timeline__item.is-hollow .su-timeline__dot {

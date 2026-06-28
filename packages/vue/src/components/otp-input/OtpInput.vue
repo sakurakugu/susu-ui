@@ -367,27 +367,27 @@ defineExpose({
 }
 
 .su-otp-input--success .su-otp-input__item {
-  border-color: #16a34a;
+  border-color: var(--su-color-success);
 }
 
 .su-otp-input--success .su-otp-input__item:focus {
-  border-color: #15803d;
+  border-color: var(--su-color-success-active);
 }
 
 .su-otp-input--warning .su-otp-input__item {
-  border-color: #d97706;
+  border-color: var(--su-color-warning);
 }
 
 .su-otp-input--warning .su-otp-input__item:focus {
-  border-color: #b45309;
+  border-color: var(--su-color-warning-active);
 }
 
 .su-otp-input--error .su-otp-input__item {
-  border-color: #dc2626;
+  border-color: var(--su-color-error);
 }
 
 .su-otp-input--error .su-otp-input__item:focus {
-  border-color: #b91c1c;
+  border-color: var(--su-color-error-active);
 }
 
 .su-otp-input--small .su-otp-input__item {
