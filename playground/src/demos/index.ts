@@ -44,6 +44,7 @@ import AutocompleteDemo from './AutocompleteDemo.vue'
 import MentionDemo from './MentionDemo.vue'
 import TabsDemo from './TabsDemo.vue'
 import SegmentedDemo from './SegmentedDemo.vue'
+import SidebarDemo from './SidebarDemo.vue'
 import ColorPickerDemo from './ColorPickerDemo.vue'
 import CalendarDemo from './CalendarDemo.vue'
 import DatePickerDemo from './DatePickerDemo.vue'
@@ -116,6 +117,7 @@ export const playgroundDemos = [
   { id: 'mention', component: MentionDemo },
   { id: 'tabs', component: TabsDemo },
   { id: 'segmented', component: SegmentedDemo },
+  { id: 'sidebar', component: SidebarDemo },
   { id: 'color-picker', component: ColorPickerDemo },
   { id: 'calendar', component: CalendarDemo },
   { id: 'date-picker', component: DatePickerDemo },

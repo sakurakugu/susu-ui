@@ -58,6 +58,7 @@
 - [Resizable 可调整尺寸](./组件/Resizable%20可调整尺寸.md)
 - [Select 选择器](./组件/Select%20选择器.md)
 - [Segmented 分段控制器](./组件/Segmented%20分段控制器.md)
+- [Sidebar 侧栏](./组件/Sidebar%20侧栏.md)
 - [Skeleton 骨架屏](./组件/Skeleton%20骨架屏.md)
 - [Slider 滑块](./组件/Slider%20滑块.md)
 - [Space 间距](./组件/Space%20间距.md)

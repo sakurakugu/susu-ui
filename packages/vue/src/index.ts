@@ -61,6 +61,7 @@ import { SuResult } from './components/result'
 import { SuResizable } from './components/resizable'
 import { SuOption, SuSelect } from './components/select'
 import { SuSegmented } from './components/segmented'
+import { SuSidebar } from './components/sidebar'
 import { SuSkeleton } from './components/skeleton'
 import { SuSlider } from './components/slider'
 import { SuSpace } from './components/space'
@@ -133,6 +134,7 @@ export * from './components/result'
 export * from './components/resizable'
 export * from './components/select'
 export * from './components/segmented'
+export * from './components/sidebar'
 export * from './components/skeleton'
 export * from './components/slider'
 export * from './components/space'
@@ -219,6 +221,7 @@ const components = [
   SuOption,
   SuSelect,
   SuSegmented,
+  SuSidebar,
   SuSkeleton,
   SuSlider,
   SuSpace,

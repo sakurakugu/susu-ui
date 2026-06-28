@@ -314,6 +314,13 @@ export const playgroundNavItems: PlaygroundNavItem[] = [
     scenarios: ['管理后台', '应用框架', '工作台页面'],
   },
   {
+    id: 'sidebar',
+    label: '侧栏',
+    group: 'layout',
+    description: '用于承载页面中长期存在的导航、筛选和辅助信息面板。',
+    scenarios: ['常驻导航', '筛选面板', '辅助详情'],
+  },
+  {
     id: 'select',
     label: '选择器',
     group: 'input',

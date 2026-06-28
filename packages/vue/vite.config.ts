@@ -81,6 +81,7 @@ export default defineConfig({
         resizable: resolve(__dirname, 'src/components/resizable/index.ts'),
         select: resolve(__dirname, 'src/components/select/index.ts'),
         segmented: resolve(__dirname, 'src/components/segmented/index.ts'),
+        sidebar: resolve(__dirname, 'src/components/sidebar/index.ts'),
         skeleton: resolve(__dirname, 'src/components/skeleton/index.ts'),
         slider: resolve(__dirname, 'src/components/slider/index.ts'),
         space: resolve(__dirname, 'src/components/space/index.ts'),

@@ -256,6 +256,11 @@
       "import": "./dist/segmented.js",
       "require": "./dist/segmented.cjs"
     },
+    "./sidebar": {
+      "types": "./dist/components/sidebar/index.d.ts",
+      "import": "./dist/sidebar.js",
+      "require": "./dist/sidebar.cjs"
+    },
     "./skeleton": {
       "types": "./dist/components/skeleton/index.d.ts",
       "import": "./dist/skeleton.js",
