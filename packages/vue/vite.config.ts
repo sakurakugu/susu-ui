@@ -113,6 +113,10 @@ export default defineConfig({
           __dirname,
           'src/components/virtual-list/index.ts',
         ),
+        'virtualized-select': resolve(
+          __dirname,
+          'src/components/virtualized-select/index.ts',
+        ),
         watermark: resolve(__dirname, 'src/components/watermark/index.ts'),
       },
       formats: ['es', 'cjs'],

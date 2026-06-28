@@ -87,6 +87,12 @@ export const enUS: SusuLocale = {
   select: {
     clear: 'Clear selection',
   },
+  virtualizedSelect: {
+    placeholder: 'Select',
+    empty: 'No data',
+    ariaLabel: 'Virtualized select',
+    clear: 'Clear selection',
+  },
   transfer: {
     titles: ['Source', 'Target'],
     filterPlaceholder: 'Search',

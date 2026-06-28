@@ -82,4 +82,5 @@
 - [Tree 树](./组件/Tree%20树.md)
 - [Upload 上传](./组件/Upload%20上传.md)
 - [VirtualList 虚拟列表](./组件/VirtualList%20虚拟列表.md)
+- [VirtualizedSelect 虚拟选择器](./组件/VirtualizedSelect%20虚拟选择器.md)
 - [Watermark 水印](./组件/Watermark%20水印.md)

@@ -56,6 +56,7 @@ import TimeRangePickerDemo from './TimeRangePickerDemo.vue'
 import TableDemo from './TableDemo.vue'
 import ListDemo from './ListDemo.vue'
 import VirtualListDemo from './VirtualListDemo.vue'
+import VirtualizedSelectDemo from './VirtualizedSelectDemo.vue'
 import TreeDemo from './TreeDemo.vue'
 import TransferDemo from './TransferDemo.vue'
 import DescriptionsDemo from './DescriptionsDemo.vue'
@@ -131,6 +132,7 @@ export const playgroundDemos = [
   { id: 'table', component: TableDemo },
   { id: 'list', component: ListDemo },
   { id: 'virtual-list', component: VirtualListDemo },
+  { id: 'virtualized-select', component: VirtualizedSelectDemo },
   { id: 'tree', component: TreeDemo },
   { id: 'transfer', component: TransferDemo },
   { id: 'descriptions', component: DescriptionsDemo },

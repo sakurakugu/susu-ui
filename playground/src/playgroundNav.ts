@@ -336,6 +336,13 @@ export const playgroundNavItems: PlaygroundNavItem[] = [
     scenarios: ['负责人选择', '状态筛选', '分类设置'],
   },
   {
+    id: 'virtualized-select',
+    label: '虚拟选择器',
+    group: 'input',
+    description: '用于在大量候选项中保持流畅滚动和单选录入。',
+    scenarios: ['成员选择', '客户归属', '资源分配'],
+  },
+  {
     id: 'cascader',
     label: '级联选择',
     group: 'input',

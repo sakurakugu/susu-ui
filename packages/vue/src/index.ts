@@ -84,6 +84,7 @@ import { SuTransfer } from './components/transfer'
 import { SuTree } from './components/tree'
 import { SuUpload } from './components/upload'
 import { SuVirtualList } from './components/virtual-list'
+import { SuVirtualizedSelect } from './components/virtualized-select'
 import { SuWatermark } from './components/watermark'
 
 export * from './config-provider'
@@ -159,6 +160,7 @@ export * from './components/transfer'
 export * from './components/tree'
 export * from './components/upload'
 export * from './components/virtual-list'
+export * from './components/virtualized-select'
 export * from './components/watermark'
 export * from './locale'
 
@@ -251,6 +253,7 @@ const components = [
   SuTree,
   SuUpload,
   SuVirtualList,
+  SuVirtualizedSelect,
   SuWatermark,
 ]
 

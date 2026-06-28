@@ -85,6 +85,12 @@ export type SusuLocale = {
   select: {
     clear: string
   }
+  virtualizedSelect: {
+    placeholder: string
+    empty: string
+    ariaLabel: string
+    clear: string
+  }
   transfer: {
     titles: [string, string]
     filterPlaceholder: string

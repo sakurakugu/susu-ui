@@ -130,6 +130,7 @@ pnpm build
 - [Tree 树](./docs/组件/Tree%20树.md)
 - [Upload 上传](./docs/组件/Upload%20上传.md)
 - [VirtualList 虚拟列表](./docs/组件/VirtualList%20虚拟列表.md)
+- [VirtualizedSelect 虚拟选择器](./docs/组件/VirtualizedSelect%20虚拟选择器.md)
 - [Watermark 水印](./docs/组件/Watermark%20水印.md)
 
 ## 技术设计

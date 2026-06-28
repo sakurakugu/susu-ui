@@ -371,6 +371,11 @@
       "import": "./dist/virtual-list.js",
       "require": "./dist/virtual-list.cjs"
     },
+    "./virtualized-select": {
+      "types": "./dist/components/virtualized-select/index.d.ts",
+      "import": "./dist/virtualized-select.js",
+      "require": "./dist/virtualized-select.cjs"
+    },
     "./watermark": {
       "types": "./dist/components/watermark/index.d.ts",
       "import": "./dist/watermark.js",

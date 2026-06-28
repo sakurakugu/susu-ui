@@ -87,6 +87,12 @@ export const zhCN: SusuLocale = {
   select: {
     clear: '清空选择',
   },
+  virtualizedSelect: {
+    placeholder: '请选择',
+    empty: '暂无数据',
+    ariaLabel: '虚拟选择器',
+    clear: '清空选择',
+  },
   transfer: {
     titles: ['源列表', '目标列表'],
     filterPlaceholder: '请输入搜索内容',

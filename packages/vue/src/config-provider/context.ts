@@ -109,6 +109,10 @@ function mergeLocale(
       ...defaultLocale.select,
       ...locale.select,
     },
+    virtualizedSelect: {
+      ...defaultLocale.virtualizedSelect,
+      ...locale.virtualizedSelect,
+    },
     transfer: {
       ...defaultLocale.transfer,
       ...locale.transfer,
