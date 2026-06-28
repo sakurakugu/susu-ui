@@ -35,7 +35,7 @@ describe('Affix', () => {
     vi.useFakeTimers()
     const wrapper = mount(Affix, {
       props: {
-        offsetTop: 12,
+        offset: 12,
       },
       slots: {
         default: '<button>提交审批</button>',
@@ -79,8 +79,8 @@ describe('Affix', () => {
     vi.spyOn(window, 'innerHeight', 'get').mockReturnValue(600)
     const wrapper = mount(Affix, {
       props: {
-        offsetTop: undefined,
-        offsetBottom: 24,
+        position: 'bottom',
+        offset: 24,
       },
       slots: {
         default: '<button>批量发布</button>',
@@ -127,7 +127,7 @@ describe('Affix', () => {
 
     const wrapper = mount(Affix, {
       props: {
-        offsetTop: 8,
+        offset: 8,
         target: () => target,
       },
       slots: {

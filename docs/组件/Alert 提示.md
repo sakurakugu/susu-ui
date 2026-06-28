@@ -47,6 +47,16 @@
 </template>
 ```
 
+## 内容居中
+
+通过 `center` 让提示标题和描述内容居中展示：
+
+```vue
+<template>
+  <SuAlert center title="审核提醒" description="本次提交将在 10 分钟后进入自动审核队列。" />
+</template>
+```
+
 ## 自定义图标
 
 通过 `showIcon` 控制是否展示图标，也可以使用 `icon` 插槽自定义图标内容：
@@ -83,6 +93,7 @@ import { SuAlert } from '@susu-ui/vue'
 | `description` | 提示描述         | `string`                                      | `-`      |
 | `showIcon`    | 是否显示前置图标 | `boolean`                                     | `true`   |
 | `closable`    | 是否可关闭       | `boolean`                                     | `false`  |
+| `center`      | 内容是否居中     | `boolean`                                     | `false`  |
 
 ## 事件
 

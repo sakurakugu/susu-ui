@@ -1,22 +1,23 @@
 <script setup lang="ts">
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch, type CSSProperties } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref, watch, type CSSProperties } from 'vue'
 
 defineOptions({
   name: 'SuAffix',
 })
 
 export type AffixTarget = Window | HTMLElement
+export type AffixPosition = 'top' | 'bottom'
 
 const props = withDefaults(
   defineProps<{
-    offsetTop?: number
-    offsetBottom?: number
+    position?: AffixPosition
+    offset?: number
     target?: () => AffixTarget | null | undefined
     zIndex?: number
   }>(),
   {
-    offsetTop: undefined,
-    offsetBottom: undefined,
+    position: 'top',
+    offset: 0,
     target: undefined,
     zIndex: 100,
   },
@@ -33,10 +34,6 @@ const placeholderStyle = ref<CSSProperties>({})
 const fixedStyle = ref<CSSProperties>({})
 let activeTarget: AffixTarget | undefined
 let frame: number | undefined
-
-const mode = computed(() =>
-  props.offsetBottom !== undefined && props.offsetTop === undefined ? 'bottom' : 'top',
-)
 
 function getTarget() {
   if (typeof window === 'undefined') {
@@ -86,9 +83,9 @@ function updatePosition() {
   const rootRect = root.getBoundingClientRect()
   const contentRect = content.getBoundingClientRect()
   const targetRect = getTargetRect(target)
-  const offset = mode.value === 'top' ? (props.offsetTop ?? 0) : (props.offsetBottom ?? 0)
+  const offset = props.offset
 
-  if (mode.value === 'top') {
+  if (props.position === 'top') {
     const top = targetRect.top + offset
     const shouldFix =
       rootRect.top <= top &&
@@ -178,7 +175,7 @@ function addListeners() {
 }
 
 watch(
-  () => [props.offsetTop, props.offsetBottom, props.zIndex, props.target],
+  () => [props.position, props.offset, props.zIndex, props.target],
   async () => {
     await nextTick()
     addListeners()

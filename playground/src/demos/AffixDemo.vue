@@ -13,7 +13,7 @@ const fixed = ref(false)
         <p class="affix-demo__intro">
           审批流列表向下滚动时，批量操作会吸附在视口顶部，方便持续处理当前筛选结果。
         </p>
-        <SuAffix :offset-top="80" @change="fixed = $event">
+        <SuAffix :offset="80" @change="fixed = $event">
           <div class="affix-demo__toolbar" :class="{ 'is-fixed': fixed }">
             <div>
               <strong>采购审批</strong>
@@ -35,7 +35,7 @@ const fixed = ref(false)
 
       <div ref="containerRef" class="affix-demo__scroll">
         <div class="affix-demo__spacer">滚动容器内的内容顶部</div>
-        <SuAffix :target="() => containerRef" :offset-top="12">
+        <SuAffix :target="() => containerRef" :offset="12">
           <SuButton type="primary">同步库存状态</SuButton>
         </SuAffix>
         <div class="affix-demo__spacer">继续滚动查看容器吸附效果</div>

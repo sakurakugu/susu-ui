@@ -11,6 +11,7 @@
         title="需要确认"
         description="当前操作会影响后续发布流程，请确认信息完整。"
       />
+      <SuAlert center title="审核提醒" description="本次提交将在 10 分钟后进入自动审核队列。" />
       <SuAlert type="error" :show-icon="false"> 这是一条不展示图标的错误提示。 </SuAlert>
     </div>
   </section>

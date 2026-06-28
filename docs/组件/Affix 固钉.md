@@ -8,7 +8,7 @@
 
 ```vue
 <template>
-  <SuAffix :offset-top="80">
+  <SuAffix :offset="80">
     <SuButton type="primary">提交审批</SuButton>
   </SuAffix>
 </template>
@@ -16,11 +16,11 @@
 
 ## 底部固定
 
-只传 `offset-bottom` 时，组件会在滚动到指定位置后固定在视口底部：
+通过 `position="bottom"` 可以让组件在滚动到指定位置后固定在视口底部：
 
 ```vue
 <template>
-  <SuAffix :offset-bottom="24">
+  <SuAffix position="bottom" :offset="24">
     <SuButton type="primary">批量发布</SuButton>
   </SuAffix>
 </template>
@@ -40,7 +40,7 @@ const containerRef = ref<HTMLElement>()
 <template>
   <div ref="containerRef" style="max-height: 240px; overflow: auto">
     <div style="height: 160px">滚动内容</div>
-    <SuAffix :target="() => containerRef" :offset-top="12">
+    <SuAffix :target="() => containerRef" :offset="12">
       <SuButton>同步库存状态</SuButton>
     </SuAffix>
     <div style="height: 360px">更多内容</div>
@@ -60,7 +60,7 @@ const fixed = ref(false)
 </script>
 
 <template>
-  <SuAffix :offset-top="80" @change="fixed = $event">
+  <SuAffix :offset="80" @change="fixed = $event">
     <div :class="{ 'is-fixed': fixed }">批量操作栏</div>
   </SuAffix>
 </template>
@@ -74,7 +74,7 @@ import { SuAffix } from '@susu-ui/vue'
 </script>
 
 <template>
-  <SuAffix :offset-top="80">
+  <SuAffix :offset="80">
     <button>提交审批</button>
   </SuAffix>
 </template>
@@ -82,12 +82,12 @@ import { SuAffix } from '@susu-ui/vue'
 
 ## Props
 
-| 参数           | 说明                                           | 类型                                  | 默认值      |
-| -------------- | ---------------------------------------------- | ------------------------------------- | ----------- |
-| `offsetTop`    | 距离目标容器顶部的吸附偏移，优先于底部固定     | `number`                              | `undefined` |
-| `offsetBottom` | 距离目标容器底部的吸附偏移，只传该值时底部固定 | `number`                              | `undefined` |
-| `target`       | 返回滚动容器，默认使用 `window`                | `() => Window \| HTMLElement \| null` | `undefined` |
-| `zIndex`       | 固定状态下的层级                               | `number`                              | `100`       |
+| 参数       | 说明                            | 类型                                  | 默认值      |
+| ---------- | ------------------------------- | ------------------------------------- | ----------- |
+| `position` | 吸附位置                        | `'top' \| 'bottom'`                   | `'top'`     |
+| `offset`   | 距离目标容器吸附边缘的偏移      | `number`                              | `0`         |
+| `target`   | 返回滚动容器，默认使用 `window` | `() => Window \| HTMLElement \| null` | `undefined` |
+| `zIndex`   | 固定状态下的层级                | `number`                              | `100`       |
 
 ## 事件
 

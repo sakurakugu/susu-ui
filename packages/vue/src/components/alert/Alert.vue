@@ -5,7 +5,7 @@ defineOptions({
   name: 'SuAlert',
 })
 
-type AlertType = 'info' | 'success' | 'warning' | 'error'
+export type AlertType = 'info' | 'success' | 'warning' | 'error'
 
 const props = withDefaults(
   defineProps<{
@@ -14,6 +14,7 @@ const props = withDefaults(
     description?: string
     showIcon?: boolean
     closable?: boolean
+    center?: boolean
   }>(),
   {
     type: 'info',
@@ -21,6 +22,7 @@ const props = withDefaults(
     description: undefined,
     showIcon: true,
     closable: false,
+    center: false,
   },
 )
 
@@ -66,6 +68,7 @@ function close(event: MouseEvent) {
         `su-alert--${type}`,
         {
           'is-closable': closable,
+          'is-center': center,
           'has-title': title || $slots.title,
         },
       ]"
@@ -164,6 +167,10 @@ function close(event: MouseEvent) {
 .su-alert__content {
   flex: 1;
   min-width: 0;
+}
+
+.su-alert.is-center .su-alert__content {
+  text-align: center;
 }
 
 .su-alert__title {

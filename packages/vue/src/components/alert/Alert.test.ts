@@ -33,6 +33,19 @@ describe('Alert', () => {
     expect(wrapper.find('.su-alert__description').text()).toBe('配置已经同步到当前项目。')
   })
 
+  it('支持内容居中', () => {
+    const wrapper = mount(Alert, {
+      props: {
+        center: true,
+      },
+      slots: {
+        default: '系统将在 10 分钟后自动提交审核结果。',
+      },
+    })
+
+    expect(wrapper.find('.su-alert').classes()).toContain('is-center')
+  })
+
   it('支持隐藏图标和自定义图标', () => {
     const wrapper = mount(Alert, {
       props: {
