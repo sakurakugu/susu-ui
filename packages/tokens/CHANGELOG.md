@@ -1,5 +1,11 @@
 # @susu-ui/tokens
 
+## 0.2.0
+
+### Minor Changes
+
+- 8112ac4: 创建 susu-ui
+
 ## 0.1.0
 
 ### Minor Changes

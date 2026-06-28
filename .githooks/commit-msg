@@ -80,8 +80,14 @@ case "$prefix" in
         ;;
 esac
 
-# 检查主体是否包含非英文内容
-if [ -z "$(printf '%s' "$body" | sed -n '/[^ -~]/p')" ]; then
+# 发布提交允许只写版本号，例如 release: 0.2.0
+is_release_version=0
+if [ "$type" = "发布" ] && printf '%s' "$body" | grep -Eq '^v?[0-9]+\.[0-9]+\.[0-9]+([-.+][0-9A-Za-z.-]+)?$'; then
+    is_release_version=1
+fi
+
+# 检查主体是否包含中文；发布版本号提交除外
+if [ "$is_release_version" -ne 1 ] && [ -z "$(printf '%s' "$body" | sed -n '/[^ -~]/p')" ]; then
     echo "❌ 提交信息主体部分必须是中文"
     exit 1
 fi
