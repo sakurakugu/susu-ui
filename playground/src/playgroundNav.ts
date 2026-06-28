@@ -210,6 +210,13 @@ export const playgroundNavItems: PlaygroundNavItem[] = [
     scenarios: ['数据概览', '资源列表', '工作台模块'],
   },
   {
+    id: 'carousel',
+    label: '走马灯',
+    group: 'display',
+    description: '用于在有限区域内轮播展示横幅、公告或重点内容。',
+    scenarios: ['运营横幅', '产品公告', '内容推荐'],
+  },
+  {
     id: 'collapse',
     label: '折叠面板',
     group: 'display',

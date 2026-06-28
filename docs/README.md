@@ -20,6 +20,7 @@
 - [Button 按钮](./组件/Button%20按钮.md)
 - [Calendar 日历](./组件/Calendar%20日历.md)
 - [Card 卡片](./组件/Card%20卡片.md)
+- [Carousel 走马灯](./组件/Carousel%20走马灯.md)
 - [Cascader 级联选择](./组件/Cascader%20级联选择.md)
 - [Checkbox 复选框](./组件/Checkbox%20复选框.md)
 - [CheckboxGroup 复选框组](./组件/CheckboxGroup%20复选框组.md)

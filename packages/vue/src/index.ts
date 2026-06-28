@@ -17,6 +17,7 @@ import { SuBreadcrumb } from './components/breadcrumb'
 import { SuButton, SuButtonGroup } from './components/button'
 import { SuCalendar } from './components/calendar'
 import { SuCard } from './components/card'
+import { SuCarousel } from './components/carousel'
 import { SuCascader } from './components/cascader'
 import { SuCheckbox, SuCheckboxGroup } from './components/checkbox'
 import { SuCollapse, SuCollapseItem } from './components/collapse'
@@ -102,6 +103,7 @@ export * from './components/breadcrumb'
 export * from './components/button'
 export * from './components/calendar'
 export * from './components/card'
+export * from './components/carousel'
 export * from './components/cascader'
 export * from './components/checkbox'
 export * from './components/collapse'
@@ -184,6 +186,7 @@ const components = [
   SuButtonGroup,
   SuCalendar,
   SuCard,
+  SuCarousel,
   SuCascader,
   SuCheckbox,
   SuCheckboxGroup,

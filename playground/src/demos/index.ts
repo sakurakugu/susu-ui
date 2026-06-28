@@ -23,6 +23,7 @@ import PopoverDemo from './PopoverDemo.vue'
 import TourDemo from './TourDemo.vue'
 import DropdownDemo from './DropdownDemo.vue'
 import CardDemo from './CardDemo.vue'
+import CarouselDemo from './CarouselDemo.vue'
 import CollapseDemo from './CollapseDemo.vue'
 import EmptyDemo from './EmptyDemo.vue'
 import ResultDemo from './ResultDemo.vue'
@@ -102,6 +103,7 @@ export const playgroundDemos = [
   { id: 'tour', component: TourDemo },
   { id: 'dropdown', component: DropdownDemo },
   { id: 'card', component: CardDemo },
+  { id: 'carousel', component: CarouselDemo },
   { id: 'collapse', component: CollapseDemo },
   { id: 'empty', component: EmptyDemo },
   { id: 'result', component: ResultDemo },

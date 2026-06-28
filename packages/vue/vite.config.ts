@@ -22,6 +22,7 @@ export default defineConfig({
         button: resolve(__dirname, 'src/components/button/index.ts'),
         calendar: resolve(__dirname, 'src/components/calendar/index.ts'),
         card: resolve(__dirname, 'src/components/card/index.ts'),
+        carousel: resolve(__dirname, 'src/components/carousel/index.ts'),
         cascader: resolve(__dirname, 'src/components/cascader/index.ts'),
         checkbox: resolve(__dirname, 'src/components/checkbox/index.ts'),
         collapse: resolve(__dirname, 'src/components/collapse/index.ts'),

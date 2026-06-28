@@ -66,6 +66,11 @@
       "import": "./dist/card.js",
       "require": "./dist/card.cjs"
     },
+    "./carousel": {
+      "types": "./dist/components/carousel/index.d.ts",
+      "import": "./dist/carousel.js",
+      "require": "./dist/carousel.cjs"
+    },
     "./cascader": {
       "types": "./dist/components/cascader/index.d.ts",
       "import": "./dist/cascader.js",
