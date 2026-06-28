@@ -81,7 +81,7 @@ export function buildVuePackageExports(entries) {
 function buildComponentImport({ id, exportNames }) {
   const inlineImport = `import { ${exportNames.join(', ')} } from './components/${id}'`
 
-  if (inlineImport.length <= 80) {
+  if (inlineImport.length <= 100) {
     return inlineImport
   }
 
