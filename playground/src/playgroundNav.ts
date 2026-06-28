@@ -20,6 +20,7 @@ export interface PlaygroundNavItem {
 
 const componentNameOverrides: Record<string, string> = {
   qrcode: 'QR Code',
+  'otp-input': 'OTP Input',
 }
 
 function formatComponentName(id: string) {
@@ -354,6 +355,13 @@ export const playgroundNavItems: PlaygroundNavItem[] = [
     group: 'input',
     description: '用于在文本输入中快速引用用户、话题或资源。',
     scenarios: ['评论协作', '任务备注', '群组消息'],
+  },
+  {
+    id: 'otp-input',
+    label: '验证码输入',
+    group: 'input',
+    description: '用于录入短信、邮箱或二次验证的一次性验证码。',
+    scenarios: ['短信登录', '支付确认', '双因素认证'],
   },
   {
     id: 'tabs',

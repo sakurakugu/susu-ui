@@ -201,6 +201,11 @@
       "import": "./dist/notification.js",
       "require": "./dist/notification.cjs"
     },
+    "./otp-input": {
+      "types": "./dist/components/otp-input/index.d.ts",
+      "import": "./dist/otp-input.js",
+      "require": "./dist/otp-input.cjs"
+    },
     "./pagination": {
       "types": "./dist/components/pagination/index.d.ts",
       "import": "./dist/pagination.js",

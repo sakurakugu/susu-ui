@@ -43,6 +43,7 @@ import SelectDemo from './SelectDemo.vue'
 import CascaderDemo from './CascaderDemo.vue'
 import AutocompleteDemo from './AutocompleteDemo.vue'
 import MentionDemo from './MentionDemo.vue'
+import OtpInputDemo from './OtpInputDemo.vue'
 import TabsDemo from './TabsDemo.vue'
 import SegmentedDemo from './SegmentedDemo.vue'
 import SidebarDemo from './SidebarDemo.vue'
@@ -117,6 +118,7 @@ export const playgroundDemos = [
   { id: 'cascader', component: CascaderDemo },
   { id: 'autocomplete', component: AutocompleteDemo },
   { id: 'mention', component: MentionDemo },
+  { id: 'otp-input', component: OtpInputDemo },
   { id: 'tabs', component: TabsDemo },
   { id: 'segmented', component: SegmentedDemo },
   { id: 'sidebar', component: SidebarDemo },

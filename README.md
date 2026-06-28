@@ -96,6 +96,7 @@ pnpm build
 - [Mention 提及](./docs/组件/Mention%20提及.md)
 - [Message 消息](./docs/组件/Message%20消息.md)
 - [Notification 通知](./docs/组件/Notification%20通知.md)
+- [OtpInput 验证码输入](./docs/组件/OtpInput%20验证码输入.md)
 - [Pagination 分页](./docs/组件/Pagination%20分页.md)
 - [Popconfirm 气泡确认框](./docs/组件/Popconfirm%20气泡确认框.md)
 - [Popover 气泡卡片](./docs/组件/Popover%20气泡卡片.md)
