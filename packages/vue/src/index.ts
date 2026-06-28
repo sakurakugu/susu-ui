@@ -18,7 +18,7 @@ import { SuButton, SuButtonGroup } from './components/button'
 import { SuCalendar } from './components/calendar'
 import { SuCard } from './components/card'
 import { SuCascader } from './components/cascader'
-import { SuCheckbox } from './components/checkbox'
+import { SuCheckbox, SuCheckboxGroup } from './components/checkbox'
 import { SuCollapse, SuCollapseItem } from './components/collapse'
 import { SuColorPicker } from './components/color-picker'
 import { SuCommandPalette } from './components/command-palette'
@@ -174,6 +174,7 @@ const components = [
   SuCard,
   SuCascader,
   SuCheckbox,
+  SuCheckboxGroup,
   SuCollapse,
   SuCollapseItem,
   SuColorPicker,

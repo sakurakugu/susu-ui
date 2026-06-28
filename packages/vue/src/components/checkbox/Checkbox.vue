@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { computed, inject, onMounted, ref, useAttrs, watch } from 'vue'
 import { formKey, type FormSize } from '../form/context'
+import { checkboxGroupKey, type CheckboxValue } from './context'
 
 defineOptions({
   name: 'SuCheckbox',
   inheritAttrs: false,
 })
-
-export type CheckboxValue = boolean | string | number
 
 const model = defineModel<CheckboxValue>({
   default: false,
@@ -23,7 +22,7 @@ const props = withDefaults(
     indeterminate?: boolean
     name?: string
     id?: string
-    value?: string | number
+    value?: CheckboxValue
     required?: boolean
   }>(),
   {
@@ -41,25 +40,58 @@ const props = withDefaults(
 )
 
 const emit = defineEmits<{
-  change: [value: CheckboxValue, event: Event]
+  change: [value: CheckboxValue | CheckboxValue[], event: Event]
   focus: [event: FocusEvent]
   blur: [event: FocusEvent]
 }>()
 
 const attrs = useAttrs()
 const form = inject(formKey, undefined)
+const checkboxGroup = inject(checkboxGroupKey, undefined)
 const inputRef = ref<HTMLInputElement>()
 
-const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
-
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
+const mergedSize = computed(
+  () => props.size ?? checkboxGroup?.size.value ?? form?.size.value ?? 'medium',
 )
 
-const checked = computed(() => model.value === props.trueValue)
+const groupValue = computed(() => props.value ?? props.trueValue)
+
+const checked = computed(() =>
+  checkboxGroup
+    ? checkboxGroup.modelValue.value.includes(groupValue.value)
+    : model.value === props.trueValue,
+)
+
+const reachedGroupMax = computed(
+  () =>
+    checkboxGroup?.max.value !== undefined &&
+    checkboxGroup.modelValue.value.length >= checkboxGroup.max.value &&
+    !checked.value,
+)
+
+const mergedDisabled = computed(
+  () =>
+    props.disabled ||
+    Boolean(checkboxGroup?.disabled.value) ||
+    Boolean(form?.disabled.value) ||
+    reachedGroupMax.value,
+)
+
+const mergedName = computed(() => props.name ?? checkboxGroup?.name.value)
 
 function handleChange(event: Event) {
+  if (mergedDisabled.value) {
+    return
+  }
+
   const target = event.target as HTMLInputElement
+
+  if (checkboxGroup) {
+    const value = checkboxGroup.change(groupValue.value, target.checked, event)
+    emit('change', value, event)
+    return
+  }
+
   const value = target.checked ? props.trueValue : props.falseValue
   model.value = value
   emit('change', value, event)
@@ -118,8 +150,8 @@ defineExpose({
       type="checkbox"
       :checked="checked"
       :disabled="mergedDisabled"
-      :name="name"
-      :value="value ?? trueValue"
+      :name="mergedName"
+      :value="groupValue"
       :required="required"
       :aria-checked="indeterminate ? 'mixed' : checked"
       @change="handleChange"

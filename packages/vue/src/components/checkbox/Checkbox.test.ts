@@ -1,8 +1,66 @@
+/* eslint-disable vue/one-component-per-file */
 import { describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
-import { computed } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 import Checkbox from './Checkbox.vue'
+import CheckboxGroup from './CheckboxGroup.vue'
 import { formKey } from '../form/context'
+
+const CheckboxGroupModelDemo = defineComponent({
+  name: 'CheckboxGroupModelDemo',
+  components: { Checkbox, CheckboxGroup },
+  props: {
+    onChange: {
+      type: Function,
+      required: true,
+    },
+  },
+  setup() {
+    const value = ref(['email'])
+    return { value }
+  },
+  template: `
+    <CheckboxGroup v-model="value" name="notice" @change="onChange">
+      <Checkbox value="email">邮件通知</Checkbox>
+      <Checkbox value="sms">短信通知</Checkbox>
+    </CheckboxGroup>
+  `,
+})
+
+const CheckboxGroupDisabledDemo = defineComponent({
+  name: 'CheckboxGroupDisabledDemo',
+  components: { Checkbox, CheckboxGroup },
+  template: `
+    <CheckboxGroup :model-value="['email']" direction="vertical" size="large" disabled>
+      <Checkbox value="email">邮件通知</Checkbox>
+    </CheckboxGroup>
+  `,
+})
+
+const CheckboxGroupMaxDemo = defineComponent({
+  name: 'CheckboxGroupMaxDemo',
+  components: { Checkbox, CheckboxGroup },
+  setup() {
+    const value = ref(['email'])
+    return { value }
+  },
+  template: `
+    <CheckboxGroup v-model="value" :max="1">
+      <Checkbox value="email">邮件通知</Checkbox>
+      <Checkbox value="sms">短信通知</Checkbox>
+    </CheckboxGroup>
+  `,
+})
+
+const CheckboxGroupFormDemo = defineComponent({
+  name: 'CheckboxGroupFormDemo',
+  components: { Checkbox, CheckboxGroup },
+  template: `
+    <CheckboxGroup :model-value="['email']">
+      <Checkbox value="email">邮件通知</Checkbox>
+    </CheckboxGroup>
+  `,
+})
 
 describe('Checkbox', () => {
   it('渲染默认复选框', () => {
@@ -163,5 +221,85 @@ describe('Checkbox', () => {
     expect(document.activeElement).not.toBe(input)
 
     wrapper.unmount()
+  })
+})
+
+describe('CheckboxGroup', () => {
+  it('渲染分组并同步选中值', async () => {
+    const onChange = vi.fn()
+    const wrapper = mount(CheckboxGroupModelDemo, {
+      props: {
+        onChange,
+      },
+    })
+
+    const group = wrapper.findComponent(CheckboxGroup)
+    const checkboxes = wrapper.findAllComponents(Checkbox)
+
+    expect(group.classes()).toContain('su-checkbox-group')
+    expect(group.classes()).toContain('su-checkbox-group--horizontal')
+    expect(checkboxes[0].classes()).toContain('is-checked')
+    expect(checkboxes[0].find('input').attributes('name')).toBe('notice')
+
+    await checkboxes[1].find('input').setValue(true)
+
+    expect(wrapper.vm.value).toEqual(['email', 'sms'])
+    expect(onChange).toHaveBeenCalledOnce()
+    expect(checkboxes[1].classes()).toContain('is-checked')
+
+    await checkboxes[0].find('input').setValue(false)
+
+    expect(wrapper.vm.value).toEqual(['sms'])
+  })
+
+  it('支持方向、尺寸和禁用状态', () => {
+    const wrapper = mount(CheckboxGroupDisabledDemo)
+
+    expect(wrapper.findComponent(CheckboxGroup).classes()).toContain(
+      'su-checkbox-group--vertical',
+    )
+    expect(wrapper.findComponent(Checkbox).classes()).toContain(
+      'su-checkbox--large',
+    )
+    expect(wrapper.findComponent(Checkbox).classes()).toContain('is-disabled')
+    expect(
+      wrapper.findComponent(Checkbox).find('input').attributes('disabled'),
+    ).toBeDefined()
+  })
+
+  it('支持限制最多可选数量', () => {
+    const wrapper = mount(CheckboxGroupMaxDemo)
+    const checkboxes = wrapper.findAllComponents(Checkbox)
+
+    expect(checkboxes[0].classes()).toContain('is-checked')
+    expect(checkboxes[0].find('input').attributes('disabled')).toBeUndefined()
+    expect(checkboxes[1].classes()).toContain('is-disabled')
+    expect(checkboxes[1].find('input').attributes('disabled')).toBeDefined()
+  })
+
+  it('跟随表单尺寸和禁用状态', () => {
+    const wrapper = mount(CheckboxGroupFormDemo, {
+      global: {
+        provide: {
+          [formKey as symbol]: {
+            labelWidth: computed(() => undefined),
+            labelPosition: computed(() => 'right'),
+            size: computed(() => 'small'),
+            disabled: computed(() => true),
+          },
+        },
+      },
+    })
+
+    expect(wrapper.findComponent(CheckboxGroup).classes()).toContain(
+      'su-checkbox-group--small',
+    )
+    expect(wrapper.findComponent(CheckboxGroup).classes()).toContain(
+      'is-disabled',
+    )
+    expect(wrapper.findComponent(Checkbox).classes()).toContain(
+      'su-checkbox--small',
+    )
+    expect(wrapper.findComponent(Checkbox).classes()).toContain('is-disabled')
   })
 })

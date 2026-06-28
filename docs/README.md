@@ -22,6 +22,7 @@
 - [Card 卡片](./组件/Card%20卡片.md)
 - [Cascader 级联选择](./组件/Cascader%20级联选择.md)
 - [Checkbox 复选框](./组件/Checkbox%20复选框.md)
+- [CheckboxGroup 复选框组](./组件/CheckboxGroup%20复选框组.md)
 - [Collapse 折叠面板](./组件/Collapse%20折叠面板.md)
 - [ColorPicker 颜色选择器](./组件/ColorPicker%20颜色选择器.md)
 - [CommandPalette 命令面板](./组件/CommandPalette%20命令面板.md)
