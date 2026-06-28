@@ -30,9 +30,9 @@ describe('VirtualList', () => {
     })
 
     expect(wrapper.classes()).toContain('su-virtual-list')
-    expect(
-      wrapper.find('.su-virtual-list__content').attributes('style'),
-    ).toContain('height: 3000px')
+    expect(wrapper.find('.su-virtual-list__content').attributes('style')).toContain(
+      'height: 3000px',
+    )
     expect(wrapper.findAll('.su-virtual-list__item')).toHaveLength(6)
     expect(wrapper.text()).toContain('0 - 客户 1')
     expect(wrapper.text()).not.toContain('客户 40')
@@ -81,9 +81,7 @@ describe('VirtualList', () => {
       },
     })
 
-    expect(wrapper.find('.su-virtual-list__empty').text()).toBe(
-      '请调整筛选条件',
-    )
+    expect(wrapper.find('.su-virtual-list__empty').text()).toBe('请调整筛选条件')
     expect(wrapper.text()).not.toContain('没有客户记录')
   })
 
@@ -103,9 +101,7 @@ describe('VirtualList', () => {
     wrapper.vm.scrollToIndex(20)
     await wrapper.vm.$nextTick()
 
-    expect(wrapper.find('.su-virtual-list__viewport').element.scrollTop).toBe(
-      600,
-    )
+    expect(wrapper.find('.su-virtual-list__viewport').element.scrollTop).toBe(600)
     expect(wrapper.text()).toContain('客户 21')
   })
 })

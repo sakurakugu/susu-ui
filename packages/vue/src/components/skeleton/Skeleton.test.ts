@@ -24,12 +24,8 @@ describe('Skeleton', () => {
 
     expect(wrapper.classes()).toContain('is-round')
     expect(wrapper.find('.su-skeleton__item--circle').exists()).toBe(true)
-    expect(wrapper.find('.su-skeleton__item').attributes('style')).toContain(
-      'width: 48px',
-    )
-    expect(wrapper.find('.su-skeleton__item').attributes('style')).toContain(
-      'height: 48px',
-    )
+    expect(wrapper.find('.su-skeleton__item').attributes('style')).toContain('width: 48px')
+    expect(wrapper.find('.su-skeleton__item').attributes('style')).toContain('height: 48px')
   })
 
   it('支持字符串尺寸', () => {
@@ -42,12 +38,8 @@ describe('Skeleton', () => {
     })
 
     expect(wrapper.find('.su-skeleton__item--rect').exists()).toBe(true)
-    expect(wrapper.find('.su-skeleton__item').attributes('style')).toContain(
-      'width: 8rem',
-    )
-    expect(wrapper.find('.su-skeleton__item').attributes('style')).toContain(
-      'height: 4rem',
-    )
+    expect(wrapper.find('.su-skeleton__item').attributes('style')).toContain('width: 8rem')
+    expect(wrapper.find('.su-skeleton__item').attributes('style')).toContain('height: 4rem')
   })
 
   it('支持多行段落', () => {
@@ -59,9 +51,7 @@ describe('Skeleton', () => {
 
     expect(wrapper.classes()).toContain('is-paragraph')
     expect(wrapper.findAll('.su-skeleton__item')).toHaveLength(3)
-    expect(wrapper.findAll('.su-skeleton__item')[2].classes()).toContain(
-      'is-last',
-    )
+    expect(wrapper.findAll('.su-skeleton__item')[2].classes()).toContain('is-last')
   })
 
   it('关闭动画后移除动画类名', () => {

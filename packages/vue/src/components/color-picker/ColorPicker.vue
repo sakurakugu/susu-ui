@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  inject,
-  nextTick,
-  onBeforeUnmount,
-  ref,
-  useAttrs,
-  watch,
-} from 'vue'
+import { computed, inject, nextTick, onBeforeUnmount, ref, useAttrs, watch } from 'vue'
 import { formKey, type FormItemStatus, type FormSize } from '../form/context'
 
 defineOptions({
@@ -91,17 +83,13 @@ const isOpen = ref(false)
 const currentColor = ref<RgbaColor>({ r: 22, g: 119, b: 255, a: 1 })
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
 const isInteractive = computed(() => !mergedDisabled.value && !props.readonly)
 const parsedModel = computed(() => parseColor(model.value))
 const displayValue = computed(() => model.value || '')
 const hexValue = computed(() => toHex(currentColor.value))
 const alphaPercent = computed(() => Math.round(currentColor.value.a * 100))
-const showClear = computed(
-  () => props.clearable && isInteractive.value && model.value.length > 0,
-)
+const showClear = computed(() => props.clearable && isInteractive.value && model.value.length > 0)
 const swatchStyle = computed(() => ({
   background: toRgba(currentColor.value),
 }))
@@ -118,9 +106,7 @@ const normalizedPresets = computed(() =>
           }
         : undefined
     })
-    .filter((item): item is { value: string; style: { background: string } } =>
-      Boolean(item),
-    ),
+    .filter((item): item is { value: string; style: { background: string } } => Boolean(item)),
 )
 
 function clamp(value: number, min: number, max: number) {
@@ -541,11 +527,7 @@ defineExpose({
 }
 
 .su-color-picker:hover:not(.is-disabled) .su-color-picker__control {
-  border-color: color-mix(
-    in srgb,
-    var(--su-color-primary) 48%,
-    var(--su-color-border)
-  );
+  border-color: color-mix(in srgb, var(--su-color-primary) 48%, var(--su-color-border));
 }
 
 .su-color-picker:focus-within .su-color-picker__control,
@@ -774,8 +756,7 @@ defineExpose({
 
 .su-color-picker__preset:hover:not(:disabled) {
   border-color: var(--su-color-primary);
-  box-shadow: 0 0 0 2px
-    color-mix(in srgb, var(--su-color-primary) 18%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--su-color-primary) 18%, transparent);
 }
 
 .su-color-picker.is-disabled {

@@ -127,10 +127,7 @@ function renderContent(content: unknown) {
     ]"
     :style="descriptionsStyle"
   >
-    <div
-      v-if="title || $slots.title || $slots.extra"
-      class="su-descriptions__header"
-    >
+    <div v-if="title || $slots.title || $slots.extra" class="su-descriptions__header">
       <div class="su-descriptions__title">
         <slot name="title">
           {{ title }}

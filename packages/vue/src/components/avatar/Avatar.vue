@@ -50,11 +50,7 @@ const avatarStyle = computed(() => {
 
   if (typeof props.size === 'number') {
     style['--su-avatar-size'] = `${props.size}px`
-  } else if (
-    props.size !== 'small' &&
-    props.size !== 'medium' &&
-    props.size !== 'large'
-  ) {
+  } else if (props.size !== 'small' && props.size !== 'medium' && props.size !== 'large') {
     style['--su-avatar-size'] = props.size
   }
 

@@ -6,8 +6,7 @@ defineOptions({
 })
 
 type NotificationType = 'info' | 'success' | 'warning' | 'error'
-type NotificationPlacement =
-  'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'
+type NotificationPlacement = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'
 
 const props = withDefaults(
   defineProps<{
@@ -60,18 +59,12 @@ const iconText = computed(() => {
   return iconMap[props.type]
 })
 
-const notificationRole = computed(() =>
-  props.type === 'error' ? 'alert' : 'status',
-)
+const notificationRole = computed(() => (props.type === 'error' ? 'alert' : 'status'))
 
-const ariaLive = computed(() =>
-  props.type === 'error' ? 'assertive' : 'polite',
-)
+const ariaLive = computed(() => (props.type === 'error' ? 'assertive' : 'polite'))
 
 const notificationStyle = computed<CSSProperties>(() => {
-  const horizontalProperty = props.placement.endsWith('right')
-    ? 'right'
-    : 'left'
+  const horizontalProperty = props.placement.endsWith('right') ? 'right' : 'left'
   const verticalProperty = props.placement.startsWith('top') ? 'top' : 'bottom'
 
   return {
@@ -138,10 +131,7 @@ onBeforeUnmount(clearTimer)
           <h3 v-if="title || $slots.title" class="su-notification__title">
             <slot name="title">{{ title }}</slot>
           </h3>
-          <div
-            v-if="description || $slots.default"
-            class="su-notification__description"
-          >
+          <div v-if="description || $slots.default" class="su-notification__description">
             <slot>{{ description }}</slot>
           </div>
         </div>

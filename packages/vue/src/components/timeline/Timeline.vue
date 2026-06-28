@@ -6,8 +6,7 @@ defineOptions({
   name: 'SuTimeline',
 })
 
-export type TimelineType =
-  'default' | 'primary' | 'success' | 'warning' | 'error' | 'info'
+export type TimelineType = 'default' | 'primary' | 'success' | 'warning' | 'error' | 'info'
 export type TimelinePosition = 'left' | 'right' | 'alternate'
 export type TimelineSize = FormSize
 
@@ -40,31 +39,11 @@ const props = withDefaults(
 )
 
 defineSlots<{
-  default?: (props: {
-    item: TimelineItem
-    index: number
-    type: TimelineType
-  }) => unknown
-  dot?: (props: {
-    item: TimelineItem
-    index: number
-    type: TimelineType
-  }) => unknown
-  time?: (props: {
-    item: TimelineItem
-    index: number
-    type: TimelineType
-  }) => unknown
-  title?: (props: {
-    item: TimelineItem
-    index: number
-    type: TimelineType
-  }) => unknown
-  description?: (props: {
-    item: TimelineItem
-    index: number
-    type: TimelineType
-  }) => unknown
+  default?: (props: { item: TimelineItem; index: number; type: TimelineType }) => unknown
+  dot?: (props: { item: TimelineItem; index: number; type: TimelineType }) => unknown
+  time?: (props: { item: TimelineItem; index: number; type: TimelineType }) => unknown
+  title?: (props: { item: TimelineItem; index: number; type: TimelineType }) => unknown
+  description?: (props: { item: TimelineItem; index: number; type: TimelineType }) => unknown
 }>()
 
 const timelineItems = computed(() => {
@@ -114,42 +93,21 @@ function getItemStyle(item: TimelineItem) {
       >
         <div class="su-timeline__axis" aria-hidden="true">
           <span class="su-timeline__dot">
-            <slot
-              name="dot"
-              :item="entry.item"
-              :index="index"
-              :type="entry.type"
-            />
+            <slot name="dot" :item="entry.item" :index="index" :type="entry.type" />
           </span>
           <span class="su-timeline__tail" />
         </div>
 
         <div class="su-timeline__content">
           <slot :item="entry.item" :index="index" :type="entry.type">
-            <time
-              v-if="$slots.time || entry.item.time"
-              class="su-timeline__time"
-            >
-              <slot
-                name="time"
-                :item="entry.item"
-                :index="index"
-                :type="entry.type"
-              >
+            <time v-if="$slots.time || entry.item.time" class="su-timeline__time">
+              <slot name="time" :item="entry.item" :index="index" :type="entry.type">
                 {{ entry.item.time }}
               </slot>
             </time>
 
-            <div
-              v-if="$slots.title || entry.item.title"
-              class="su-timeline__title"
-            >
-              <slot
-                name="title"
-                :item="entry.item"
-                :index="index"
-                :type="entry.type"
-              >
+            <div v-if="$slots.title || entry.item.title" class="su-timeline__title">
+              <slot name="title" :item="entry.item" :index="index" :type="entry.type">
                 {{ entry.item.title }}
               </slot>
             </div>
@@ -158,12 +116,7 @@ function getItemStyle(item: TimelineItem) {
               v-if="$slots.description || entry.item.description"
               class="su-timeline__description"
             >
-              <slot
-                name="description"
-                :item="entry.item"
-                :index="index"
-                :type="entry.type"
-              >
+              <slot name="description" :item="entry.item" :index="index" :type="entry.type">
                 {{ entry.item.description }}
               </slot>
             </div>
@@ -327,11 +280,7 @@ function getItemStyle(item: TimelineItem) {
 
 .su-timeline__item.is-primary {
   --su-timeline-dot-color: var(--su-color-primary);
-  --su-timeline-tail-color: color-mix(
-    in srgb,
-    var(--su-color-primary) 42%,
-    var(--su-color-border)
-  );
+  --su-timeline-tail-color: color-mix(in srgb, var(--su-color-primary) 42%, var(--su-color-border));
 }
 
 .su-timeline__item.is-success {

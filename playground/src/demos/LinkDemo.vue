@@ -17,12 +17,8 @@
 
       <SuSpace wrap>
         <SuLink href="/reports" underline="always">始终显示下划线</SuLink>
-        <SuLink href="/reports/monthly" underline="hover">
-          悬停显示下划线
-        </SuLink>
-        <SuLink href="/reports/archive" underline="never">
-          不显示下划线
-        </SuLink>
+        <SuLink href="/reports/monthly" underline="hover"> 悬停显示下划线 </SuLink>
+        <SuLink href="/reports/archive" underline="never"> 不显示下划线 </SuLink>
       </SuSpace>
 
       <SuSpace wrap>

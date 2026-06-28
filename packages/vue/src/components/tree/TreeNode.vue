@@ -29,10 +29,7 @@ defineSlots<{
   default?: (props: { node: TreeRenderNode }) => unknown
 }>()
 
-function forwardNodeClick(
-  node: TreeRenderNode,
-  event: MouseEvent | KeyboardEvent,
-) {
+function forwardNodeClick(node: TreeRenderNode, event: MouseEvent | KeyboardEvent) {
   emit('nodeClick', node, event)
 }
 

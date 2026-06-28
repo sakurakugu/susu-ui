@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, onBeforeUnmount, useSlots, watchEffect } from 'vue'
-import {
-  descriptionsKey,
-  type DescriptionsItem,
-  type RegisteredDescriptionsItem,
-} from './context'
+import { descriptionsKey, type DescriptionsItem, type RegisteredDescriptionsItem } from './context'
 
 defineOptions({
   name: 'SuDescriptionsItem',

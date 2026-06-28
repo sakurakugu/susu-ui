@@ -54,12 +54,7 @@ const time = ref('09:30:00')
 
 ```vue
 <template>
-  <SuTimePicker
-    v-model="time"
-    min="09:00:00"
-    max="18:00:00"
-    placeholder="请选择工作时间"
-  />
+  <SuTimePicker v-model="time" min="09:00:00" max="18:00:00" placeholder="请选择工作时间" />
 </template>
 ```
 

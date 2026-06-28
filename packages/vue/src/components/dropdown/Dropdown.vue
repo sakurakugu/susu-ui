@@ -1,20 +1,11 @@
 <script setup lang="ts">
-import {
-  computed,
-  nextTick,
-  onBeforeUnmount,
-  ref,
-  useId,
-  watch,
-  type CSSProperties,
-} from 'vue'
+import { computed, nextTick, onBeforeUnmount, ref, useId, watch, type CSSProperties } from 'vue'
 
 defineOptions({
   name: 'SuDropdown',
 })
 
-type DropdownPlacement =
-  'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end'
+type DropdownPlacement = 'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end'
 type DropdownTrigger = 'click' | 'hover' | 'manual'
 
 export type DropdownValue = string | number
@@ -76,11 +67,7 @@ let hideTimer: ReturnType<typeof window.setTimeout> | undefined
 
 const isControlled = computed(() => visibleModel.value !== undefined)
 const visible = computed(() =>
-  props.disabled
-    ? false
-    : isControlled.value
-      ? Boolean(visibleModel.value)
-      : innerVisible.value,
+  props.disabled ? false : isControlled.value ? Boolean(visibleModel.value) : innerVisible.value,
 )
 const placementSide = computed(() => props.placement.split('-')[0])
 
@@ -204,19 +191,11 @@ function alignHorizontal(
   const [, align] = props.placement.split('-')
 
   if (align === 'end') {
-    return clamp(
-      triggerLeft + triggerWidth - menuWidth,
-      4,
-      viewportWidth - menuWidth - 4,
-    )
+    return clamp(triggerLeft + triggerWidth - menuWidth, 4, viewportWidth - menuWidth - 4)
   }
 
   if (align === undefined) {
-    return clamp(
-      triggerLeft + triggerWidth / 2 - menuWidth / 2,
-      4,
-      viewportWidth - menuWidth - 4,
-    )
+    return clamp(triggerLeft + triggerWidth / 2 - menuWidth / 2, 4, viewportWidth - menuWidth - 4)
   }
 
   return clamp(triggerLeft, 4, viewportWidth - menuWidth - 4)
@@ -239,12 +218,7 @@ function updatePosition() {
   const viewportWidth = window.innerWidth
   const viewportHeight = window.innerHeight
   const side = placementSide.value
-  const left = alignHorizontal(
-    triggerRect.left,
-    triggerRect.width,
-    menuRect.width,
-    viewportWidth,
-  )
+  const left = alignHorizontal(triggerRect.left, triggerRect.width, menuRect.width, viewportWidth)
   let top =
     side === 'top'
       ? triggerRect.top - menuRect.height - props.offset

@@ -12,16 +12,8 @@ describe('Collapse', () => {
       },
       slots: {
         default: [
-          h(
-            CollapseItem,
-            { title: '基础信息', name: 'basic' },
-            () => '基础内容',
-          ),
-          h(
-            CollapseItem,
-            { title: '权限设置', name: 'permission' },
-            () => '权限内容',
-          ),
+          h(CollapseItem, { title: '基础信息', name: 'basic' }, () => '基础内容'),
+          h(CollapseItem, { title: '权限设置', name: 'permission' }, () => '权限内容'),
         ],
       },
     })
@@ -45,16 +37,8 @@ describe('Collapse', () => {
       },
       slots: {
         default: [
-          h(
-            CollapseItem,
-            { title: '基础信息', name: 'basic' },
-            () => '基础内容',
-          ),
-          h(
-            CollapseItem,
-            { title: '权限设置', name: 'permission' },
-            () => '权限内容',
-          ),
+          h(CollapseItem, { title: '基础信息', name: 'basic' }, () => '基础内容'),
+          h(CollapseItem, { title: '权限设置', name: 'permission' }, () => '权限内容'),
         ],
       },
     })
@@ -62,9 +46,7 @@ describe('Collapse', () => {
 
     await wrapper.findAll('.su-collapse__header')[1].trigger('click')
 
-    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([
-      ['basic', 'permission'],
-    ])
+    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([['basic', 'permission']])
     expect(wrapper.emitted('change')?.[0]).toEqual([['basic', 'permission']])
     expect(onChange).toHaveBeenCalledWith(['basic', 'permission'])
     expect(onItemClick).toHaveBeenCalled()
@@ -78,16 +60,8 @@ describe('Collapse', () => {
       },
       slots: {
         default: [
-          h(
-            CollapseItem,
-            { title: '基础信息', name: 'basic' },
-            () => '基础内容',
-          ),
-          h(
-            CollapseItem,
-            { title: '权限设置', name: 'permission' },
-            () => '权限内容',
-          ),
+          h(CollapseItem, { title: '基础信息', name: 'basic' }, () => '基础内容'),
+          h(CollapseItem, { title: '权限设置', name: 'permission' }, () => '权限内容'),
         ],
       },
     })
@@ -105,11 +79,7 @@ describe('Collapse', () => {
       },
       slots: {
         default: [
-          h(
-            CollapseItem,
-            { title: '审计记录', name: 'audit', disabled: true },
-            () => '审计内容',
-          ),
+          h(CollapseItem, { title: '审计记录', name: 'audit', disabled: true }, () => '审计内容'),
         ],
       },
     })
@@ -157,11 +127,7 @@ describe('Collapse', () => {
         destroyInactivePanel: true,
       },
       slots: {
-        default: h(
-          CollapseItem,
-          { title: '配置项', name: 'config' },
-          () => '配置内容',
-        ),
+        default: h(CollapseItem, { title: '配置项', name: 'config' }, () => '配置内容'),
       },
     })
     await nextTick()

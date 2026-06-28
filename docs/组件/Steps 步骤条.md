@@ -46,12 +46,7 @@ const items = [
 
 ```vue
 <template>
-  <SuSteps
-    :items="items"
-    :current="current"
-    clickable
-    @change="current = Number($event)"
-  />
+  <SuSteps :items="items" :current="current" clickable @change="current = Number($event)" />
 </template>
 ```
 

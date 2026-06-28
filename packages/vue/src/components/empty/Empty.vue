@@ -27,15 +27,10 @@ defineSlots<{
 
 const locale = useLocale()
 
-const mergedDescription = computed(
-  () => props.description ?? locale.value.empty.description,
-)
+const mergedDescription = computed(() => props.description ?? locale.value.empty.description)
 
 const imageStyle = computed(() => {
-  const size =
-    typeof props.imageSize === 'number'
-      ? `${props.imageSize}px`
-      : props.imageSize
+  const size = typeof props.imageSize === 'number' ? `${props.imageSize}px` : props.imageSize
 
   return {
     width: size,
@@ -49,12 +44,7 @@ const imageStyle = computed(() => {
     <div class="su-empty__image" :style="imageStyle" aria-hidden="true">
       <slot name="image">
         <img v-if="image" class="su-empty__img" :src="image" alt="" />
-        <svg
-          v-else
-          class="su-empty__default-image"
-          viewBox="0 0 96 96"
-          fill="none"
-        >
+        <svg v-else class="su-empty__default-image" viewBox="0 0 96 96" fill="none">
           <path
             d="M20 35.5L31.5 18h33L76 35.5v38A4.5 4.5 0 0 1 71.5 78h-47A4.5 4.5 0 0 1 20 73.5v-38Z"
             class="su-empty__default-box"
@@ -63,10 +53,7 @@ const imageStyle = computed(() => {
             d="M20 35.5h19.2c1.7 0 3.1 1 3.7 2.6l1.1 2.8c.6 1.6 2.1 2.6 3.7 2.6h.6c1.7 0 3.1-1 3.7-2.6l1.1-2.8c.6-1.6 2.1-2.6 3.7-2.6H76"
             class="su-empty__default-line"
           />
-          <path
-            d="M31.5 18 20 35.5h56L64.5 18"
-            class="su-empty__default-line"
-          />
+          <path d="M31.5 18 20 35.5h56L64.5 18" class="su-empty__default-line" />
           <path
             d="M37 61h22M42 52h12"
             class="su-empty__default-line su-empty__default-muted-line"

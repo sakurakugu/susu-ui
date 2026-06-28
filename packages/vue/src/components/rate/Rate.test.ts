@@ -99,9 +99,7 @@ describe('Rate', () => {
       },
     })
 
-    expect(wrapper.findAll('.su-rate__star-fill')[3].attributes('style')).toBe(
-      'width: 70%;',
-    )
+    expect(wrapper.findAll('.su-rate__star-fill')[3].attributes('style')).toBe('width: 70%;')
   })
 
   it('支持自定义图标', () => {
@@ -127,9 +125,7 @@ describe('Rate', () => {
 
     await wrapper.trigger('mouseleave')
 
-    expect(wrapper.findAll('.su-rate__star-fill')[3].attributes('style')).toBe(
-      'width: 0%;',
-    )
+    expect(wrapper.findAll('.su-rate__star-fill')[3].attributes('style')).toBe('width: 0%;')
   })
 
   it('支持禁用和只读状态', async () => {
@@ -148,9 +144,7 @@ describe('Rate', () => {
     await readonlyWrapper.findAll('.su-rate__item')[1].trigger('click')
 
     expect(disabledWrapper.classes()).toContain('is-disabled')
-    expect(
-      disabledWrapper.find('.su-rate__item').attributes('disabled'),
-    ).toBeDefined()
+    expect(disabledWrapper.find('.su-rate__item').attributes('disabled')).toBeDefined()
     expect(disabledWrapper.emitted('update:modelValue')).toBeUndefined()
     expect(readonlyWrapper.classes()).toContain('is-readonly')
     expect(readonlyWrapper.emitted('update:modelValue')).toBeUndefined()

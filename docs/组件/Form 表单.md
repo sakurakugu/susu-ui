@@ -20,12 +20,7 @@ const email = ref('')
       <SuInput id="name" v-model="name" required placeholder="请输入用户名" />
     </SuFormItem>
     <SuFormItem label="邮箱" label-for="email" help="用于接收通知">
-      <SuInput
-        id="email"
-        v-model="email"
-        type="email"
-        placeholder="请输入邮箱"
-      />
+      <SuInput id="email" v-model="email" type="email" placeholder="请输入邮箱" />
     </SuFormItem>
   </SuForm>
 </template>

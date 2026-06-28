@@ -52,20 +52,13 @@ const props = withDefaults(
 )
 
 const emit = defineEmits<{
-  change: [
-    value: TransferValue[],
-    direction: TransferMoveDirection,
-    movedKeys: TransferValue[],
-  ]
+  change: [value: TransferValue[], direction: TransferMoveDirection, movedKeys: TransferValue[]]
   leftCheckChange: [checkedKeys: TransferValue[]]
   rightCheckChange: [checkedKeys: TransferValue[]]
 }>()
 
 defineSlots<{
-  default?: (props: {
-    option: TransferOption
-    direction: TransferDirection
-  }) => unknown
+  default?: (props: { option: TransferOption; direction: TransferDirection }) => unknown
   'left-title'?: () => unknown
   'right-title'?: () => unknown
   empty?: (props: { direction: TransferDirection }) => unknown
@@ -79,25 +72,17 @@ const leftQuery = ref('')
 const rightQuery = ref('')
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
-const mergedTitles = computed(
-  () => props.titles ?? locale.value.transfer.titles,
-)
+const mergedTitles = computed(() => props.titles ?? locale.value.transfer.titles)
 const mergedFilterPlaceholder = computed(
   () => props.filterPlaceholder ?? locale.value.transfer.filterPlaceholder,
 )
-const mergedEmptyText = computed(
-  () => props.emptyText ?? locale.value.transfer.empty,
-)
-const mergedLeftButtonText = computed(
-  () => props.leftButtonText ?? locale.value.transfer.moveLeft,
-)
+const mergedEmptyText = computed(() => props.emptyText ?? locale.value.transfer.empty)
+const mergedLeftButtonText = computed(() => props.leftButtonText ?? locale.value.transfer.moveLeft)
 const mergedRightButtonText = computed(
   () => props.rightButtonText ?? locale.value.transfer.moveRight,
 )
 
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
 
 const targetValueSet = computed(() => new Set(model.value))
 
@@ -109,39 +94,25 @@ const rightOptions = computed(() =>
   props.data.filter((option) => targetValueSet.value.has(option.value)),
 )
 
-const filteredLeftOptions = computed(() =>
-  filterOptions(leftOptions.value, leftQuery.value),
-)
+const filteredLeftOptions = computed(() => filterOptions(leftOptions.value, leftQuery.value))
 
-const filteredRightOptions = computed(() =>
-  filterOptions(rightOptions.value, rightQuery.value),
-)
+const filteredRightOptions = computed(() => filterOptions(rightOptions.value, rightQuery.value))
 
-const leftEnabledValues = computed(() =>
-  getEnabledValues(filteredLeftOptions.value),
-)
+const leftEnabledValues = computed(() => getEnabledValues(filteredLeftOptions.value))
 
-const rightEnabledValues = computed(() =>
-  getEnabledValues(filteredRightOptions.value),
-)
+const rightEnabledValues = computed(() => getEnabledValues(filteredRightOptions.value))
 
 const leftCheckedEnabledValues = computed(() =>
   leftChecked.value.filter((value) => leftEnabledValues.value.includes(value)),
 )
 
 const rightCheckedEnabledValues = computed(() =>
-  rightChecked.value.filter((value) =>
-    rightEnabledValues.value.includes(value),
-  ),
+  rightChecked.value.filter((value) => rightEnabledValues.value.includes(value)),
 )
 
-const leftAllChecked = computed(() =>
-  isAllChecked(leftEnabledValues.value, leftChecked.value),
-)
+const leftAllChecked = computed(() => isAllChecked(leftEnabledValues.value, leftChecked.value))
 
-const rightAllChecked = computed(() =>
-  isAllChecked(rightEnabledValues.value, rightChecked.value),
-)
+const rightAllChecked = computed(() => isAllChecked(rightEnabledValues.value, rightChecked.value))
 
 const leftIndeterminate = computed(() =>
   isIndeterminate(leftEnabledValues.value, leftChecked.value),
@@ -163,10 +134,7 @@ watch(
   () => [props.data, model.value],
   () => {
     leftChecked.value = pruneCheckedValues(leftChecked.value, leftOptions.value)
-    rightChecked.value = pruneCheckedValues(
-      rightChecked.value,
-      rightOptions.value,
-    )
+    rightChecked.value = pruneCheckedValues(rightChecked.value, rightOptions.value)
   },
   { deep: true },
 )
@@ -191,49 +159,30 @@ function filterOptions(options: TransferOption[], query: string) {
 }
 
 function getEnabledValues(options: TransferOption[]) {
-  return options
-    .filter((option) => !isOptionDisabled(option))
-    .map((option) => option.value)
+  return options.filter((option) => !isOptionDisabled(option)).map((option) => option.value)
 }
 
 function isOptionDisabled(option: TransferOption) {
   return mergedDisabled.value || Boolean(option.disabled)
 }
 
-function isAllChecked(
-  enabledValues: TransferValue[],
-  checkedValues: TransferValue[],
-) {
-  return (
-    enabledValues.length > 0 &&
-    enabledValues.every((value) => checkedValues.includes(value))
-  )
+function isAllChecked(enabledValues: TransferValue[], checkedValues: TransferValue[]) {
+  return enabledValues.length > 0 && enabledValues.every((value) => checkedValues.includes(value))
 }
 
-function isIndeterminate(
-  enabledValues: TransferValue[],
-  checkedValues: TransferValue[],
-) {
-  const checkedCount = enabledValues.filter((value) =>
-    checkedValues.includes(value),
-  ).length
+function isIndeterminate(enabledValues: TransferValue[], checkedValues: TransferValue[]) {
+  const checkedCount = enabledValues.filter((value) => checkedValues.includes(value)).length
 
   return checkedCount > 0 && checkedCount < enabledValues.length
 }
 
-function pruneCheckedValues(
-  checkedValues: TransferValue[],
-  options: TransferOption[],
-) {
+function pruneCheckedValues(checkedValues: TransferValue[], options: TransferOption[]) {
   const valueSet = new Set(options.map((option) => option.value))
 
   return checkedValues.filter((value) => valueSet.has(value))
 }
 
-function updateChecked(
-  direction: TransferDirection,
-  checkedValues: TransferValue[],
-) {
+function updateChecked(direction: TransferDirection, checkedValues: TransferValue[]) {
   if (direction === 'left') {
     leftChecked.value = checkedValues
     emit('leftCheckChange', checkedValues)
@@ -244,18 +193,13 @@ function updateChecked(
   emit('rightCheckChange', checkedValues)
 }
 
-function handleOptionChange(
-  direction: TransferDirection,
-  option: TransferOption,
-  event: Event,
-) {
+function handleOptionChange(direction: TransferDirection, option: TransferOption, event: Event) {
   if (isOptionDisabled(option)) {
     return
   }
 
   const target = event.target as HTMLInputElement
-  const checkedValues =
-    direction === 'left' ? [...leftChecked.value] : [...rightChecked.value]
+  const checkedValues = direction === 'left' ? [...leftChecked.value] : [...rightChecked.value]
   const index = checkedValues.indexOf(option.value)
 
   if (target.checked && index === -1) {
@@ -274,10 +218,8 @@ function toggleAll(direction: TransferDirection) {
     return
   }
 
-  const enabledValues =
-    direction === 'left' ? leftEnabledValues.value : rightEnabledValues.value
-  const currentChecked =
-    direction === 'left' ? leftChecked.value : rightChecked.value
+  const enabledValues = direction === 'left' ? leftEnabledValues.value : rightEnabledValues.value
+  const currentChecked = direction === 'left' ? leftChecked.value : rightChecked.value
   const shouldClear = isAllChecked(enabledValues, currentChecked)
   const nextChecked = shouldClear
     ? currentChecked.filter((value) => !enabledValues.includes(value))
@@ -292,11 +234,7 @@ function moveRight() {
   }
 
   const movedKeys = leftOptions.value
-    .filter(
-      (option) =>
-        leftCheckedEnabledValues.value.includes(option.value) &&
-        !option.disabled,
-    )
+    .filter((option) => leftCheckedEnabledValues.value.includes(option.value) && !option.disabled)
     .map((option) => option.value)
 
   model.value = Array.from(new Set([...model.value, ...movedKeys]))
@@ -311,11 +249,7 @@ function moveLeft() {
   }
 
   const movedKeys = rightOptions.value
-    .filter(
-      (option) =>
-        rightCheckedEnabledValues.value.includes(option.value) &&
-        !option.disabled,
-    )
+    .filter((option) => rightCheckedEnabledValues.value.includes(option.value) && !option.disabled)
     .map((option) => option.value)
   const movedKeySet = new Set(movedKeys)
 
@@ -361,9 +295,7 @@ function moveLeft() {
             <slot name="left-title">{{ mergedTitles[0] }}</slot>
           </span>
         </label>
-        <span class="su-transfer__count">
-          {{ leftChecked.length }}/{{ leftOptions.length }}
-        </span>
+        <span class="su-transfer__count"> {{ leftChecked.length }}/{{ leftOptions.length }} </span>
       </div>
 
       <div v-if="filterable" class="su-transfer__filter">
@@ -412,10 +344,7 @@ function moveLeft() {
                   <span class="su-transfer__item-label">
                     {{ option.label }}
                   </span>
-                  <span
-                    v-if="option.description"
-                    class="su-transfer__item-description"
-                  >
+                  <span v-if="option.description" class="su-transfer__item-description">
                     {{ option.description }}
                   </span>
                 </slot>
@@ -527,10 +456,7 @@ function moveLeft() {
                   <span class="su-transfer__item-label">
                     {{ option.label }}
                   </span>
-                  <span
-                    v-if="option.description"
-                    class="su-transfer__item-description"
-                  >
+                  <span v-if="option.description" class="su-transfer__item-description">
                     {{ option.description }}
                   </span>
                 </slot>
@@ -762,8 +688,7 @@ function moveLeft() {
 }
 
 .su-transfer__checkbox-input:focus-visible + .su-transfer__checkbox-box {
-  box-shadow: 0 0 0 3px
-    color-mix(in srgb, var(--su-color-primary) 22%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--su-color-primary) 22%, transparent);
 }
 
 .su-transfer__title,

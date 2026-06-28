@@ -33,9 +33,7 @@ describe('InfiniteScroll', () => {
 
     expect(wrapper.classes()).toContain('su-infinite-scroll')
     expect(wrapper.find('.record').text()).toBe('客户动态')
-    expect(wrapper.find('.su-infinite-scroll__status').text()).toContain(
-      '正在同步更多客户',
-    )
+    expect(wrapper.find('.su-infinite-scroll__status').text()).toContain('正在同步更多客户')
   })
 
   it('滚动到阈值内时触发 load 事件', async () => {
@@ -165,11 +163,7 @@ describe('InfiniteScroll', () => {
       },
     })
 
-    expect(finishedWrapper.find('.su-infinite-scroll__status').text()).toBe(
-      '已加载全部审批记录',
-    )
-    expect(errorWrapper.find('.su-infinite-scroll__status').text()).toBe(
-      '加载失败，请稍后重试',
-    )
+    expect(finishedWrapper.find('.su-infinite-scroll__status').text()).toBe('已加载全部审批记录')
+    expect(errorWrapper.find('.su-infinite-scroll__status').text()).toBe('加载失败，请稍后重试')
   })
 })

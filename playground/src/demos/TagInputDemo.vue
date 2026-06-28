@@ -24,11 +24,7 @@ function handleInvalid() {
     <div class="tag-input-demo">
       <div class="tag-input-demo__item">
         <h3>客户画像</h3>
-        <SuTagInput
-          v-model="customerTags"
-          placeholder="输入客户标签后按回车"
-          clearable
-        />
+        <SuTagInput v-model="customerTags" placeholder="输入客户标签后按回车" clearable />
         <p>当前标签：{{ customerTags.join('、') }}</p>
       </div>
 

@@ -186,18 +186,10 @@ describe('RadioGroup', () => {
   it('支持方向、尺寸和禁用状态', () => {
     const wrapper = mount(RadioGroupDisabledDemo)
 
-    expect(wrapper.findComponent(RadioGroup).classes()).toContain(
-      'su-radio-group--vertical',
-    )
-    expect(wrapper.findComponent(RadioButton).classes()).toContain(
-      'su-radio-button--large',
-    )
-    expect(wrapper.findComponent(RadioButton).classes()).toContain(
-      'is-disabled',
-    )
-    expect(
-      wrapper.findComponent(RadioButton).find('input').attributes('disabled'),
-    ).toBeDefined()
+    expect(wrapper.findComponent(RadioGroup).classes()).toContain('su-radio-group--vertical')
+    expect(wrapper.findComponent(RadioButton).classes()).toContain('su-radio-button--large')
+    expect(wrapper.findComponent(RadioButton).classes()).toContain('is-disabled')
+    expect(wrapper.findComponent(RadioButton).find('input').attributes('disabled')).toBeDefined()
   })
 
   it('跟随表单尺寸和禁用状态', () => {
@@ -214,15 +206,9 @@ describe('RadioGroup', () => {
       },
     })
 
-    expect(wrapper.findComponent(RadioGroup).classes()).toContain(
-      'su-radio-group--small',
-    )
+    expect(wrapper.findComponent(RadioGroup).classes()).toContain('su-radio-group--small')
     expect(wrapper.findComponent(RadioGroup).classes()).toContain('is-disabled')
-    expect(wrapper.findComponent(RadioButton).classes()).toContain(
-      'su-radio-button--small',
-    )
-    expect(wrapper.findComponent(RadioButton).classes()).toContain(
-      'is-disabled',
-    )
+    expect(wrapper.findComponent(RadioButton).classes()).toContain('su-radio-button--small')
+    expect(wrapper.findComponent(RadioButton).classes()).toContain('is-disabled')
   })
 })

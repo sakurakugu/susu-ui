@@ -95,16 +95,8 @@ function handleClose(event: MouseEvent) {
 
 .su-tag--primary {
   --su-tag-color: var(--su-color-primary);
-  --su-tag-border-color: color-mix(
-    in srgb,
-    var(--su-color-primary) 36%,
-    var(--su-color-border)
-  );
-  --su-tag-bg: color-mix(
-    in srgb,
-    var(--su-color-primary-soft) 72%,
-    var(--su-color-bg-elevated)
-  );
+  --su-tag-border-color: color-mix(in srgb, var(--su-color-primary) 36%, var(--su-color-border));
+  --su-tag-bg: color-mix(in srgb, var(--su-color-primary-soft) 72%, var(--su-color-bg-elevated));
   --su-tag-solid-bg: var(--su-color-primary);
 }
 

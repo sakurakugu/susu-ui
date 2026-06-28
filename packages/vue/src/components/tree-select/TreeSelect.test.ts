@@ -36,16 +36,10 @@ describe('TreeSelect', () => {
       },
     })
 
-    expect(wrapper.find('.su-tree-select').classes()).toContain(
-      'su-tree-select',
-    )
-    expect(wrapper.find('.su-tree-select').classes()).toContain(
-      'su-tree-select--medium',
-    )
+    expect(wrapper.find('.su-tree-select').classes()).toContain('su-tree-select')
+    expect(wrapper.find('.su-tree-select').classes()).toContain('su-tree-select--medium')
     expect(wrapper.find('.su-tree-select').classes()).toContain('is-empty')
-    expect(wrapper.find('.su-tree-select__placeholder').text()).toBe(
-      '请选择业务目录',
-    )
+    expect(wrapper.find('.su-tree-select__placeholder').text()).toBe('请选择业务目录')
   })
 
   it('支持打开面板并选择节点', async () => {
@@ -70,9 +64,7 @@ describe('TreeSelect', () => {
 
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['components'])
     expect(wrapper.emitted('change')?.[0][0]).toBe('components')
-    expect(wrapper.emitted('change')?.[0][1]).toEqual(
-      expect.objectContaining({ label: '组件库' }),
-    )
+    expect(wrapper.emitted('change')?.[0][1]).toEqual(expect.objectContaining({ label: '组件库' }))
     expect(onChange).toHaveBeenCalledOnce()
     expect(document.body.querySelector('.su-tree-select__panel')).toBeFalsy()
 
@@ -97,10 +89,7 @@ describe('TreeSelect', () => {
     await wrapper.vm.$nextTick()
 
     expect(wrapper.emitted('update:expandedKeys')?.[0]).toEqual([['product']])
-    expect(onNodeExpand).toHaveBeenCalledWith(
-      expect.objectContaining({ value: 'product' }),
-      true,
-    )
+    expect(onNodeExpand).toHaveBeenCalledWith(expect.objectContaining({ value: 'product' }), true)
 
     wrapper.unmount()
 
@@ -148,9 +137,7 @@ describe('TreeSelect', () => {
     })
 
     await wrapper.find('.su-tree-select__trigger').trigger('click')
-    const input = document.body.querySelector<HTMLInputElement>(
-      '.su-tree-select__search-input',
-    )
+    const input = document.body.querySelector<HTMLInputElement>('.su-tree-select__search-input')
     input!.value = '构建'
     input!.dispatchEvent(new Event('input', { bubbles: true }))
     await wrapper.vm.$nextTick()
@@ -177,9 +164,9 @@ describe('TreeSelect', () => {
     })
 
     await wrapper.find('.su-tree-select__trigger').trigger('click')
-    const disabledNode = Array.from(
-      document.body.querySelectorAll('.su-tree-select__node'),
-    ).find((node) => node.textContent?.includes('发布流程'))!
+    const disabledNode = Array.from(document.body.querySelectorAll('.su-tree-select__node')).find(
+      (node) => node.textContent?.includes('发布流程'),
+    )!
     disabledNode.dispatchEvent(new MouseEvent('click', { bubbles: true }))
     await wrapper.vm.$nextTick()
 
@@ -193,12 +180,8 @@ describe('TreeSelect', () => {
       },
     })
 
-    expect(disabledWrapper.find('.su-tree-select').classes()).toContain(
-      'is-disabled',
-    )
-    expect(
-      disabledWrapper.find('.su-tree-select__trigger').attributes('disabled'),
-    ).toBeDefined()
+    expect(disabledWrapper.find('.su-tree-select').classes()).toContain('is-disabled')
+    expect(disabledWrapper.find('.su-tree-select__trigger').attributes('disabled')).toBeDefined()
   })
 
   it('支持键盘导航选择', async () => {
@@ -228,12 +211,8 @@ describe('TreeSelect', () => {
       },
     })
 
-    expect(wrapper.find('.su-tree-select').classes()).toContain(
-      'su-tree-select--large',
-    )
-    expect(wrapper.find('.su-tree-select').classes()).toContain(
-      'su-tree-select--error',
-    )
+    expect(wrapper.find('.su-tree-select').classes()).toContain('su-tree-select--large')
+    expect(wrapper.find('.su-tree-select').classes()).toContain('su-tree-select--error')
   })
 
   it('转发原生属性和事件并渲染隐藏表单值', async () => {
@@ -258,15 +237,9 @@ describe('TreeSelect', () => {
 
     expect(trigger.attributes('id')).toBe('directory')
     expect(trigger.attributes('aria-describedby')).toBe('directory-help')
-    expect(wrapper.find('input[type="hidden"]').attributes('name')).toBe(
-      'directory',
-    )
-    expect(wrapper.find('input[type="hidden"]').attributes('value')).toBe(
-      'components',
-    )
-    expect(
-      wrapper.find('input[type="hidden"]').attributes('required'),
-    ).toBeDefined()
+    expect(wrapper.find('input[type="hidden"]').attributes('name')).toBe('directory')
+    expect(wrapper.find('input[type="hidden"]').attributes('value')).toBe('components')
+    expect(wrapper.find('input[type="hidden"]').attributes('required')).toBeDefined()
     expect(wrapper.emitted('focus')).toHaveLength(1)
     expect(wrapper.emitted('blur')).toHaveLength(1)
     expect(onFocus).toHaveBeenCalledOnce()
@@ -286,13 +259,9 @@ describe('TreeSelect', () => {
       },
     })
 
-    expect(wrapper.find('.su-tree-select').classes()).toContain(
-      'su-tree-select--small',
-    )
+    expect(wrapper.find('.su-tree-select').classes()).toContain('su-tree-select--small')
     expect(wrapper.find('.su-tree-select').classes()).toContain('is-disabled')
-    expect(
-      wrapper.find('.su-tree-select__trigger').attributes('disabled'),
-    ).toBeDefined()
+    expect(wrapper.find('.su-tree-select__trigger').attributes('disabled')).toBeDefined()
   })
 
   it('暴露控制方法', async () => {

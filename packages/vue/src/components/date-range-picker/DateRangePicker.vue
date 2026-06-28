@@ -9,10 +9,7 @@ defineOptions({
 })
 
 export type DateRangePickerValue = [string, string]
-export type DateRangePickerDisabledDate = (
-  date: Date,
-  type: 'start' | 'end',
-) => boolean
+export type DateRangePickerDisabledDate = (date: Date, type: 'start' | 'end') => boolean
 
 interface PickerExpose {
   focus: () => void
@@ -87,9 +84,7 @@ const startPickerRef = ref<PickerExpose>()
 const endPickerRef = ref<PickerExpose>()
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
 const isInteractive = computed(() => !mergedDisabled.value && !props.readonly)
 const normalizedValue = computed<DateRangePickerValue>(() => [
   model.value?.[0] ?? '',
@@ -98,9 +93,7 @@ const normalizedValue = computed<DateRangePickerValue>(() => [
 const hasValue = computed(
   () => Boolean(normalizedValue.value[0]) || Boolean(normalizedValue.value[1]),
 )
-const showClear = computed(
-  () => props.clearable && isInteractive.value && hasValue.value,
-)
+const showClear = computed(() => props.clearable && isInteractive.value && hasValue.value)
 
 const startValue = computed({
   get: () => normalizedValue.value[0],
@@ -132,9 +125,7 @@ function isStartDateDisabled(date: Date) {
     return true
   }
 
-  return Boolean(
-    normalizedValue.value[1] && formatDate(date) > normalizedValue.value[1],
-  )
+  return Boolean(normalizedValue.value[1] && formatDate(date) > normalizedValue.value[1])
 }
 
 function isEndDateDisabled(date: Date) {
@@ -142,9 +133,7 @@ function isEndDateDisabled(date: Date) {
     return true
   }
 
-  return Boolean(
-    normalizedValue.value[0] && formatDate(date) < normalizedValue.value[0],
-  )
+  return Boolean(normalizedValue.value[0] && formatDate(date) < normalizedValue.value[0])
 }
 
 function formatDate(date: Date) {

@@ -64,12 +64,7 @@ const owners = Array.from({ length: 1000 }, (_, index) => ({
 
 ```vue
 <template>
-  <SuVirtualizedSelect
-    v-model="owner"
-    name="ownerId"
-    required
-    :options="owners"
-  />
+  <SuVirtualizedSelect v-model="owner" name="ownerId" required :options="owners" />
 </template>
 ```
 

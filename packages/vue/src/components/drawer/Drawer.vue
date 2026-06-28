@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  nextTick,
-  onBeforeUnmount,
-  ref,
-  useId,
-  watch,
-  type CSSProperties,
-} from 'vue'
+import { computed, nextTick, onBeforeUnmount, ref, useId, watch, type CSSProperties } from 'vue'
 import { useLocale } from '../../config-provider'
 
 defineOptions({
@@ -72,25 +64,15 @@ const titleId = `su-drawer-title-${useId()}`
 let previousBodyOverflow = ''
 let bodyScrollLocked = false
 
-const mergedConfirmText = computed(
-  () => props.confirmText ?? locale.value.common.confirm,
-)
-const mergedCancelText = computed(
-  () => props.cancelText ?? locale.value.common.cancel,
-)
+const mergedConfirmText = computed(() => props.confirmText ?? locale.value.common.confirm)
+const mergedCancelText = computed(() => props.cancelText ?? locale.value.common.cancel)
 
-const isHorizontal = computed(
-  () => props.placement === 'left' || props.placement === 'right',
-)
+const isHorizontal = computed(() => props.placement === 'left' || props.placement === 'right')
 
-const drawerSize = computed(() =>
-  typeof props.size === 'number' ? `${props.size}px` : props.size,
-)
+const drawerSize = computed(() => (typeof props.size === 'number' ? `${props.size}px` : props.size))
 
 const drawerStyle = computed<CSSProperties>(() =>
-  isHorizontal.value
-    ? { width: drawerSize.value }
-    : { height: drawerSize.value },
+  isHorizontal.value ? { width: drawerSize.value } : { height: drawerSize.value },
 )
 
 const overlayStyle = computed<CSSProperties>(() => ({
@@ -202,9 +184,7 @@ onBeforeUnmount(() => {
           :style="drawerStyle"
           role="dialog"
           aria-modal="true"
-          :aria-labelledby="
-            title || $slots.title || $slots.header ? titleId : undefined
-          "
+          :aria-labelledby="title || $slots.title || $slots.header ? titleId : undefined"
           tabindex="-1"
         >
           <header
@@ -212,11 +192,7 @@ onBeforeUnmount(() => {
             class="su-drawer__header"
           >
             <slot name="header">
-              <h2
-                v-if="title || $slots.title"
-                :id="titleId"
-                class="su-drawer__title"
-              >
+              <h2 v-if="title || $slots.title" :id="titleId" class="su-drawer__title">
                 <slot name="title">{{ title }}</slot>
               </h2>
             </slot>
@@ -251,11 +227,7 @@ onBeforeUnmount(() => {
                 :aria-busy="confirmLoading || undefined"
                 @click="handleConfirm"
               >
-                <span
-                  v-if="confirmLoading"
-                  class="su-drawer__loading"
-                  aria-hidden="true"
-                />
+                <span v-if="confirmLoading" class="su-drawer__loading" aria-hidden="true" />
                 {{ mergedConfirmText }}
               </button>
             </slot>

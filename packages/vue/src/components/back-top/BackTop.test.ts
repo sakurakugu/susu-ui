@@ -18,9 +18,7 @@ describe('BackTop', () => {
     await wrapper.vm.$nextTick()
 
     expect(wrapper.find('.su-back-top').exists()).toBe(true)
-    expect(wrapper.find('.su-back-top').attributes('aria-label')).toBe(
-      '回到顶部',
-    )
+    expect(wrapper.find('.su-back-top').attributes('aria-label')).toBe('回到顶部')
     expect(wrapper.emitted('change')?.[0]).toEqual([true])
 
     wrapper.unmount()

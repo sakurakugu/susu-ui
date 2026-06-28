@@ -60,10 +60,7 @@ describe('Tree', () => {
 
     expect(wrapper.emitted('update:expandedKeys')?.[0]).toEqual([['docs']])
     expect(wrapper.text()).toContain('指南')
-    expect(onNodeExpand).toHaveBeenCalledWith(
-      expect.objectContaining({ key: 'docs' }),
-      true,
-    )
+    expect(onNodeExpand).toHaveBeenCalledWith(expect.objectContaining({ key: 'docs' }), true)
 
     await wrapper.find('.su-tree__switcher').trigger('click')
 
@@ -116,16 +113,12 @@ describe('Tree', () => {
     await wrapper.findAll('.su-tree__checkbox-input')[1].setValue(true)
 
     expect(wrapper.emitted('update:checkedKeys')?.[0]).toEqual([['guide']])
-    expect(wrapper.findAll('.su-tree__checkbox')[0].classes()).toContain(
-      'is-indeterminate',
-    )
+    expect(wrapper.findAll('.su-tree__checkbox')[0].classes()).toContain('is-indeterminate')
     expect(onCheck).toHaveBeenCalledWith(['guide'], expect.any(Object), true)
 
     await wrapper.findAll('.su-tree__checkbox-input')[0].setValue(true)
 
-    expect(wrapper.emitted('update:checkedKeys')?.[1]).toEqual([
-      ['guide', 'docs', 'components'],
-    ])
+    expect(wrapper.emitted('update:checkedKeys')?.[1]).toEqual([['guide', 'docs', 'components']])
   })
 
   it('禁用节点不会响应交互', async () => {

@@ -26,9 +26,7 @@ describe('Notification', () => {
     expect(notification?.textContent).toContain('发布完成')
     expect(notification?.textContent).toContain('线上内容已经更新。')
     expect(notification?.classList.contains('su-notification--info')).toBe(true)
-    expect(notification?.classList.contains('su-notification--top-right')).toBe(
-      true,
-    )
+    expect(notification?.classList.contains('su-notification--top-right')).toBe(true)
     expect(notification?.getAttribute('role')).toBe('status')
 
     wrapper.unmount()
@@ -49,15 +47,10 @@ describe('Notification', () => {
 
     await wrapper.vm.$nextTick()
 
-    const notification =
-      document.body.querySelector<HTMLElement>('.su-notification')
+    const notification = document.body.querySelector<HTMLElement>('.su-notification')
 
-    expect(notification?.classList.contains('su-notification--error')).toBe(
-      true,
-    )
-    expect(
-      notification?.classList.contains('su-notification--bottom-left'),
-    ).toBe(true)
+    expect(notification?.classList.contains('su-notification--error')).toBe(true)
+    expect(notification?.classList.contains('su-notification--bottom-left')).toBe(true)
     expect(notification?.getAttribute('role')).toBe('alert')
     expect(notification?.getAttribute('aria-live')).toBe('assertive')
     expect(notification?.style.width).toBe('420px')
@@ -95,9 +88,7 @@ describe('Notification', () => {
     })
 
     await wrapper.vm.$nextTick()
-    document.body
-      .querySelector<HTMLButtonElement>('.su-notification__close')
-      ?.click()
+    document.body.querySelector<HTMLButtonElement>('.su-notification__close')?.click()
     await wrapper.vm.$nextTick()
 
     expect(wrapper.emitted('close')).toHaveLength(1)

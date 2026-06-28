@@ -34,11 +34,7 @@
 
 ```vue
 <script setup lang="ts">
-const items = [
-  { label: '首页' },
-  { label: '组件' },
-  { label: 'Breadcrumb 面包屑' },
-]
+const items = [{ label: '首页' }, { label: '组件' }, { label: 'Breadcrumb 面包屑' }]
 
 function handleClick(item: { label: string }, index: number) {
   console.log(item, index)

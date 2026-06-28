@@ -56,9 +56,7 @@ function changeThemeHue(event: Event) {
   const target = event.target as HTMLInputElement
   const hue = Number.parseInt(target.value, 10)
   themeHue.value = setThemeHue(hue)
-  themePreset.value =
-    themePresets.find((preset) => preset.hue === themeHue.value)?.name ??
-    'custom'
+  themePreset.value = themePresets.find((preset) => preset.hue === themeHue.value)?.name ?? 'custom'
 }
 </script>
 

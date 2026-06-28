@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  nextTick,
-  onBeforeUnmount,
-  ref,
-  useId,
-  watch,
-  type CSSProperties,
-} from 'vue'
+import { computed, nextTick, onBeforeUnmount, ref, useId, watch, type CSSProperties } from 'vue'
 import { useLocale } from '../../config-provider'
 
 defineOptions({
@@ -71,12 +63,8 @@ const titleId = `su-dialog-title-${useId()}`
 let previousBodyOverflow = ''
 let bodyScrollLocked = false
 
-const mergedConfirmText = computed(
-  () => props.confirmText ?? locale.value.common.confirm,
-)
-const mergedCancelText = computed(
-  () => props.cancelText ?? locale.value.common.cancel,
-)
+const mergedConfirmText = computed(() => props.confirmText ?? locale.value.common.confirm)
+const mergedCancelText = computed(() => props.cancelText ?? locale.value.common.cancel)
 
 const dialogStyle = computed<CSSProperties>(() => ({
   width: typeof props.width === 'number' ? `${props.width}px` : props.width,
@@ -173,11 +161,7 @@ onBeforeUnmount(() => {
 
 <template>
   <Teleport to="body">
-    <Transition
-      name="su-dialog"
-      @after-enter="emit('opened')"
-      @after-leave="emit('closed')"
-    >
+    <Transition name="su-dialog" @after-enter="emit('opened')" @after-leave="emit('closed')">
       <div
         v-if="visible"
         class="su-dialog-overlay"
@@ -190,9 +174,7 @@ onBeforeUnmount(() => {
           :style="dialogStyle"
           role="dialog"
           aria-modal="true"
-          :aria-labelledby="
-            title || $slots.title || $slots.header ? titleId : undefined
-          "
+          :aria-labelledby="title || $slots.title || $slots.header ? titleId : undefined"
           tabindex="-1"
         >
           <header
@@ -200,11 +182,7 @@ onBeforeUnmount(() => {
             class="su-dialog__header"
           >
             <slot name="header">
-              <h2
-                v-if="title || $slots.title"
-                :id="titleId"
-                class="su-dialog__title"
-              >
+              <h2 v-if="title || $slots.title" :id="titleId" class="su-dialog__title">
                 <slot name="title">{{ title }}</slot>
               </h2>
             </slot>
@@ -239,11 +217,7 @@ onBeforeUnmount(() => {
                 :aria-busy="confirmLoading || undefined"
                 @click="handleConfirm"
               >
-                <span
-                  v-if="confirmLoading"
-                  class="su-dialog__loading"
-                  aria-hidden="true"
-                />
+                <span v-if="confirmLoading" class="su-dialog__loading" aria-hidden="true" />
                 {{ mergedConfirmText }}
               </button>
             </slot>

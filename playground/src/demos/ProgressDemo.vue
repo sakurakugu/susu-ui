@@ -26,13 +26,7 @@ function formatUploadProgress(value: number) {
       <div class="progress-demo-circles">
         <SuProgress type="circle" :percentage="72" />
         <SuProgress type="circle" :percentage="100" status="success" />
-        <SuProgress
-          type="circle"
-          :percentage="42"
-          status="error"
-          :width="96"
-          :stroke-width="6"
-        />
+        <SuProgress type="circle" :percentage="42" status="error" :width="96" :stroke-width="6" />
       </div>
     </div>
   </section>

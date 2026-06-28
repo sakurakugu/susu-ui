@@ -58,9 +58,7 @@ const qrCode = computed(() => {
 })
 
 const moduleCount = computed(() => qrCode.value?.modules.size ?? 0)
-const viewBoxSize = computed(
-  () => moduleCount.value + normalizedMargin.value * 2,
-)
+const viewBoxSize = computed(() => moduleCount.value + normalizedMargin.value * 2)
 const normalizedMargin = computed(() =>
   Math.max(0, Number.isFinite(props.margin) ? Math.floor(props.margin) : 0),
 )
@@ -87,9 +85,7 @@ const pathData = computed(() => {
       }
 
       if ((!filled || col === size) && start >= 0) {
-        rows.push(
-          `M${start + margin} ${row + margin}h${col - start}v1H${start + margin}z`,
-        )
+        rows.push(`M${start + margin} ${row + margin}h${col - start}v1H${start + margin}z`)
         start = -1
       }
     }
@@ -161,20 +157,12 @@ function handleRefresh() {
       <slot name="status">暂无二维码内容</slot>
     </div>
 
-    <div
-      v-if="$slots.icon && qrCode"
-      class="su-qrcode__icon"
-      aria-hidden="true"
-    >
+    <div v-if="$slots.icon && qrCode" class="su-qrcode__icon" aria-hidden="true">
       <slot name="icon" />
     </div>
 
     <div v-if="isMasked" class="su-qrcode__mask">
-      <div
-        v-if="status === 'loading'"
-        class="su-qrcode__spinner"
-        aria-hidden="true"
-      />
+      <div v-if="status === 'loading'" class="su-qrcode__spinner" aria-hidden="true" />
       <slot name="status">
         <button
           v-if="status === 'expired'"

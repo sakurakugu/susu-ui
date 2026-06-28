@@ -13,9 +13,7 @@ describe('Space', () => {
     expect(wrapper.classes()).toContain('su-space')
     expect(wrapper.classes()).toContain('su-space--horizontal')
     expect(wrapper.findAll('.su-space__item')).toHaveLength(2)
-    expect(wrapper.attributes('style')).toContain(
-      'column-gap: var(--su-space-md)',
-    )
+    expect(wrapper.attributes('style')).toContain('column-gap: var(--su-space-md)')
   })
 
   it('支持纵向排列和数字间距', () => {
@@ -48,14 +46,10 @@ describe('Space', () => {
     })
 
     expect(wrapper.classes()).toContain('is-wrap')
-    expect(wrapper.attributes('style')).toContain(
-      'column-gap: var(--su-space-lg)',
-    )
+    expect(wrapper.attributes('style')).toContain('column-gap: var(--su-space-lg)')
     expect(wrapper.attributes('style')).toContain('row-gap: 4px')
     expect(wrapper.attributes('style')).toContain('align-items: center')
-    expect(wrapper.attributes('style')).toContain(
-      'justify-content: space-between',
-    )
+    expect(wrapper.attributes('style')).toContain('justify-content: space-between')
   })
 
   it('支持分隔符插槽', () => {

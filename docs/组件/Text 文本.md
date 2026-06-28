@@ -67,9 +67,7 @@
 
 ```vue
 <template>
-  <SuText block ellipsis>
-    这是一段很长的单行文本，超出容器后会显示省略号。
-  </SuText>
+  <SuText block ellipsis> 这是一段很长的单行文本，超出容器后会显示省略号。 </SuText>
   <SuText tag="p" block :line-clamp="2">
     这是一段很长的多行文本，适合摘要、说明和表格内容等场景。
   </SuText>

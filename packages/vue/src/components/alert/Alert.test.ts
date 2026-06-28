@@ -30,9 +30,7 @@ describe('Alert', () => {
     expect(wrapper.find('.su-alert').classes()).toContain('su-alert--success')
     expect(wrapper.find('.su-alert').classes()).toContain('has-title')
     expect(wrapper.find('.su-alert__title').text()).toBe('保存成功')
-    expect(wrapper.find('.su-alert__description').text()).toBe(
-      '配置已经同步到当前项目。',
-    )
+    expect(wrapper.find('.su-alert__description').text()).toBe('配置已经同步到当前项目。')
   })
 
   it('支持隐藏图标和自定义图标', () => {

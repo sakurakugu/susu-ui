@@ -30,10 +30,7 @@ defineSlots<{
           {{ title }}
         </slot>
       </div>
-      <div
-        v-if="description || $slots.description"
-        class="su-list__item-description"
-      >
+      <div v-if="description || $slots.description" class="su-list__item-description">
         <slot name="description">
           {{ description }}
         </slot>

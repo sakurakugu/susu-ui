@@ -14,16 +14,10 @@ const reportMetrics = ref(['sales'])
     <h2>复选框</h2>
     <div class="checkbox-demo">
       <SuCheckbox v-model="agreementValue">同意服务协议</SuCheckbox>
-      <SuCheckbox
-        v-model="featureValue"
-        true-value="enabled"
-        false-value="disabled"
-      >
+      <SuCheckbox v-model="featureValue" true-value="enabled" false-value="disabled">
         启用高级功能
       </SuCheckbox>
-      <SuCheckbox v-model="indeterminateValue" indeterminate>
-        部分选中
-      </SuCheckbox>
+      <SuCheckbox v-model="indeterminateValue" indeterminate> 部分选中 </SuCheckbox>
       <SuCheckbox size="small" model-value>小尺寸</SuCheckbox>
       <SuCheckbox size="large" model-value>大尺寸</SuCheckbox>
       <SuCheckbox disabled>禁用状态</SuCheckbox>
@@ -36,11 +30,7 @@ const reportMetrics = ref(['sales'])
         <SuCheckbox value="webhook">Webhook 推送</SuCheckbox>
       </SuCheckboxGroup>
 
-      <SuCheckboxGroup
-        v-model="permissionScopes"
-        direction="vertical"
-        size="small"
-      >
+      <SuCheckboxGroup v-model="permissionScopes" direction="vertical" size="small">
         <SuCheckbox value="read">查看客户资料</SuCheckbox>
         <SuCheckbox value="export">导出报表</SuCheckbox>
         <SuCheckbox value="approve" disabled>审批退款</SuCheckbox>

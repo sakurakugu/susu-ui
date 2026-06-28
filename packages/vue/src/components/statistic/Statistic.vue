@@ -8,8 +8,7 @@ defineOptions({
 
 export type StatisticValue = string | number
 export type StatisticSize = 'small' | 'medium' | 'large'
-export type StatisticStatus =
-  'default' | 'primary' | 'success' | 'warning' | 'error' | 'info'
+export type StatisticStatus = 'default' | 'primary' | 'success' | 'warning' | 'error' | 'info'
 export type StatisticTrend = 'up' | 'down' | 'stable'
 export type StatisticAlign = 'left' | 'center' | 'right'
 
@@ -80,10 +79,7 @@ const formattedValue = computed(() => {
   const [integerPart = '0', decimalPart] = fixedValue.split('.')
   const sign = integerPart.startsWith('-') ? '-' : ''
   const unsignedInteger = sign ? integerPart.slice(1) : integerPart
-  const groupedInteger = unsignedInteger.replace(
-    /\B(?=(\d{3})+(?!\d))/g,
-    props.groupSeparator,
-  )
+  const groupedInteger = unsignedInteger.replace(/\B(?=(\d{3})+(?!\d))/g, props.groupSeparator)
 
   return decimalPart === undefined
     ? `${sign}${groupedInteger}`
@@ -139,10 +135,7 @@ const formattedValue = computed(() => {
         </span>
       </div>
 
-      <div
-        v-if="description || $slots.description"
-        class="su-statistic__description"
-      >
+      <div v-if="description || $slots.description" class="su-statistic__description">
         <slot name="description">
           {{ description }}
         </slot>
@@ -280,11 +273,7 @@ const formattedValue = computed(() => {
   display: block;
   overflow: hidden;
   border-radius: var(--su-radius-sm);
-  background: color-mix(
-    in srgb,
-    var(--su-color-text-muted) 14%,
-    var(--su-color-bg-soft)
-  );
+  background: color-mix(in srgb, var(--su-color-text-muted) 14%, var(--su-color-bg-soft));
 }
 
 .su-statistic__skeleton-line {

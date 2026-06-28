@@ -115,6 +115,5 @@ import { SuQRCode } from '@susu-ui/vue'
 
 ```ts
 type QRCodeStatus = 'active' | 'expired' | 'loading'
-type QRCodeLevel =
-  'low' | 'medium' | 'quartile' | 'high' | 'L' | 'M' | 'Q' | 'H'
+type QRCodeLevel = 'low' | 'medium' | 'quartile' | 'high' | 'L' | 'M' | 'Q' | 'H'
 ```

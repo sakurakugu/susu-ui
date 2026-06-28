@@ -74,14 +74,10 @@ defineSlots<{
 const autoOpenKeys = ref<MenuKey[]>([])
 const locale = useLocale()
 
-const normalizedItems = computed<MenuRenderItem[]>(() =>
-  normalizeItems(props.items),
-)
+const normalizedItems = computed<MenuRenderItem[]>(() => normalizeItems(props.items))
 
 const hasItems = computed(() => normalizedItems.value.length > 0)
-const mergedEmptyText = computed(
-  () => props.emptyText ?? locale.value.menu.empty,
-)
+const mergedEmptyText = computed(() => props.emptyText ?? locale.value.menu.empty)
 const isHorizontal = computed(() => props.mode === 'horizontal')
 const isCollapsed = computed(() => props.collapse && !isHorizontal.value)
 const allSubmenuKeys = computed(() =>
@@ -90,15 +86,11 @@ const allSubmenuKeys = computed(() =>
     .map((item) => item.key),
 )
 const mergedOpenKeys = computed(() =>
-  props.defaultOpenAll && openKeys.value.length === 0
-    ? autoOpenKeys.value
-    : openKeys.value,
+  props.defaultOpenAll && openKeys.value.length === 0 ? autoOpenKeys.value : openKeys.value,
 )
 const openKeySet = computed(() => new Set(mergedOpenKeys.value))
 const firstEnabledKey = computed(
-  () =>
-    flattenItems(normalizedItems.value).find((item) => !isItemDisabled(item))
-      ?.key,
+  () => flattenItems(normalizedItems.value).find((item) => !isItemDisabled(item))?.key,
 )
 
 watch(
@@ -125,26 +117,17 @@ provide(menuKey, {
   handleItemKeydown,
 })
 
-function normalizeItems(
-  items: MenuItem[],
-  level = 1,
-  parentKey?: MenuKey,
-): MenuRenderItem[] {
+function normalizeItems(items: MenuItem[], level = 1, parentKey?: MenuKey): MenuRenderItem[] {
   return items.map((item) => ({
     ...item,
     level,
     parentKey,
-    children: item.children
-      ? normalizeItems(item.children, level + 1, item.key)
-      : undefined,
+    children: item.children ? normalizeItems(item.children, level + 1, item.key) : undefined,
   }))
 }
 
 function flattenItems(items: MenuRenderItem[]): MenuRenderItem[] {
-  return items.flatMap((item) => [
-    item,
-    ...(item.children ? flattenItems(item.children) : []),
-  ])
+  return items.flatMap((item) => [item, ...(item.children ? flattenItems(item.children) : [])])
 }
 
 function hasChildren(item: MenuRenderItem) {
@@ -312,9 +295,7 @@ function handleItemKeydown(item: MenuRenderItem, event: KeyboardEvent) {
   width: 100%;
   min-height: var(--su-menu-item-height);
   padding: 0 var(--su-space-sm) 0
-    calc(
-      var(--su-space-sm) + (var(--su-menu-level) - 1) * var(--su-menu-indent)
-    );
+    calc(var(--su-space-sm) + (var(--su-menu-level) - 1) * var(--su-menu-indent));
   border: 0;
   border-radius: var(--su-radius-md);
   color: inherit;
@@ -341,8 +322,7 @@ function handleItemKeydown(item: MenuRenderItem, event: KeyboardEvent) {
 }
 
 .su-menu__trigger:focus-visible {
-  box-shadow: 0 0 0 3px
-    color-mix(in srgb, var(--su-color-primary) 20%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--su-color-primary) 20%, transparent);
 }
 
 .su-menu__trigger.is-selected {
@@ -351,14 +331,8 @@ function handleItemKeydown(item: MenuRenderItem, event: KeyboardEvent) {
   font-weight: 600;
 }
 
-.su-menu--horizontal
-  > .su-menu__list
-  > .su-menu__item
-  > .su-menu__trigger.is-selected::after,
-.su-menu--horizontal
-  > .su-menu__list
-  > .su-menu__item
-  > .su-menu__trigger.is-open::after {
+.su-menu--horizontal > .su-menu__list > .su-menu__item > .su-menu__trigger.is-selected::after,
+.su-menu--horizontal > .su-menu__list > .su-menu__item > .su-menu__trigger.is-open::after {
   position: absolute;
   right: var(--su-space-sm);
   bottom: -1px;
@@ -408,19 +382,11 @@ function handleItemKeydown(item: MenuRenderItem, event: KeyboardEvent) {
   transform: rotate(45deg);
 }
 
-.su-menu--horizontal
-  > .su-menu__list
-  > .su-menu__item
-  > .su-menu__trigger
-  .su-menu__arrow {
+.su-menu--horizontal > .su-menu__list > .su-menu__item > .su-menu__trigger .su-menu__arrow {
   transform: rotate(45deg);
 }
 
-.su-menu--horizontal
-  > .su-menu__list
-  > .su-menu__item
-  > .su-menu__trigger.is-open
-  .su-menu__arrow {
+.su-menu--horizontal > .su-menu__list > .su-menu__item > .su-menu__trigger.is-open .su-menu__arrow {
   transform: rotate(-135deg);
 }
 

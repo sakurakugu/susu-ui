@@ -11,10 +11,7 @@ const breadcrumbItems = [
   { label: '客户增长计划' },
 ]
 
-const compactBreadcrumbItems = [
-  { label: '订单中心', href: '#' },
-  { label: '售后详情' },
-]
+const compactBreadcrumbItems = [{ label: '订单中心', href: '#' }, { label: '售后详情' }]
 </script>
 
 <template>
@@ -70,12 +67,8 @@ const compactBreadcrumbItems = [
         @back="showTopMessage"
       >
         <template #extra>
-          <SuButton size="small" variant="outline" @click="showTopMessage">
-            转交
-          </SuButton>
-          <SuButton size="small" type="primary" @click="showTopMessage">
-            完成处理
-          </SuButton>
+          <SuButton size="small" variant="outline" @click="showTopMessage"> 转交 </SuButton>
+          <SuButton size="small" type="primary" @click="showTopMessage"> 完成处理 </SuButton>
         </template>
       </SuPageHeader>
     </div>

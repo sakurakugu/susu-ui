@@ -27,11 +27,7 @@ const groupedNavItems = computed(() =>
       <span>Playground</span>
     </div>
     <nav class="sidebar-nav" aria-label="组件示例导航">
-      <section
-        v-for="group in groupedNavItems"
-        :key="group.id"
-        class="sidebar-nav-group"
-      >
+      <section v-for="group in groupedNavItems" :key="group.id" class="sidebar-nav-group">
         <h2>{{ group.label }}</h2>
         <button
           v-for="item in group.items"

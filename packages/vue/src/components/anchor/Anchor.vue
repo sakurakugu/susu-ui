@@ -66,33 +66,22 @@ let activeTarget: AnchorTarget | undefined
 let frame: number | undefined
 let clickTimer: number | undefined
 
-const normalizedItems = computed<AnchorRenderItem[]>(() =>
-  normalizeItems(props.items),
-)
+const normalizedItems = computed<AnchorRenderItem[]>(() => normalizeItems(props.items))
 const flatItems = computed(() => flattenItems(normalizedItems.value))
-const enabledItems = computed(() =>
-  flatItems.value.filter((item) => !item.disabled),
-)
+const enabledItems = computed(() => flatItems.value.filter((item) => !item.disabled))
 const hasItems = computed(() => normalizedItems.value.length > 0)
-const mergedEmptyText = computed(
-  () => props.emptyText ?? locale.value.anchor.empty,
-)
+const mergedEmptyText = computed(() => props.emptyText ?? locale.value.anchor.empty)
 
 function normalizeItems(items: AnchorItem[], level = 1): AnchorRenderItem[] {
   return items.map((item) => ({
     ...item,
     level,
-    children: item.children
-      ? normalizeItems(item.children, level + 1)
-      : undefined,
+    children: item.children ? normalizeItems(item.children, level + 1) : undefined,
   }))
 }
 
 function flattenItems(items: AnchorRenderItem[]): AnchorRenderItem[] {
-  return items.flatMap((item) => [
-    item,
-    ...(item.children ? flattenItems(item.children) : []),
-  ])
+  return items.flatMap((item) => [item, ...(item.children ? flattenItems(item.children) : [])])
 }
 
 function getTarget() {
@@ -105,20 +94,14 @@ function getTarget() {
 
 function getScrollTop(target: AnchorTarget) {
   if (target === window) {
-    return (
-      window.scrollY ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop
-    )
+    return window.scrollY || document.documentElement.scrollTop || document.body.scrollTop
   }
 
   return (target as HTMLElement).scrollTop
 }
 
 function getTargetTop(target: AnchorTarget) {
-  return target === window
-    ? 0
-    : (target as HTMLElement).getBoundingClientRect().top
+  return target === window ? 0 : (target as HTMLElement).getBoundingClientRect().top
 }
 
 function getElementByHref(href: string): HTMLElement | null {
@@ -169,10 +152,7 @@ function setScrollTop(target: AnchorTarget, top: number) {
   }
 }
 
-function setActive(
-  key: AnchorKey | undefined,
-  item: AnchorRenderItem | undefined,
-) {
+function setActive(key: AnchorKey | undefined, item: AnchorRenderItem | undefined) {
   if (activeKey.value === key) {
     return
   }
@@ -316,11 +296,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <nav
-    class="su-anchor"
-    :class="{ 'is-disabled': disabled }"
-    :aria-disabled="disabled"
-  >
+  <nav class="su-anchor" :class="{ 'is-disabled': disabled }" :aria-disabled="disabled">
     <ul v-if="hasItems" class="su-anchor__list">
       <AnchorNode
         v-for="item in normalizedItems"
@@ -412,8 +388,7 @@ onBeforeUnmount(() => {
 }
 
 .su-anchor__link:focus-visible {
-  box-shadow: 0 0 0 3px
-    color-mix(in srgb, var(--su-color-primary) 18%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--su-color-primary) 18%, transparent);
 }
 
 .su-anchor__item.is-active > .su-anchor__link {

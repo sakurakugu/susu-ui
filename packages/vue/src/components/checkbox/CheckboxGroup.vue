@@ -1,11 +1,7 @@
 <script setup lang="ts">
 import { computed, inject, provide, toRef } from 'vue'
 import { formKey, type FormSize } from '../form/context'
-import {
-  checkboxGroupKey,
-  type CheckboxGroupDirection,
-  type CheckboxValue,
-} from './context'
+import { checkboxGroupKey, type CheckboxGroupDirection, type CheckboxValue } from './context'
 
 defineOptions({
   name: 'SuCheckboxGroup',
@@ -40,15 +36,9 @@ const form = inject(formKey, undefined)
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
 
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
 
-function handleChange(
-  value: CheckboxValue,
-  checked: boolean,
-  event: Event,
-): CheckboxValue[] {
+function handleChange(value: CheckboxValue, checked: boolean, event: Event): CheckboxValue[] {
   const currentValue = Array.isArray(model.value) ? model.value : []
   const shouldIgnoreChecked =
     checked &&

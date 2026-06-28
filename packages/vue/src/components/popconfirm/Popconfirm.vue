@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  nextTick,
-  onBeforeUnmount,
-  ref,
-  useId,
-  watch,
-  type CSSProperties,
-} from 'vue'
+import { computed, nextTick, onBeforeUnmount, ref, useId, watch, type CSSProperties } from 'vue'
 import { useLocale } from '../../config-provider'
 import { SuButton } from '../button'
 
@@ -101,22 +93,14 @@ const popperStyle = ref<CSSProperties>({})
 
 const isControlled = computed(() => visibleModel.value !== undefined)
 const visible = computed(() =>
-  props.disabled
-    ? false
-    : isControlled.value
-      ? Boolean(visibleModel.value)
-      : innerVisible.value,
+  props.disabled ? false : isControlled.value ? Boolean(visibleModel.value) : innerVisible.value,
 )
 const placementSide = computed(() => props.placement.split('-')[0])
 const normalizedWidth = computed(() =>
   typeof props.width === 'number' ? `${props.width}px` : props.width,
 )
-const mergedConfirmText = computed(
-  () => props.confirmText ?? locale.value.popconfirm.confirm,
-)
-const mergedCancelText = computed(
-  () => props.cancelText ?? locale.value.popconfirm.cancel,
-)
+const mergedConfirmText = computed(() => props.confirmText ?? locale.value.popconfirm.confirm)
+const mergedCancelText = computed(() => props.cancelText ?? locale.value.popconfirm.cancel)
 
 function setVisible(value: boolean) {
   if (props.disabled) {
@@ -206,18 +190,10 @@ function alignCrossAxis(
   }
 
   if (align === 'end') {
-    return clamp(
-      triggerStart + triggerSize - popperSize,
-      4,
-      viewportSize - popperSize - 4,
-    )
+    return clamp(triggerStart + triggerSize - popperSize, 4, viewportSize - popperSize - 4)
   }
 
-  return clamp(
-    triggerStart + triggerSize / 2 - popperSize / 2,
-    4,
-    viewportSize - popperSize - 4,
-  )
+  return clamp(triggerStart + triggerSize / 2 - popperSize / 2, 4, viewportSize - popperSize - 4)
 }
 
 function clamp(value: number, min: number, max: number) {
@@ -241,24 +217,14 @@ function updatePosition() {
   let left: number
 
   if (side === 'top' || side === 'bottom') {
-    left = alignCrossAxis(
-      triggerRect.left,
-      triggerRect.width,
-      popperRect.width,
-      viewportWidth,
-    )
+    left = alignCrossAxis(triggerRect.left, triggerRect.width, popperRect.width, viewportWidth)
     top =
       side === 'top'
         ? triggerRect.top - popperRect.height - props.offset
         : triggerRect.bottom + props.offset
     top = clamp(top, 4, viewportHeight - popperRect.height - 4)
   } else {
-    top = alignCrossAxis(
-      triggerRect.top,
-      triggerRect.height,
-      popperRect.height,
-      viewportHeight,
-    )
+    top = alignCrossAxis(triggerRect.top, triggerRect.height, popperRect.height, viewportHeight)
     left =
       side === 'left'
         ? triggerRect.left - popperRect.width - props.offset
@@ -363,10 +329,7 @@ onBeforeUnmount(() => {
             <div v-if="$slots.title || title" class="su-popconfirm__title">
               <slot name="title">{{ title }}</slot>
             </div>
-            <div
-              v-if="$slots.description || description"
-              class="su-popconfirm__description"
-            >
+            <div v-if="$slots.description || description" class="su-popconfirm__description">
               <slot name="description">{{ description }}</slot>
             </div>
           </div>
@@ -392,11 +355,7 @@ onBeforeUnmount(() => {
             </SuButton>
           </slot>
         </div>
-        <span
-          v-if="showArrow"
-          class="su-popconfirm__arrow"
-          aria-hidden="true"
-        />
+        <span v-if="showArrow" class="su-popconfirm__arrow" aria-hidden="true" />
       </div>
     </Transition>
   </Teleport>

@@ -28,20 +28,12 @@ const popoverVisible = ref(false)
         <template #content>
           <div class="popover-demo-content">
             <p>可以放入说明、状态、按钮或其他组件。</p>
-            <SuButton size="small" type="primary" @click="showTopMessage">
-              立即处理
-            </SuButton>
+            <SuButton size="small" type="primary" @click="showTopMessage"> 立即处理 </SuButton>
           </div>
         </template>
       </SuPopover>
-      <SuPopover
-        v-model:visible="popoverVisible"
-        trigger="manual"
-        title="受控气泡"
-      >
-        <SuButton @click="popoverVisible = !popoverVisible">
-          受控显示
-        </SuButton>
+      <SuPopover v-model:visible="popoverVisible" trigger="manual" title="受控气泡">
+        <SuButton @click="popoverVisible = !popoverVisible"> 受控显示 </SuButton>
         <template #content> 当前显示状态由外部数据控制。 </template>
       </SuPopover>
       <SuPopover title="禁用气泡" content="禁用时不会展示" disabled>

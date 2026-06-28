@@ -39,9 +39,7 @@ describe('Progress', () => {
 
     expect(wrapper.classes()).toContain('su-progress--success')
     expect(wrapper.classes()).toContain('su-progress--large')
-    expect(wrapper.attributes('style')).toContain(
-      '--su-progress-stroke-width: 12px',
-    )
+    expect(wrapper.attributes('style')).toContain('--su-progress-stroke-width: 12px')
   })
 
   it('支持内部文字和格式化', () => {
@@ -83,9 +81,7 @@ describe('Progress', () => {
 
     expect(wrapper.classes()).toContain('su-progress--circle')
     expect(wrapper.find('.su-progress__circle').exists()).toBe(true)
-    expect(wrapper.attributes('style')).toContain(
-      '--su-progress-circle-size: 96px',
-    )
+    expect(wrapper.attributes('style')).toContain('--su-progress-circle-size: 96px')
     expect(wrapper.find('.su-progress__text').text()).toBe('75%')
   })
 

@@ -60,14 +60,10 @@ function handleAsyncConfirm() {
         <SuButton variant="text">自定义内容</SuButton>
         <template #icon>?</template>
         <template #title>需要通知项目成员吗？</template>
-        <template #description>
-          启用后，系统会向项目群发送变更说明和新的交付时间。
-        </template>
+        <template #description> 启用后，系统会向项目群发送变更说明和新的交付时间。 </template>
         <template #actions>
           <SuButton size="small" variant="text">仅保存</SuButton>
-          <SuButton size="small" type="primary" @click="showTopMessage">
-            保存并通知
-          </SuButton>
+          <SuButton size="small" type="primary" @click="showTopMessage"> 保存并通知 </SuButton>
         </template>
       </SuPopconfirm>
 

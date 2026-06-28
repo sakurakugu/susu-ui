@@ -7,8 +7,7 @@ defineOptions({
 
 export type WatermarkContent = string | string[]
 
-export type WatermarkFontWeight =
-  'normal' | 'bold' | 'lighter' | 'bolder' | number
+export type WatermarkFontWeight = 'normal' | 'bold' | 'lighter' | 'bolder' | number
 
 const props = withDefaults(
   defineProps<{
@@ -119,10 +118,7 @@ function escapeAttribute(value: string) {
 }
 
 function escapeText(value: string) {
-  return value
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
+  return value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
 }
 
 function clamp(value: number, min: number, max: number) {

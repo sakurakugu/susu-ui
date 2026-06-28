@@ -32,18 +32,9 @@ function disableRangeWeekend(date: Date) {
         start-placeholder="禁用周末"
         end-placeholder="禁用周末"
       />
-      <SuDateRangePicker
-        size="small"
-        :model-value="['2026-06-01', '2026-06-15']"
-      />
-      <SuDateRangePicker
-        size="large"
-        :model-value="['2026-06-01', '2026-06-15']"
-      />
-      <SuDateRangePicker
-        status="success"
-        :model-value="['2026-06-01', '2026-06-15']"
-      />
+      <SuDateRangePicker size="small" :model-value="['2026-06-01', '2026-06-15']" />
+      <SuDateRangePicker size="large" :model-value="['2026-06-01', '2026-06-15']" />
+      <SuDateRangePicker status="success" :model-value="['2026-06-01', '2026-06-15']" />
       <SuDateRangePicker status="warning" start-placeholder="警告状态" />
       <SuDateRangePicker status="error" start-placeholder="错误状态" />
       <SuDateRangePicker disabled start-placeholder="禁用日期范围" />

@@ -19,12 +19,7 @@ function showNotification() {
 
 <template>
   <SuButton type="primary" @click="showNotification">显示通知</SuButton>
-  <SuNotification
-    v-if="visible"
-    :key="notificationKey"
-    title="发布完成"
-    @close="visible = false"
-  >
+  <SuNotification v-if="visible" :key="notificationKey" title="发布完成" @close="visible = false">
     线上内容已经更新。
   </SuNotification>
 </template>
@@ -36,18 +31,10 @@ function showNotification() {
 
 ```vue
 <template>
-  <SuNotification type="info" title="普通通知"
-    >任务已经进入队列。</SuNotification
-  >
-  <SuNotification type="success" title="保存成功">
-    配置已经同步。
-  </SuNotification>
-  <SuNotification type="warning" title="需要确认">
-    当前操作会影响后续发布流程。
-  </SuNotification>
-  <SuNotification type="error" title="同步失败">
-    请检查网络后重试。
-  </SuNotification>
+  <SuNotification type="info" title="普通通知">任务已经进入队列。</SuNotification>
+  <SuNotification type="success" title="保存成功"> 配置已经同步。 </SuNotification>
+  <SuNotification type="warning" title="需要确认"> 当前操作会影响后续发布流程。 </SuNotification>
+  <SuNotification type="error" title="同步失败"> 请检查网络后重试。 </SuNotification>
 </template>
 ```
 
@@ -96,9 +83,7 @@ import { SuNotification } from '@susu-ui/vue'
 </script>
 
 <template>
-  <SuNotification type="success" title="保存成功">
-    配置已经同步。
-  </SuNotification>
+  <SuNotification type="success" title="保存成功"> 配置已经同步。 </SuNotification>
 </template>
 ```
 

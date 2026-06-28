@@ -262,8 +262,7 @@ defineExpose({
 }
 
 .su-checkbox__input:focus-visible + .su-checkbox__box {
-  box-shadow: 0 0 0 3px
-    color-mix(in srgb, var(--su-color-primary) 22%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--su-color-primary) 22%, transparent);
 }
 
 .su-checkbox__label {

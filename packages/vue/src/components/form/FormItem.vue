@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
-import {
-  formKey,
-  type FormItemStatus,
-  type FormLabelPosition,
-  type FormSize,
-} from './context'
+import { formKey, type FormItemStatus, type FormLabelPosition, type FormSize } from './context'
 
 defineOptions({
   name: 'SuFormItem',
@@ -52,9 +47,7 @@ const mergedLabelPosition = computed(
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
 
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
 
 const mergedStatus = computed(() => (props.error ? 'error' : props.status))
 

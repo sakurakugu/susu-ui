@@ -78,9 +78,7 @@ describe('Timeline', () => {
     expect(wrapper.classes()).toContain('su-timeline--alternate')
     expect(timelineItems[0].classes()).toContain('is-alternate-right')
     expect(timelineItems[0].classes()).toContain('is-hollow')
-    expect(timelineItems[0].attributes('style')).toContain(
-      '--su-timeline-dot-color: #7c3aed',
-    )
+    expect(timelineItems[0].attributes('style')).toContain('--su-timeline-dot-color: #7c3aed')
     expect(timelineItems[1].classes()).toContain('is-alternate-left')
     expect(timelineItems[1].classes()).toContain('is-warning')
   })

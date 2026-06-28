@@ -66,12 +66,8 @@ describe('Affix', () => {
 
     expect(wrapper.classes()).toContain('is-fixed')
     expect(wrapper.attributes('style')).toContain('height: 40px')
-    expect(wrapper.find('.su-affix__content').attributes('style')).toContain(
-      'position: fixed',
-    )
-    expect(wrapper.find('.su-affix__content').attributes('style')).toContain(
-      'top: 12px',
-    )
+    expect(wrapper.find('.su-affix__content').attributes('style')).toContain('position: fixed')
+    expect(wrapper.find('.su-affix__content').attributes('style')).toContain('top: 12px')
     expect(wrapper.emitted('change')?.[0]).toEqual([true])
 
     wrapper.unmount()
@@ -114,9 +110,7 @@ describe('Affix', () => {
     await wrapper.vm.$nextTick()
 
     expect(wrapper.classes()).toContain('is-fixed')
-    expect(wrapper.find('.su-affix__content').attributes('style')).toContain(
-      'bottom: 24px',
-    )
+    expect(wrapper.find('.su-affix__content').attributes('style')).toContain('bottom: 24px')
 
     wrapper.unmount()
     vi.useRealTimers()
@@ -170,9 +164,7 @@ describe('Affix', () => {
     await wrapper.vm.$nextTick()
 
     expect(wrapper.classes()).toContain('is-fixed')
-    expect(wrapper.find('.su-affix__content').attributes('style')).toContain(
-      'top: 108px',
-    )
+    expect(wrapper.find('.su-affix__content').attributes('style')).toContain('top: 108px')
 
     wrapper.unmount()
     target.remove()

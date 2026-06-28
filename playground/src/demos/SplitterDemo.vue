@@ -9,13 +9,7 @@ const editorPaneSize = ref(180)
   <section id="splitter" class="panel">
     <h2>分割面板</h2>
     <div class="splitter-demo">
-      <SuSplitter
-        v-model="mailPaneSize"
-        :min="200"
-        :max="460"
-        :step="8"
-        class="mail-splitter"
-      >
+      <SuSplitter v-model="mailPaneSize" :min="200" :max="460" :step="8" class="mail-splitter">
         <template #first>
           <div class="mail-list">
             <strong>收件箱</strong>

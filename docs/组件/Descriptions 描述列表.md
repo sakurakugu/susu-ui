@@ -43,9 +43,7 @@ const items = [
   <SuDescriptions title="项目信息" :column="2" border label-width="88px">
     <SuDescriptionsItem label="项目">Susu UI</SuDescriptionsItem>
     <SuDescriptionsItem label="版本">0.1.0</SuDescriptionsItem>
-    <SuDescriptionsItem label="备注" :span="2">
-      适合展示详情页和只读表单内容。
-    </SuDescriptionsItem>
+    <SuDescriptionsItem label="备注" :span="2"> 适合展示详情页和只读表单内容。 </SuDescriptionsItem>
   </SuDescriptions>
 </template>
 ```

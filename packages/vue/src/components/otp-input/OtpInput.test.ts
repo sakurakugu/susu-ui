@@ -55,12 +55,8 @@ describe('OtpInput', () => {
     await wrapper.findAll('.su-otp-input__item')[0].setValue('AB')
 
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['AB'])
-    expect(wrapper.find('.su-otp-input__item').attributes('inputmode')).toBe(
-      'text',
-    )
-    expect(
-      wrapper.find('.su-otp-input__item').attributes('pattern'),
-    ).toBeUndefined()
+    expect(wrapper.find('.su-otp-input__item').attributes('inputmode')).toBe('text')
+    expect(wrapper.find('.su-otp-input__item').attributes('pattern')).toBeUndefined()
   })
 
   it('支持粘贴整串验证码并触发完成事件', async () => {
@@ -122,12 +118,8 @@ describe('OtpInput', () => {
     expect(wrapper.classes()).toContain('su-otp-input--error')
     expect(wrapper.classes()).toContain('is-disabled')
     expect(wrapper.classes()).toContain('is-readonly')
-    expect(
-      wrapper.find('.su-otp-input__item').attributes('disabled'),
-    ).toBeDefined()
-    expect(
-      wrapper.find('.su-otp-input__item').attributes('readonly'),
-    ).toBeDefined()
+    expect(wrapper.find('.su-otp-input__item').attributes('disabled')).toBeDefined()
+    expect(wrapper.find('.su-otp-input__item').attributes('readonly')).toBeDefined()
   })
 
   it('支持掩码显示、隐藏 name 和可访问标签', () => {
@@ -141,18 +133,10 @@ describe('OtpInput', () => {
       },
     })
 
-    expect(wrapper.find('input[type="hidden"]').attributes('name')).toBe(
-      'smsCode',
-    )
-    expect(wrapper.find('input[type="hidden"]').attributes('value')).toBe(
-      '1234',
-    )
-    expect(wrapper.find('.su-otp-input__item').attributes('type')).toBe(
-      'password',
-    )
-    expect(wrapper.find('.su-otp-input__item').attributes('id')).toBe(
-      'sms-code-1',
-    )
+    expect(wrapper.find('input[type="hidden"]').attributes('name')).toBe('smsCode')
+    expect(wrapper.find('input[type="hidden"]').attributes('value')).toBe('1234')
+    expect(wrapper.find('.su-otp-input__item').attributes('type')).toBe('password')
+    expect(wrapper.find('.su-otp-input__item').attributes('id')).toBe('sms-code-1')
     expect(wrapper.attributes('aria-label')).toBe('短信验证码')
   })
 

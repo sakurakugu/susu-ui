@@ -44,8 +44,7 @@ describe('Sidebar', () => {
         collapsedWidth: 72,
       },
       slots: {
-        default: ({ collapsed }: { collapsed: boolean }) =>
-          collapsed ? '窄栏' : '完整侧栏',
+        default: ({ collapsed }: { collapsed: boolean }) => (collapsed ? '窄栏' : '完整侧栏'),
       },
     })
 
@@ -92,8 +91,7 @@ describe('Sidebar', () => {
       },
       slots: {
         header: '<strong class="custom-header">项目导航</strong>',
-        trigger: ({ collapsed }: { collapsed: boolean }) =>
-          collapsed ? '展开导航' : '收起导航',
+        trigger: ({ collapsed }: { collapsed: boolean }) => (collapsed ? '展开导航' : '收起导航'),
       },
     })
 

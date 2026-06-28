@@ -41,11 +41,7 @@ const containerItems: AnchorItem[] = [
     <div class="anchor-demo">
       <div class="anchor-demo__layout">
         <aside class="anchor-demo__aside">
-          <SuAnchor
-            v-model:active-key="activeKey"
-            :items="pageItems"
-            :offset-top="96"
-          />
+          <SuAnchor v-model:active-key="activeKey" :items="pageItems" :offset-top="96" />
         </aside>
 
         <div class="anchor-demo__content">
@@ -65,50 +61,36 @@ const containerItems: AnchorItem[] = [
 
           <article id="anchor-check" class="anchor-demo__section">
             <h3>检查清单</h3>
-            <p>
-              运营负责人在发布前逐项核对文案、链接、库存和客服预案，避免上线后反复回滚配置。
-            </p>
+            <p>运营负责人在发布前逐项核对文案、链接、库存和客服预案，避免上线后反复回滚配置。</p>
           </article>
 
           <article id="anchor-risk" class="anchor-demo__section">
             <h3>风险确认</h3>
-            <p>
-              对高峰流量、权益超发和异常退款设置处理预案，保证活动上线后能够快速响应。
-            </p>
+            <p>对高峰流量、权益超发和异常退款设置处理预案，保证活动上线后能够快速响应。</p>
           </article>
 
           <article id="anchor-report" class="anchor-demo__section">
             <h3>复盘报告</h3>
-            <p>
-              活动结束后复盘报名转化、核心渠道和留存表现，为下一次运营节奏提供参考。
-            </p>
+            <p>活动结束后复盘报名转化、核心渠道和留存表现，为下一次运营节奏提供参考。</p>
           </article>
         </div>
       </div>
 
-      <div class="anchor-demo__status">
-        当前页面段落：{{ activeKey ?? '等待滚动定位' }}
-      </div>
+      <div class="anchor-demo__status">当前页面段落：{{ activeKey ?? '等待滚动定位' }}</div>
 
       <div class="anchor-demo__scroll-layout">
         <div ref="containerRef" class="anchor-demo__viewport">
           <article id="asset-brief" class="anchor-demo__section">
             <h3>投放目标</h3>
-            <p>
-              本次素材计划面向新客首购转化，重点观察优惠券领取率和首单完成率。
-            </p>
+            <p>本次素材计划面向新客首购转化，重点观察优惠券领取率和首单完成率。</p>
           </article>
           <article id="asset-material" class="anchor-demo__section">
             <h3>素材规范</h3>
-            <p>
-              主视觉需要保留品牌标识和活动期限，按钮文案统一使用明确的业务动作。
-            </p>
+            <p>主视觉需要保留品牌标识和活动期限，按钮文案统一使用明确的业务动作。</p>
           </article>
           <article id="asset-review" class="anchor-demo__section">
             <h3>审核记录</h3>
-            <p>
-              市场、法务和客服团队已完成复核，剩余问题会在上线前同步给活动负责人。
-            </p>
+            <p>市场、法务和客服团队已完成复核，剩余问题会在上线前同步给活动负责人。</p>
           </article>
         </div>
 
@@ -121,10 +103,7 @@ const containerItems: AnchorItem[] = [
           :bounds="12"
         >
           <template #default="{ item, active }">
-            <span
-              class="anchor-demo__custom-link"
-              :class="{ 'is-active': active }"
-            >
+            <span class="anchor-demo__custom-link" :class="{ 'is-active': active }">
               {{ item.title }}
             </span>
           </template>

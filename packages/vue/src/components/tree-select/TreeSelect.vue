@@ -110,33 +110,19 @@ const autoExpandedKeys = ref<TreeSelectValue[]>([])
 const panelId = `su-tree-select-${useId()}`
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
-const mergedPlaceholder = computed(
-  () => props.placeholder ?? locale.value.treeSelect.placeholder,
-)
-const mergedEmptyText = computed(
-  () => props.emptyText ?? locale.value.treeSelect.empty,
-)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
+const mergedPlaceholder = computed(() => props.placeholder ?? locale.value.treeSelect.placeholder)
+const mergedEmptyText = computed(() => props.emptyText ?? locale.value.treeSelect.empty)
 const mergedFilterPlaceholder = computed(
   () => props.filterPlaceholder ?? locale.value.treeSelect.filterPlaceholder,
 )
-const mergedAriaLabel = computed(
-  () => props.ariaLabel ?? locale.value.treeSelect.ariaLabel,
-)
+const mergedAriaLabel = computed(() => props.ariaLabel ?? locale.value.treeSelect.ariaLabel)
 
-const normalizedData = computed<TreeSelectRenderNode[]>(() =>
-  normalizeNodes(props.data),
-)
+const normalizedData = computed<TreeSelectRenderNode[]>(() => normalizeNodes(props.data))
 const flatNodes = computed(() => flattenNodes(normalizedData.value))
-const selectedNode = computed(() =>
-  flatNodes.value.find((node) => node.value === model.value),
-)
+const selectedNode = computed(() => flatNodes.value.find((node) => node.value === model.value))
 const hasValue = computed(() => selectedNode.value !== undefined)
-const showClear = computed(
-  () => props.clearable && !mergedDisabled.value && hasValue.value,
-)
+const showClear = computed(() => props.clearable && !mergedDisabled.value && hasValue.value)
 const allExpandableKeys = computed(() =>
   flatNodes.value.filter((node) => hasChildren(node)).map((node) => node.value),
 )
@@ -162,9 +148,7 @@ const firstEnabledValue = computed(
 const activeNode = computed(() =>
   visibleNodes.value.find((node) => node.value === activeValue.value),
 )
-const hiddenInputValue = computed(() =>
-  model.value === undefined ? '' : `${model.value}`,
-)
+const hiddenInputValue = computed(() => (model.value === undefined ? '' : `${model.value}`))
 
 watch(
   allExpandableKeys,
@@ -233,29 +217,20 @@ function normalizeNodes(
       parent,
     }
 
-    renderNode.children = children
-      ? normalizeNodes(children, level + 1, renderNode)
-      : undefined
+    renderNode.children = children ? normalizeNodes(children, level + 1, renderNode) : undefined
 
     return renderNode
   })
 }
 
 function flattenNodes(nodes: TreeSelectRenderNode[]): TreeSelectRenderNode[] {
-  return nodes.flatMap((node) => [
-    node,
-    ...(node.children ? flattenNodes(node.children) : []),
-  ])
+  return nodes.flatMap((node) => [node, ...(node.children ? flattenNodes(node.children) : [])])
 }
 
-function flattenVisibleNodes(
-  nodes: TreeSelectRenderNode[],
-): TreeSelectRenderNode[] {
+function flattenVisibleNodes(nodes: TreeSelectRenderNode[]): TreeSelectRenderNode[] {
   return nodes.flatMap((node) => [
     node,
-    ...(hasChildren(node) && isExpanded(node)
-      ? flattenVisibleNodes(node.children ?? [])
-      : []),
+    ...(hasChildren(node) && isExpanded(node) ? flattenVisibleNodes(node.children ?? []) : []),
   ])
 }
 
@@ -275,9 +250,7 @@ function filterNodes(
 ): TreeSelectRenderNode[] {
   return nodes.reduce<TreeSelectRenderNode[]>((result, node) => {
     const matched = node.label.toLocaleLowerCase().includes(trimmedKeyword)
-    const children = node.children
-      ? filterNodes(node.children, trimmedKeyword)
-      : undefined
+    const children = node.children ? filterNodes(node.children, trimmedKeyword) : undefined
 
     if (matched || children?.length) {
       result.push(cloneNode(node, children))
@@ -408,21 +381,14 @@ function clearValue(event?: MouseEvent) {
 }
 
 function moveActive(step: number) {
-  const enabledNodes = visibleNodes.value.filter(
-    (node) => !isNodeDisabled(node),
-  )
+  const enabledNodes = visibleNodes.value.filter((node) => !isNodeDisabled(node))
 
   if (!enabledNodes.length) {
     return
   }
 
-  const currentIndex = activeNode.value
-    ? enabledNodes.indexOf(activeNode.value)
-    : step > 0
-      ? -1
-      : 0
-  const nextIndex =
-    (currentIndex + step + enabledNodes.length) % enabledNodes.length
+  const currentIndex = activeNode.value ? enabledNodes.indexOf(activeNode.value) : step > 0 ? -1 : 0
+  const nextIndex = (currentIndex + step + enabledNodes.length) % enabledNodes.length
   activeValue.value = enabledNodes[nextIndex].value
 }
 
@@ -599,13 +565,7 @@ defineExpose({
     >
       &times;
     </button>
-    <input
-      v-if="name"
-      type="hidden"
-      :name="name"
-      :value="hiddenInputValue"
-      :required="required"
-    />
+    <input v-if="name" type="hidden" :name="name" :value="hiddenInputValue" :required="required" />
   </span>
   <Teleport to="body">
     <Transition name="su-tree-select">
@@ -708,11 +668,7 @@ defineExpose({
 }
 
 .su-tree-select__trigger:hover:not(:disabled) {
-  border-color: color-mix(
-    in srgb,
-    var(--su-color-primary) 48%,
-    var(--su-color-border)
-  );
+  border-color: color-mix(in srgb, var(--su-color-primary) 48%, var(--su-color-border));
 }
 
 .su-tree-select__trigger:focus-visible,
@@ -895,9 +851,7 @@ defineExpose({
   align-items: center;
   min-height: 32px;
   padding-right: var(--su-space-sm);
-  padding-left: calc(
-    (var(--su-tree-select-level) - 1) * var(--su-tree-select-indent)
-  );
+  padding-left: calc((var(--su-tree-select-level) - 1) * var(--su-tree-select-indent));
   border-radius: var(--su-radius-sm);
   cursor: pointer;
   transition:

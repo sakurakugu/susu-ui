@@ -2,11 +2,7 @@
 import { ref } from 'vue'
 
 const selectedKey = ref<string | number>('dept-2-team-3-user-8')
-const expandedKeys = ref<(string | number)[]>([
-  'company',
-  'dept-2',
-  'dept-2-team-3',
-])
+const expandedKeys = ref<(string | number)[]>(['company', 'dept-2', 'dept-2-team-3'])
 const checkedKeys = ref<(string | number)[]>([
   'permission-project-read',
   'permission-project-export',
@@ -69,12 +65,7 @@ const permissionData = [
         <template #default="{ node }">
           <span class="virtual-tree-demo__node">
             <span>{{ node.label }}</span>
-            <SuTag
-              v-if="node.level === 2"
-              size="small"
-              type="primary"
-              variant="outline"
-            >
+            <SuTag v-if="node.level === 2" size="small" type="primary" variant="outline">
               部门
             </SuTag>
             <SuTag v-if="node.disabled" size="small" type="info">停用</SuTag>

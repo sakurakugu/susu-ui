@@ -31,11 +31,7 @@ describe('Steps', () => {
   it('支持自定义当前状态和单项状态', () => {
     const wrapper = mount(Steps, {
       props: {
-        items: [
-          { title: '已完成' },
-          { title: '校验失败', status: 'error' },
-          { title: '等待中' },
-        ],
+        items: [{ title: '已完成' }, { title: '校验失败', status: 'error' }, { title: '等待中' }],
         current: 1,
         status: 'finish',
       },
@@ -58,9 +54,7 @@ describe('Steps', () => {
       },
     })
 
-    expect(wrapper.findAll('.su-steps__item')[1].classes()).toContain(
-      'is-process',
-    )
+    expect(wrapper.findAll('.su-steps__item')[1].classes()).toContain('is-process')
   })
 
   it('可点击时触发 change 事件并忽略禁用项', async () => {
@@ -85,11 +79,7 @@ describe('Steps', () => {
       { title: '审核', value: 'review' },
       1,
     ])
-    expect(onChange).toHaveBeenCalledWith(
-      'review',
-      { title: '审核', value: 'review' },
-      1,
-    )
+    expect(onChange).toHaveBeenCalledWith('review', { title: '审核', value: 'review' }, 1)
     expect(wrapper.findAll('.su-steps__button')).toHaveLength(2)
   })
 

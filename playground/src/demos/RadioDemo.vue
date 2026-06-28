@@ -19,9 +19,7 @@ const channelValue = ref('email')
         <SuRadioButton value="sms">短信通知</SuRadioButton>
         <SuRadioButton value="webhook" disabled>Webhook</SuRadioButton>
       </SuRadioGroup>
-      <SuRadioButton model-value="custom" value="custom" size="large">
-        单独使用
-      </SuRadioButton>
+      <SuRadioButton model-value="custom" value="custom" size="large"> 单独使用 </SuRadioButton>
       <SuRadioGroup model-value="disabled" disabled>
         <SuRadioButton value="enabled">启用</SuRadioButton>
         <SuRadioButton value="disabled">停用</SuRadioButton>

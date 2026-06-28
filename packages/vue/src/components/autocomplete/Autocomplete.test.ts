@@ -32,9 +32,7 @@ describe('Autocomplete', () => {
 
     await wrapper.find('input').trigger('focus')
 
-    expect(
-      document.body.querySelectorAll('.su-autocomplete__option'),
-    ).toHaveLength(3)
+    expect(document.body.querySelectorAll('.su-autocomplete__option')).toHaveLength(3)
 
     wrapper.unmount()
   })
@@ -51,12 +49,8 @@ describe('Autocomplete', () => {
 
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['北'])
     expect(wrapper.emitted('input')?.[0][0]).toBe('北')
-    expect(
-      document.body.querySelectorAll('.su-autocomplete__option'),
-    ).toHaveLength(1)
-    expect(
-      document.body.querySelector('.su-autocomplete__option')?.textContent,
-    ).toBe('北京')
+    expect(document.body.querySelectorAll('.su-autocomplete__option')).toHaveLength(1)
+    expect(document.body.querySelector('.su-autocomplete__option')?.textContent).toBe('北京')
 
     wrapper.unmount()
   })
@@ -105,9 +99,7 @@ describe('Autocomplete', () => {
 
   it('支持自定义建议来源', async () => {
     const fetchSuggestions = vi.fn((query: string) =>
-      query
-        ? [{ label: `搜索 ${query}`, value: query }]
-        : [{ label: '默认', value: 'default' }],
+      query ? [{ label: `搜索 ${query}`, value: query }] : [{ label: '默认', value: 'default' }],
     )
     const wrapper = mount(Autocomplete, {
       props: {
@@ -119,9 +111,7 @@ describe('Autocomplete', () => {
     await wrapper.find('input').setValue('组件')
 
     expect(fetchSuggestions).toHaveBeenCalledWith('组件')
-    expect(
-      document.body.querySelector('.su-autocomplete__option')?.textContent,
-    ).toBe('搜索 组件')
+    expect(document.body.querySelector('.su-autocomplete__option')?.textContent).toBe('搜索 组件')
 
     wrapper.unmount()
   })

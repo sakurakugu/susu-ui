@@ -79,11 +79,7 @@ const categoryOptions = [
         status="success"
         :model-value="['zhejiang', 'hangzhou', 'xihu']"
       />
-      <SuCascader
-        :options="regionOptions"
-        status="warning"
-        placeholder="警告状态"
-      />
+      <SuCascader :options="regionOptions" status="warning" placeholder="警告状态" />
       <SuCascader disabled placeholder="禁用级联选择" />
     </div>
   </section>

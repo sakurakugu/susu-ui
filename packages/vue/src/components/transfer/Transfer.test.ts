@@ -22,12 +22,8 @@ describe('Transfer', () => {
     expect(wrapper.classes()).toContain('su-transfer')
     expect(wrapper.text()).toContain('可选组件')
     expect(wrapper.text()).toContain('已选组件')
-    expect(wrapper.findAll('.su-transfer__panel')[0].text()).toContain(
-      'Button 按钮',
-    )
-    expect(wrapper.findAll('.su-transfer__panel')[1].text()).toContain(
-      'Tree 树',
-    )
+    expect(wrapper.findAll('.su-transfer__panel')[0].text()).toContain('Button 按钮')
+    expect(wrapper.findAll('.su-transfer__panel')[1].text()).toContain('Tree 树')
   })
 
   it('支持勾选后移动到右侧', async () => {
@@ -44,11 +40,7 @@ describe('Transfer', () => {
     await wrapper.findAll('.su-transfer__button')[0].trigger('click')
 
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([['button']])
-    expect(wrapper.emitted('change')?.[0]).toEqual([
-      ['button'],
-      'right',
-      ['button'],
-    ])
+    expect(wrapper.emitted('change')?.[0]).toEqual([['button'], 'right', ['button']])
     expect(onChange).toHaveBeenCalledWith(['button'], 'right', ['button'])
   })
 
@@ -65,11 +57,7 @@ describe('Transfer', () => {
     await wrapper.findAll('.su-transfer__button')[1].trigger('click')
 
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([['tree']])
-    expect(wrapper.emitted('change')?.[0]).toEqual([
-      ['tree'],
-      'left',
-      ['button'],
-    ])
+    expect(wrapper.emitted('change')?.[0]).toEqual([['tree'], 'left', ['button']])
   })
 
   it('支持筛选和自定义筛选方法', async () => {
@@ -77,19 +65,14 @@ describe('Transfer', () => {
       props: {
         data,
         filterable: true,
-        filterMethod: (query, option) =>
-          `${option.description}`.includes(query),
+        filterMethod: (query, option) => `${option.description}`.includes(query),
       },
     })
 
     await wrapper.find('.su-transfer__filter-input').setValue('基础')
 
-    expect(wrapper.findAll('.su-transfer__panel')[0].text()).toContain(
-      'Button 按钮',
-    )
-    expect(wrapper.findAll('.su-transfer__panel')[0].text()).not.toContain(
-      'Input 输入框',
-    )
+    expect(wrapper.findAll('.su-transfer__panel')[0].text()).toContain('Button 按钮')
+    expect(wrapper.findAll('.su-transfer__panel')[0].text()).not.toContain('Input 输入框')
   })
 
   it('全选只勾选未禁用选项', async () => {
@@ -102,9 +85,7 @@ describe('Transfer', () => {
     await wrapper.find('.su-transfer__header input').setValue(true)
     await wrapper.findAll('.su-transfer__button')[0].trigger('click')
 
-    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([
-      ['button', 'input', 'tree'],
-    ])
+    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([['button', 'input', 'tree']])
   })
 
   it('支持插槽自定义标题、空状态和选项内容', () => {
@@ -116,8 +97,7 @@ describe('Transfer', () => {
         'left-title': '左侧标题',
         'right-title': '右侧标题',
         empty: ({ direction }: { direction: string }) => `${direction} 空`,
-        default: ({ option }: { option: TransferOption }) =>
-          `组件：${option.label}`,
+        default: ({ option }: { option: TransferOption }) => `组件：${option.label}`,
       },
     })
     const optionWrapper = mount(Transfer, {
@@ -125,8 +105,7 @@ describe('Transfer', () => {
         data: [data[0]],
       },
       slots: {
-        default: ({ option }: { option: TransferOption }) =>
-          `组件：${option.label}`,
+        default: ({ option }: { option: TransferOption }) => `组件：${option.label}`,
       },
     })
 
@@ -143,9 +122,7 @@ describe('Transfer', () => {
       },
     })
 
-    expect(
-      wrapper.findAll('.su-transfer__button')[0].attributes('disabled'),
-    ).toBe('')
+    expect(wrapper.findAll('.su-transfer__button')[0].attributes('disabled')).toBe('')
     await wrapper.findAll('.su-transfer__button')[0].trigger('click')
 
     expect(wrapper.emitted('update:modelValue')).toBeUndefined()

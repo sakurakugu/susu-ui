@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  nextTick,
-  onBeforeUnmount,
-  onMounted,
-  ref,
-  watch,
-  type CSSProperties,
-} from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch, type CSSProperties } from 'vue'
 
 defineOptions({
   name: 'SuBackTop',
@@ -66,11 +58,7 @@ function getTarget() {
 
 function getScrollTop(target: BackTopTarget) {
   if (target === window) {
-    return (
-      window.scrollY ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop
-    )
+    return window.scrollY || document.documentElement.scrollTop || document.body.scrollTop
   }
 
   return (target as HTMLElement).scrollTop

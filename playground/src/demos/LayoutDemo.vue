@@ -24,25 +24,16 @@ const metrics = [
           <SuSpace direction="vertical" fill>
             <SuCard title="今日概览" shadow="never">
               <div class="layout-demo__metrics">
-                <div
-                  v-for="metric in metrics"
-                  :key="metric.label"
-                  class="layout-demo__metric"
-                >
+                <div v-for="metric in metrics" :key="metric.label" class="layout-demo__metric">
                   <span>{{ metric.label }}</span>
                   <strong>{{ metric.value }}</strong>
                 </div>
               </div>
             </SuCard>
-            <SuAlert
-              title="发布窗口将在 18:00 关闭，请优先处理阻塞项。"
-              type="warning"
-            />
+            <SuAlert title="发布窗口将在 18:00 关闭，请优先处理阻塞项。" type="warning" />
           </SuSpace>
         </SuContent>
-        <SuFooter class="layout-demo__footer" height="44px">
-          最近同步：10:24
-        </SuFooter>
+        <SuFooter class="layout-demo__footer" height="44px"> 最近同步：10:24 </SuFooter>
       </SuLayout>
 
       <SuLayout class="layout-demo__with-sider">

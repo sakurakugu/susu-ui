@@ -29,9 +29,7 @@ describe('Message', () => {
       },
     })
 
-    expect(wrapper.find('.su-message').classes()).toContain(
-      'su-message--success',
-    )
+    expect(wrapper.find('.su-message').classes()).toContain('su-message--success')
     expect(wrapper.find('.su-message__icon').exists()).toBe(false)
   })
 

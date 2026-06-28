@@ -89,12 +89,8 @@ describe('Carousel', () => {
       },
     })
 
-    expect(
-      wrapper.find('.su-carousel__arrow--previous').attributes('disabled'),
-    ).toBeDefined()
-    expect(
-      wrapper.find('.su-carousel__arrow--next').attributes('disabled'),
-    ).toBeUndefined()
+    expect(wrapper.find('.su-carousel__arrow--previous').attributes('disabled')).toBeDefined()
+    expect(wrapper.find('.su-carousel__arrow--next').attributes('disabled')).toBeUndefined()
   })
 
   it('支持键盘快捷切换', async () => {
@@ -141,11 +137,7 @@ describe('Carousel', () => {
       },
       slots: {
         default: ({ item, index, active }) =>
-          h(
-            'div',
-            { class: 'custom-slide' },
-            `${index}-${item.title}-${active}`,
-          ),
+          h('div', { class: 'custom-slide' }, `${index}-${item.title}-${active}`),
       },
     })
 

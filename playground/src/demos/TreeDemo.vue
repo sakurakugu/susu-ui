@@ -55,14 +55,7 @@ const treeData = [
         <template #default="{ node }">
           <span class="tree-demo-node">
             <span>{{ node.label }}</span>
-            <SuTag
-              v-if="node.disabled"
-              size="small"
-              type="info"
-              variant="outline"
-            >
-              禁用
-            </SuTag>
+            <SuTag v-if="node.disabled" size="small" type="info" variant="outline"> 禁用 </SuTag>
           </span>
         </template>
       </SuTree>

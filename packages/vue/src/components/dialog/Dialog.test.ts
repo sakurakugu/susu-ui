@@ -28,9 +28,7 @@ describe('Dialog', () => {
     const dialog = document.body.querySelector('.su-dialog')
     expect(dialog?.getAttribute('role')).toBe('dialog')
     expect(dialog?.getAttribute('aria-modal')).toBe('true')
-    expect(document.body.querySelector('.su-dialog__title')?.textContent).toBe(
-      '确认发布',
-    )
+    expect(document.body.querySelector('.su-dialog__title')?.textContent).toBe('确认发布')
     expect(document.body.querySelector('.su-dialog__body')?.textContent).toBe(
       '发布后将同步到线上环境。',
     )
@@ -46,17 +44,14 @@ describe('Dialog', () => {
       },
       global: {
         provide: {
-          [configProviderKey as symbol]: computed(() =>
-            mergeConfig({ locale: enUS }),
-          ),
+          [configProviderKey as symbol]: computed(() => mergeConfig({ locale: enUS })),
         },
       },
       attachTo: document.body,
     })
 
     await wrapper.vm.$nextTick()
-    const buttons =
-      document.body.querySelectorAll<HTMLButtonElement>('.su-dialog__button')
+    const buttons = document.body.querySelectorAll<HTMLButtonElement>('.su-dialog__button')
 
     expect(buttons[0]?.textContent?.trim()).toBe('Cancel')
     expect(buttons[1]?.textContent?.trim()).toBe('OK')
@@ -132,8 +127,7 @@ describe('Dialog', () => {
     })
 
     await wrapper.vm.$nextTick()
-    const buttons =
-      document.body.querySelectorAll<HTMLButtonElement>('.su-dialog__button')
+    const buttons = document.body.querySelectorAll<HTMLButtonElement>('.su-dialog__button')
 
     buttons[0]?.click()
     await wrapper.vm.$nextTick()
@@ -143,9 +137,7 @@ describe('Dialog', () => {
     await wrapper.setProps({ modelValue: false })
     await wrapper.setProps({ modelValue: true })
     await wrapper.vm.$nextTick()
-    document.body
-      .querySelectorAll<HTMLButtonElement>('.su-dialog__button')[1]
-      ?.click()
+    document.body.querySelectorAll<HTMLButtonElement>('.su-dialog__button')[1]?.click()
     await wrapper.vm.$nextTick()
     expect(wrapper.emitted('confirm')).toHaveLength(1)
     expect(wrapper.emitted('close')).toHaveLength(1)
@@ -170,18 +162,13 @@ describe('Dialog', () => {
 
     await wrapper.vm.$nextTick()
 
-    const overlay =
-      document.body.querySelector<HTMLElement>('.su-dialog-overlay')
+    const overlay = document.body.querySelector<HTMLElement>('.su-dialog-overlay')
     const dialog = document.body.querySelector<HTMLElement>('.su-dialog')
 
     expect(overlay?.style.zIndex).toBe('3000')
     expect(dialog?.style.width).toBe('640px')
-    expect(document.body.querySelector('.custom-header')?.textContent).toBe(
-      '自定义头部',
-    )
-    expect(document.body.querySelector('.custom-footer')?.textContent).toBe(
-      '保存',
-    )
+    expect(document.body.querySelector('.custom-header')?.textContent).toBe('自定义头部')
+    expect(document.body.querySelector('.custom-footer')?.textContent).toBe('保存')
 
     wrapper.unmount()
   })

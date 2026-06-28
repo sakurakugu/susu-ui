@@ -58,11 +58,7 @@ const cities = [
         placeholder="禁用选择器"
       />
 
-      <SuVirtualizedSelect
-        status="warning"
-        :options="[]"
-        empty-text="当前项目没有可分配成员"
-      />
+      <SuVirtualizedSelect status="warning" :options="[]" empty-text="当前项目没有可分配成员" />
     </div>
   </section>
 </template>

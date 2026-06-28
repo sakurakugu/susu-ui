@@ -59,10 +59,7 @@ describe('Resizable', () => {
 
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([201])
     expect(wrapper.emitted('update:modelValue')?.[1]).toEqual([191])
-    expect(wrapper.emitted('resize')?.[0]).toEqual([
-      201,
-      expect.any(KeyboardEvent),
-    ])
+    expect(wrapper.emitted('resize')?.[0]).toEqual([201, expect.any(KeyboardEvent)])
   })
 
   it('支持垂直尺寸 v-model', async () => {

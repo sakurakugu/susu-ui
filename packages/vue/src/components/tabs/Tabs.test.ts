@@ -60,11 +60,7 @@ describe('Tabs', () => {
       slots: {
         default: [
           h(TabPane, { label: '概览', name: 'overview' }, () => '概览内容'),
-          h(
-            TabPane,
-            { label: '审计', name: 'audit', disabled: true },
-            () => '审计内容',
-          ),
+          h(TabPane, { label: '审计', name: 'audit', disabled: true }, () => '审计内容'),
         ],
       },
     })
@@ -123,9 +119,7 @@ describe('Tabs', () => {
     })
     await nextTick()
 
-    expect(wrapper.findAll('[role="tab"]')[1].attributes('aria-selected')).toBe(
-      'true',
-    )
+    expect(wrapper.findAll('[role="tab"]')[1].attributes('aria-selected')).toBe('true')
     expect(wrapper.text()).toContain('第二项')
   })
 
@@ -138,11 +132,7 @@ describe('Tabs', () => {
       slots: {
         default: [
           h(TabPane, { label: '一', name: 'one' }, () => '第一项'),
-          h(
-            TabPane,
-            { label: '二', name: 'two', disabled: true },
-            () => '第二项',
-          ),
+          h(TabPane, { label: '二', name: 'two', disabled: true }, () => '第二项'),
           h(TabPane, { label: '三', name: 'three' }, () => '第三项'),
         ],
       },

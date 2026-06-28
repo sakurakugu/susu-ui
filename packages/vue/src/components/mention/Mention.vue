@@ -101,9 +101,7 @@ const listboxId = `su-mention-${useId()}`
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
 
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
 
 const isTextarea = computed(() => props.type === 'textarea')
 
@@ -126,9 +124,7 @@ const suggestions = computed(() => {
   )
 })
 
-const enabledSuggestions = computed(() =>
-  suggestions.value.filter((option) => !option.disabled),
-)
+const enabledSuggestions = computed(() => suggestions.value.filter((option) => !option.disabled))
 
 const visible = computed(
   () =>
@@ -140,11 +136,7 @@ const visible = computed(
 )
 
 const showClear = computed(
-  () =>
-    props.clearable &&
-    !mergedDisabled.value &&
-    !props.readonly &&
-    model.value.length > 0,
+  () => props.clearable && !mergedDisabled.value && !props.readonly && model.value.length > 0,
 )
 
 const activeOption = computed(() =>
@@ -164,10 +156,7 @@ function updatePosition() {
   }
 
   const rect = root.getBoundingClientRect()
-  const top =
-    props.placement === 'top'
-      ? rect.top - panel.offsetHeight - 6
-      : rect.bottom + 6
+  const top = props.placement === 'top' ? rect.top - panel.offsetHeight - 6 : rect.bottom + 6
 
   panelStyle.value = {
     top: `${Math.max(8, top)}px`,
@@ -227,9 +216,7 @@ function syncActiveIndex() {
   const active = activeOption.value
 
   if (!active || !suggestions.value.includes(active) || active.disabled) {
-    activeIndex.value = suggestions.value.findIndex(
-      (option) => !option.disabled,
-    )
+    activeIndex.value = suggestions.value.findIndex((option) => !option.disabled)
   }
 }
 
@@ -239,17 +226,10 @@ function moveActive(step: number) {
   }
 
   const current = activeOption.value
-  const enabledIndex = current
-    ? enabledSuggestions.value.indexOf(current)
-    : step > 0
-      ? -1
-      : 0
+  const enabledIndex = current ? enabledSuggestions.value.indexOf(current) : step > 0 ? -1 : 0
   const nextEnabledIndex =
-    (enabledIndex + step + enabledSuggestions.value.length) %
-    enabledSuggestions.value.length
-  activeIndex.value = suggestions.value.indexOf(
-    enabledSuggestions.value[nextEnabledIndex],
-  )
+    (enabledIndex + step + enabledSuggestions.value.length) % enabledSuggestions.value.length
+  activeIndex.value = suggestions.value.indexOf(enabledSuggestions.value[nextEnabledIndex])
 }
 
 function selectOption(option: MentionOption) {
@@ -263,10 +243,7 @@ function selectOption(option: MentionOption) {
   const beforeMention = model.value.slice(0, mentionStart.value)
   const afterMention = model.value
     .slice(cursor)
-    .replace(
-      new RegExp(`^${props.split.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`),
-      '',
-    )
+    .replace(new RegExp(`^${props.split.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`), '')
   const mentionText = `${props.prefix}${option.value}${props.split}`
   const nextValue = `${beforeMention}${mentionText}${afterMention}`
   const nextCursor = beforeMention.length + mentionText.length
@@ -563,11 +540,7 @@ defineExpose({
 }
 
 .su-mention:hover:not(.is-disabled) {
-  border-color: color-mix(
-    in srgb,
-    var(--su-color-primary) 48%,
-    var(--su-color-border)
-  );
+  border-color: color-mix(in srgb, var(--su-color-primary) 48%, var(--su-color-border));
 }
 
 .su-mention:focus-within,

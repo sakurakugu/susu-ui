@@ -70,9 +70,7 @@ const startInputRef = ref<HTMLInputElement>()
 const endInputRef = ref<HTMLInputElement>()
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
 const isInteractive = computed(() => !mergedDisabled.value && !props.readonly)
 const normalizedMin = computed(() => Math.min(props.min, props.max))
 const normalizedMax = computed(() => Math.max(props.min, props.max))
@@ -100,15 +98,11 @@ function normalizeValue(value: number) {
 }
 
 function normalizeRangeValue(value: SliderValue): [number, number] {
-  const sourceValue = Array.isArray(value)
-    ? value
-    : [normalizedMin.value, value]
+  const sourceValue = Array.isArray(value) ? value : [normalizedMin.value, value]
   const startValue = normalizeValue(sourceValue[0])
   const endValue = normalizeValue(sourceValue[1])
 
-  return startValue <= endValue
-    ? [startValue, endValue]
-    : [endValue, startValue]
+  return startValue <= endValue ? [startValue, endValue] : [endValue, startValue]
 }
 
 const singleValue = computed(() =>
@@ -117,13 +111,9 @@ const singleValue = computed(() =>
 
 const rangeValue = computed(() => normalizeRangeValue(model.value))
 
-const startValue = computed(() =>
-  props.range ? rangeValue.value[0] : normalizedMin.value,
-)
+const startValue = computed(() => (props.range ? rangeValue.value[0] : normalizedMin.value))
 
-const endValue = computed(() =>
-  props.range ? rangeValue.value[1] : singleValue.value,
-)
+const endValue = computed(() => (props.range ? rangeValue.value[1] : singleValue.value))
 
 const startPercent = computed(() => getPercent(startValue.value))
 const endPercent = computed(() => getPercent(endValue.value))
@@ -189,9 +179,7 @@ function updateValue(value: SliderValue, event: Event, emitChange = false) {
     return
   }
 
-  const nextValue = props.range
-    ? normalizeRangeValue(value)
-    : normalizeValue(value as number)
+  const nextValue = props.range ? normalizeRangeValue(value) : normalizeValue(value as number)
   model.value = nextValue
   emit('input', nextValue, event)
 
@@ -215,9 +203,7 @@ function handleRangeInput(type: 'start' | 'end', event: Event) {
   const value = normalizeValue(Number(target.value))
   const [start, end] = rangeValue.value
   const nextValue: [number, number] =
-    type === 'start'
-      ? [Math.min(value, end), end]
-      : [start, Math.max(value, start)]
+    type === 'start' ? [Math.min(value, end), end] : [start, Math.max(value, start)]
 
   updateValue(nextValue, event)
 }
@@ -227,9 +213,7 @@ function handleRangeChange(type: 'start' | 'end', event: Event) {
   const value = normalizeValue(Number(target.value))
   const [start, end] = rangeValue.value
   const nextValue: [number, number] =
-    type === 'start'
-      ? [Math.min(value, end), end]
-      : [start, Math.max(value, start)]
+    type === 'start' ? [Math.min(value, end), end] : [start, Math.max(value, start)]
 
   updateValue(nextValue, event, true)
 }
@@ -388,13 +372,7 @@ defineExpose({
         type="button"
         :style="{ left: `${mark.percent}%` }"
         :disabled="mergedDisabled || readonly"
-        @click="
-          updateValue(
-            range ? [rangeValue[0], mark.value] : mark.value,
-            $event,
-            true,
-          )
-        "
+        @click="updateValue(range ? [rangeValue[0], mark.value] : mark.value, $event, true)"
       >
         <span class="su-slider__mark-dot" />
         <span v-if="mark.label" class="su-slider__mark-label">
@@ -457,11 +435,7 @@ defineExpose({
 .su-slider__rail::before {
   right: 0;
   left: 0;
-  background: color-mix(
-    in srgb,
-    var(--su-color-border) 70%,
-    var(--su-color-bg-soft)
-  );
+  background: color-mix(in srgb, var(--su-color-border) 70%, var(--su-color-bg-soft));
 }
 
 .su-slider__track {
@@ -516,8 +490,7 @@ defineExpose({
 }
 
 .su-slider:focus-within .su-slider__thumb {
-  box-shadow: 0 0 0 3px
-    color-mix(in srgb, var(--su-color-primary) 22%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--su-color-primary) 22%, transparent);
 }
 
 .su-slider__tooltip {

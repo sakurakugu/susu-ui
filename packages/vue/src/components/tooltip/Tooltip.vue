@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  nextTick,
-  onBeforeUnmount,
-  ref,
-  useId,
-  watch,
-  type CSSProperties,
-} from 'vue'
+import { computed, nextTick, onBeforeUnmount, ref, useId, watch, type CSSProperties } from 'vue'
 
 defineOptions({
   name: 'SuTooltip',
@@ -77,11 +69,7 @@ let hideTimer: ReturnType<typeof window.setTimeout> | undefined
 
 const isControlled = computed(() => visibleModel.value !== undefined)
 const visible = computed(() =>
-  props.disabled
-    ? false
-    : isControlled.value
-      ? Boolean(visibleModel.value)
-      : innerVisible.value,
+  props.disabled ? false : isControlled.value ? Boolean(visibleModel.value) : innerVisible.value,
 )
 
 const placementSide = computed(() => props.placement.split('-')[0])
@@ -206,18 +194,10 @@ function alignCrossAxis(
   }
 
   if (align === 'end') {
-    return clamp(
-      triggerStart + triggerSize - popperSize,
-      4,
-      viewportSize - popperSize - 4,
-    )
+    return clamp(triggerStart + triggerSize - popperSize, 4, viewportSize - popperSize - 4)
   }
 
-  return clamp(
-    triggerStart + triggerSize / 2 - popperSize / 2,
-    4,
-    viewportSize - popperSize - 4,
-  )
+  return clamp(triggerStart + triggerSize / 2 - popperSize / 2, 4, viewportSize - popperSize - 4)
 }
 
 function clamp(value: number, min: number, max: number) {
@@ -241,24 +221,14 @@ function updatePosition() {
   let left: number
 
   if (side === 'top' || side === 'bottom') {
-    left = alignCrossAxis(
-      triggerRect.left,
-      triggerRect.width,
-      popperRect.width,
-      viewportWidth,
-    )
+    left = alignCrossAxis(triggerRect.left, triggerRect.width, popperRect.width, viewportWidth)
     top =
       side === 'top'
         ? triggerRect.top - popperRect.height - props.offset
         : triggerRect.bottom + props.offset
     top = clamp(top, 4, viewportHeight - popperRect.height - 4)
   } else {
-    top = alignCrossAxis(
-      triggerRect.top,
-      triggerRect.height,
-      popperRect.height,
-      viewportHeight,
-    )
+    top = alignCrossAxis(triggerRect.top, triggerRect.height, popperRect.height, viewportHeight)
     left =
       side === 'left'
         ? triggerRect.left - popperRect.width - props.offset
@@ -346,11 +316,7 @@ onBeforeUnmount(() => {
         :id="tooltipId"
         ref="popperRef"
         class="su-tooltip__popper"
-        :class="[
-          `su-tooltip__popper--${placementSide}`,
-          popperClass,
-          { 'has-arrow': showArrow },
-        ]"
+        :class="[`su-tooltip__popper--${placementSide}`, popperClass, { 'has-arrow': showArrow }]"
         :style="popperStyle"
         role="tooltip"
         @mouseenter="handleMouseenter"

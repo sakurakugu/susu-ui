@@ -65,9 +65,7 @@ describe('Tag', () => {
 
     await wrapper.find('.su-tag__close').trigger('click')
 
-    expect(wrapper.find('.su-tag__close').attributes('aria-label')).toBe(
-      '关闭标签',
-    )
+    expect(wrapper.find('.su-tag__close').attributes('aria-label')).toBe('关闭标签')
     expect(wrapper.emitted('close')).toHaveLength(1)
     expect(onClose).toHaveBeenCalledTimes(1)
   })

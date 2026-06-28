@@ -50,11 +50,7 @@ function disableWeekend(date: Date) {
 
 ```vue
 <template>
-  <SuCalendar
-    v-model="date"
-    :show-adjacent-months="false"
-    :show-today="false"
-  />
+  <SuCalendar v-model="date" :show-adjacent-months="false" :show-today="false" />
 </template>
 ```
 

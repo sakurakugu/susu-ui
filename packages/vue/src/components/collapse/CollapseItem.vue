@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, onBeforeUnmount, useSlots, watchEffect } from 'vue'
-import {
-  collapseKey,
-  type CollapseValue,
-  type RegisteredCollapseItem,
-} from './context'
+import { collapseKey, type CollapseValue, type RegisteredCollapseItem } from './context'
 
 defineOptions({
   name: 'SuCollapseItem',

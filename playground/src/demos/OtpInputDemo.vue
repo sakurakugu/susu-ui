@@ -31,12 +31,7 @@ function markComplete(value: string) {
       </div>
       <div class="otp-input-demo__row">
         <span class="otp-input-demo__label">支付确认</span>
-        <SuOtpInput
-          v-model="paymentCode"
-          mask
-          clearable
-          aria-label="支付验证码"
-        />
+        <SuOtpInput v-model="paymentCode" mask clearable aria-label="支付验证码" />
         <span class="otp-input-demo__hint">掩码展示敏感验证码</span>
       </div>
       <div class="otp-input-demo__row">
@@ -53,19 +48,9 @@ function markComplete(value: string) {
       <div class="otp-input-demo__row">
         <span class="otp-input-demo__label">状态</span>
         <div class="otp-input-demo__variants">
-          <SuOtpInput
-            size="small"
-            :length="4"
-            status="success"
-            model-value="2026"
-          />
+          <SuOtpInput size="small" :length="4" status="success" model-value="2026" />
           <SuOtpInput :length="4" status="warning" model-value="1024" />
-          <SuOtpInput
-            size="large"
-            :length="4"
-            status="error"
-            model-value="0000"
-          />
+          <SuOtpInput size="large" :length="4" status="error" model-value="0000" />
         </div>
       </div>
       <div class="otp-input-demo__row">

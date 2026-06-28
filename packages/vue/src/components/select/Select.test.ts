@@ -104,8 +104,7 @@ describe('Select', () => {
   it('支持默认插槽传入原生选项', async () => {
     const wrapper = mount(Select, {
       slots: {
-        default:
-          '<option value="draft">草稿</option><option value="published">已发布</option>',
+        default: '<option value="draft">草稿</option><option value="published">已发布</option>',
       },
     })
 

@@ -51,11 +51,7 @@ const alternateTimelineItems: TimelineItem[] = [
     <div class="timeline-demo">
       <SuTimeline :items="timelineItems" />
 
-      <SuTimeline
-        :items="alternateTimelineItems"
-        position="alternate"
-        size="small"
-      >
+      <SuTimeline :items="alternateTimelineItems" position="alternate" size="small">
         <template #dot="{ index }">
           {{ index + 1 }}
         </template>

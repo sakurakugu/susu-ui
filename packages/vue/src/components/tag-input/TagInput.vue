@@ -32,15 +32,7 @@ const props = withDefaults(
     name?: string
     id?: string
     autocomplete?: string
-    inputmode?:
-      | 'none'
-      | 'text'
-      | 'tel'
-      | 'url'
-      | 'email'
-      | 'numeric'
-      | 'decimal'
-      | 'search'
+    inputmode?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search'
   }>(),
   {
     size: undefined,
@@ -80,25 +72,13 @@ const inputValue = ref('')
 const isComposing = ref(false)
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
-const isLimitReached = computed(
-  () => props.max !== undefined && model.value.length >= props.max,
-)
-const canEdit = computed(
-  () => !mergedDisabled.value && !props.readonly && !isLimitReached.value,
-)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
+const isLimitReached = computed(() => props.max !== undefined && model.value.length >= props.max)
+const canEdit = computed(() => !mergedDisabled.value && !props.readonly && !isLimitReached.value)
 const showClear = computed(
-  () =>
-    props.clearable &&
-    !mergedDisabled.value &&
-    !props.readonly &&
-    model.value.length > 0,
+  () => props.clearable && !mergedDisabled.value && !props.readonly && model.value.length > 0,
 )
-const inputPlaceholder = computed(() =>
-  model.value.length === 0 ? props.placeholder : undefined,
-)
+const inputPlaceholder = computed(() => (model.value.length === 0 ? props.placeholder : undefined))
 
 function normalizeTag(value: string) {
   return props.trim ? value.trim() : value
@@ -182,11 +162,7 @@ function handleKeydown(event: KeyboardEvent) {
     return
   }
 
-  if (
-    event.key === 'Backspace' &&
-    !inputValue.value &&
-    model.value.length > 0
-  ) {
+  if (event.key === 'Backspace' && !inputValue.value && model.value.length > 0) {
     event.preventDefault()
     removeTag(model.value.length - 1)
   }
@@ -246,17 +222,8 @@ defineExpose({
       <slot name="prefix" />
     </span>
     <span class="su-tag-input__tags">
-      <span
-        v-for="(tag, index) in model"
-        :key="`${tag}-${index}`"
-        class="su-tag-input__tag"
-      >
-        <slot
-          name="tag"
-          :tag="tag"
-          :index="index"
-          :remove="() => removeTag(index)"
-        >
+      <span v-for="(tag, index) in model" :key="`${tag}-${index}`" class="su-tag-input__tag">
+        <slot name="tag" :tag="tag" :index="index" :remove="() => removeTag(index)">
           <span class="su-tag-input__tag-text">{{ tag }}</span>
         </slot>
         <button
@@ -328,11 +295,7 @@ defineExpose({
 }
 
 .su-tag-input:hover:not(.is-disabled) {
-  border-color: color-mix(
-    in srgb,
-    var(--su-color-primary) 48%,
-    var(--su-color-border)
-  );
+  border-color: color-mix(in srgb, var(--su-color-primary) 48%, var(--su-color-border));
 }
 
 .su-tag-input:focus-within {
@@ -406,15 +369,10 @@ defineExpose({
   max-width: 100%;
   min-height: 22px;
   padding: 0 var(--su-space-xs);
-  border: 1px solid
-    color-mix(in srgb, var(--su-color-primary) 28%, var(--su-color-border));
+  border: 1px solid color-mix(in srgb, var(--su-color-primary) 28%, var(--su-color-border));
   border-radius: var(--su-radius-sm);
   color: var(--su-color-primary);
-  background: color-mix(
-    in srgb,
-    var(--su-color-primary-soft) 72%,
-    var(--su-color-bg-elevated)
-  );
+  background: color-mix(in srgb, var(--su-color-primary-soft) 72%, var(--su-color-bg-elevated));
   font-size: var(--su-font-size-sm);
 }
 

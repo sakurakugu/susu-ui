@@ -19,12 +19,8 @@ describe('Breadcrumb', () => {
     expect(wrapper.classes()).toContain('su-breadcrumb')
     expect(wrapper.attributes('aria-label')).toBe('面包屑导航')
     expect(wrapper.findAll('.su-breadcrumb__item')).toHaveLength(3)
-    expect(wrapper.find('.su-breadcrumb__current').text()).toBe(
-      'Breadcrumb 面包屑',
-    )
-    expect(
-      wrapper.find('.su-breadcrumb__current').attributes('aria-current'),
-    ).toBe('page')
+    expect(wrapper.find('.su-breadcrumb__current').text()).toBe('Breadcrumb 面包屑')
+    expect(wrapper.find('.su-breadcrumb__current').attributes('aria-current')).toBe('page')
   })
 
   it('支持自定义分隔符', () => {
@@ -48,11 +44,7 @@ describe('Breadcrumb', () => {
 
     await wrapper.find('.su-breadcrumb__link').trigger('click')
 
-    expect(wrapper.emitted('click')?.[0]).toEqual([
-      items[0],
-      0,
-      expect.any(MouseEvent),
-    ])
+    expect(wrapper.emitted('click')?.[0]).toEqual([items[0], 0, expect.any(MouseEvent)])
   })
 
   it('禁用项不会触发 click 事件', async () => {
@@ -65,9 +57,7 @@ describe('Breadcrumb', () => {
     await wrapper.find('.su-breadcrumb__button').trigger('click')
 
     expect(wrapper.emitted('click')).toBeUndefined()
-    expect(
-      wrapper.find('.su-breadcrumb__button').attributes('disabled'),
-    ).toBeDefined()
+    expect(wrapper.find('.su-breadcrumb__button').attributes('disabled')).toBeDefined()
   })
 
   it('支持 item 和 separator 插槽', () => {

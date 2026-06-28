@@ -33,20 +33,12 @@ function confirmAsyncDrawer() {
   <section id="drawer" class="panel">
     <h2>抽屉</h2>
     <div class="drawer-demo">
-      <SuButton type="primary" @click="basicDrawerVisible = true">
-        基础抽屉
-      </SuButton>
-      <SuButton variant="outline" @click="filterDrawerVisible = true">
-        左侧筛选
-      </SuButton>
+      <SuButton type="primary" @click="basicDrawerVisible = true"> 基础抽屉 </SuButton>
+      <SuButton variant="outline" @click="filterDrawerVisible = true"> 左侧筛选 </SuButton>
       <SuButton @click="asyncDrawerVisible = true">异步保存</SuButton>
     </div>
 
-    <SuDrawer
-      v-model="basicDrawerVisible"
-      title="任务详情"
-      @confirm="confirmBasicDrawer"
-    >
+    <SuDrawer v-model="basicDrawerVisible" title="任务详情" @confirm="confirmBasicDrawer">
       <div class="drawer-demo-content">
         <p>抽屉从页面边缘滑出，适合展示详情、配置项或短流程编辑。</p>
         <SuDescriptions :column="1" border size="small">
@@ -81,9 +73,7 @@ function confirmAsyncDrawer() {
       </div>
       <template #footer>
         <SuButton @click="filterDrawerVisible = false">重置</SuButton>
-        <SuButton type="primary" @click="confirmFilterDrawer">
-          应用筛选
-        </SuButton>
+        <SuButton type="primary" @click="confirmFilterDrawer"> 应用筛选 </SuButton>
       </template>
     </SuDrawer>
 

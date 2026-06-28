@@ -157,9 +157,7 @@ function getStepLabel(item: StepsItem, index: number) {
           v-if="step.isClickable"
           class="su-steps__button"
           type="button"
-          :aria-current="
-            step.index === resolvedCurrentIndex ? 'step' : undefined
-          "
+          :aria-current="step.index === resolvedCurrentIndex ? 'step' : undefined"
           :aria-label="getStepLabel(step.item, step.index)"
           @click="handleClick(step)"
         >
@@ -190,10 +188,7 @@ function getStepLabel(item: StepsItem, index: number) {
                 {{ step.item.title }}
               </slot>
             </span>
-            <span
-              v-if="!simple && step.item.description"
-              class="su-steps__description"
-            >
+            <span v-if="!simple && step.item.description" class="su-steps__description">
               <slot
                 name="description"
                 :item="step.item"
@@ -210,9 +205,7 @@ function getStepLabel(item: StepsItem, index: number) {
         <div
           v-else
           class="su-steps__inner"
-          :aria-current="
-            step.index === resolvedCurrentIndex ? 'step' : undefined
-          "
+          :aria-current="step.index === resolvedCurrentIndex ? 'step' : undefined"
         >
           <span class="su-steps__marker">
             <slot
@@ -241,10 +234,7 @@ function getStepLabel(item: StepsItem, index: number) {
                 {{ step.item.title }}
               </slot>
             </span>
-            <span
-              v-if="!simple && step.item.description"
-              class="su-steps__description"
-            >
+            <span v-if="!simple && step.item.description" class="su-steps__description">
               <slot
                 name="description"
                 :item="step.item"
@@ -500,8 +490,7 @@ function getStepLabel(item: StepsItem, index: number) {
     flex-direction: column;
   }
 
-  .su-steps--horizontal:not(.is-simple)
-    .su-steps__item:not(:last-child)::after {
+  .su-steps--horizontal:not(.is-simple) .su-steps__item:not(:last-child)::after {
     top: calc(var(--su-steps-icon-size) + var(--su-space-xs));
     right: auto;
     bottom: var(--su-space-xs);

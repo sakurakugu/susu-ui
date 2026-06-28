@@ -38,13 +38,7 @@ function handleImagePreview() {
         :height="150"
         fallback-text="暂无图片"
       />
-      <SuImage
-        :src="imageCover"
-        alt="自定义占位"
-        :width="160"
-        :height="150"
-        loading="lazy"
-      >
+      <SuImage :src="imageCover" alt="自定义占位" :width="160" :height="150" loading="lazy">
         <template #placeholder>
           <span class="image-demo-placeholder">加载中</span>
         </template>

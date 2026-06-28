@@ -21,30 +21,11 @@ const segmentedViewOptions = [
   <section id="segmented" class="panel">
     <h2>分段控制器</h2>
     <div class="segmented-demo">
-      <SuSegmented
-        v-model="segmentedRangeValue"
-        :options="segmentedRangeOptions"
-        name="range"
-      />
-      <SuSegmented
-        v-model="segmentedViewValue"
-        :options="segmentedViewOptions"
-      />
-      <SuSegmented
-        size="small"
-        model-value="day"
-        :options="segmentedRangeOptions"
-      />
-      <SuSegmented
-        size="large"
-        model-value="month"
-        :options="segmentedRangeOptions"
-      />
-      <SuSegmented
-        disabled
-        model-value="week"
-        :options="segmentedRangeOptions"
-      />
+      <SuSegmented v-model="segmentedRangeValue" :options="segmentedRangeOptions" name="range" />
+      <SuSegmented v-model="segmentedViewValue" :options="segmentedViewOptions" />
+      <SuSegmented size="small" model-value="day" :options="segmentedRangeOptions" />
+      <SuSegmented size="large" model-value="month" :options="segmentedRangeOptions" />
+      <SuSegmented disabled model-value="week" :options="segmentedRangeOptions" />
       <SuSegmented block model-value="grid" :options="segmentedViewOptions" />
     </div>
   </section>

@@ -78,13 +78,9 @@ defineSlots<{
 
 const autoExpandedKeys = ref<TreeNodeKey[]>([])
 const locale = useLocale()
-const mergedEmptyText = computed(
-  () => props.emptyText ?? locale.value.tree.empty,
-)
+const mergedEmptyText = computed(() => props.emptyText ?? locale.value.tree.empty)
 
-const normalizedData = computed<TreeRenderNode[]>(() =>
-  normalizeNodes(props.data),
-)
+const normalizedData = computed<TreeRenderNode[]>(() => normalizeNodes(props.data))
 
 const hasData = computed(() => normalizedData.value.length > 0)
 
@@ -105,9 +101,7 @@ const checkedKeySet = computed(() => new Set(checkedKeys.value))
 const expandedKeySet = computed(() => new Set(mergedExpandedKeys.value))
 
 const firstEnabledKey = computed(
-  () =>
-    flattenNodes(normalizedData.value).find((node) => !isNodeDisabled(node))
-      ?.key,
+  () => flattenNodes(normalizedData.value).find((node) => !isNodeDisabled(node))?.key,
 )
 
 watch(
@@ -120,26 +114,17 @@ watch(
   { immediate: true },
 )
 
-function normalizeNodes(
-  nodes: TreeNode[],
-  level = 1,
-  parentKey?: TreeNodeKey,
-): TreeRenderNode[] {
+function normalizeNodes(nodes: TreeNode[], level = 1, parentKey?: TreeNodeKey): TreeRenderNode[] {
   return nodes.map((node) => ({
     ...node,
     level,
     parentKey,
-    children: node.children
-      ? normalizeNodes(node.children, level + 1, node.key)
-      : undefined,
+    children: node.children ? normalizeNodes(node.children, level + 1, node.key) : undefined,
   }))
 }
 
 function flattenNodes(nodes: TreeRenderNode[]): TreeRenderNode[] {
-  return nodes.flatMap((node) => [
-    node,
-    ...(node.children ? flattenNodes(node.children) : []),
-  ])
+  return nodes.flatMap((node) => [node, ...(node.children ? flattenNodes(node.children) : [])])
 }
 
 function hasChildren(node: TreeRenderNode) {
@@ -161,9 +146,7 @@ function isIndeterminate(node: TreeRenderNode) {
     return false
   }
 
-  const checkedCount = childKeys.filter((key) =>
-    checkedKeySet.value.has(key),
-  ).length
+  const checkedCount = childKeys.filter((key) => checkedKeySet.value.has(key)).length
 
   return checkedCount > 0 && checkedCount < childKeys.length
 }
@@ -179,10 +162,7 @@ function getEnabledDescendantKeys(node: TreeRenderNode) {
 }
 
 function getCheckTargetKeys(node: TreeRenderNode) {
-  return [
-    node.key,
-    ...flattenNodes(node.children ?? []).map((item) => item.key),
-  ].filter((key) => {
+  return [node.key, ...flattenNodes(node.children ?? []).map((item) => item.key)].filter((key) => {
     const target = findNode(key)
     return target && !isNodeDisabled(target)
   })
@@ -247,10 +227,7 @@ function selectNode(node: TreeRenderNode) {
   selectedKey.value = node.key
 }
 
-function handleNodeClick(
-  node: TreeRenderNode,
-  event: MouseEvent | KeyboardEvent,
-) {
+function handleNodeClick(node: TreeRenderNode, event: MouseEvent | KeyboardEvent) {
   if (isNodeDisabled(node)) {
     return
   }
@@ -356,8 +333,7 @@ function handleNodeKeydown(node: TreeRenderNode, event: KeyboardEvent) {
   display: flex;
   align-items: center;
   min-height: var(--su-tree-node-height);
-  padding: 0 var(--su-space-sm) 0
-    calc((var(--su-tree-level) - 1) * var(--su-tree-indent));
+  padding: 0 var(--su-space-sm) 0 calc((var(--su-tree-level) - 1) * var(--su-tree-indent));
   border-radius: var(--su-radius-md);
   outline: 0;
   transition:
@@ -371,8 +347,7 @@ function handleNodeKeydown(node: TreeRenderNode, event: KeyboardEvent) {
 }
 
 .su-tree__node:focus-visible {
-  box-shadow: 0 0 0 3px
-    color-mix(in srgb, var(--su-color-primary) 20%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--su-color-primary) 20%, transparent);
 }
 
 .su-tree__node.is-selected {
@@ -489,8 +464,7 @@ function handleNodeKeydown(node: TreeRenderNode, event: KeyboardEvent) {
 }
 
 .su-tree__checkbox-input:focus-visible + .su-tree__checkbox-box {
-  box-shadow: 0 0 0 3px
-    color-mix(in srgb, var(--su-color-primary) 22%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--su-color-primary) 22%, transparent);
 }
 
 .su-tree__checkbox.is-disabled {

@@ -24,9 +24,7 @@ describe('DatePicker', () => {
     const wrapper = mount(DatePicker, {
       global: {
         provide: {
-          [configProviderKey as symbol]: computed(() =>
-            mergeConfig({ locale: enUS }),
-          ),
+          [configProviderKey as symbol]: computed(() => mergeConfig({ locale: enUS })),
         },
       },
     })
@@ -35,12 +33,8 @@ describe('DatePicker', () => {
     expect(wrapper.find('input').attributes('aria-label')).toBe('Date picker')
 
     await wrapper.find('.su-date-picker__trigger').trigger('click')
-    expect(
-      wrapper.find('.su-date-picker__panel').attributes('aria-label'),
-    ).toBe('Date panel')
-    expect(wrapper.find('.su-date-picker__title').text()).toMatch(
-      /^\d{4}-\d{2}$/,
-    )
+    expect(wrapper.find('.su-date-picker__panel').attributes('aria-label')).toBe('Date panel')
+    expect(wrapper.find('.su-date-picker__title').text()).toMatch(/^\d{4}-\d{2}$/)
 
     await wrapper.setProps({ placeholder: '选择日期' })
     expect(wrapper.find('input').attributes('placeholder')).toBe('选择日期')

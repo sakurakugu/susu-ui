@@ -39,19 +39,9 @@ function handleStepChange(value: string | number) {
   <section id="steps" class="panel">
     <h2>步骤条</h2>
     <div class="steps-demo">
-      <SuSteps
-        :items="publishSteps"
-        :current="stepsCurrent"
-        clickable
-        @change="handleStepChange"
-      />
+      <SuSteps :items="publishSteps" :current="stepsCurrent" clickable @change="handleStepChange" />
 
-      <SuSteps
-        :items="reviewSteps"
-        :current="1"
-        direction="vertical"
-        status="error"
-      />
+      <SuSteps :items="reviewSteps" :current="1" direction="vertical" status="error" />
 
       <SuSteps :items="simpleSteps" current="review" size="small" simple />
     </div>

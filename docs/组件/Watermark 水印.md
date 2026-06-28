@@ -35,12 +35,7 @@
 
 ```vue
 <template>
-  <SuWatermark
-    image="/brand-watermark.svg"
-    :image-width="96"
-    :image-height="32"
-    :opacity="0.45"
-  >
+  <SuWatermark image="/brand-watermark.svg" :image-width="96" :image-height="32" :opacity="0.45">
     <div class="preview">品牌素材预览</div>
   </SuWatermark>
 </template>

@@ -20,13 +20,9 @@ const emit = defineEmits<{
 const activeIndex = computed(() =>
   playgroundNavItems.findIndex((item) => item.id === props.activeId),
 )
-const activeNavItem = computed(
-  () => playgroundNavItems[activeIndex.value] ?? playgroundNavItems[0],
-)
+const activeNavItem = computed(() => playgroundNavItems[activeIndex.value] ?? playgroundNavItems[0])
 const activeDemo = computed(
-  () =>
-    playgroundDemos.find((demo) => demo.id === activeNavItem.value.id) ??
-    playgroundDemos[0],
+  () => playgroundDemos.find((demo) => demo.id === activeNavItem.value.id) ?? playgroundDemos[0],
 )
 const activeGroup = computed(() =>
   playgroundGroups.find((group) => group.id === activeNavItem.value.group),

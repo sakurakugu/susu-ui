@@ -41,9 +41,7 @@ describe('Cascader', () => {
     })
 
     expect(wrapper.find('.su-cascader').classes()).toContain('su-cascader')
-    expect(wrapper.find('.su-cascader').classes()).toContain(
-      'su-cascader--medium',
-    )
+    expect(wrapper.find('.su-cascader').classes()).toContain('su-cascader--medium')
     expect(wrapper.find('.su-cascader').classes()).toContain('is-empty')
     expect(wrapper.find('.su-cascader__placeholder').text()).toBe('请选择地区')
   })
@@ -60,36 +58,24 @@ describe('Cascader', () => {
 
     await wrapper.find('.su-cascader__trigger').trigger('click')
     expect(document.body.querySelector('.su-cascader__panel')).toBeTruthy()
-    expect(document.body.querySelectorAll('.su-cascader__column')).toHaveLength(
-      1,
-    )
+    expect(document.body.querySelectorAll('.su-cascader__column')).toHaveLength(1)
 
     const zhejiang = document.body.querySelectorAll('.su-cascader__option')[0]
     zhejiang.dispatchEvent(new MouseEvent('click', { bubbles: true }))
     await wrapper.vm.$nextTick()
-    expect(document.body.querySelectorAll('.su-cascader__column')).toHaveLength(
-      2,
-    )
+    expect(document.body.querySelectorAll('.su-cascader__column')).toHaveLength(2)
 
     const hangzhou = document.body.querySelectorAll('.su-cascader__option')[2]
     hangzhou.dispatchEvent(new MouseEvent('click', { bubbles: true }))
     await wrapper.vm.$nextTick()
-    expect(document.body.querySelectorAll('.su-cascader__column')).toHaveLength(
-      3,
-    )
+    expect(document.body.querySelectorAll('.su-cascader__column')).toHaveLength(3)
 
     const xihu = document.body.querySelectorAll('.su-cascader__option')[4]
     xihu.dispatchEvent(new MouseEvent('click', { bubbles: true }))
     await wrapper.vm.$nextTick()
 
-    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([
-      ['zhejiang', 'hangzhou', 'xihu'],
-    ])
-    expect(wrapper.emitted('change')?.[0][0]).toEqual([
-      'zhejiang',
-      'hangzhou',
-      'xihu',
-    ])
+    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([['zhejiang', 'hangzhou', 'xihu']])
+    expect(wrapper.emitted('change')?.[0][0]).toEqual(['zhejiang', 'hangzhou', 'xihu'])
     expect(wrapper.emitted('change')?.[0][1]).toHaveLength(3)
     expect(onChange).toHaveBeenCalledOnce()
     expect(document.body.querySelector('.su-cascader__panel')).toBeFalsy()
@@ -145,9 +131,7 @@ describe('Cascader', () => {
       },
     })
 
-    expect(wrapper.find('.su-cascader__value').text()).toBe(
-      '浙江 / 杭州 / 西湖区',
-    )
+    expect(wrapper.find('.su-cascader__value').text()).toBe('浙江 / 杭州 / 西湖区')
   })
 
   it('支持清空选择', async () => {
@@ -183,9 +167,7 @@ describe('Cascader', () => {
       .dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }))
     await wrapper.vm.$nextTick()
 
-    const disabledOption = document.body.querySelectorAll(
-      '.su-cascader__option',
-    )[5]
+    const disabledOption = document.body.querySelectorAll('.su-cascader__option')[5]
     expect(disabledOption.hasAttribute('disabled')).toBe(true)
 
     wrapper.unmount()
@@ -197,12 +179,8 @@ describe('Cascader', () => {
       },
     })
 
-    expect(disabledWrapper.find('.su-cascader').classes()).toContain(
-      'is-disabled',
-    )
-    expect(
-      disabledWrapper.find('.su-cascader__trigger').attributes('disabled'),
-    ).toBeDefined()
+    expect(disabledWrapper.find('.su-cascader').classes()).toContain('is-disabled')
+    expect(disabledWrapper.find('.su-cascader__trigger').attributes('disabled')).toBeDefined()
   })
 
   it('支持键盘导航选择', async () => {
@@ -220,9 +198,7 @@ describe('Cascader', () => {
     await trigger.trigger('keydown', { key: 'ArrowRight' })
     await trigger.trigger('keydown', { key: 'Enter' })
 
-    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([
-      ['zhejiang', 'hangzhou', 'xihu'],
-    ])
+    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([['zhejiang', 'hangzhou', 'xihu']])
 
     wrapper.unmount()
   })
@@ -235,12 +211,8 @@ describe('Cascader', () => {
       },
     })
 
-    expect(wrapper.find('.su-cascader').classes()).toContain(
-      'su-cascader--large',
-    )
-    expect(wrapper.find('.su-cascader').classes()).toContain(
-      'su-cascader--error',
-    )
+    expect(wrapper.find('.su-cascader').classes()).toContain('su-cascader--large')
+    expect(wrapper.find('.su-cascader').classes()).toContain('su-cascader--error')
   })
 
   it('转发原生属性和事件并渲染隐藏表单值', async () => {
@@ -266,12 +238,8 @@ describe('Cascader', () => {
     expect(trigger.attributes('id')).toBe('area')
     expect(trigger.attributes('aria-describedby')).toBe('area-help')
     expect(wrapper.find('input[type="hidden"]').attributes('name')).toBe('area')
-    expect(wrapper.find('input[type="hidden"]').attributes('value')).toBe(
-      'zhejiang,hangzhou,xihu',
-    )
-    expect(
-      wrapper.find('input[type="hidden"]').attributes('required'),
-    ).toBeDefined()
+    expect(wrapper.find('input[type="hidden"]').attributes('value')).toBe('zhejiang,hangzhou,xihu')
+    expect(wrapper.find('input[type="hidden"]').attributes('required')).toBeDefined()
     expect(wrapper.emitted('focus')).toHaveLength(1)
     expect(wrapper.emitted('blur')).toHaveLength(1)
     expect(onFocus).toHaveBeenCalledOnce()
@@ -291,13 +259,9 @@ describe('Cascader', () => {
       },
     })
 
-    expect(wrapper.find('.su-cascader').classes()).toContain(
-      'su-cascader--small',
-    )
+    expect(wrapper.find('.su-cascader').classes()).toContain('su-cascader--small')
     expect(wrapper.find('.su-cascader').classes()).toContain('is-disabled')
-    expect(
-      wrapper.find('.su-cascader__trigger').attributes('disabled'),
-    ).toBeDefined()
+    expect(wrapper.find('.su-cascader__trigger').attributes('disabled')).toBeDefined()
   })
 
   it('暴露控制方法', async () => {

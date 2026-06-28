@@ -31,9 +31,7 @@ function resetDemoForm() {
 }
 
 function searchInlineForm() {
-  inlineStatus.value = inlineKeyword.value
-    ? `正在搜索：${inlineKeyword.value}`
-    : '请输入关键词'
+  inlineStatus.value = inlineKeyword.value ? `正在搜索：${inlineKeyword.value}` : '请输入关键词'
 }
 </script>
 
@@ -41,25 +39,11 @@ function searchInlineForm() {
   <section id="form" class="panel">
     <h2>表单</h2>
     <div class="form-demo">
-      <SuForm
-        label-width="88px"
-        @submit.prevent="submitDemoForm"
-        @reset.prevent="resetDemoForm"
-      >
+      <SuForm label-width="88px" @submit.prevent="submitDemoForm" @reset.prevent="resetDemoForm">
         <SuFormItem label="用户名" label-for="demo-name" required>
-          <SuInput
-            id="demo-name"
-            v-model="formName"
-            required
-            placeholder="请输入用户名"
-          />
+          <SuInput id="demo-name" v-model="formName" required placeholder="请输入用户名" />
         </SuFormItem>
-        <SuFormItem
-          label="邮箱"
-          label-for="demo-email"
-          required
-          help="用于接收通知和找回账号"
-        >
+        <SuFormItem label="邮箱" label-for="demo-email" required help="用于接收通知和找回账号">
           <SuInput
             id="demo-email"
             v-model="formEmail"
@@ -122,9 +106,7 @@ function searchInlineForm() {
           />
         </SuFormItem>
         <SuFormItem :help="inlineStatus">
-          <SuButton size="small" type="primary" @click="searchInlineForm">
-            查询
-          </SuButton>
+          <SuButton size="small" type="primary" @click="searchInlineForm"> 查询 </SuButton>
         </SuFormItem>
       </SuForm>
 

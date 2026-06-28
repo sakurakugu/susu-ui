@@ -101,23 +101,13 @@ const panelStyle = ref<CSSProperties>({})
 const panelId = `su-cascader-${useId()}`
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
-const mergedPlaceholder = computed(
-  () => props.placeholder ?? locale.value.cascader.placeholder,
-)
-const mergedEmptyText = computed(
-  () => props.emptyText ?? locale.value.cascader.empty,
-)
-const mergedAriaLabel = computed(
-  () => props.ariaLabel ?? locale.value.cascader.ariaLabel,
-)
+const mergedPlaceholder = computed(() => props.placeholder ?? locale.value.cascader.placeholder)
+const mergedEmptyText = computed(() => props.emptyText ?? locale.value.cascader.empty)
+const mergedAriaLabel = computed(() => props.ariaLabel ?? locale.value.cascader.ariaLabel)
 
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
 
-const normalizedOptions = computed<CascaderRenderOption[]>(() =>
-  normalizeOptions(props.options),
-)
+const normalizedOptions = computed<CascaderRenderOption[]>(() => normalizeOptions(props.options))
 
 const selectedOptions = computed(() => findPath(model.value))
 
@@ -127,9 +117,7 @@ const displayText = computed(() =>
 
 const hasValue = computed(() => selectedOptions.value.length > 0)
 
-const showClear = computed(
-  () => props.clearable && !mergedDisabled.value && hasValue.value,
-)
+const showClear = computed(() => props.clearable && !mergedDisabled.value && hasValue.value)
 
 const activeOptions = computed(() => findPath(activePath.value))
 
@@ -286,22 +274,15 @@ function clearValue(event?: MouseEvent) {
 }
 
 function moveActive(step: number) {
-  const enabledOptions = activeColumn.value.filter(
-    (option) => !isOptionDisabled(option),
-  )
+  const enabledOptions = activeColumn.value.filter((option) => !isOptionDisabled(option))
 
   if (!enabledOptions.length) {
     return
   }
 
   const current = activeOptions.value[activeIndex.value]
-  const enabledIndex = current
-    ? enabledOptions.indexOf(current)
-    : step > 0
-      ? -1
-      : 0
-  const nextIndex =
-    (enabledIndex + step + enabledOptions.length) % enabledOptions.length
+  const enabledIndex = current ? enabledOptions.indexOf(current) : step > 0 ? -1 : 0
+  const nextIndex = (enabledIndex + step + enabledOptions.length) % enabledOptions.length
   const nextOption = enabledOptions[nextIndex]
   activePath.value = nextOption.pathValues
 }
@@ -506,13 +487,7 @@ defineExpose({
     >
       &times;
     </button>
-    <input
-      v-if="name"
-      type="hidden"
-      :name="name"
-      :value="model.join(',')"
-      :required="required"
-    />
+    <input v-if="name" type="hidden" :name="name" :value="model.join(',')" :required="required" />
   </span>
   <Teleport to="body">
     <Transition name="su-cascader">
@@ -540,9 +515,7 @@ defineExpose({
                 'is-active': activePath[option.level] === option.value,
                 'is-selected':
                   model.length === option.pathValues.length &&
-                  model.every(
-                    (value, index) => value === option.pathValues[index],
-                  ),
+                  model.every((value, index) => value === option.pathValues[index]),
                 'is-disabled': isOptionDisabled(option),
               }"
               type="button"
@@ -606,11 +579,7 @@ defineExpose({
 }
 
 .su-cascader__trigger:hover:not(:disabled) {
-  border-color: color-mix(
-    in srgb,
-    var(--su-color-primary) 48%,
-    var(--su-color-border)
-  );
+  border-color: color-mix(in srgb, var(--su-color-primary) 48%, var(--su-color-border));
 }
 
 .su-cascader__trigger:focus-visible,

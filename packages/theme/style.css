@@ -1,83 +1,81 @@
 :root {
-  --su-theme-hue: 215;
-  --su-color-primary: oklch(0.62 0.16 var(--su-theme-hue));
-  --su-color-primary-hover: oklch(0.68 0.15 var(--su-theme-hue));
-  --su-color-primary-active: oklch(0.52 0.15 var(--su-theme-hue));
-  --su-color-primary-soft: oklch(0.94 0.05 var(--su-theme-hue));
-  --su-color-primary-text: #ffffff;
-  --su-color-success: #16a34a;
-  --su-color-success-hover: #22c55e;
-  --su-color-success-active: #15803d;
-  --su-color-warning: #d97706;
-  --su-color-warning-hover: #f59e0b;
-  --su-color-warning-active: #b45309;
-  --su-color-error: #dc2626;
-  --su-color-error-hover: #ef4444;
-  --su-color-error-active: #b91c1c;
-  --su-color-info: #2563eb;
-  --su-color-info-hover: #3b82f6;
-  --su-color-info-active: #1d4ed8;
-  --su-radius-sm: 4px;
-  --su-radius-md: 6px;
-  --su-radius-lg: 8px;
-  --su-radius-round: 999px;
-  --su-space-xs: 4px;
-  --su-space-sm: 8px;
-  --su-space-md: 12px;
-  --su-space-lg: 16px;
-  --su-space-xl: 24px;
-  --su-font-size-sm: 12px;
-  --su-font-size-md: 14px;
-  --su-font-size-lg: 16px;
-  --su-font-line-height: 1.5;
+  --su-theme-hue: 215; /* 主题色相 */
+  --su-color-primary: oklch(0.62 0.16 var(--su-theme-hue)); /* 主色 */
+  --su-color-primary-hover: oklch(0.68 0.15 var(--su-theme-hue)); /* 主色悬停态 */
+  --su-color-primary-active: oklch(0.52 0.15 var(--su-theme-hue)); /* 主色激活态 */
+  --su-color-primary-soft: oklch(0.94 0.05 var(--su-theme-hue)); /* 主色柔和背景 */
+  --su-color-primary-text: #ffffff; /* 主色背景上的文字色 */
+  --su-color-success: #16a34a; /* 成功色 */
+  --su-color-success-hover: #22c55e; /* 成功色悬停态 */
+  --su-color-success-active: #15803d; /* 成功色激活态 */
+  --su-color-warning: #d97706; /* 警告色 */
+  --su-color-warning-hover: #f59e0b; /* 警告色悬停态 */
+  --su-color-warning-active: #b45309; /* 警告色激活态 */
+  --su-color-error: #dc2626; /* 错误色 */
+  --su-color-error-hover: #ef4444; /* 错误色悬停态 */
+  --su-color-error-active: #b91c1c; /* 错误色激活态 */
+  --su-color-info: #2563eb; /* 信息色 */
+  --su-color-info-hover: #3b82f6; /* 信息色悬停态 */
+  --su-color-info-active: #1d4ed8; /* 信息色激活态 */
+  --su-radius-sm: 4px; /* 小圆角 */
+  --su-radius-md: 6px; /* 中圆角 */
+  --su-radius-lg: 8px; /* 大圆角 */
+  --su-radius-round: 999px; /* 胶囊圆角 */
+  --su-space-xs: 4px; /* 超小间距 */
+  --su-space-sm: 8px; /* 小间距 */
+  --su-space-md: 12px; /* 中间距 */
+  --su-space-lg: 16px; /* 大间距 */
+  --su-space-xl: 24px; /* 超大间距 */
+  --su-font-size-sm: 12px; /* 小字号 */
+  --su-font-size-md: 14px; /* 默认字号 */
+  --su-font-size-lg: 16px; /* 大字号 */
+  --su-font-line-height: 1.5; /* 默认行高 */
 }
 
+/* ===浅色主题=== */
 :root,
 [data-su-theme='light'] {
-  color-scheme: light;
-  --su-color-bg: #ffffff;
-  --su-color-bg-elevated: #ffffff;
+  color-scheme: light; /* 浅色配色模式 */
+  --su-color-bg: #ffffff; /* 页面背景色 */
+  --su-color-bg-elevated: #ffffff; /* 浮层背景色 */
   --su-color-bg-soft: color-mix(
     in srgb,
     var(--su-color-primary-soft) 45%,
     #ffffff
-  );
-  --su-color-text: #1f2329;
-  --su-color-text-muted: #646a73;
-  --su-color-border: color-mix(in srgb, var(--su-color-primary) 16%, #d9d9d9);
-  --su-color-success-text: var(--su-color-success-active);
-  --su-color-success-border: #86efac;
-  --su-color-success-border-soft: #bbf7d0;
-  --su-color-success-bg: #f0fdf4;
-  --su-color-success-soft: #dcfce7;
-  --su-color-warning-text: var(--su-color-warning-active);
-  --su-color-warning-border: #fcd34d;
-  --su-color-warning-border-soft: #fde68a;
-  --su-color-warning-bg: #fffbeb;
-  --su-color-warning-soft: #fef3c7;
-  --su-color-error-text: var(--su-color-error-active);
-  --su-color-error-border: #fca5a5;
-  --su-color-error-border-soft: #fecaca;
-  --su-color-error-bg: #fef2f2;
-  --su-color-error-soft: #fee2e2;
-  --su-color-info-text: var(--su-color-info);
-  --su-color-info-border: #bfdbfe;
-  --su-color-info-border-soft: var(--su-color-info-border);
-  --su-color-info-bg: #eff6ff;
-  --su-color-info-soft: #dbeafe;
-  --su-shadow-sm: 0 1px 2px rgb(0 0 0 / 8%);
-  --su-shadow-md: 0 6px 16px rgb(0 0 0 / 12%);
+  ); /* 柔和背景色 */
+  --su-color-text: #1f2329; /* 主要文字色 */
+  --su-color-text-muted: #646a73; /* 次要文字色 */
+  --su-color-border: color-mix(in srgb, var(--su-color-primary) 16%, #d9d9d9); /* 边框色 */
+  --su-color-success-text: var(--su-color-success-active); /* 成功文字色 */
+  --su-color-success-border: #86efac; /* 成功边框色 */
+  --su-color-success-border-soft: #bbf7d0; /* 成功柔和边框色 */
+  --su-color-success-bg: #f0fdf4; /* 成功背景色 */
+  --su-color-success-soft: #dcfce7; /* 成功柔和背景色 */
+  --su-color-warning-text: var(--su-color-warning-active); /* 警告文字色 */
+  --su-color-warning-border: #fcd34d; /* 警告边框色 */
+  --su-color-warning-border-soft: #fde68a; /* 警告柔和边框色 */
+  --su-color-warning-bg: #fffbeb; /* 警告背景色 */
+  --su-color-warning-soft: #fef3c7; /* 警告柔和背景色 */
+  --su-color-error-text: var(--su-color-error-active); /* 错误文字色 */
+  --su-color-error-border: #fca5a5; /* 错误边框色 */
+  --su-color-error-border-soft: #fecaca; /* 错误柔和边框色 */
+  --su-color-error-bg: #fef2f2; /* 错误背景色 */
+  --su-color-error-soft: #fee2e2; /* 错误柔和背景色 */
+  --su-color-info-text: var(--su-color-info); /* 信息文字色 */
+  --su-color-info-border: #bfdbfe; /* 信息边框色 */
+  --su-color-info-border-soft: var(--su-color-info-border); /* 信息柔和边框色 */
+  --su-color-info-bg: #eff6ff; /* 信息背景色 */
+  --su-color-info-soft: #dbeafe; /* 信息柔和背景色 */
+  --su-shadow-sm: 0 1px 2px rgb(0 0 0 / 8%); /* 小阴影 */
+  --su-shadow-md: 0 6px 16px rgb(0 0 0 / 12%); /* 中阴影 */
 }
 
+/* ===深色主题=== */
 [data-su-theme='dark'] {
   color-scheme: dark;
   --su-color-bg: #141414;
   --su-color-bg-elevated: #1f1f1f;
-  --su-color-bg-soft: color-mix(
-    in srgb,
-    oklch(0.22 0.02 var(--su-theme-hue)) 82%,
-    #141414
-  );
+  --su-color-bg-soft: color-mix(in srgb, oklch(0.22 0.02 var(--su-theme-hue)) 82%, #141414);
   --su-color-text: #f0f0f0;
   --su-color-text-muted: #a6a6a6;
   --su-color-border: color-mix(in srgb, var(--su-color-primary) 24%, #424242);
@@ -124,61 +122,31 @@
     var(--su-color-bg-elevated)
   );
   --su-color-error-text: #fca5a5;
-  --su-color-error-border: color-mix(
-    in srgb,
-    var(--su-color-error) 52%,
-    var(--su-color-border)
-  );
+  --su-color-error-border: color-mix(in srgb, var(--su-color-error) 52%, var(--su-color-border));
   --su-color-error-border-soft: color-mix(
     in srgb,
     var(--su-color-error) 34%,
     var(--su-color-border)
   );
-  --su-color-error-bg: color-mix(
-    in srgb,
-    var(--su-color-error) 16%,
-    var(--su-color-bg-elevated)
-  );
-  --su-color-error-soft: color-mix(
-    in srgb,
-    var(--su-color-error) 22%,
-    var(--su-color-bg-elevated)
-  );
+  --su-color-error-bg: color-mix(in srgb, var(--su-color-error) 16%, var(--su-color-bg-elevated));
+  --su-color-error-soft: color-mix(in srgb, var(--su-color-error) 22%, var(--su-color-bg-elevated));
   --su-color-info-text: #93c5fd;
-  --su-color-info-border: color-mix(
-    in srgb,
-    var(--su-color-info) 52%,
-    var(--su-color-border)
-  );
-  --su-color-info-border-soft: color-mix(
-    in srgb,
-    var(--su-color-info) 34%,
-    var(--su-color-border)
-  );
-  --su-color-info-bg: color-mix(
-    in srgb,
-    var(--su-color-info) 16%,
-    var(--su-color-bg-elevated)
-  );
-  --su-color-info-soft: color-mix(
-    in srgb,
-    var(--su-color-info) 22%,
-    var(--su-color-bg-elevated)
-  );
+  --su-color-info-border: color-mix(in srgb, var(--su-color-info) 52%, var(--su-color-border));
+  --su-color-info-border-soft: color-mix(in srgb, var(--su-color-info) 34%, var(--su-color-border));
+  --su-color-info-bg: color-mix(in srgb, var(--su-color-info) 16%, var(--su-color-bg-elevated));
+  --su-color-info-soft: color-mix(in srgb, var(--su-color-info) 22%, var(--su-color-bg-elevated));
   --su-shadow-sm: 0 1px 2px rgb(0 0 0 / 32%);
   --su-shadow-md: 0 6px 16px rgb(0 0 0 / 36%);
 }
 
+/* ===跟随系统主题=== */
+/* 系统深色模式下套用深色主题，这段和上面的深色主题内容是一样的 */
 @media (prefers-color-scheme: dark) {
   [data-su-theme='system'] {
     color-scheme: dark;
     --su-color-bg: #141414;
     --su-color-bg-elevated: #1f1f1f;
-    --su-color-bg-soft: color-mix(
-      in srgb,
-      oklch(0.22 0.02 var(--su-theme-hue)) 82%,
-      #141414
-    );
+    --su-color-bg-soft: color-mix(in srgb, oklch(0.22 0.02 var(--su-theme-hue)) 82%, #141414);
     --su-color-text: #f0f0f0;
     --su-color-text-muted: #a6a6a6;
     --su-color-border: color-mix(in srgb, var(--su-color-primary) 24%, #424242);
@@ -225,47 +193,27 @@
       var(--su-color-bg-elevated)
     );
     --su-color-error-text: #fca5a5;
-    --su-color-error-border: color-mix(
-      in srgb,
-      var(--su-color-error) 52%,
-      var(--su-color-border)
-    );
+    --su-color-error-border: color-mix(in srgb, var(--su-color-error) 52%, var(--su-color-border));
     --su-color-error-border-soft: color-mix(
       in srgb,
       var(--su-color-error) 34%,
       var(--su-color-border)
     );
-    --su-color-error-bg: color-mix(
-      in srgb,
-      var(--su-color-error) 16%,
-      var(--su-color-bg-elevated)
-    );
+    --su-color-error-bg: color-mix(in srgb, var(--su-color-error) 16%, var(--su-color-bg-elevated));
     --su-color-error-soft: color-mix(
       in srgb,
       var(--su-color-error) 22%,
       var(--su-color-bg-elevated)
     );
     --su-color-info-text: #93c5fd;
-    --su-color-info-border: color-mix(
-      in srgb,
-      var(--su-color-info) 52%,
-      var(--su-color-border)
-    );
+    --su-color-info-border: color-mix(in srgb, var(--su-color-info) 52%, var(--su-color-border));
     --su-color-info-border-soft: color-mix(
       in srgb,
       var(--su-color-info) 34%,
       var(--su-color-border)
     );
-    --su-color-info-bg: color-mix(
-      in srgb,
-      var(--su-color-info) 16%,
-      var(--su-color-bg-elevated)
-    );
-    --su-color-info-soft: color-mix(
-      in srgb,
-      var(--su-color-info) 22%,
-      var(--su-color-bg-elevated)
-    );
+    --su-color-info-bg: color-mix(in srgb, var(--su-color-info) 16%, var(--su-color-bg-elevated));
+    --su-color-info-soft: color-mix(in srgb, var(--su-color-info) 22%, var(--su-color-bg-elevated));
     --su-shadow-sm: 0 1px 2px rgb(0 0 0 / 32%);
     --su-shadow-md: 0 6px 16px rgb(0 0 0 / 36%);
   }

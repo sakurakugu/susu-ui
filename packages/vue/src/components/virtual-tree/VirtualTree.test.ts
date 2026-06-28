@@ -41,9 +41,9 @@ describe('VirtualTree', () => {
 
     expect(wrapper.classes()).toContain('su-virtual-tree')
     expect(wrapper.find('[role="tree"]').exists()).toBe(true)
-    expect(
-      wrapper.find('.su-virtual-tree__content').attributes('style'),
-    ).toContain('height: 1350px')
+    expect(wrapper.find('.su-virtual-tree__content').attributes('style')).toContain(
+      'height: 1350px',
+    )
     expect(wrapper.findAll('.su-virtual-tree__item')).toHaveLength(6)
     expect(wrapper.text()).toContain('文档')
     expect(wrapper.text()).not.toContain('组件 40')
@@ -65,10 +65,7 @@ describe('VirtualTree', () => {
 
     expect(wrapper.emitted('update:expandedKeys')?.[0]).toEqual([['docs']])
     expect(wrapper.text()).toContain('指南')
-    expect(onNodeExpand).toHaveBeenCalledWith(
-      expect.objectContaining({ key: 'docs' }),
-      true,
-    )
+    expect(onNodeExpand).toHaveBeenCalledWith(expect.objectContaining({ key: 'docs' }), true)
 
     await wrapper.find('.su-virtual-tree__switcher').trigger('click')
 
@@ -85,9 +82,9 @@ describe('VirtualTree', () => {
       },
     })
 
-    expect(
-      wrapper.find('.su-virtual-tree__content').attributes('style'),
-    ).toContain('height: 1440px')
+    expect(wrapper.find('.su-virtual-tree__content').attributes('style')).toContain(
+      'height: 1440px',
+    )
   })
 
   it('支持选中节点和自定义节点内容', async () => {
@@ -127,16 +124,12 @@ describe('VirtualTree', () => {
     await wrapper.findAll('.su-virtual-tree__checkbox-input')[1].setValue(true)
 
     expect(wrapper.emitted('update:checkedKeys')?.[0]).toEqual([['guide']])
-    expect(
-      wrapper.findAll('.su-virtual-tree__checkbox')[0].classes(),
-    ).toContain('is-indeterminate')
+    expect(wrapper.findAll('.su-virtual-tree__checkbox')[0].classes()).toContain('is-indeterminate')
     expect(onCheck).toHaveBeenCalledWith(['guide'], expect.any(Object), true)
 
     await wrapper.findAll('.su-virtual-tree__checkbox-input')[0].setValue(true)
 
-    expect(wrapper.emitted('update:checkedKeys')?.[1]).toEqual([
-      ['guide', 'docs', 'components'],
-    ])
+    expect(wrapper.emitted('update:checkedKeys')?.[1]).toEqual([['guide', 'docs', 'components']])
   })
 
   it('禁用节点不会响应交互', async () => {

@@ -54,10 +54,7 @@ const color = ref('#1677ff')
 
 ```vue
 <template>
-  <SuColorPicker
-    v-model="color"
-    :presets="['#1677ff', '#52c41a', '#faad14', '#ff4d4f']"
-  />
+  <SuColorPicker v-model="color" :presets="['#1677ff', '#52c41a', '#faad14', '#ff4d4f']" />
 </template>
 ```
 

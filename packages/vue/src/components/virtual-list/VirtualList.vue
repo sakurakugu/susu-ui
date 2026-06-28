@@ -1,13 +1,5 @@
 <script setup lang="ts" generic="T = unknown">
-import {
-  computed,
-  nextTick,
-  onBeforeUnmount,
-  onMounted,
-  ref,
-  watch,
-  type CSSProperties,
-} from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch, type CSSProperties } from 'vue'
 import { useLocale } from '../../config-provider'
 import type { VirtualListItemKey, VirtualListScrollState } from './context'
 
@@ -46,50 +38,35 @@ defineSlots<{
 const viewportRef = ref<HTMLElement>()
 const locale = useLocale()
 const scrollTop = ref(0)
-const measuredHeight = ref(
-  typeof props.height === 'number' ? props.height : props.itemHeight * 10,
-)
+const measuredHeight = ref(typeof props.height === 'number' ? props.height : props.itemHeight * 10)
 
 let resizeObserver: ResizeObserver | undefined
 
 const normalizedItemHeight = computed(() => Math.max(1, props.itemHeight))
-const mergedEmptyText = computed(
-  () => props.emptyText ?? locale.value.virtualList.empty,
-)
+const mergedEmptyText = computed(() => props.emptyText ?? locale.value.virtualList.empty)
 const normalizedBuffer = computed(() => Math.max(0, Math.floor(props.buffer)))
 
 const viewportStyle = computed<CSSProperties>(() => ({
   height: formatSize(props.height),
 }))
 
-const totalHeight = computed(
-  () => props.items.length * normalizedItemHeight.value,
-)
+const totalHeight = computed(() => props.items.length * normalizedItemHeight.value)
 
 const visibleCount = computed(() =>
   Math.max(1, Math.ceil(measuredHeight.value / normalizedItemHeight.value)),
 )
 
 const startIndex = computed(() =>
-  Math.max(
-    0,
-    Math.floor(scrollTop.value / normalizedItemHeight.value) -
-      normalizedBuffer.value,
-  ),
+  Math.max(0, Math.floor(scrollTop.value / normalizedItemHeight.value) - normalizedBuffer.value),
 )
 
 const endIndex = computed(() =>
-  Math.min(
-    props.items.length,
-    startIndex.value + visibleCount.value + normalizedBuffer.value * 2,
-  ),
+  Math.min(props.items.length, startIndex.value + visibleCount.value + normalizedBuffer.value * 2),
 )
 
 const offsetTop = computed(() => startIndex.value * normalizedItemHeight.value)
 
-const visibleItems = computed(() =>
-  props.items.slice(startIndex.value, endIndex.value),
-)
+const visibleItems = computed(() => props.items.slice(startIndex.value, endIndex.value))
 
 const contentStyle = computed<CSSProperties>(() => ({
   height: `${totalHeight.value}px`,
@@ -161,14 +138,8 @@ function getItemKey(item: T, index: number) {
     return props.itemKey(item, itemIndex)
   }
 
-  if (
-    props.itemKey !== undefined &&
-    item &&
-    typeof item === 'object' &&
-    props.itemKey in item
-  ) {
-    return (item as Record<string | number, unknown>)[props.itemKey] as
-      string | number
+  if (props.itemKey !== undefined && item && typeof item === 'object' && props.itemKey in item) {
+    return (item as Record<string | number, unknown>)[props.itemKey] as string | number
   }
 
   return itemIndex
@@ -190,10 +161,7 @@ function handleScroll(event: Event) {
   emit('scroll', event, createScrollState())
 }
 
-function scrollToIndex(
-  index: number,
-  align: 'start' | 'center' | 'end' = 'start',
-) {
+function scrollToIndex(index: number, align: 'start' | 'center' | 'end' = 'start') {
   const viewport = viewportRef.value
 
   if (!viewport || props.items.length === 0) {
@@ -241,11 +209,7 @@ defineExpose({
       :style="viewportStyle"
       @scroll="handleScroll"
     >
-      <div
-        v-if="items.length > 0"
-        class="su-virtual-list__content"
-        :style="contentStyle"
-      >
+      <div v-if="items.length > 0" class="su-virtual-list__content" :style="contentStyle">
         <div class="su-virtual-list__items" :style="listStyle">
           <div
             v-for="(item, index) in visibleItems"
@@ -253,11 +217,7 @@ defineExpose({
             class="su-virtual-list__item"
             :style="itemStyle"
           >
-            <slot
-              :item="item"
-              :index="getItemIndex(index)"
-              :item-index="getItemIndex(index)"
-            >
+            <slot :item="item" :index="getItemIndex(index)" :item-index="getItemIndex(index)">
               {{ item }}
             </slot>
           </div>

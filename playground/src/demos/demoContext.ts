@@ -12,13 +12,10 @@ export interface PlaygroundDemoContext {
   showNotification: (placement: PlaygroundNotificationPlacement) => void
 }
 
-const playgroundDemoContextKey: InjectionKey<PlaygroundDemoContext> = Symbol(
-  'playgroundDemoContext',
-)
+const playgroundDemoContextKey: InjectionKey<PlaygroundDemoContext> =
+  Symbol('playgroundDemoContext')
 
-export function providePlaygroundDemoContext(
-  callbacks: PlaygroundDemoCallbacks,
-) {
+export function providePlaygroundDemoContext(callbacks: PlaygroundDemoCallbacks) {
   const context: PlaygroundDemoContext = {
     showTopMessage: callbacks.showMessage,
     showNotification: callbacks.showNotification,

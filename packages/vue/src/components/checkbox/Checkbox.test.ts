@@ -134,9 +134,7 @@ describe('Checkbox', () => {
     expect(checkedWrapper.find('input').attributes('aria-checked')).toBe('true')
     expect(indeterminateWrapper.classes()).toContain('is-indeterminate')
     expect(indeterminateWrapper.find('input').element.indeterminate).toBe(true)
-    expect(indeterminateWrapper.find('input').attributes('aria-checked')).toBe(
-      'mixed',
-    )
+    expect(indeterminateWrapper.find('input').attributes('aria-checked')).toBe('mixed')
   })
 
   it('根据 size 渲染尺寸样式', () => {
@@ -255,16 +253,10 @@ describe('CheckboxGroup', () => {
   it('支持方向、尺寸和禁用状态', () => {
     const wrapper = mount(CheckboxGroupDisabledDemo)
 
-    expect(wrapper.findComponent(CheckboxGroup).classes()).toContain(
-      'su-checkbox-group--vertical',
-    )
-    expect(wrapper.findComponent(Checkbox).classes()).toContain(
-      'su-checkbox--large',
-    )
+    expect(wrapper.findComponent(CheckboxGroup).classes()).toContain('su-checkbox-group--vertical')
+    expect(wrapper.findComponent(Checkbox).classes()).toContain('su-checkbox--large')
     expect(wrapper.findComponent(Checkbox).classes()).toContain('is-disabled')
-    expect(
-      wrapper.findComponent(Checkbox).find('input').attributes('disabled'),
-    ).toBeDefined()
+    expect(wrapper.findComponent(Checkbox).find('input').attributes('disabled')).toBeDefined()
   })
 
   it('支持限制最多可选数量', () => {
@@ -291,15 +283,9 @@ describe('CheckboxGroup', () => {
       },
     })
 
-    expect(wrapper.findComponent(CheckboxGroup).classes()).toContain(
-      'su-checkbox-group--small',
-    )
-    expect(wrapper.findComponent(CheckboxGroup).classes()).toContain(
-      'is-disabled',
-    )
-    expect(wrapper.findComponent(Checkbox).classes()).toContain(
-      'su-checkbox--small',
-    )
+    expect(wrapper.findComponent(CheckboxGroup).classes()).toContain('su-checkbox-group--small')
+    expect(wrapper.findComponent(CheckboxGroup).classes()).toContain('is-disabled')
+    expect(wrapper.findComponent(Checkbox).classes()).toContain('su-checkbox--small')
     expect(wrapper.findComponent(Checkbox).classes()).toContain('is-disabled')
   })
 })

@@ -43,9 +43,7 @@ defineSlots<{
 
 const locale = useLocale()
 const hasHeader = computed(() => Boolean(props.title))
-const mergedEmptyText = computed(
-  () => props.emptyText ?? locale.value.empty.description,
-)
+const mergedEmptyText = computed(() => props.emptyText ?? locale.value.empty.description)
 </script>
 
 <template>
@@ -163,11 +161,7 @@ const mergedEmptyText = computed(
 }
 
 .su-list.is-hoverable .su-list__item:hover {
-  background: color-mix(
-    in srgb,
-    var(--su-color-primary) 8%,
-    var(--su-color-bg-elevated)
-  );
+  background: color-mix(in srgb, var(--su-color-primary) 8%, var(--su-color-bg-elevated));
 }
 
 .su-list--vertical .su-list__item {

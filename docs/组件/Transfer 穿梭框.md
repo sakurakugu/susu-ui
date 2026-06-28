@@ -39,12 +39,7 @@ const data = [
 
 ```vue
 <template>
-  <SuTransfer
-    v-model="value"
-    :data="data"
-    filterable
-    filter-placeholder="搜索组件"
-  />
+  <SuTransfer v-model="value" :data="data" filterable filter-placeholder="搜索组件" />
 </template>
 ```
 
@@ -58,12 +53,7 @@ function filterMethod(query, option) {
 </script>
 
 <template>
-  <SuTransfer
-    v-model="value"
-    :data="data"
-    filterable
-    :filter-method="filterMethod"
-  />
+  <SuTransfer v-model="value" :data="data" filterable :filter-method="filterMethod" />
 </template>
 ```
 

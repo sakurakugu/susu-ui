@@ -23,12 +23,7 @@ const monthOptions = [
   <section id="select" class="panel">
     <h2>选择器</h2>
     <div class="select-demo">
-      <SuSelect
-        v-model="cityValue"
-        :options="cityOptions"
-        placeholder="请选择城市"
-        clearable
-      />
+      <SuSelect v-model="cityValue" :options="cityOptions" placeholder="请选择城市" clearable />
       <SuSelect v-model="statusValue">
         <SuOption value="enabled" label="启用" />
         <SuOption value="disabled">停用</SuOption>

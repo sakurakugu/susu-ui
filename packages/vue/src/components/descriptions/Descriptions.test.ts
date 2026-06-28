@@ -30,11 +30,7 @@ describe('Descriptions', () => {
       slots: {
         default: [
           h(DescriptionsItem, { label: '成员' }, { default: () => '小满' }),
-          h(
-            DescriptionsItem,
-            { label: '状态', span: 2 },
-            { default: () => h('strong', '在线') },
-          ),
+          h(DescriptionsItem, { label: '状态', span: 2 }, { default: () => h('strong', '在线') }),
         ],
       },
     })
@@ -64,9 +60,7 @@ describe('Descriptions', () => {
     expect(wrapper.classes()).toContain('su-descriptions--border')
     expect(wrapper.classes()).not.toContain('su-descriptions--colon')
     expect(wrapper.attributes('style')).toContain('--su-descriptions-column: 2')
-    expect(wrapper.attributes('style')).toContain(
-      '--su-descriptions-label-width: 96px',
-    )
+    expect(wrapper.attributes('style')).toContain('--su-descriptions-label-width: 96px')
   })
 
   it('限制 span 不超过 column', () => {
@@ -77,8 +71,8 @@ describe('Descriptions', () => {
       },
     })
 
-    expect(
-      wrapper.find('.su-descriptions__item').attributes('style'),
-    ).toContain('grid-column: span 2')
+    expect(wrapper.find('.su-descriptions__item').attributes('style')).toContain(
+      'grid-column: span 2',
+    )
   })
 })

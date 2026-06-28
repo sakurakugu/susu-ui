@@ -103,11 +103,7 @@ const hasHeader = computed(() => Boolean(props.title))
 }
 
 .su-card.is-hoverable:hover {
-  border-color: color-mix(
-    in srgb,
-    var(--su-color-primary) 32%,
-    var(--su-color-border)
-  );
+  border-color: color-mix(in srgb, var(--su-color-primary) 32%, var(--su-color-border));
   transform: translateY(-1px);
 }
 

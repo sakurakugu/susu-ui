@@ -74,14 +74,7 @@ const permissionData = [
         <template #node="{ node }">
           <span class="tree-select-demo-node">
             <span>{{ node.label }}</span>
-            <SuTag
-              v-if="node.disabled"
-              size="small"
-              type="info"
-              variant="outline"
-            >
-              暂停
-            </SuTag>
+            <SuTag v-if="node.disabled" size="small" type="info" variant="outline"> 暂停 </SuTag>
           </span>
         </template>
       </SuTreeSelect>

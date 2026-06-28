@@ -76,9 +76,7 @@ describe('List', () => {
 
     expect(wrapper.find('.su-list__item-avatar').text()).toBe('苏')
     expect(wrapper.find('strong').text()).toBe('苏州客户回访')
-    expect(wrapper.find('.su-list__item-description').text()).toBe(
-      '客户成功团队负责',
-    )
+    expect(wrapper.find('.su-list__item-description').text()).toBe('客户成功团队负责')
     expect(wrapper.find('button').text()).toBe('记录结果')
     expect(wrapper.find('time').text()).toBe('今天')
   })

@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  nextTick,
-  onBeforeUnmount,
-  ref,
-  useId,
-  watch,
-  type CSSProperties,
-} from 'vue'
+import { computed, nextTick, onBeforeUnmount, ref, useId, watch, type CSSProperties } from 'vue'
 
 defineOptions({
   name: 'SuTour',
@@ -27,14 +19,8 @@ export type TourPlacement =
   | 'right-start'
   | 'right-end'
 export type TourTarget =
-  | string
-  | HTMLElement
-  | null
-  | undefined
-  | (() => HTMLElement | null | undefined)
-export type TourScrollIntoViewOptions = Parameters<
-  HTMLElement['scrollIntoView']
->[0]
+  string | HTMLElement | null | undefined | (() => HTMLElement | null | undefined)
+export type TourScrollIntoViewOptions = Parameters<HTMLElement['scrollIntoView']>[0]
 export type TourCloseReason = 'close' | 'finish' | 'mask' | 'esc'
 
 export interface TourStep {
@@ -129,9 +115,7 @@ const activeStep = computed(() => props.steps[activeIndex.value])
 const isActive = computed(() => visible.value && total.value > 0)
 const isFirst = computed(() => activeIndex.value <= 0)
 const isLast = computed(() => activeIndex.value >= total.value - 1)
-const activePlacement = computed(
-  () => activeStep.value?.placement ?? props.placement,
-)
+const activePlacement = computed(() => activeStep.value?.placement ?? props.placement)
 const placementSide = computed(() => activePlacement.value.split('-')[0])
 const normalizedWidth = computed(() =>
   typeof props.width === 'number' ? `${props.width}px` : props.width,
@@ -225,18 +209,10 @@ function alignCrossAxis(
   }
 
   if (align === 'end') {
-    return clamp(
-      targetStart + targetSize - panelSize,
-      8,
-      viewportSize - panelSize - 8,
-    )
+    return clamp(targetStart + targetSize - panelSize, 8, viewportSize - panelSize - 8)
   }
 
-  return clamp(
-    targetStart + targetSize / 2 - panelSize / 2,
-    8,
-    viewportSize - panelSize - 8,
-  )
+  return clamp(targetStart + targetSize / 2 - panelSize / 2, 8, viewportSize - panelSize - 8)
 }
 
 function getFallbackRect() {
@@ -284,22 +260,11 @@ function updatePosition() {
 
   if (side === 'top' || side === 'bottom') {
     left = alignCrossAxis(rect.left, rect.width, panelRect.width, viewportWidth)
-    top =
-      side === 'top'
-        ? rect.top - panelRect.height - props.offset
-        : rect.bottom + props.offset
+    top = side === 'top' ? rect.top - panelRect.height - props.offset : rect.bottom + props.offset
     top = clamp(top, 8, viewportHeight - panelRect.height - 8)
   } else {
-    top = alignCrossAxis(
-      rect.top,
-      rect.height,
-      panelRect.height,
-      viewportHeight,
-    )
-    left =
-      side === 'left'
-        ? rect.left - panelRect.width - props.offset
-        : rect.right + props.offset
+    top = alignCrossAxis(rect.top, rect.height, panelRect.height, viewportHeight)
+    left = side === 'left' ? rect.left - panelRect.width - props.offset : rect.right + props.offset
     left = clamp(left, 8, viewportWidth - panelRect.width - 8)
   }
 
@@ -502,15 +467,8 @@ onBeforeUnmount(() => {
                 {{ activeStep?.title }}
               </slot>
             </div>
-            <div
-              v-if="activeStep?.description || $slots.description"
-              class="su-tour__description"
-            >
-              <slot
-                name="description"
-                :step="activeStep!"
-                :current="activeIndex"
-              >
+            <div v-if="activeStep?.description || $slots.description" class="su-tour__description">
+              <slot name="description" :step="activeStep!" :current="activeIndex">
                 {{ activeStep?.description }}
               </slot>
             </div>
@@ -529,9 +487,7 @@ onBeforeUnmount(() => {
               :finish="handleFinish"
               :close="handleClose"
             >
-              <span class="su-tour__counter">
-                {{ displayCurrent }} / {{ total }}
-              </span>
+              <span class="su-tour__counter"> {{ displayCurrent }} / {{ total }} </span>
               <div class="su-tour__actions">
                 <button
                   v-if="!isFirst"

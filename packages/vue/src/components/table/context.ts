@@ -25,12 +25,7 @@ export interface TableColumn {
   headerAlign?: TableColumnAlign
   className?: string
   headerClassName?: string
-  formatter?: (
-    row: TableRow,
-    column: TableColumn,
-    value: unknown,
-    rowIndex: number,
-  ) => VNodeChild
+  formatter?: (row: TableRow, column: TableColumn, value: unknown, rowIndex: number) => VNodeChild
   cell?: (scope: TableColumnScope) => VNodeChild
   header?: (scope: TableHeaderScope) => VNodeChild
 }

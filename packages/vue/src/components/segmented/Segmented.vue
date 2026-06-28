@@ -1,12 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  inject,
-  nextTick,
-  ref,
-  useAttrs,
-  type CSSProperties,
-} from 'vue'
+import { computed, inject, nextTick, ref, useAttrs, type CSSProperties } from 'vue'
 import { formKey, type FormSize } from '../form/context'
 
 defineOptions({
@@ -50,9 +43,7 @@ const itemRefs = ref<HTMLButtonElement[]>([])
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
 
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
 
 const normalizedOptions = computed(() =>
   props.options.map((option, index) => ({
@@ -61,14 +52,10 @@ const normalizedOptions = computed(() =>
   })),
 )
 
-const enabledOptions = computed(() =>
-  normalizedOptions.value.filter((option) => !option.disabled),
-)
+const enabledOptions = computed(() => normalizedOptions.value.filter((option) => !option.disabled))
 
 const activeValue = computed(() => {
-  const activeOption = normalizedOptions.value.find(
-    (option) => option.value === model.value,
-  )
+  const activeOption = normalizedOptions.value.find((option) => option.value === model.value)
 
   if (activeOption && !activeOption.disabled) {
     return activeOption.value
@@ -78,9 +65,7 @@ const activeValue = computed(() => {
 })
 
 const activeIndex = computed(() =>
-  normalizedOptions.value.findIndex(
-    (option) => option.value === activeValue.value,
-  ),
+  normalizedOptions.value.findIndex((option) => option.value === activeValue.value),
 )
 
 const segmentedStyle = computed<CSSProperties>(() => ({
@@ -88,10 +73,7 @@ const segmentedStyle = computed<CSSProperties>(() => ({
   '--su-segmented-active-index': Math.max(activeIndex.value, 0),
 }))
 
-function selectOption(
-  option: SegmentedOption,
-  event: MouseEvent | KeyboardEvent,
-) {
+function selectOption(option: SegmentedOption, event: MouseEvent | KeyboardEvent) {
   if (mergedDisabled.value || option.disabled) {
     return
   }
@@ -137,10 +119,7 @@ function handleKeydown(event: KeyboardEvent, index: number) {
     nextIndex = enabledIndexes[(currentIndex + 1) % enabledIndexes.length]
   } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
     const currentIndex = Math.max(currentEnabledIndex, 0)
-    nextIndex =
-      enabledIndexes[
-        (currentIndex - 1 + enabledIndexes.length) % enabledIndexes.length
-      ]
+    nextIndex = enabledIndexes[(currentIndex - 1 + enabledIndexes.length) % enabledIndexes.length]
   }
 
   if (nextIndex === undefined) {
@@ -168,11 +147,7 @@ function handleKeydown(event: KeyboardEvent, index: number) {
     role="radiogroup"
     :aria-disabled="mergedDisabled"
   >
-    <span
-      v-if="activeValue !== undefined"
-      class="su-segmented__indicator"
-      aria-hidden="true"
-    />
+    <span v-if="activeValue !== undefined" class="su-segmented__indicator" aria-hidden="true" />
     <button
       v-for="(option, index) in normalizedOptions"
       :key="option.key"
@@ -246,9 +221,7 @@ function handleKeydown(event: KeyboardEvent, index: number) {
   top: var(--su-segmented-padding);
   bottom: var(--su-segmented-padding);
   left: var(--su-segmented-padding);
-  width: calc(
-    (100% - var(--su-segmented-padding) * 2) / var(--su-segmented-count)
-  );
+  width: calc((100% - var(--su-segmented-padding) * 2) / var(--su-segmented-count));
   border-radius: calc(var(--su-radius-md) - 2px);
   background: var(--su-color-bg-elevated);
   box-shadow: var(--su-shadow-sm);

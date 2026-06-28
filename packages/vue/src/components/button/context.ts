@@ -14,5 +14,4 @@ export type ButtonGroupContext = {
   size?: ButtonSize
 }
 
-export const buttonGroupKey: InjectionKey<ComputedRef<ButtonGroupContext>> =
-  Symbol('buttonGroup')
+export const buttonGroupKey: InjectionKey<ComputedRef<ButtonGroupContext>> = Symbol('buttonGroup')

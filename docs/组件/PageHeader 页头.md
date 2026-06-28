@@ -82,11 +82,7 @@ const breadcrumb = [
 
 ```vue
 <template>
-  <SuPageHeader
-    title="资产台账"
-    subtitle="查看当前组织的设备归属和维护状态。"
-    ghost
-  />
+  <SuPageHeader title="资产台账" subtitle="查看当前组织的设备归属和维护状态。" ghost />
 </template>
 ```
 

@@ -16,12 +16,7 @@ const customers = Array.from({ length: 1000 }, (_, index) => ({
 </script>
 
 <template>
-  <SuVirtualList
-    :items="customers"
-    :height="320"
-    :item-height="56"
-    item-key="id"
-  >
+  <SuVirtualList :items="customers" :height="320" :item-height="56" item-key="id">
     <template #default="{ item, index }">
       <div class="customer-row">
         <strong>{{ item.name }}</strong>
@@ -38,13 +33,7 @@ const customers = Array.from({ length: 1000 }, (_, index) => ({
 
 ```vue
 <template>
-  <SuVirtualList
-    :items="logs"
-    height="360px"
-    :item-height="48"
-    :buffer="8"
-    item-key="id"
-  />
+  <SuVirtualList :items="logs" height="360px" :item-height="48" :buffer="8" item-key="id" />
 </template>
 ```
 

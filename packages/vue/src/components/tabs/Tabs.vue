@@ -1,12 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  nextTick,
-  provide,
-  ref,
-  watch,
-  type CSSProperties,
-} from 'vue'
+import { computed, nextTick, provide, ref, watch, type CSSProperties } from 'vue'
 import {
   tabsKey,
   type RegisteredTabPane,
@@ -53,9 +46,7 @@ const panes = ref<RegisteredTabPane[]>([])
 const visitedNames = ref<TabsValue[]>([])
 const tabRefs = ref<HTMLButtonElement[]>([])
 
-const isVertical = computed(
-  () => props.placement === 'left' || props.placement === 'right',
-)
+const isVertical = computed(() => props.placement === 'left' || props.placement === 'right')
 
 const panesWithName = computed(() =>
   panes.value.map((pane, index) => ({
@@ -64,14 +55,10 @@ const panesWithName = computed(() =>
   })),
 )
 
-const enabledPanes = computed(() =>
-  panesWithName.value.filter((pane) => !pane.disabled),
-)
+const enabledPanes = computed(() => panesWithName.value.filter((pane) => !pane.disabled))
 
 const activeName = computed(() => {
-  const activePane = panesWithName.value.find(
-    (pane) => pane.resolvedName === model.value,
-  )
+  const activePane = panesWithName.value.find((pane) => pane.resolvedName === model.value)
 
   if (activePane) {
     return activePane.resolvedName
@@ -168,17 +155,13 @@ function handleKeydown(event: KeyboardEvent, index: number) {
     (!isVertical.value && event.key === 'ArrowRight') ||
     (isVertical.value && event.key === 'ArrowDown')
   ) {
-    nextIndex =
-      enabledIndexes[(currentEnabledIndex + 1) % enabledIndexes.length]
+    nextIndex = enabledIndexes[(currentEnabledIndex + 1) % enabledIndexes.length]
   } else if (
     (!isVertical.value && event.key === 'ArrowLeft') ||
     (isVertical.value && event.key === 'ArrowUp')
   ) {
     nextIndex =
-      enabledIndexes[
-        (currentEnabledIndex - 1 + enabledIndexes.length) %
-          enabledIndexes.length
-      ]
+      enabledIndexes[(currentEnabledIndex - 1 + enabledIndexes.length) % enabledIndexes.length]
   }
 
   if (nextIndex === undefined) {
@@ -191,9 +174,7 @@ function handleKeydown(event: KeyboardEvent, index: number) {
   void focusTab(nextIndex)
 }
 
-function shouldRenderPane(
-  pane: RegisteredTabPane & { resolvedName: TabsValue },
-) {
+function shouldRenderPane(pane: RegisteredTabPane & { resolvedName: TabsValue }) {
   if (pane.resolvedName === activeName.value) {
     return true
   }
@@ -266,11 +247,7 @@ function renderContent(content: unknown) {
           @keydown="handleKeydown($event, index)"
         >
           <component
-            :is="
-              renderContent(
-                pane.labelContent ? pane.labelContent() : (pane.label ?? ''),
-              )
-            "
+            :is="renderContent(pane.labelContent ? pane.labelContent() : (pane.label ?? ''))"
           />
         </button>
       </div>

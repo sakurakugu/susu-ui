@@ -33,17 +33,11 @@ const props = withDefaults(
 
 const buttonGroup = inject(buttonGroupKey, undefined)
 
-const mergedType = computed(
-  () => props.type ?? buttonGroup?.value.type ?? 'default',
-)
+const mergedType = computed(() => props.type ?? buttonGroup?.value.type ?? 'default')
 
-const mergedVariant = computed(
-  () => props.variant ?? buttonGroup?.value.variant ?? 'solid',
-)
+const mergedVariant = computed(() => props.variant ?? buttonGroup?.value.variant ?? 'solid')
 
-const mergedSize = computed(
-  () => props.size ?? buttonGroup?.value.size ?? 'medium',
-)
+const mergedSize = computed(() => props.size ?? buttonGroup?.value.size ?? 'medium')
 </script>
 
 <template>

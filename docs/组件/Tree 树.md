@@ -69,12 +69,7 @@ const checkedKeys = ref(['guide'])
 </script>
 
 <template>
-  <SuTree
-    v-model:checked-keys="checkedKeys"
-    :data="data"
-    checkable
-    default-expand-all
-  />
+  <SuTree v-model:checked-keys="checkedKeys" :data="data" checkable default-expand-all />
 </template>
 ```
 

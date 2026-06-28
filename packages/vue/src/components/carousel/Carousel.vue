@@ -50,11 +50,7 @@ const emit = defineEmits<{
 }>()
 
 defineSlots<{
-  default?: (props: {
-    item: CarouselItem
-    index: number
-    active: boolean
-  }) => unknown
+  default?: (props: { item: CarouselItem; index: number; active: boolean }) => unknown
 }>()
 
 const isPaused = ref(false)
@@ -81,14 +77,10 @@ const trackStyle = computed(() => ({
 }))
 
 const showArrows = computed(() => props.arrow !== 'never' && canSwitch.value)
-const showIndicators = computed(
-  () => props.indicatorPosition !== 'none' && canSwitch.value,
-)
+const showIndicators = computed(() => props.indicatorPosition !== 'none' && canSwitch.value)
 
 const previousDisabled = computed(() => !props.loop && currentIndex.value <= 0)
-const nextDisabled = computed(
-  () => !props.loop && currentIndex.value >= slideCount.value - 1,
-)
+const nextDisabled = computed(() => !props.loop && currentIndex.value >= slideCount.value - 1)
 
 watch(
   slideCount,
@@ -207,12 +199,7 @@ function resumeAutoplay() {
 function restartAutoplay() {
   stopAutoplay()
 
-  if (
-    typeof window === 'undefined' ||
-    !props.autoplay ||
-    isPaused.value ||
-    !canSwitch.value
-  ) {
+  if (typeof window === 'undefined' || !props.autoplay || isPaused.value || !canSwitch.value) {
     return
   }
 
@@ -373,8 +360,7 @@ defineExpose({
   height: 100%;
   overflow: hidden;
   background:
-    linear-gradient(135deg, rgb(22 119 255 / 16%), rgb(22 163 74 / 14%)),
-    var(--su-color-bg-soft);
+    linear-gradient(135deg, rgb(22 119 255 / 16%), rgb(22 163 74 / 14%)), var(--su-color-bg-soft);
 }
 
 .su-carousel__image {

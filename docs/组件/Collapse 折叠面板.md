@@ -18,9 +18,7 @@ const activeNames = ref(['overview'])
     <SuCollapseItem title="项目概览" name="overview">
       当前版本聚焦基础组件、主题能力和文档体验。
     </SuCollapseItem>
-    <SuCollapseItem title="任务进度" name="task">
-      本周目标完成率稳步提升。
-    </SuCollapseItem>
+    <SuCollapseItem title="任务进度" name="task"> 本周目标完成率稳步提升。 </SuCollapseItem>
   </SuCollapse>
 </template>
 ```
@@ -39,9 +37,7 @@ const activeName = ref('basic')
 <template>
   <SuCollapse v-model="activeName" accordion>
     <SuCollapseItem title="基础信息" name="basic">基础信息内容</SuCollapseItem>
-    <SuCollapseItem title="权限配置" name="permission">
-      权限配置内容
-    </SuCollapseItem>
+    <SuCollapseItem title="权限配置" name="permission"> 权限配置内容 </SuCollapseItem>
   </SuCollapse>
 </template>
 ```
@@ -54,9 +50,7 @@ const activeName = ref('basic')
 <template>
   <SuCollapse v-model="activeNames">
     <SuCollapseItem title="项目概览" name="overview">项目内容</SuCollapseItem>
-    <SuCollapseItem title="审计记录" name="audit" disabled>
-      审计记录内容
-    </SuCollapseItem>
+    <SuCollapseItem title="审计记录" name="audit" disabled> 审计记录内容 </SuCollapseItem>
   </SuCollapse>
 </template>
 ```
@@ -87,9 +81,7 @@ const activeName = ref('basic')
 <template>
   <SuCollapse v-model="activeNames" ghost>
     <SuCollapseItem title="基础信息" name="basic">基础信息内容</SuCollapseItem>
-    <SuCollapseItem title="权限配置" name="permission">
-      权限配置内容
-    </SuCollapseItem>
+    <SuCollapseItem title="权限配置" name="permission"> 权限配置内容 </SuCollapseItem>
   </SuCollapse>
 </template>
 ```

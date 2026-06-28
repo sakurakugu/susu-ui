@@ -10,12 +10,7 @@ export interface CheckboxGroupContext {
   size: Ref<FormSize>
   disabled: Ref<boolean>
   max: Ref<number | undefined>
-  change: (
-    value: CheckboxValue,
-    checked: boolean,
-    event: Event,
-  ) => CheckboxValue[]
+  change: (value: CheckboxValue, checked: boolean, event: Event) => CheckboxValue[]
 }
 
-export const checkboxGroupKey: InjectionKey<CheckboxGroupContext> =
-  Symbol('su-checkbox-group')
+export const checkboxGroupKey: InjectionKey<CheckboxGroupContext> = Symbol('su-checkbox-group')

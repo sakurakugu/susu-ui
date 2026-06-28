@@ -30,14 +30,8 @@ describe('TimePicker', () => {
     await wrapper.find('.su-time-picker__trigger').trigger('click')
     expect(wrapper.find('.su-time-picker__panel').exists()).toBe(true)
 
-    const selectedOptions = wrapper.findAll(
-      '.su-time-picker__option.is-selected',
-    )
-    expect(selectedOptions.map((item) => item.text())).toEqual([
-      '09',
-      '30',
-      '15',
-    ])
+    const selectedOptions = wrapper.findAll('.su-time-picker__option.is-selected')
+    expect(selectedOptions.map((item) => item.text())).toEqual(['09', '30', '15'])
 
     await wrapper
       .findAll('.su-time-picker__column')
@@ -119,12 +113,7 @@ describe('TimePicker', () => {
       .at(2)
       ?.findAll('.su-time-picker__option')
 
-    expect(minuteOptions?.map((item) => item.text())).toEqual([
-      '00',
-      '15',
-      '30',
-      '45',
-    ])
+    expect(minuteOptions?.map((item) => item.text())).toEqual(['00', '15', '30', '45'])
     expect(secondOptions?.map((item) => item.text())).toEqual(['00', '30'])
 
     const disabledHour = wrapper

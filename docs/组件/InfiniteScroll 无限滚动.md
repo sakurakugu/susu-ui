@@ -35,12 +35,7 @@ function loadMore() {
 </script>
 
 <template>
-  <SuInfiniteScroll
-    :height="320"
-    :loading="loading"
-    :finished="finished"
-    @load="loadMore"
-  >
+  <SuInfiniteScroll :height="320" :loading="loading" :finished="finished" @load="loadMore">
     <article v-for="item in items" :key="item.id">
       {{ item.title }}
     </article>

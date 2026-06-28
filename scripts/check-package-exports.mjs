@@ -60,9 +60,7 @@ async function main() {
       const targetPath = join(packageRoot, target)
 
       if (!(await exists(targetPath))) {
-        errors.push(
-          `${packageJson.name} 的导出目标不存在：${normalize(target)}`,
-        )
+        errors.push(`${packageJson.name} 的导出目标不存在：${normalize(target)}`)
       }
     }
 
@@ -70,9 +68,7 @@ async function main() {
       const entryPath = join(packageRoot, entry)
 
       if (!(await exists(entryPath))) {
-        errors.push(
-          `${packageJson.name} 的 files 条目不存在：${normalize(entry)}`,
-        )
+        errors.push(`${packageJson.name} 的 files 条目不存在：${normalize(entry)}`)
       }
     }
   }

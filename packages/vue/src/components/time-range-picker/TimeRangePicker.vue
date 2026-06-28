@@ -12,10 +12,7 @@ defineOptions({
 })
 
 export type TimeRangePickerValue = [string, string]
-export type TimeRangePickerDisabledTime = (
-  time: TimePickerTime,
-  type: 'start' | 'end',
-) => boolean
+export type TimeRangePickerDisabledTime = (time: TimePickerTime, type: 'start' | 'end') => boolean
 
 interface PickerExpose {
   focus: () => void
@@ -99,9 +96,7 @@ const startPickerRef = ref<PickerExpose>()
 const endPickerRef = ref<PickerExpose>()
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
 const isInteractive = computed(() => !mergedDisabled.value && !props.readonly)
 const normalizedValue = computed<TimeRangePickerValue>(() => [
   model.value?.[0] ?? '',
@@ -110,9 +105,7 @@ const normalizedValue = computed<TimeRangePickerValue>(() => [
 const hasValue = computed(
   () => Boolean(normalizedValue.value[0]) || Boolean(normalizedValue.value[1]),
 )
-const showClear = computed(
-  () => props.clearable && isInteractive.value && hasValue.value,
-)
+const showClear = computed(() => props.clearable && isInteractive.value && hasValue.value)
 
 const startValue = computed({
   get: () => normalizedValue.value[0],
@@ -140,12 +133,7 @@ function emitInput(type: 'start' | 'end', event: Event) {
 }
 
 function emitChange(type?: 'start' | 'end', event?: Event) {
-  emit(
-    'change',
-    [...normalizedValue.value] as TimeRangePickerValue,
-    type,
-    event,
-  )
+  emit('change', [...normalizedValue.value] as TimeRangePickerValue, type, event)
 }
 
 function isStartTimeDisabled(time: TimePickerTime) {
@@ -153,9 +141,7 @@ function isStartTimeDisabled(time: TimePickerTime) {
     return true
   }
 
-  return Boolean(
-    normalizedValue.value[1] && formatTime(time) > normalizedValue.value[1],
-  )
+  return Boolean(normalizedValue.value[1] && formatTime(time) > normalizedValue.value[1])
 }
 
 function isEndTimeDisabled(time: TimePickerTime) {
@@ -163,9 +149,7 @@ function isEndTimeDisabled(time: TimePickerTime) {
     return true
   }
 
-  return Boolean(
-    normalizedValue.value[0] && formatTime(time) < normalizedValue.value[0],
-  )
+  return Boolean(normalizedValue.value[0] && formatTime(time) < normalizedValue.value[0])
 }
 
 function formatTime(time: TimePickerTime) {

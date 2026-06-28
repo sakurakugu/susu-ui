@@ -5,11 +5,7 @@ const timeValue = ref('09:30:00')
 const shortTimeValue = ref('18:00')
 const limitedTimeValue = ref('')
 
-function disableLunchTime(time: {
-  hour: number
-  minute: number
-  second: number
-}) {
+function disableLunchTime(time: { hour: number; minute: number; second: number }) {
   return time.hour === 12
 }
 </script>

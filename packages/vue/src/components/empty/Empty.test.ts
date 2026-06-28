@@ -24,9 +24,7 @@ describe('Empty', () => {
 
     expect(wrapper.find('.su-empty__description').text()).toBe('没有搜索结果')
     expect(wrapper.find('.su-empty__img').attributes('src')).toBe('/empty.png')
-    expect(wrapper.find('.su-empty__image').attributes('style')).toContain(
-      'width: 120px',
-    )
+    expect(wrapper.find('.su-empty__image').attributes('style')).toContain('width: 120px')
   })
 
   it('支持字符串图片尺寸', () => {
@@ -36,9 +34,7 @@ describe('Empty', () => {
       },
     })
 
-    expect(wrapper.find('.su-empty__image').attributes('style')).toContain(
-      'width: 8rem',
-    )
+    expect(wrapper.find('.su-empty__image').attributes('style')).toContain('width: 8rem')
   })
 
   it('支持默认、图片和底部插槽', () => {

@@ -102,38 +102,22 @@ const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
 const mergedPlaceholder = computed(
   () => props.placeholder ?? locale.value.virtualizedSelect.placeholder,
 )
-const mergedEmptyText = computed(
-  () => props.emptyText ?? locale.value.virtualizedSelect.empty,
-)
-const mergedAriaLabel = computed(
-  () => props.ariaLabel ?? locale.value.virtualizedSelect.ariaLabel,
-)
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
+const mergedEmptyText = computed(() => props.emptyText ?? locale.value.virtualizedSelect.empty)
+const mergedAriaLabel = computed(() => props.ariaLabel ?? locale.value.virtualizedSelect.ariaLabel)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
 const normalizedItemHeight = computed(() => Math.max(1, props.itemHeight))
 const normalizedHeight = computed(() => Math.max(1, props.height))
 const normalizedBuffer = computed(() => Math.max(0, Math.floor(props.buffer)))
-const selectedOption = computed(() =>
-  props.options.find((option) => option.value === model.value),
-)
+const selectedOption = computed(() => props.options.find((option) => option.value === model.value))
 const hasValue = computed(() => Boolean(selectedOption.value))
 const displayText = computed(() => selectedOption.value?.label ?? '')
-const showClear = computed(
-  () => props.clearable && !mergedDisabled.value && hasValue.value,
-)
-const totalHeight = computed(
-  () => props.options.length * normalizedItemHeight.value,
-)
+const showClear = computed(() => props.clearable && !mergedDisabled.value && hasValue.value)
+const totalHeight = computed(() => props.options.length * normalizedItemHeight.value)
 const visibleCount = computed(() =>
   Math.max(1, Math.ceil(normalizedHeight.value / normalizedItemHeight.value)),
 )
 const startIndex = computed(() =>
-  Math.max(
-    0,
-    Math.floor(scrollTop.value / normalizedItemHeight.value) -
-      normalizedBuffer.value,
-  ),
+  Math.max(0, Math.floor(scrollTop.value / normalizedItemHeight.value) - normalizedBuffer.value),
 )
 const endIndex = computed(() =>
   Math.min(
@@ -141,9 +125,7 @@ const endIndex = computed(() =>
     startIndex.value + visibleCount.value + normalizedBuffer.value * 2,
   ),
 )
-const visibleOptions = computed(() =>
-  props.options.slice(startIndex.value, endIndex.value),
-)
+const visibleOptions = computed(() => props.options.slice(startIndex.value, endIndex.value))
 const viewportStyle = computed<CSSProperties>(() => ({
   maxHeight: `${normalizedHeight.value}px`,
 }))
@@ -192,8 +174,7 @@ function syncActiveIndex() {
     (option) => option.value === model.value && !option.disabled,
   )
 
-  activeIndex.value =
-    selectedIndex >= 0 ? selectedIndex : findEnabledIndex(-1, 1)
+  activeIndex.value = selectedIndex >= 0 ? selectedIndex : findEnabledIndex(-1, 1)
 }
 
 function updatePosition() {
@@ -207,10 +188,7 @@ function updatePosition() {
   const rect = root.getBoundingClientRect()
   const panelRect = panel.getBoundingClientRect()
   const viewportHeight = window.innerHeight
-  const top = Math.min(
-    rect.bottom + 6,
-    Math.max(4, viewportHeight - panelRect.height - 4),
-  )
+  const top = Math.min(rect.bottom + 6, Math.max(4, viewportHeight - panelRect.height - 4))
 
   panelStyle.value = {
     top: `${top}px`,
@@ -488,13 +466,7 @@ defineExpose({
     >
       &times;
     </button>
-    <input
-      v-if="name"
-      type="hidden"
-      :name="name"
-      :value="model"
-      :required="required"
-    />
+    <input v-if="name" type="hidden" :name="name" :value="model" :required="required" />
   </span>
   <Teleport to="body">
     <Transition name="su-virtualized-select">
@@ -587,11 +559,7 @@ defineExpose({
 }
 
 .su-virtualized-select__trigger:hover:not(:disabled) {
-  border-color: color-mix(
-    in srgb,
-    var(--su-color-primary) 48%,
-    var(--su-color-border)
-  );
+  border-color: color-mix(in srgb, var(--su-color-primary) 48%, var(--su-color-border));
 }
 
 .su-virtualized-select__trigger:focus-visible,

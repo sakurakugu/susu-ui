@@ -49,17 +49,11 @@ describe('Popover', () => {
 
     await wrapper.vm.$nextTick()
 
-    const popper = document.body.querySelector<HTMLElement>(
-      '.su-popover__popper',
-    )
+    const popper = document.body.querySelector<HTMLElement>('.su-popover__popper')
     expect(popper?.classList.contains('su-popover__popper--top')).toBe(true)
     expect(popper?.style.width).toBe('320px')
-    expect(document.body.querySelector('.custom-title')?.textContent).toBe(
-      '自定义标题',
-    )
-    expect(document.body.querySelector('.custom-content')?.textContent).toBe(
-      '自定义内容',
-    )
+    expect(document.body.querySelector('.custom-title')?.textContent).toBe('自定义标题')
+    expect(document.body.querySelector('.custom-content')?.textContent).toBe('自定义内容')
     expect(document.body.querySelector('.su-popover__arrow')).toBeNull()
 
     wrapper.unmount()

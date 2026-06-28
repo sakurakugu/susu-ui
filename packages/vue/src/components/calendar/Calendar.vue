@@ -63,9 +63,7 @@ const viewYear = ref(today.value.getFullYear())
 const viewMonth = ref(today.value.getMonth())
 
 const isInteractive = computed(() => !props.disabled && !props.readonly)
-const monthTitle = computed(
-  () => `${viewYear.value} 年 ${viewMonth.value + 1} 月`,
-)
+const monthTitle = computed(() => `${viewYear.value} 年 ${viewMonth.value + 1} 月`)
 
 const calendarCells = computed<CalendarCell[]>(() => {
   const firstDay = new Date(viewYear.value, viewMonth.value, 1)
@@ -112,11 +110,7 @@ function parseDate(value?: string) {
   const day = Number(matched[3])
   const date = new Date(year, month - 1, day)
 
-  if (
-    date.getFullYear() !== year ||
-    date.getMonth() !== month - 1 ||
-    date.getDate() !== day
-  ) {
+  if (date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day) {
     return undefined
   }
 

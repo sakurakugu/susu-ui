@@ -8,8 +8,7 @@ defineOptions({
 export type MasonrySize = 'small' | 'medium' | 'large' | number | string
 export type MasonryGap = MasonrySize | [MasonrySize, MasonrySize]
 export type MasonryColumnFill = 'balance' | 'auto'
-export type MasonryItemKey =
-  string | number | ((item: unknown, index: number) => PropertyKey)
+export type MasonryItemKey = string | number | ((item: unknown, index: number) => PropertyKey)
 
 const sizeMap: Record<'small' | 'medium' | 'large', string> = {
   small: 'var(--su-space-sm)',
@@ -48,9 +47,7 @@ defineSlots<{
 const normalizedColumns = computed(() => Math.max(1, Math.floor(props.columns)))
 
 const normalizedGap = computed(() => {
-  const [column, row] = Array.isArray(props.gap)
-    ? props.gap
-    : [props.gap, props.gap]
+  const [column, row] = Array.isArray(props.gap) ? props.gap : [props.gap, props.gap]
 
   return {
     column: formatSize(column),

@@ -36,13 +36,7 @@
 
 ```vue
 <SuStatistic title="转化率" value="23.6%" trend="up" status="success" />
-<SuStatistic
-  title="异常工单"
-  :value="18"
-  suffix="件"
-  trend="down"
-  status="error"
-/>
+<SuStatistic title="异常工单" :value="18" suffix="件" trend="down" status="error" />
 ```
 
 ## 格式化

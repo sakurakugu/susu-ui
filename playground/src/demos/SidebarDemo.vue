@@ -91,14 +91,8 @@ const filterGroups = [
         >
           <template #default="{ collapsed: isCollapsed }">
             <div class="sidebar-demo__filters">
-              <div
-                v-for="group in filterGroups"
-                :key="group.label"
-                class="sidebar-demo__filter"
-              >
-                <span>{{
-                  isCollapsed ? group.label.slice(0, 2) : group.label
-                }}</span>
+              <div v-for="group in filterGroups" :key="group.label" class="sidebar-demo__filter">
+                <span>{{ isCollapsed ? group.label.slice(0, 2) : group.label }}</span>
                 <strong v-if="!isCollapsed">{{ group.value }}</strong>
               </div>
             </div>

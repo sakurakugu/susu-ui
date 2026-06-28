@@ -18,11 +18,7 @@ const members = [
 </script>
 
 <template>
-  <SuMention
-    v-model="content"
-    :options="members"
-    placeholder="输入 @ 提及成员"
-  />
+  <SuMention v-model="content" :options="members" placeholder="输入 @ 提及成员" />
 </template>
 ```
 

@@ -9,14 +9,8 @@
 ```vue
 <template>
   <SuList title="客户跟进">
-    <SuListItem
-      title="星河制造"
-      description="本周确认二期扩容方案，负责人：青禾"
-    />
-    <SuListItem
-      title="云启科技"
-      description="等待采购部门反馈合同条款，负责人：小满"
-    />
+    <SuListItem title="星河制造" description="本周确认二期扩容方案，负责人：青禾" />
+    <SuListItem title="云启科技" description="等待采购部门反馈合同条款，负责人：小满" />
   </SuList>
 </template>
 ```

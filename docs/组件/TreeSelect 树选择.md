@@ -61,11 +61,7 @@ const expandedKeys = ref<(string | number)[]>(['product'])
 </script>
 
 <template>
-  <SuTreeSelect
-    v-model="team"
-    v-model:expanded-keys="expandedKeys"
-    :data="data"
-  />
+  <SuTreeSelect v-model="team" v-model:expanded-keys="expandedKeys" :data="data" />
 </template>
 ```
 

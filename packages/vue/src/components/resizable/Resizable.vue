@@ -61,9 +61,7 @@ let pointerId: number | undefined
 const canResizeWidth = computed(
   () => props.direction === 'horizontal' || props.direction === 'both',
 )
-const canResizeHeight = computed(
-  () => props.direction === 'vertical' || props.direction === 'both',
-)
+const canResizeHeight = computed(() => props.direction === 'vertical' || props.direction === 'both')
 const normalizedStep = computed(() => (props.step > 0 ? props.step : 1))
 
 const currentValue = computed<ResizableModelValue>(() => {
@@ -128,12 +126,9 @@ function ensureSize() {
   const rect = rootRef.value?.getBoundingClientRect()
   const propWidth = props.width
   const propHeight = props.height
-  const fallbackWidth =
-    typeof propWidth === 'number' ? propWidth : (rect?.width ?? props.minWidth)
+  const fallbackWidth = typeof propWidth === 'number' ? propWidth : (rect?.width ?? props.minWidth)
   const fallbackHeight =
-    typeof propHeight === 'number'
-      ? propHeight
-      : (rect?.height ?? props.minHeight)
+    typeof propHeight === 'number' ? propHeight : (rect?.height ?? props.minHeight)
 
   if (widthValue.value <= 0) {
     widthValue.value = normalizeWidth(fallbackWidth ?? 80)
@@ -146,11 +141,7 @@ function ensureSize() {
   readModelValue(model.value)
 }
 
-function updateSize(
-  nextWidth: number,
-  nextHeight: number,
-  event: PointerEvent | KeyboardEvent,
-) {
+function updateSize(nextWidth: number, nextHeight: number, event: PointerEvent | KeyboardEvent) {
   if (props.disabled) {
     return
   }
@@ -188,11 +179,7 @@ function handlePointerMove(event: PointerEvent) {
     return
   }
 
-  updateSize(
-    startWidth + event.clientX - startX,
-    startHeight + event.clientY - startY,
-    event,
-  )
+  updateSize(startWidth + event.clientX - startX, startHeight + event.clientY - startY, event)
 }
 
 function handlePointerUp(event: PointerEvent) {
@@ -212,22 +199,13 @@ function handleKeydown(event: KeyboardEvent) {
   }
 
   const step = event.shiftKey ? normalizedStep.value * 10 : normalizedStep.value
-  const widthDelta =
-    event.key === 'ArrowRight' ? step : event.key === 'ArrowLeft' ? -step : 0
-  const heightDelta =
-    event.key === 'ArrowDown' ? step : event.key === 'ArrowUp' ? -step : 0
+  const widthDelta = event.key === 'ArrowRight' ? step : event.key === 'ArrowLeft' ? -step : 0
+  const heightDelta = event.key === 'ArrowDown' ? step : event.key === 'ArrowUp' ? -step : 0
 
-  if (
-    (widthDelta !== 0 && canResizeWidth.value) ||
-    (heightDelta !== 0 && canResizeHeight.value)
-  ) {
+  if ((widthDelta !== 0 && canResizeWidth.value) || (heightDelta !== 0 && canResizeHeight.value)) {
     event.preventDefault()
     ensureSize()
-    updateSize(
-      widthValue.value + widthDelta,
-      heightValue.value + heightDelta,
-      event,
-    )
+    updateSize(widthValue.value + widthDelta, heightValue.value + heightDelta, event)
   }
 }
 
@@ -341,10 +319,8 @@ onBeforeUnmount(() => {
   height: 36px;
   border-radius: var(--su-radius-sm) 0 0 var(--su-radius-sm);
   background:
-    linear-gradient(var(--su-color-border), var(--su-color-border)) center
-      10px / 2px 14px no-repeat,
-    linear-gradient(var(--su-color-border), var(--su-color-border)) center
-      18px / 2px 14px no-repeat;
+    linear-gradient(var(--su-color-border), var(--su-color-border)) center 10px / 2px 14px no-repeat,
+    linear-gradient(var(--su-color-border), var(--su-color-border)) center 18px / 2px 14px no-repeat;
   cursor: ew-resize;
   transform: translateY(-50%);
 }
@@ -356,10 +332,8 @@ onBeforeUnmount(() => {
   height: 14px;
   border-radius: var(--su-radius-sm) var(--su-radius-sm) 0 0;
   background:
-    linear-gradient(var(--su-color-border), var(--su-color-border)) 10px
-      center / 14px 2px no-repeat,
-    linear-gradient(var(--su-color-border), var(--su-color-border)) 18px
-      center / 14px 2px no-repeat;
+    linear-gradient(var(--su-color-border), var(--su-color-border)) 10px center / 14px 2px no-repeat,
+    linear-gradient(var(--su-color-border), var(--su-color-border)) 18px center / 14px 2px no-repeat;
   cursor: ns-resize;
   transform: translateX(50%);
 }
@@ -367,11 +341,7 @@ onBeforeUnmount(() => {
 .su-resizable__handle:hover:not(:disabled),
 .su-resizable__handle:focus-visible {
   outline: 0;
-  background-color: color-mix(
-    in srgb,
-    var(--su-color-primary) 12%,
-    transparent
-  );
+  background-color: color-mix(in srgb, var(--su-color-primary) 12%, transparent);
 }
 
 .su-resizable.is-dragging {

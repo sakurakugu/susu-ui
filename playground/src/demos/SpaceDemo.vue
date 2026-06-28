@@ -34,9 +34,7 @@ const { showTopMessage } = usePlaygroundDemoContext()
         </SuCard>
         <SuSpace align="center" justify="between" fill>
           <span>当前状态：已发布</span>
-          <SuButton size="small" type="primary" @click="showTopMessage">
-            更新
-          </SuButton>
+          <SuButton size="small" type="primary" @click="showTopMessage"> 更新 </SuButton>
         </SuSpace>
       </SuSpace>
     </div>

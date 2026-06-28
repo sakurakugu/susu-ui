@@ -118,8 +118,7 @@ defineSlots<{
 .su-loading__spinner {
   width: 100%;
   height: 100%;
-  border: var(--su-loading-stroke) solid
-    color-mix(in srgb, currentcolor 22%, transparent);
+  border: var(--su-loading-stroke) solid color-mix(in srgb, currentcolor 22%, transparent);
   border-top-color: currentcolor;
   border-radius: var(--su-radius-round);
   animation: su-loading-spin 0.8s linear infinite;

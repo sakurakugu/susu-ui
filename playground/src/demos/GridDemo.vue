@@ -43,13 +43,7 @@
 </template>
 
 <script setup lang="ts">
-const products = [
-  '企业版套餐',
-  '增值服务',
-  '私有化部署',
-  '培训工作坊',
-  '数据迁移',
-]
+const products = ['企业版套餐', '增值服务', '私有化部署', '培训工作坊', '数据迁移']
 </script>
 
 <style scoped>
@@ -82,16 +76,8 @@ const products = [
 }
 
 .grid-demo__block--primary {
-  border-color: color-mix(
-    in srgb,
-    var(--su-color-primary) 34%,
-    var(--su-color-border)
-  );
-  background: color-mix(
-    in srgb,
-    var(--su-color-primary) 8%,
-    var(--su-color-bg-elevated)
-  );
+  border-color: color-mix(in srgb, var(--su-color-primary) 34%, var(--su-color-border));
+  background: color-mix(in srgb, var(--su-color-primary) 8%, var(--su-color-bg-elevated));
 }
 
 .grid-demo__card {

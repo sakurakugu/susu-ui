@@ -159,16 +159,11 @@ function handleKeydown(event: KeyboardEvent) {
 }
 
 watch(
-  () => [
-    model.value,
-    props.defaultSize,
-    props.direction,
-    props.min,
-    props.max,
-    props.step,
-  ],
+  () => [model.value, props.defaultSize, props.direction, props.min, props.max, props.step],
   syncSize,
-  { immediate: true },
+  {
+    immediate: true,
+  },
 )
 
 onBeforeUnmount(() => {
@@ -188,10 +183,7 @@ onBeforeUnmount(() => {
       },
     ]"
   >
-    <div
-      class="su-splitter__pane su-splitter__pane--first"
-      :style="firstPaneStyle"
-    >
+    <div class="su-splitter__pane su-splitter__pane--first" :style="firstPaneStyle">
       <slot name="first" />
     </div>
     <button
@@ -282,11 +274,7 @@ onBeforeUnmount(() => {
 .su-splitter__bar:hover:not(:disabled),
 .su-splitter__bar:focus-visible {
   outline: 0;
-  background: color-mix(
-    in srgb,
-    var(--su-color-primary) 12%,
-    var(--su-color-bg-soft)
-  );
+  background: color-mix(in srgb, var(--su-color-primary) 12%, var(--su-color-bg-soft));
 }
 
 .su-splitter__bar-grip {

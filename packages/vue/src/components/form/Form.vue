@@ -42,10 +42,7 @@ const formStyle = computed(() => {
     return undefined
   }
 
-  const width =
-    typeof props.labelWidth === 'number'
-      ? `${props.labelWidth}px`
-      : props.labelWidth
+  const width = typeof props.labelWidth === 'number' ? `${props.labelWidth}px` : props.labelWidth
 
   return {
     '--su-form-label-width': width,

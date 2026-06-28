@@ -48,10 +48,7 @@ const mergedSize = computed(
 )
 
 const mergedDisabled = computed(
-  () =>
-    props.disabled ||
-    Boolean(radioGroup?.disabled.value) ||
-    Boolean(form?.disabled.value),
+  () => props.disabled || Boolean(radioGroup?.disabled.value) || Boolean(form?.disabled.value),
 )
 
 const mergedName = computed(() => props.name ?? radioGroup?.name.value)
@@ -209,8 +206,7 @@ defineExpose({
 }
 
 .su-radio-button__input:focus-visible + .su-radio-button__dot {
-  box-shadow: 0 0 0 3px
-    color-mix(in srgb, var(--su-color-primary) 22%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--su-color-primary) 22%, transparent);
 }
 
 .su-radio-button__label {

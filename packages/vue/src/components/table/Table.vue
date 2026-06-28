@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  provide,
-  ref,
-  type CSSProperties,
-  type VNodeChild,
-} from 'vue'
+import { computed, provide, ref, type CSSProperties, type VNodeChild } from 'vue'
 import { useLocale } from '../../config-provider'
 import {
   tableKey,
@@ -65,9 +59,7 @@ defineSlots<{
 
 const slotColumns = ref<RegisteredTableColumn[]>([])
 const locale = useLocale()
-const mergedEmptyText = computed(
-  () => props.emptyText ?? locale.value.empty.description,
-)
+const mergedEmptyText = computed(() => props.emptyText ?? locale.value.empty.description)
 
 const normalizedPropColumns = computed<RegisteredTableColumn[]>(() =>
   (props.columns ?? []).map((column, index) => ({
@@ -76,10 +68,7 @@ const normalizedPropColumns = computed<RegisteredTableColumn[]>(() =>
   })),
 )
 
-const mergedColumns = computed(() => [
-  ...normalizedPropColumns.value,
-  ...slotColumns.value,
-])
+const mergedColumns = computed(() => [...normalizedPropColumns.value, ...slotColumns.value])
 
 const hasData = computed(() => props.data.length > 0)
 
@@ -231,9 +220,7 @@ function handleCellClick(
               :style="getHeaderStyle(column)"
               scope="col"
             >
-              <component
-                :is="renderContent(getHeaderContent(column, columnIndex))"
-              />
+              <component :is="renderContent(getHeaderContent(column, columnIndex))" />
             </th>
           </tr>
         </thead>
@@ -250,13 +237,9 @@ function handleCellClick(
               class="su-table__cell"
               :class="[column.className]"
               :style="getColumnStyle(column)"
-              @click="
-                handleCellClick(row, column, rowIndex, columnIndex, $event)
-              "
+              @click="handleCellClick(row, column, rowIndex, columnIndex, $event)"
             >
-              <component
-                :is="renderContent(getCellContent(row, column, rowIndex))"
-              />
+              <component :is="renderContent(getCellContent(row, column, rowIndex))" />
             </td>
           </tr>
         </tbody>
@@ -327,10 +310,7 @@ function handleCellClick(
   border-bottom: 0;
 }
 
-.su-table--stripe
-  .su-table__body
-  .su-table__row:nth-child(even)
-  .su-table__cell {
+.su-table--stripe .su-table__body .su-table__row:nth-child(even) .su-table__cell {
   background: color-mix(in srgb, var(--su-color-bg-soft) 72%, transparent);
 }
 

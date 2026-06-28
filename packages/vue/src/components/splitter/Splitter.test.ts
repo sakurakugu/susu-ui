@@ -38,9 +38,9 @@ describe('Splitter', () => {
 
     expect(wrapper.classes()).toContain('su-splitter')
     expect(wrapper.classes()).toContain('su-splitter--horizontal')
-    expect(
-      wrapper.find('.su-splitter__pane--first').attributes('style'),
-    ).toContain('flex-basis: 220px')
+    expect(wrapper.find('.su-splitter__pane--first').attributes('style')).toContain(
+      'flex-basis: 220px',
+    )
     expect(bar.attributes('role')).toBe('separator')
     expect(bar.attributes('aria-orientation')).toBe('horizontal')
     expect(wrapper.text()).toContain('订单列表')
@@ -61,10 +61,7 @@ describe('Splitter', () => {
 
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([185])
     expect(wrapper.emitted('update:modelValue')?.[1]).toEqual([135])
-    expect(wrapper.emitted('resize')?.[0]).toEqual([
-      185,
-      expect.any(KeyboardEvent),
-    ])
+    expect(wrapper.emitted('resize')?.[0]).toEqual([185, expect.any(KeyboardEvent)])
   })
 
   it('支持垂直分割和方向样式', () => {
@@ -76,9 +73,7 @@ describe('Splitter', () => {
     })
 
     expect(wrapper.classes()).toContain('su-splitter--vertical')
-    expect(
-      wrapper.find('.su-splitter__bar').attributes('aria-orientation'),
-    ).toBe('vertical')
+    expect(wrapper.find('.su-splitter__bar').attributes('aria-orientation')).toBe('vertical')
   })
 
   it('支持拖拽调整并触发事件', async () => {
@@ -148,9 +143,7 @@ describe('Splitter', () => {
     })
 
     expect(wrapper.classes()).toContain('is-disabled')
-    expect(
-      wrapper.find('.su-splitter__bar').attributes('disabled'),
-    ).toBeDefined()
+    expect(wrapper.find('.su-splitter__bar').attributes('disabled')).toBeDefined()
     expect(wrapper.emitted('update:modelValue')).toBeUndefined()
   })
 })

@@ -37,12 +37,7 @@ const value = ref('')
 ```vue
 <template>
   <SuInput v-model="value" clearable placeholder="可清空输入" />
-  <SuInput
-    v-model="keyword"
-    clearable
-    clear-focus
-    placeholder="清空后继续输入"
-  />
+  <SuInput v-model="keyword" clearable clear-focus placeholder="清空后继续输入" />
 </template>
 ```
 
@@ -104,12 +99,7 @@ const value = ref('')
 
 ```vue
 <template>
-  <SuInput
-    v-model="password"
-    type="password"
-    show-password
-    placeholder="请输入密码"
-  />
+  <SuInput v-model="password" type="password" show-password placeholder="请输入密码" />
 </template>
 ```
 
@@ -136,12 +126,7 @@ const value = ref('')
 
 ```vue
 <template>
-  <SuInput
-    v-model="nickname"
-    :maxlength="20"
-    show-word-limit
-    placeholder="请输入昵称"
-  />
+  <SuInput v-model="nickname" :maxlength="20" show-word-limit placeholder="请输入昵称" />
 </template>
 ```
 
@@ -163,19 +148,8 @@ const value = ref('')
 
 ```vue
 <template>
-  <SuInput
-    required
-    pattern="[a-z]+"
-    inputmode="text"
-    placeholder="请输入小写字母"
-  />
-  <SuInput
-    type="number"
-    min="1"
-    max="10"
-    step="1"
-    placeholder="请输入 1 到 10"
-  />
+  <SuInput required pattern="[a-z]+" inputmode="text" placeholder="请输入小写字母" />
+  <SuInput type="number" min="1" max="10" step="1" placeholder="请输入 1 到 10" />
 </template>
 ```
 

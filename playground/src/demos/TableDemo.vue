@@ -34,8 +34,7 @@ const tableColumns = [
     prop: 'score',
     label: '评分',
     align: 'right' as const,
-    formatter: (_row: unknown, _column: unknown, value: unknown) =>
-      `${value} 分`,
+    formatter: (_row: unknown, _column: unknown, value: unknown) => `${value} 分`,
   },
 ]
 </script>
@@ -44,13 +43,7 @@ const tableColumns = [
   <section id="table" class="panel">
     <h2>表格</h2>
     <div class="table-demo">
-      <SuTable
-        :data="tableData"
-        :columns="tableColumns"
-        row-key="id"
-        stripe
-        border
-      />
+      <SuTable :data="tableData" :columns="tableColumns" row-key="id" stripe border />
 
       <SuTable :data="tableData" row-key="id" size="small" max-height="180px">
         <SuTableColumn prop="name" label="成员" width="120" />

@@ -45,12 +45,7 @@ const rangeValue = ref<[number, number]>([20, 60])
 `show-stops` 展示步进刻度，`marks` 展示带标签的关键刻度。点击刻度标签可以切换到对应值。
 
 ```vue
-<SuSlider
-  v-model="value"
-  :step="10"
-  show-stops
-  :marks="{ 0: '低', 50: '中', 100: '高' }"
-/>
+<SuSlider v-model="value" :step="10" show-stops :marks="{ 0: '低', 50: '中', 100: '高' }" />
 ```
 
 ## 格式化提示

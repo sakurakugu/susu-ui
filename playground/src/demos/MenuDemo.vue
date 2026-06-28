@@ -43,14 +43,7 @@ const menuItems = [
         <template #default="{ item }">
           <span class="menu-demo-node">
             <span>{{ item.label }}</span>
-            <SuTag
-              v-if="item.disabled"
-              size="small"
-              type="info"
-              variant="outline"
-            >
-              禁用
-            </SuTag>
+            <SuTag v-if="item.disabled" size="small" type="info" variant="outline"> 禁用 </SuTag>
           </span>
         </template>
       </SuMenu>

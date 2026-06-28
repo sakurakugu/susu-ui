@@ -92,9 +92,7 @@ const inputRef = ref<HTMLInputElement>()
 const locale = useLocale()
 const isDragging = ref(false)
 
-const canSelectMore = computed(
-  () => props.limit === undefined || model.value.length < props.limit,
-)
+const canSelectMore = computed(() => props.limit === undefined || model.value.length < props.limit)
 const triggerText = computed(() =>
   props.drag ? locale.value.upload.dragFile : locale.value.upload.selectFile,
 )
@@ -149,8 +147,7 @@ async function handleFiles(files: File[]) {
     return
   }
 
-  const restCount =
-    props.limit === undefined ? files.length : props.limit - model.value.length
+  const restCount = props.limit === undefined ? files.length : props.limit - model.value.length
 
   if (restCount <= 0 || files.length > restCount) {
     emit('exceed', files, model.value)
@@ -216,9 +213,7 @@ function removeFile(file: UploadFile) {
 }
 
 function submit() {
-  model.value
-    .filter((file) => file.status === 'ready' && file.raw)
-    .forEach(upload)
+  model.value.filter((file) => file.status === 'ready' && file.raw).forEach(upload)
 }
 
 function clear() {
@@ -505,11 +500,7 @@ defineExpose({
 .su-upload.is-dragging .su-upload__trigger {
   border-color: var(--su-color-primary);
   color: var(--su-color-primary);
-  background: color-mix(
-    in srgb,
-    var(--su-color-primary) 8%,
-    var(--su-color-bg-soft)
-  );
+  background: color-mix(in srgb, var(--su-color-primary) 8%, var(--su-color-bg-soft));
 }
 
 .su-upload.is-disabled,
@@ -565,19 +556,11 @@ defineExpose({
 }
 
 .su-upload__item.is-success {
-  border-color: color-mix(
-    in srgb,
-    var(--su-color-success) 36%,
-    var(--su-color-border)
-  );
+  border-color: color-mix(in srgb, var(--su-color-success) 36%, var(--su-color-border));
 }
 
 .su-upload__item.is-error {
-  border-color: color-mix(
-    in srgb,
-    var(--su-color-error) 52%,
-    var(--su-color-border)
-  );
+  border-color: color-mix(in srgb, var(--su-color-error) 52%, var(--su-color-border));
 }
 
 .su-upload__thumb {

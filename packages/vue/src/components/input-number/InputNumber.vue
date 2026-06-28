@@ -71,9 +71,7 @@ const inputText = ref('')
 const isFocused = ref(false)
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
 const isInteractive = computed(() => !mergedDisabled.value && !props.readonly)
 const normalizedStep = computed(() => (props.step > 0 ? props.step : 1))
 const normalizedPrecision = computed(() => {
@@ -89,26 +87,19 @@ const normalizedPrecision = computed(() => {
 
 const showClear = computed(
   () =>
-    props.clearable &&
-    isInteractive.value &&
-    inputText.value.length > 0 &&
-    model.value !== null,
+    props.clearable && isInteractive.value && inputText.value.length > 0 && model.value !== null,
 )
 
 const canDecrease = computed(
   () =>
     isInteractive.value &&
-    (props.min === undefined ||
-      model.value === null ||
-      model.value > props.min),
+    (props.min === undefined || model.value === null || model.value > props.min),
 )
 
 const canIncrease = computed(
   () =>
     isInteractive.value &&
-    (props.max === undefined ||
-      model.value === null ||
-      model.value < props.max),
+    (props.max === undefined || model.value === null || model.value < props.max),
 )
 
 function formatValue(value: number | null) {
@@ -116,9 +107,7 @@ function formatValue(value: number | null) {
     return ''
   }
 
-  return normalizedPrecision.value > 0
-    ? value.toFixed(normalizedPrecision.value)
-    : `${value}`
+  return normalizedPrecision.value > 0 ? value.toFixed(normalizedPrecision.value) : `${value}`
 }
 
 function clampValue(value: number) {
@@ -228,8 +217,7 @@ function stepValue(direction: 1 | -1, event?: Event) {
     return
   }
 
-  const baseValue =
-    model.value ?? (direction > 0 ? (props.min ?? 0) : (props.max ?? 0))
+  const baseValue = model.value ?? (direction > 0 ? (props.min ?? 0) : (props.max ?? 0))
   updateValue(baseValue + normalizedStep.value * direction, event, true)
 }
 
@@ -378,11 +366,7 @@ defineExpose({
 }
 
 .su-input-number:hover:not(.is-disabled) {
-  border-color: color-mix(
-    in srgb,
-    var(--su-color-primary) 48%,
-    var(--su-color-border)
-  );
+  border-color: color-mix(in srgb, var(--su-color-primary) 48%, var(--su-color-border));
 }
 
 .su-input-number:focus-within {

@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  inject,
-  nextTick,
-  onBeforeUnmount,
-  ref,
-  useAttrs,
-  watch,
-} from 'vue'
+import { computed, inject, nextTick, onBeforeUnmount, ref, useAttrs, watch } from 'vue'
 import { useLocale } from '../../config-provider'
 import { formKey, type FormItemStatus, type FormSize } from '../form/context'
 
@@ -89,17 +81,11 @@ const viewYear = ref(new Date().getFullYear())
 const viewMonth = ref(new Date().getMonth())
 
 const weekdays = computed(() => locale.value.datePicker.weekdays)
-const mergedPlaceholder = computed(
-  () => props.placeholder ?? locale.value.datePicker.placeholder,
-)
-const mergedAriaLabel = computed(
-  () => props.ariaLabel ?? locale.value.datePicker.ariaLabel,
-)
+const mergedPlaceholder = computed(() => props.placeholder ?? locale.value.datePicker.placeholder)
+const mergedAriaLabel = computed(() => props.ariaLabel ?? locale.value.datePicker.ariaLabel)
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
 const isInteractive = computed(() => !mergedDisabled.value && !props.readonly)
 const selectedDate = computed(() => parseDate(model.value))
 const minDate = computed(() => parseDate(props.min))
@@ -115,9 +101,7 @@ const monthTitle = computed(() =>
   locale.value.datePicker.monthTitle(viewYear.value, viewMonth.value + 1),
 )
 
-const showClear = computed(
-  () => props.clearable && isInteractive.value && model.value.length > 0,
-)
+const showClear = computed(() => props.clearable && isInteractive.value && model.value.length > 0)
 
 const calendarCells = computed<CalendarCell[]>(() => {
   const firstDay = new Date(viewYear.value, viewMonth.value, 1)
@@ -164,11 +148,7 @@ function parseDate(value?: string) {
   const day = Number(matched[3])
   const date = new Date(year, month - 1, day)
 
-  if (
-    date.getFullYear() !== year ||
-    date.getMonth() !== month - 1 ||
-    date.getDate() !== day
-  ) {
+  if (date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day) {
     return undefined
   }
 
@@ -513,11 +493,7 @@ defineExpose({
 }
 
 .su-date-picker:hover:not(.is-disabled) .su-date-picker__control {
-  border-color: color-mix(
-    in srgb,
-    var(--su-color-primary) 48%,
-    var(--su-color-border)
-  );
+  border-color: color-mix(in srgb, var(--su-color-primary) 48%, var(--su-color-border));
 }
 
 .su-date-picker:focus-within .su-date-picker__control,

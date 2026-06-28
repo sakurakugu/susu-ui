@@ -44,12 +44,7 @@ const emit = defineEmits<{
 }>()
 
 defineSlots<{
-  icon?: (props: {
-    item: number
-    value: number
-    active: boolean
-    filled: boolean
-  }) => unknown
+  icon?: (props: { item: number; value: number; active: boolean; filled: boolean }) => unknown
 }>()
 
 const hoverValue = ref<number | undefined>()
@@ -67,9 +62,7 @@ const rateItems = computed(() =>
 
 const displayText = computed(() => {
   const value = Math.ceil(displayValue.value)
-  return (
-    props.texts?.[value - 1] ?? `${displayValue.value}/${normalizedMax.value}`
-  )
+  return props.texts?.[value - 1] ?? `${displayValue.value}/${normalizedMax.value}`
 })
 
 function clampValue(value: number) {
@@ -90,10 +83,7 @@ function getItemValue(index: number, event?: MouseEvent) {
 
   const target = event.currentTarget as HTMLElement
   const rect = target.getBoundingClientRect()
-  const offsetRatio = Math.min(
-    1,
-    Math.max(0, (event.clientX - rect.left) / rect.width),
-  )
+  const offsetRatio = Math.min(1, Math.max(0, (event.clientX - rect.left) / rect.width))
 
   return index - 1 + offsetRatio
 }
@@ -103,8 +93,7 @@ function updateValue(value: number) {
     return
   }
 
-  const nextValue =
-    props.clearable && model.value === value ? 0 : normalizeValue(value)
+  const nextValue = props.clearable && model.value === value ? 0 : normalizeValue(value)
   model.value = nextValue
   emit('change', nextValue)
 }

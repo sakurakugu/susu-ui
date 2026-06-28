@@ -143,9 +143,7 @@ describe('Input', () => {
     await wrapper.find('.su-input__password').trigger('click')
 
     expect(input.attributes('type')).toBe('text')
-    expect(wrapper.find('.su-input__password').attributes('aria-label')).toBe(
-      '隐藏密码',
-    )
+    expect(wrapper.find('.su-input__password').attributes('aria-label')).toBe('隐藏密码')
   })
 
   it('支持多行输入', async () => {

@@ -59,9 +59,7 @@ const isControlled = computed(() => {
   return 'collapsed' in vnodeProps || 'onUpdate:collapsed' in vnodeProps
 })
 
-const isCollapsed = computed(() =>
-  isControlled.value ? props.collapsed : internalCollapsed.value,
-)
+const isCollapsed = computed(() => (isControlled.value ? props.collapsed : internalCollapsed.value))
 
 const hasHeader = computed(() => Boolean(props.title))
 

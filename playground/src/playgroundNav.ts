@@ -105,6 +105,20 @@ export const playgroundNavItems: PlaygroundNavItem[] = [
     scenarios: ['详情说明', '列表字段', '辅助文案'],
   },
   {
+    id: 'code-block',
+    label: '代码块',
+    group: 'display',
+    description: '用于展示 Markdown 代码围栏、配置片段和可复制的代码内容。',
+    scenarios: ['文档示例', '配置片段', '接口返回'],
+  },
+  {
+    id: 'terminal',
+    label: '终端',
+    group: 'display',
+    description: '用于展示命令执行结果、构建日志和运维终端输出。',
+    scenarios: ['构建日志', '部署输出', '命令记录'],
+  },
+  {
     id: 'link',
     label: '链接',
     group: 'navigation',

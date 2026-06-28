@@ -57,11 +57,7 @@ function handleRefresh() {
       </div>
 
       <div class="qrcode-demo__item">
-        <SuQRCode
-          value="LOGIN-SESSION-20260628"
-          status="loading"
-          status-text="正在生成登录码"
-        />
+        <SuQRCode value="LOGIN-SESSION-20260628" status="loading" status-text="正在生成登录码" />
         <div class="qrcode-demo__meta">
           <strong>登录确认</strong>
           <span>加载态用于等待后端签发一次性扫码凭证。</span>

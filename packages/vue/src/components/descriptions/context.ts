@@ -23,5 +23,4 @@ export interface DescriptionsContext {
   removeItem: (id: symbol) => void
 }
 
-export const descriptionsKey: InjectionKey<DescriptionsContext> =
-  Symbol('su-descriptions')
+export const descriptionsKey: InjectionKey<DescriptionsContext> = Symbol('su-descriptions')

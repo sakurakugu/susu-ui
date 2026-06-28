@@ -82,6 +82,11 @@
       "import": "./dist/checkbox.js",
       "require": "./dist/checkbox.cjs"
     },
+    "./code-block": {
+      "types": "./dist/components/code-block/index.d.ts",
+      "import": "./dist/code-block.js",
+      "require": "./dist/code-block.cjs"
+    },
     "./collapse": {
       "types": "./dist/components/collapse/index.d.ts",
       "import": "./dist/collapse.js",
@@ -97,15 +102,15 @@
       "import": "./dist/command-palette.js",
       "require": "./dist/command-palette.cjs"
     },
-    "./date-range-picker": {
-      "types": "./dist/components/date-range-picker/index.d.ts",
-      "import": "./dist/date-range-picker.js",
-      "require": "./dist/date-range-picker.cjs"
-    },
     "./date-picker": {
       "types": "./dist/components/date-picker/index.d.ts",
       "import": "./dist/date-picker.js",
       "require": "./dist/date-picker.cjs"
+    },
+    "./date-range-picker": {
+      "types": "./dist/components/date-range-picker/index.d.ts",
+      "import": "./dist/date-range-picker.js",
+      "require": "./dist/date-range-picker.cjs"
     },
     "./descriptions": {
       "types": "./dist/components/descriptions/index.d.ts",
@@ -137,6 +142,16 @@
       "import": "./dist/empty.js",
       "require": "./dist/empty.cjs"
     },
+    "./form": {
+      "types": "./dist/components/form/index.d.ts",
+      "import": "./dist/form.js",
+      "require": "./dist/form.cjs"
+    },
+    "./grid": {
+      "types": "./dist/components/grid/index.d.ts",
+      "import": "./dist/grid.js",
+      "require": "./dist/grid.cjs"
+    },
     "./icon": {
       "types": "./dist/components/icon/index.d.ts",
       "import": "./dist/icon.js",
@@ -151,16 +166,6 @@
       "types": "./dist/components/infinite-scroll/index.d.ts",
       "import": "./dist/infinite-scroll.js",
       "require": "./dist/infinite-scroll.cjs"
-    },
-    "./form": {
-      "types": "./dist/components/form/index.d.ts",
-      "import": "./dist/form.js",
-      "require": "./dist/form.cjs"
-    },
-    "./grid": {
-      "types": "./dist/components/grid/index.d.ts",
-      "import": "./dist/grid.js",
-      "require": "./dist/grid.cjs"
     },
     "./input": {
       "types": "./dist/components/input/index.d.ts",
@@ -197,15 +202,15 @@
       "import": "./dist/masonry.js",
       "require": "./dist/masonry.cjs"
     },
-    "./menu": {
-      "types": "./dist/components/menu/index.d.ts",
-      "import": "./dist/menu.js",
-      "require": "./dist/menu.cjs"
-    },
     "./mention": {
       "types": "./dist/components/mention/index.d.ts",
       "import": "./dist/mention.js",
       "require": "./dist/mention.cjs"
+    },
+    "./menu": {
+      "types": "./dist/components/menu/index.d.ts",
+      "import": "./dist/menu.js",
+      "require": "./dist/menu.cjs"
     },
     "./message": {
       "types": "./dist/components/message/index.d.ts",
@@ -262,25 +267,25 @@
       "import": "./dist/rate.js",
       "require": "./dist/rate.cjs"
     },
-    "./result": {
-      "types": "./dist/components/result/index.d.ts",
-      "import": "./dist/result.js",
-      "require": "./dist/result.cjs"
-    },
     "./resizable": {
       "types": "./dist/components/resizable/index.d.ts",
       "import": "./dist/resizable.js",
       "require": "./dist/resizable.cjs"
     },
-    "./select": {
-      "types": "./dist/components/select/index.d.ts",
-      "import": "./dist/select.js",
-      "require": "./dist/select.cjs"
+    "./result": {
+      "types": "./dist/components/result/index.d.ts",
+      "import": "./dist/result.js",
+      "require": "./dist/result.cjs"
     },
     "./segmented": {
       "types": "./dist/components/segmented/index.d.ts",
       "import": "./dist/segmented.js",
       "require": "./dist/segmented.cjs"
+    },
+    "./select": {
+      "types": "./dist/components/select/index.d.ts",
+      "import": "./dist/select.js",
+      "require": "./dist/select.cjs"
     },
     "./sidebar": {
       "types": "./dist/components/sidebar/index.d.ts",
@@ -322,15 +327,15 @@
       "import": "./dist/switch.js",
       "require": "./dist/switch.cjs"
     },
-    "./tabs": {
-      "types": "./dist/components/tabs/index.d.ts",
-      "import": "./dist/tabs.js",
-      "require": "./dist/tabs.cjs"
-    },
     "./table": {
       "types": "./dist/components/table/index.d.ts",
       "import": "./dist/table.js",
       "require": "./dist/table.cjs"
+    },
+    "./tabs": {
+      "types": "./dist/components/tabs/index.d.ts",
+      "import": "./dist/tabs.js",
+      "require": "./dist/tabs.cjs"
     },
     "./tag": {
       "types": "./dist/components/tag/index.d.ts",
@@ -341,6 +346,11 @@
       "types": "./dist/components/tag-input/index.d.ts",
       "import": "./dist/tag-input.js",
       "require": "./dist/tag-input.cjs"
+    },
+    "./terminal": {
+      "types": "./dist/components/terminal/index.d.ts",
+      "import": "./dist/terminal.js",
+      "require": "./dist/terminal.cjs"
     },
     "./text": {
       "types": "./dist/components/text/index.d.ts",

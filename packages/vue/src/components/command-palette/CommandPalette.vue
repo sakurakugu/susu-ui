@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  nextTick,
-  onBeforeUnmount,
-  ref,
-  useId,
-  watch,
-  type CSSProperties,
-} from 'vue'
+import { computed, nextTick, onBeforeUnmount, ref, useId, watch, type CSSProperties } from 'vue'
 
 defineOptions({
   name: 'SuCommandPalette',
@@ -94,15 +86,13 @@ const filteredOptions = computed(() => {
   }
 
   return options.filter((option) =>
-    [option.label, option.description, option.group, `${option.value}`].some(
-      (item) => item?.toLowerCase().includes(normalizedQuery.value),
+    [option.label, option.description, option.group, `${option.value}`].some((item) =>
+      item?.toLowerCase().includes(normalizedQuery.value),
     ),
   )
 })
 
-const enabledOptions = computed(() =>
-  filteredOptions.value.filter((option) => !option.disabled),
-)
+const enabledOptions = computed(() => filteredOptions.value.filter((option) => !option.disabled))
 
 const activeOption = computed(() =>
   activeIndex.value >= 0 ? filteredOptions.value[activeIndex.value] : undefined,
@@ -140,10 +130,7 @@ const activeDescendant = computed(() => {
 })
 
 function getOptionId(option: CommandPaletteOption) {
-  return `su-command-palette-option-${String(option.value).replace(
-    /[^a-zA-Z0-9_-]/g,
-    '-',
-  )}`
+  return `su-command-palette-option-${String(option.value).replace(/[^a-zA-Z0-9_-]/g, '-')}`
 }
 
 function getShortcutKeys(shortcut: string | string[] | undefined) {
@@ -174,9 +161,7 @@ function focusInput() {
 }
 
 function resetActiveIndex() {
-  activeIndex.value = filteredOptions.value.findIndex(
-    (option) => !option.disabled,
-  )
+  activeIndex.value = filteredOptions.value.findIndex((option) => !option.disabled)
 }
 
 function moveActive(step: number) {
@@ -185,17 +170,10 @@ function moveActive(step: number) {
   }
 
   const current = activeOption.value
-  const enabledIndex = current
-    ? enabledOptions.value.indexOf(current)
-    : step > 0
-      ? -1
-      : 0
+  const enabledIndex = current ? enabledOptions.value.indexOf(current) : step > 0 ? -1 : 0
   const nextEnabledIndex =
-    (enabledIndex + step + enabledOptions.value.length) %
-    enabledOptions.value.length
-  activeIndex.value = filteredOptions.value.indexOf(
-    enabledOptions.value[nextEnabledIndex],
-  )
+    (enabledIndex + step + enabledOptions.value.length) % enabledOptions.value.length
+  activeIndex.value = filteredOptions.value.indexOf(enabledOptions.value[nextEnabledIndex])
 }
 
 function requestClose(reason: CommandPaletteCloseReason) {
@@ -370,11 +348,7 @@ defineExpose({
                   @mouseenter="activeIndex = filteredOptions.indexOf(option)"
                   @click="selectOption(option)"
                 >
-                  <slot
-                    name="option"
-                    :option="option"
-                    :active="option === activeOption"
-                  >
+                  <slot name="option" :option="option" :active="option === activeOption">
                     <span class="su-command-palette__option-content">
                       <span class="su-command-palette__option-label">
                         {{ option.label }}

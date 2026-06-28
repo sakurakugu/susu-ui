@@ -17,9 +17,7 @@ describe('Result', () => {
     expect(result.attributes('role')).toBe('status')
     expect(wrapper.find('.su-result__default-icon').text()).toBe('i')
     expect(wrapper.find('.su-result__title').text()).toBe('提交成功')
-    expect(wrapper.find('.su-result__description').text()).toBe(
-      '系统已经保存当前配置。',
-    )
+    expect(wrapper.find('.su-result__description').text()).toBe('系统已经保存当前配置。')
   })
 
   it('支持不同状态和图标尺寸', () => {
@@ -32,9 +30,7 @@ describe('Result', () => {
 
     expect(wrapper.find('.su-result').classes()).toContain('su-result--success')
     expect(wrapper.find('.su-result__default-icon').text()).toBe('✓')
-    expect(wrapper.find('.su-result__icon').attributes('style')).toContain(
-      'width: 96px',
-    )
+    expect(wrapper.find('.su-result__icon').attributes('style')).toContain('width: 96px')
   })
 
   it('支持字符串图标尺寸', () => {
@@ -44,9 +40,7 @@ describe('Result', () => {
       },
     })
 
-    expect(wrapper.find('.su-result__icon').attributes('style')).toContain(
-      'width: 5rem',
-    )
+    expect(wrapper.find('.su-result__icon').attributes('style')).toContain('width: 5rem')
   })
 
   it('支持标题、描述、图标和底部插槽', () => {

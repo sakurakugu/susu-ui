@@ -45,21 +45,16 @@ describe('CommandPalette', () => {
     await wrapper.vm.$nextTick()
 
     expect(document.body.querySelector('.su-command-palette')).toBeTruthy()
+    expect(document.body.querySelector('.su-command-palette__title')?.textContent).toBe(
+      '工作台命令',
+    )
     expect(
-      document.body.querySelector('.su-command-palette__title')?.textContent,
-    ).toBe('工作台命令')
-    expect(
-      document.body.querySelector<HTMLInputElement>(
-        '.su-command-palette__input',
-      )?.placeholder,
+      document.body.querySelector<HTMLInputElement>('.su-command-palette__input')?.placeholder,
     ).toBe('搜索命令、页面或操作')
-    expect(
-      document.body.querySelectorAll('.su-command-palette__option'),
-    ).toHaveLength(3)
-    expect(
-      document.body.querySelectorAll('.su-command-palette__group-title')[0]
-        ?.textContent,
-    ).toBe('导航')
+    expect(document.body.querySelectorAll('.su-command-palette__option')).toHaveLength(3)
+    expect(document.body.querySelectorAll('.su-command-palette__group-title')[0]?.textContent).toBe(
+      '导航',
+    )
 
     wrapper.unmount()
   })
@@ -75,9 +70,7 @@ describe('CommandPalette', () => {
 
     await wrapper.vm.$nextTick()
 
-    expect(document.activeElement).toBe(
-      document.body.querySelector('.su-command-palette__input'),
-    )
+    expect(document.activeElement).toBe(document.body.querySelector('.su-command-palette__input'))
     expect(document.body.style.overflow).toBe('hidden')
 
     wrapper.unmount()
@@ -94,21 +87,17 @@ describe('CommandPalette', () => {
     })
 
     await wrapper.vm.$nextTick()
-    const input = document.body.querySelector<HTMLInputElement>(
-      '.su-command-palette__input',
-    )
+    const input = document.body.querySelector<HTMLInputElement>('.su-command-palette__input')
 
     input!.value = '客户'
     input!.dispatchEvent(new Event('input', { bubbles: true }))
     await wrapper.vm.$nextTick()
 
     expect(wrapper.emitted('update:query')?.[0]).toEqual(['客户'])
-    expect(
-      document.body.querySelectorAll('.su-command-palette__option'),
-    ).toHaveLength(1)
-    expect(
-      document.body.querySelector('.su-command-palette__option')?.textContent,
-    ).toContain('新建客户')
+    expect(document.body.querySelectorAll('.su-command-palette__option')).toHaveLength(1)
+    expect(document.body.querySelector('.su-command-palette__option')?.textContent).toContain(
+      '新建客户',
+    )
 
     wrapper.unmount()
   })
@@ -152,13 +141,9 @@ describe('CommandPalette', () => {
     })
 
     await wrapper.vm.$nextTick()
-    expect(document.body.querySelector('.custom-command')?.textContent).toBe(
-      '打开订单中心',
-    )
+    expect(document.body.querySelector('.custom-command')?.textContent).toBe('打开订单中心')
 
-    document.body
-      .querySelectorAll<HTMLButtonElement>('.su-command-palette__option')[1]
-      ?.click()
+    document.body.querySelectorAll<HTMLButtonElement>('.su-command-palette__option')[1]?.click()
     await wrapper.vm.$nextTick()
 
     expect(wrapper.emitted('select')?.[0]).toEqual([options[1]])
@@ -177,9 +162,7 @@ describe('CommandPalette', () => {
     })
 
     await wrapper.vm.$nextTick()
-    document.body
-      .querySelector<HTMLButtonElement>('.su-command-palette__close')
-      ?.click()
+    document.body.querySelector<HTMLButtonElement>('.su-command-palette__close')?.click()
     await wrapper.vm.$nextTick()
     expect(wrapper.emitted('close')?.[0]).toEqual(['close'])
 
@@ -240,16 +223,14 @@ describe('CommandPalette', () => {
 
     await wrapper.vm.$nextTick()
 
+    expect(document.body.querySelector('.su-command-palette__empty')?.textContent).toBe(
+      '没有找到可用命令',
+    )
+    expect(document.body.querySelector<HTMLElement>('.su-command-palette')?.style.width).toBe(
+      '720px',
+    )
     expect(
-      document.body.querySelector('.su-command-palette__empty')?.textContent,
-    ).toBe('没有找到可用命令')
-    expect(
-      document.body.querySelector<HTMLElement>('.su-command-palette')?.style
-        .width,
-    ).toBe('720px')
-    expect(
-      document.body.querySelector<HTMLElement>('.su-command-palette-overlay')
-        ?.style.zIndex,
+      document.body.querySelector<HTMLElement>('.su-command-palette-overlay')?.style.zIndex,
     ).toBe('3600')
 
     await wrapper.setProps({ modelValue: false })

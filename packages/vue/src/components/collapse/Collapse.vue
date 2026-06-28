@@ -58,11 +58,7 @@ const activeNameList = computed(() => {
     return activeName === undefined ? [] : [activeName]
   }
 
-  return Array.isArray(model.value)
-    ? model.value
-    : model.value === undefined
-      ? []
-      : [model.value]
+  return Array.isArray(model.value) ? model.value : model.value === undefined ? [] : [model.value]
 })
 
 provide(collapseKey, {
@@ -145,17 +141,12 @@ function handleKeydown(
   toggleItem(item, event)
 }
 
-function shouldRenderContent(
-  item: RegisteredCollapseItem & { resolvedName: CollapseValue },
-) {
+function shouldRenderContent(item: RegisteredCollapseItem & { resolvedName: CollapseValue }) {
   if (isActive(item.resolvedName)) {
     return true
   }
 
-  return (
-    !props.destroyInactivePanel ||
-    visitedNames.value.includes(item.resolvedName)
-  )
+  return !props.destroyInactivePanel || visitedNames.value.includes(item.resolvedName)
 }
 
 function getHeaderId(name: CollapseValue) {
@@ -208,11 +199,7 @@ function renderContent(content: unknown) {
         <span class="su-collapse__arrow" aria-hidden="true" />
         <span class="su-collapse__title">
           <component
-            :is="
-              renderContent(
-                item.titleContent ? item.titleContent() : (item.title ?? ''),
-              )
-            "
+            :is="renderContent(item.titleContent ? item.titleContent() : (item.title ?? ''))"
           />
         </span>
         <span v-if="item.extraContent" class="su-collapse__extra">

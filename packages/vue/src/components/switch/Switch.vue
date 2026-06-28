@@ -56,9 +56,7 @@ const mergedDisabled = computed(
 
 const checked = computed(() => model.value === props.activeValue)
 
-const labelText = computed(() =>
-  checked.value ? props.activeText : props.inactiveText,
-)
+const labelText = computed(() => (checked.value ? props.activeText : props.inactiveText))
 
 function handleChange(event: Event) {
   const target = event.target as HTMLInputElement
@@ -180,11 +178,7 @@ defineExpose({
   height: var(--su-switch-height);
   border: 1px solid color-mix(in srgb, var(--su-color-border) 72%, transparent);
   border-radius: var(--su-radius-round);
-  background: color-mix(
-    in srgb,
-    var(--su-color-text-muted) 28%,
-    var(--su-color-bg-soft)
-  );
+  background: color-mix(in srgb, var(--su-color-text-muted) 28%, var(--su-color-bg-soft));
   transition:
     border-color 0.16s ease,
     background-color 0.16s ease,
@@ -212,15 +206,11 @@ defineExpose({
 }
 
 .su-switch.is-checked .su-switch__thumb {
-  transform: translate(
-    calc(var(--su-switch-width) - var(--su-switch-thumb-size) - 7px),
-    -50%
-  );
+  transform: translate(calc(var(--su-switch-width) - var(--su-switch-thumb-size) - 7px), -50%);
 }
 
 .su-switch__input:focus-visible + .su-switch__track {
-  box-shadow: 0 0 0 3px
-    color-mix(in srgb, var(--su-color-primary) 22%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--su-color-primary) 22%, transparent);
 }
 
 .su-switch__text {
@@ -234,8 +224,7 @@ defineExpose({
 .su-switch.is-loading .su-switch__thumb::after {
   position: absolute;
   inset: 4px;
-  border: 1.5px solid
-    color-mix(in srgb, var(--su-color-primary) 56%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--su-color-primary) 56%, transparent);
   border-top-color: transparent;
   border-radius: var(--su-radius-round);
   animation: su-switch-loading 0.8s linear infinite;

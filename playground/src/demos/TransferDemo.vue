@@ -62,11 +62,7 @@ const workflowTransferData: TransferOption[] = [
   <section id="transfer" class="panel">
     <h2>穿梭框</h2>
     <div class="transfer-demo">
-      <SuTransfer
-        v-model="transferValue"
-        :data="transferData"
-        :titles="['可选组件', '已选组件']"
-      />
+      <SuTransfer v-model="transferValue" :data="transferData" :titles="['可选组件', '已选组件']" />
 
       <SuTransfer
         v-model="filteredTransferValue"

@@ -32,9 +32,7 @@ describe('Form', () => {
     expect(wrapper.classes()).toContain('su-form--label-left')
     expect(wrapper.classes()).toContain('is-inline')
     expect(wrapper.classes()).toContain('is-disabled')
-    expect(wrapper.attributes('style')).toContain(
-      '--su-form-label-width: 120px',
-    )
+    expect(wrapper.attributes('style')).toContain('--su-form-label-width: 120px')
     expect(wrapper.find('fieldset').attributes('disabled')).toBeDefined()
   })
 
@@ -120,9 +118,7 @@ describe('FormItem', () => {
     expect(wrapper.classes()).toContain('is-required')
     expect(wrapper.find('label').attributes('for')).toBe('username')
     expect(wrapper.find('.su-form-item__label').text()).toBe('用户名')
-    expect(wrapper.find('.su-form-item__message').text()).toBe(
-      '请输入 2 到 12 个字符',
-    )
+    expect(wrapper.find('.su-form-item__message').text()).toBe('请输入 2 到 12 个字符')
   })
 
   it('错误文案优先于帮助文案并切换状态', () => {
@@ -176,9 +172,7 @@ describe('FormItem', () => {
     expect(wrapper.classes()).toContain('su-form-item--large')
     expect(wrapper.classes()).toContain('su-form-item--label-left')
     expect(wrapper.classes()).toContain('su-form-item--success')
-    expect(wrapper.find('.su-form-item__label').attributes('style')).toContain(
-      'width: 140px',
-    )
+    expect(wrapper.find('.su-form-item__label').attributes('style')).toContain('width: 140px')
   })
 
   it('支持自定义标签和帮助插槽', () => {

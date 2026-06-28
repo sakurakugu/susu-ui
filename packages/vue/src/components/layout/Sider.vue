@@ -1,12 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  getCurrentInstance,
-  inject,
-  onBeforeUnmount,
-  onMounted,
-  ref,
-} from 'vue'
+import { computed, getCurrentInstance, inject, onBeforeUnmount, onMounted, ref } from 'vue'
 import { layoutKey } from './context'
 
 defineOptions({
@@ -57,9 +50,7 @@ function normalizeSize(value: number | string) {
   return typeof value === 'number' ? `${value}px` : value
 }
 
-const isCollapsed = computed(() =>
-  isControlled.value ? props.collapsed : internalCollapsed.value,
-)
+const isCollapsed = computed(() => (isControlled.value ? props.collapsed : internalCollapsed.value))
 const siderStyle = computed(() => {
   const currentWidth = isCollapsed.value ? props.collapsedWidth : props.width
   const normalizedWidth = normalizeSize(currentWidth)

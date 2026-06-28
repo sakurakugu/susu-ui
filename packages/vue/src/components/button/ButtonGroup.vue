@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import { computed, provide } from 'vue'
-import {
-  buttonGroupKey,
-  type ButtonSize,
-  type ButtonType,
-  type ButtonVariant,
-} from './context'
+import { buttonGroupKey, type ButtonSize, type ButtonType, type ButtonVariant } from './context'
 
 type ButtonGroupDirection = 'horizontal' | 'vertical'
 
@@ -38,11 +33,7 @@ provide(buttonGroupKey, context)
 </script>
 
 <template>
-  <div
-    class="su-button-group"
-    :class="`su-button-group--${direction}`"
-    role="group"
-  >
+  <div class="su-button-group" :class="`su-button-group--${direction}`" role="group">
     <slot />
   </div>
 </template>

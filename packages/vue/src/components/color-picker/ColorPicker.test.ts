@@ -34,10 +34,7 @@ describe('ColorPicker', () => {
     await wrapper.find('.su-color-picker__preset').trigger('click')
 
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['#ff4d4f'])
-    expect(wrapper.emitted('change')?.[0]).toEqual([
-      '#ff4d4f',
-      expect.any(MouseEvent),
-    ])
+    expect(wrapper.emitted('change')?.[0]).toEqual(['#ff4d4f', expect.any(MouseEvent)])
     expect(onChange).toHaveBeenCalledOnce()
   })
 
@@ -54,10 +51,7 @@ describe('ColorPicker', () => {
     await input.trigger('input')
 
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['#52c41a'])
-    expect(wrapper.emitted('input')?.[0]).toEqual([
-      '#52c41a',
-      expect.any(Event),
-    ])
+    expect(wrapper.emitted('input')?.[0]).toEqual(['#52c41a', expect.any(Event)])
   })
 
   it('支持透明度输出 rgba', async () => {
@@ -73,9 +67,7 @@ describe('ColorPicker', () => {
     await alpha.setValue('50')
     await alpha.trigger('input')
 
-    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([
-      'rgba(22, 119, 255, 0.5)',
-    ])
+    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['rgba(22, 119, 255, 0.5)'])
   })
 
   it('支持手动输入颜色', async () => {
@@ -86,10 +78,7 @@ describe('ColorPicker', () => {
     await input.trigger('change')
 
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['#52c41a'])
-    expect(wrapper.emitted('change')?.[0]).toEqual([
-      '#52c41a',
-      expect.any(Event),
-    ])
+    expect(wrapper.emitted('change')?.[0]).toEqual(['#52c41a', expect.any(Event)])
   })
 
   it('忽略无效颜色输入', async () => {

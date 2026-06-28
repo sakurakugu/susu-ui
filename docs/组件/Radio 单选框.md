@@ -45,9 +45,7 @@ const value = ref('weekly')
     <SuRadioButton value="default">默认尺寸</SuRadioButton>
   </SuRadioGroup>
 
-  <SuRadioButton model-value="large" value="large" size="large">
-    大尺寸
-  </SuRadioButton>
+  <SuRadioButton model-value="large" value="large" size="large"> 大尺寸 </SuRadioButton>
 </template>
 ```
 

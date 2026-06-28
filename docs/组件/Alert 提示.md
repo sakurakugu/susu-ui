@@ -18,9 +18,7 @@
 <template>
   <SuAlert title="保存成功" description="配置已经同步到当前项目。" />
 
-  <SuAlert title="需要确认">
-    当前操作会影响后续发布流程，请确认信息完整。
-  </SuAlert>
+  <SuAlert title="需要确认"> 当前操作会影响后续发布流程，请确认信息完整。 </SuAlert>
 </template>
 ```
 

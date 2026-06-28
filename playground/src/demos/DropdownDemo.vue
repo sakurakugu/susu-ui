@@ -52,15 +52,9 @@ function handleDropdownCommand(value: string | number) {
         </template>
       </SuDropdown>
       <SuDropdown v-model:visible="dropdownVisible" trigger="manual">
-        <SuButton @click="dropdownVisible = !dropdownVisible">
-          受控显示
-        </SuButton>
+        <SuButton @click="dropdownVisible = !dropdownVisible"> 受控显示 </SuButton>
         <template #menu>
-          <button
-            class="su-dropdown__item"
-            type="button"
-            @click="dropdownVisible = false"
-          >
+          <button class="su-dropdown__item" type="button" @click="dropdownVisible = false">
             关闭菜单
           </button>
         </template>

@@ -37,9 +37,7 @@ const displayValue = computed(() => {
     return props.value > props.max ? `${props.max}+` : `${props.value}`
   }
 
-  return props.value === undefined || props.value === null
-    ? ''
-    : `${props.value}`
+  return props.value === undefined || props.value === null ? '' : `${props.value}`
 })
 
 const isVisible = computed(() => {

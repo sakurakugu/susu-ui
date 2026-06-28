@@ -5,11 +5,7 @@ const timeRangeValue = ref<[string, string]>(['09:00:00', '18:00:00'])
 const shortTimeRangeValue = ref<[string, string]>(['09:30', '17:30'])
 const limitedTimeRangeValue = ref<[string, string]>(['', ''])
 
-function disableRangeLunchTime(time: {
-  hour: number
-  minute: number
-  second: number
-}) {
+function disableRangeLunchTime(time: { hour: number; minute: number; second: number }) {
   return time.hour === 12
 }
 </script>
@@ -46,10 +42,7 @@ function disableRangeLunchTime(time: {
       />
       <SuTimeRangePicker size="small" :model-value="['09:00:00', '18:00:00']" />
       <SuTimeRangePicker size="large" :model-value="['09:00:00', '18:00:00']" />
-      <SuTimeRangePicker
-        status="success"
-        :model-value="['09:00:00', '18:00:00']"
-      />
+      <SuTimeRangePicker status="success" :model-value="['09:00:00', '18:00:00']" />
       <SuTimeRangePicker status="warning" start-placeholder="警告状态" />
       <SuTimeRangePicker status="error" start-placeholder="错误状态" />
       <SuTimeRangePicker disabled start-placeholder="禁用时间范围" />

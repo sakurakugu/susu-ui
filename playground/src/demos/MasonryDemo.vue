@@ -11,10 +11,7 @@
         :gap="[16, 16]"
       >
         <template #item="{ item }">
-          <div
-            class="masonry-demo__card"
-            :class="`masonry-demo__card--${reportByItem(item).tone}`"
-          >
+          <div class="masonry-demo__card" :class="`masonry-demo__card--${reportByItem(item).tone}`">
             <div class="masonry-demo__meta">
               {{ reportByItem(item).category }}
             </div>
@@ -60,8 +57,7 @@ const reports: Report[] = [
     id: 'insight',
     category: '数据洞察',
     title: '华东渠道周报',
-    summary:
-      '区域成交额连续三周增长，餐饮客户的复购周期明显缩短，建议提高重点门店拜访频次。',
+    summary: '区域成交额连续三周增长，餐饮客户的复购周期明显缩短，建议提高重点门店拜访频次。',
     owner: '增长组',
     progress: 84,
     tone: 'blue',
@@ -98,8 +94,7 @@ const reports: Report[] = [
     id: 'content',
     category: '内容生产',
     title: '行业白皮书素材库',
-    summary:
-      '已收集 26 份客户访谈和 14 组图表素材，等待法务确认可公开引用范围。',
+    summary: '已收集 26 份客户访谈和 14 组图表素材，等待法务确认可公开引用范围。',
     owner: '内容组',
     progress: 73,
     tone: 'blue',

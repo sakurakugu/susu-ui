@@ -1,11 +1,7 @@
 <script setup lang="ts">
 import { computed, inject, provide, toRef } from 'vue'
 import { formKey, type FormSize } from '../form/context'
-import {
-  radioGroupKey,
-  type RadioGroupDirection,
-  type RadioValue,
-} from './context'
+import { radioGroupKey, type RadioGroupDirection, type RadioValue } from './context'
 
 defineOptions({
   name: 'SuRadioGroup',
@@ -36,9 +32,7 @@ const form = inject(formKey, undefined)
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
 
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
 
 function handleChange(value: RadioValue, event: Event) {
   model.value = value

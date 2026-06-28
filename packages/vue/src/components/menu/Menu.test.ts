@@ -96,10 +96,7 @@ describe('Menu', () => {
 
     expect(wrapper.emitted('update:selectedKey')?.[0]).toEqual(['button'])
     expect(wrapper.text()).toContain('菜单项：按钮')
-    expect(onSelect).toHaveBeenCalledWith(
-      'button',
-      expect.objectContaining({ key: 'button' }),
-    )
+    expect(onSelect).toHaveBeenCalledWith('button', expect.objectContaining({ key: 'button' }))
   })
 
   it('禁用菜单项不会响应交互', async () => {
@@ -129,9 +126,9 @@ describe('Menu', () => {
     })
 
     expect(horizontalWrapper.classes()).toContain('su-menu--horizontal')
-    expect(
-      horizontalWrapper.find('[role="menu"]').attributes('aria-orientation'),
-    ).toBe('horizontal')
+    expect(horizontalWrapper.find('[role="menu"]').attributes('aria-orientation')).toBe(
+      'horizontal',
+    )
     expect(collapsedWrapper.classes()).toContain('is-collapsed')
   })
 

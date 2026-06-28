@@ -76,12 +76,7 @@ function markInvalidValue() {
       <SuInput status="success" placeholder="success：成功状态" />
       <SuInput status="warning" placeholder="warning：警告状态" />
       <SuInput status="error" placeholder="error：错误状态" />
-      <SuInput
-        required
-        pattern="[a-z]+"
-        inputmode="text"
-        placeholder="原生校验：请输入小写字母"
-      />
+      <SuInput required pattern="[a-z]+" inputmode="text" placeholder="原生校验：请输入小写字母" />
       <SuInput v-model="domainValue" placeholder="prepend / append">
         <template #prepend>https://</template>
         <template #append>.com</template>
@@ -92,18 +87,8 @@ function markInvalidValue() {
         :parser="parseCurrency"
         placeholder="formatter / parser：金额格式化"
       />
-      <SuInput
-        type="number"
-        min="1"
-        max="10"
-        step="1"
-        placeholder="number：范围 1 到 10"
-      />
-      <SuInput
-        v-model="enterValue"
-        placeholder="按回车触发 enter 事件"
-        @enter="markEnterValue"
-      />
+      <SuInput type="number" min="1" max="10" step="1" placeholder="number：范围 1 到 10" />
+      <SuInput v-model="enterValue" placeholder="按回车触发 enter 事件" @enter="markEnterValue" />
       <SuInput
         v-model="inputValue"
         clearable
@@ -115,11 +100,7 @@ function markInvalidValue() {
         select-on-focus
         placeholder="select-on-focus：聚焦全选"
       />
-      <SuInput
-        v-model="trimValue"
-        trim
-        placeholder="trim：写入前去除首尾空格"
-      />
+      <SuInput v-model="trimValue" trim placeholder="trim：写入前去除首尾空格" />
       <SuInput
         v-model="digitsValue"
         :allow-input="onlyDigits"

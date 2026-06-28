@@ -63,20 +63,12 @@ const inputRefs = ref<HTMLInputElement[]>([])
 const focusedIndex = ref(-1)
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
 const normalizedLength = computed(() => Math.max(1, Math.floor(props.length)))
-const boxes = computed(() =>
-  Array.from({ length: normalizedLength.value }, (_, index) => index),
-)
-const chars = computed(() =>
-  model.value.slice(0, normalizedLength.value).split(''),
-)
+const boxes = computed(() => Array.from({ length: normalizedLength.value }, (_, index) => index))
+const chars = computed(() => model.value.slice(0, normalizedLength.value).split(''))
 const isInteractive = computed(() => !mergedDisabled.value && !props.readonly)
-const showClear = computed(
-  () => props.clearable && isInteractive.value && model.value.length > 0,
-)
+const showClear = computed(() => props.clearable && isInteractive.value && model.value.length > 0)
 const inputType = computed(() => (props.mask ? 'password' : 'text'))
 const inputMode = computed(() => (props.type === 'number' ? 'numeric' : 'text'))
 const pattern = computed(() => (props.type === 'number' ? '\\d*' : undefined))
@@ -88,8 +80,7 @@ function setInputRef(element: HTMLInputElement | null, index: number) {
 }
 
 function normalizeText(value: string) {
-  const normalizedValue =
-    props.type === 'number' ? value.replace(/\D/g, '') : value
+  const normalizedValue = props.type === 'number' ? value.replace(/\D/g, '') : value
   return Array.from(normalizedValue).slice(0, normalizedLength.value).join('')
 }
 
@@ -230,9 +221,7 @@ function clearValue() {
 
 function focus() {
   const nextIndex =
-    model.value.length >= normalizedLength.value
-      ? normalizedLength.value - 1
-      : model.value.length
+    model.value.length >= normalizedLength.value ? normalizedLength.value - 1 : model.value.length
   focusIndex(nextIndex)
 }
 
@@ -354,11 +343,7 @@ defineExpose({
 }
 
 .su-otp-input__item:hover:not(:disabled) {
-  border-color: color-mix(
-    in srgb,
-    var(--su-color-primary) 48%,
-    var(--su-color-border)
-  );
+  border-color: color-mix(in srgb, var(--su-color-primary) 48%, var(--su-color-border));
 }
 
 .su-otp-input__item:focus {

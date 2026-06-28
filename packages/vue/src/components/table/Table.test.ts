@@ -43,8 +43,7 @@ describe('Table', () => {
             TableColumn,
             { prop: 'status', label: '状态' },
             {
-              default: ({ value }: { value: unknown }) =>
-                h('strong', `状态：${value}`),
+              default: ({ value }: { value: unknown }) => h('strong', `状态：${value}`),
               header: () => h('span', '当前状态'),
             },
           ),
@@ -110,9 +109,7 @@ describe('Table', () => {
     expect(wrapper.classes()).toContain('su-table--border')
     expect(wrapper.classes()).toContain('su-table--stripe')
     expect(wrapper.classes()).toContain('is-scrollable')
-    expect(wrapper.find('.su-table__wrapper').attributes('style')).toContain(
-      'height: 120px',
-    )
+    expect(wrapper.find('.su-table__wrapper').attributes('style')).toContain('height: 120px')
   })
 
   it('触发行和单元格点击事件', async () => {

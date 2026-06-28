@@ -34,18 +34,14 @@ describe('Upload', () => {
       },
       global: {
         provide: {
-          [configProviderKey as symbol]: computed(() =>
-            mergeConfig({ locale: enUS }),
-          ),
+          [configProviderKey as symbol]: computed(() => mergeConfig({ locale: enUS })),
         },
       },
     })
 
     expect(wrapper.find('.su-upload__trigger').text()).toContain('Select file')
     expect(wrapper.find('.su-upload__status').text()).toBe('Ready')
-    expect(wrapper.find('.su-upload__remove').attributes('aria-label')).toBe(
-      'Remove file',
-    )
+    expect(wrapper.find('.su-upload__remove').attributes('aria-label')).toBe('Remove file')
   })
 
   it('选择文件后更新列表并触发上传成功', async () => {

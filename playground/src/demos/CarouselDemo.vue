@@ -87,9 +87,7 @@ const cardItems = [
             <span>工作提醒</span>
             <strong>{{ item.title }}</strong>
             <p>{{ item.description }}</p>
-            <SuButton type="primary" size="small" @click="showTopMessage">
-              查看详情
-            </SuButton>
+            <SuButton type="primary" size="small" @click="showTopMessage"> 查看详情 </SuButton>
           </div>
         </template>
       </SuCarousel>

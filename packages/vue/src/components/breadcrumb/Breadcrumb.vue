@@ -28,20 +28,11 @@ const emit = defineEmits<{
 
 defineSlots<{
   default?: () => unknown
-  item?: (props: {
-    item: BreadcrumbItem
-    index: number
-    isLast: boolean
-  }) => unknown
+  item?: (props: { item: BreadcrumbItem; index: number; isLast: boolean }) => unknown
   separator?: () => unknown
 }>()
 
-function handleClick(
-  item: BreadcrumbItem,
-  index: number,
-  isLast: boolean,
-  event: MouseEvent,
-) {
+function handleClick(item: BreadcrumbItem, index: number, isLast: boolean, event: MouseEvent) {
   if (item.disabled || isLast) {
     event.preventDefault()
     return

@@ -23,9 +23,7 @@ const { showTopMessage } = usePlaygroundDemoContext()
           <span>本周目标完成率</span>
         </div>
         <template #footer>
-          <SuButton type="primary" size="small" @click="showTopMessage">
-            继续处理
-          </SuButton>
+          <SuButton type="primary" size="small" @click="showTopMessage"> 继续处理 </SuButton>
         </template>
       </SuCard>
       <SuCard padding="small" shadow="never">

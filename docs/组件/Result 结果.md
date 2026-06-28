@@ -31,11 +31,7 @@
 
 ```vue
 <template>
-  <SuResult
-    status="success"
-    title="发布成功"
-    description="内容已经同步到线上环境。"
-  >
+  <SuResult status="success" title="发布成功" description="内容已经同步到线上环境。">
     <template #footer>
       <SuButton type="primary">查看详情</SuButton>
       <SuButton>返回列表</SuButton>

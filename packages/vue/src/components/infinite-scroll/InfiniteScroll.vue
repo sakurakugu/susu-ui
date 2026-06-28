@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  nextTick,
-  onBeforeUnmount,
-  onMounted,
-  ref,
-  watch,
-  type CSSProperties,
-} from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch, type CSSProperties } from 'vue'
 import { useLocale } from '../../config-provider'
 
 defineOptions({
@@ -81,15 +73,11 @@ const rootStyle = computed<CSSProperties>(() =>
         height: formatSize(props.height),
       },
 )
-const mergedLoadingText = computed(
-  () => props.loadingText ?? locale.value.infiniteScroll.loading,
-)
+const mergedLoadingText = computed(() => props.loadingText ?? locale.value.infiniteScroll.loading)
 const mergedFinishedText = computed(
   () => props.finishedText ?? locale.value.infiniteScroll.finished,
 )
-const mergedErrorText = computed(
-  () => props.errorText ?? locale.value.infiniteScroll.error,
-)
+const mergedErrorText = computed(() => props.errorText ?? locale.value.infiniteScroll.error)
 
 function formatSize(value: number | string) {
   return typeof value === 'number' ? `${value}px` : value
@@ -115,12 +103,8 @@ function getScrollState(target: InfiniteScrollTarget): InfiniteScrollState {
   if (target === window) {
     const documentElement = document.documentElement
     const body = document.body
-    const scrollTop =
-      window.scrollY || documentElement.scrollTop || body.scrollTop || 0
-    const scrollHeight = Math.max(
-      documentElement.scrollHeight,
-      body.scrollHeight,
-    )
+    const scrollTop = window.scrollY || documentElement.scrollTop || body.scrollTop || 0
+    const scrollHeight = Math.max(documentElement.scrollHeight, body.scrollHeight)
     const clientHeight = window.innerHeight || documentElement.clientHeight
 
     return {
@@ -132,10 +116,7 @@ function getScrollState(target: InfiniteScrollTarget): InfiniteScrollState {
   }
 
   const element = target as HTMLElement
-  const remaining = Math.max(
-    0,
-    element.scrollHeight - element.scrollTop - element.clientHeight,
-  )
+  const remaining = Math.max(0, element.scrollHeight - element.scrollTop - element.clientHeight)
 
   return {
     scrollTop: element.scrollTop,
@@ -146,13 +127,7 @@ function getScrollState(target: InfiniteScrollTarget): InfiniteScrollState {
 }
 
 function canLoad() {
-  return (
-    !props.loading &&
-    !props.finished &&
-    !props.disabled &&
-    !props.error &&
-    !loadLocked.value
-  )
+  return !props.loading && !props.finished && !props.disabled && !props.error && !loadLocked.value
 }
 
 function check() {

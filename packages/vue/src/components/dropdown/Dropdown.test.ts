@@ -27,9 +27,7 @@ describe('Dropdown', () => {
     const menu = document.body.querySelector('.su-dropdown__menu')
     expect(menu?.getAttribute('role')).toBe('menu')
     expect(menu?.textContent).toContain('编辑')
-    expect(wrapper.find('.su-dropdown').attributes('aria-expanded')).toBe(
-      'true',
-    )
+    expect(wrapper.find('.su-dropdown').attributes('aria-expanded')).toBe('true')
 
     wrapper.unmount()
   })
@@ -46,9 +44,7 @@ describe('Dropdown', () => {
     })
 
     await wrapper.find('.su-dropdown').trigger('click')
-    document.body
-      .querySelector<HTMLButtonElement>('.su-dropdown__item')
-      ?.click()
+    document.body.querySelector<HTMLButtonElement>('.su-dropdown__item')?.click()
     await wrapper.vm.$nextTick()
 
     expect(wrapper.emitted('command')?.[0]).toEqual([
@@ -73,9 +69,7 @@ describe('Dropdown', () => {
     })
 
     await wrapper.vm.$nextTick()
-    document.body
-      .querySelector<HTMLButtonElement>('.su-dropdown__item')
-      ?.click()
+    document.body.querySelector<HTMLButtonElement>('.su-dropdown__item')?.click()
 
     expect(wrapper.emitted('command')).toBeUndefined()
 
@@ -99,9 +93,7 @@ describe('Dropdown', () => {
 
     const menu = document.body.querySelector('.su-dropdown__menu')
     expect(menu?.classList.contains('su-dropdown__menu--top')).toBe(true)
-    expect(document.body.querySelector('.custom-menu')?.textContent).toBe(
-      '自定义内容',
-    )
+    expect(document.body.querySelector('.custom-menu')?.textContent).toBe('自定义内容')
 
     wrapper.unmount()
   })

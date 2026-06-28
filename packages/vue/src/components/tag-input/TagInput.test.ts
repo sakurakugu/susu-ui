@@ -26,9 +26,7 @@ describe('TagInput', () => {
     await input.setValue('续费意向')
     await input.trigger('keydown', { key: 'Enter' })
 
-    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([
-      ['重点客户', '续费意向'],
-    ])
+    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([['重点客户', '续费意向']])
     expect(wrapper.emitted('add')?.[0]).toEqual(['续费意向'])
     expect(input.element.value).toBe('')
   })
@@ -113,9 +111,7 @@ describe('TagInput', () => {
     await input.setValue('重点客户')
     await input.trigger('keydown', { key: 'Enter' })
 
-    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([
-      ['重点客户', '重点客户'],
-    ])
+    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([['重点客户', '重点客户']])
   })
 
   it('支持最大标签数量限制', async () => {

@@ -13,9 +13,7 @@ describe('Grid', () => {
 
     expect(wrapper.classes()).toContain('su-grid')
     expect(wrapper.attributes('style')).toContain('--su-grid-columns: 12')
-    expect(wrapper.attributes('style')).toContain(
-      '--su-grid-column-gap: var(--su-space-md)',
-    )
+    expect(wrapper.attributes('style')).toContain('--su-grid-column-gap: var(--su-space-md)')
     expect(wrapper.text()).toContain('销售概览')
   })
 
@@ -33,9 +31,7 @@ describe('Grid', () => {
     expect(wrapper.classes()).toContain('su-grid--dense')
     expect(wrapper.attributes('style')).toContain('--su-grid-columns: 4')
     expect(wrapper.attributes('style')).toContain('--su-grid-column-gap: 24px')
-    expect(wrapper.attributes('style')).toContain(
-      '--su-grid-row-gap: var(--su-space-sm)',
-    )
+    expect(wrapper.attributes('style')).toContain('--su-grid-row-gap: var(--su-space-sm)')
     expect(wrapper.attributes('style')).toContain('align-items: center')
     expect(wrapper.attributes('style')).toContain('justify-items: start')
   })
@@ -48,9 +44,7 @@ describe('Grid', () => {
     })
 
     expect(wrapper.classes()).toContain('su-grid--auto-fit')
-    expect(wrapper.attributes('style')).toContain(
-      '--su-grid-min-item-width: 180px',
-    )
+    expect(wrapper.attributes('style')).toContain('--su-grid-min-item-width: 180px')
   })
 
   it('GridItem 支持跨列、跨行、偏移和排序', () => {

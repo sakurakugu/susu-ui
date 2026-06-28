@@ -49,9 +49,7 @@ function openBasicTour() {
     <div class="tour-demo">
       <div class="tour-demo__toolbar">
         <SuButton type="primary" @click="openBasicTour">开启引导</SuButton>
-        <SuButton variant="outline" @click="customVisible = true">
-          自定义底部
-        </SuButton>
+        <SuButton variant="outline" @click="customVisible = true"> 自定义底部 </SuButton>
       </div>
 
       <div class="tour-demo__workspace">
@@ -67,11 +65,7 @@ function openBasicTour() {
         </div>
       </div>
 
-      <SuTour
-        v-model="basicVisible"
-        v-model:current="basicCurrent"
-        :steps="basicSteps"
-      />
+      <SuTour v-model="basicVisible" v-model:current="basicCurrent" :steps="basicSteps" />
 
       <SuTour v-model="customVisible" :steps="customSteps" :width="360">
         <template #title="{ step }">
@@ -85,9 +79,7 @@ function openBasicTour() {
         <template #footer="{ close }">
           <div class="tour-demo__custom-footer">
             <span>仅提醒一次</span>
-            <SuButton size="small" type="primary" @click="close">
-              我知道了
-            </SuButton>
+            <SuButton size="small" type="primary" @click="close"> 我知道了 </SuButton>
           </div>
         </template>
       </SuTour>

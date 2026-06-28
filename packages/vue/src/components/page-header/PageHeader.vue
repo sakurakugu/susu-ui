@@ -33,11 +33,7 @@ const props = withDefaults(
 
 const emit = defineEmits<{
   back: [event: MouseEvent]
-  breadcrumbClick: [
-    item: PageHeaderBreadcrumbItem,
-    index: number,
-    event: MouseEvent,
-  ]
+  breadcrumbClick: [item: PageHeaderBreadcrumbItem, index: number, event: MouseEvent]
 }>()
 
 defineSlots<{
@@ -57,11 +53,7 @@ function handleBack(event: MouseEvent) {
   emit('back', event)
 }
 
-function handleBreadcrumbClick(
-  item: PageHeaderBreadcrumbItem,
-  index: number,
-  event: MouseEvent,
-) {
+function handleBreadcrumbClick(item: PageHeaderBreadcrumbItem, index: number, event: MouseEvent) {
   emit('breadcrumbClick', item, index, event)
 }
 </script>
@@ -76,10 +68,7 @@ function handleBreadcrumbClick(
       },
     ]"
   >
-    <div
-      v-if="$slots.breadcrumb || hasBreadcrumb"
-      class="su-page-header__breadcrumb"
-    >
+    <div v-if="$slots.breadcrumb || hasBreadcrumb" class="su-page-header__breadcrumb">
       <slot name="breadcrumb">
         <SuBreadcrumb :items="breadcrumb" @click="handleBreadcrumbClick" />
       </slot>

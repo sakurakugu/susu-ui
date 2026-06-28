@@ -100,16 +100,8 @@ function close(event: MouseEvent) {
 <style>
 .su-alert {
   --su-alert-color: var(--su-color-primary);
-  --su-alert-border-color: color-mix(
-    in srgb,
-    var(--su-color-primary) 24%,
-    var(--su-color-border)
-  );
-  --su-alert-bg: color-mix(
-    in srgb,
-    var(--su-color-primary-soft) 70%,
-    var(--su-color-bg-elevated)
-  );
+  --su-alert-border-color: color-mix(in srgb, var(--su-color-primary) 24%, var(--su-color-border));
+  --su-alert-bg: color-mix(in srgb, var(--su-color-primary-soft) 70%, var(--su-color-bg-elevated));
 
   display: flex;
   align-items: flex-start;
@@ -130,11 +122,7 @@ function close(event: MouseEvent) {
     var(--su-color-success-hover) 28%,
     var(--su-color-border)
   );
-  --su-alert-bg: color-mix(
-    in srgb,
-    var(--su-color-success-soft) 72%,
-    var(--su-color-bg-elevated)
-  );
+  --su-alert-bg: color-mix(in srgb, var(--su-color-success-soft) 72%, var(--su-color-bg-elevated));
 }
 
 .su-alert--warning {
@@ -144,11 +132,7 @@ function close(event: MouseEvent) {
     var(--su-color-warning-hover) 32%,
     var(--su-color-border)
   );
-  --su-alert-bg: color-mix(
-    in srgb,
-    var(--su-color-warning-soft) 72%,
-    var(--su-color-bg-elevated)
-  );
+  --su-alert-bg: color-mix(in srgb, var(--su-color-warning-soft) 72%, var(--su-color-bg-elevated));
 }
 
 .su-alert--error {
@@ -158,11 +142,7 @@ function close(event: MouseEvent) {
     var(--su-color-error-hover) 32%,
     var(--su-color-border)
   );
-  --su-alert-bg: color-mix(
-    in srgb,
-    var(--su-color-error-soft) 72%,
-    var(--su-color-bg-elevated)
-  );
+  --su-alert-bg: color-mix(in srgb, var(--su-color-error-soft) 72%, var(--su-color-bg-elevated));
 }
 
 .su-alert__icon {

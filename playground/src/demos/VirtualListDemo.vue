@@ -10,11 +10,7 @@ const customers = Array.from({ length: 1000 }, (_, index) => ({
 const activityItems = Array.from({ length: 300 }, (_, index) => ({
   id: `activity-${index + 1}`,
   title: `工单 ${String(index + 1).padStart(3, '0')}`,
-  description: [
-    '客户补充了发票信息',
-    '销售提交了折扣申请',
-    '实施团队更新了交付计划',
-  ][index % 3],
+  description: ['客户补充了发票信息', '销售提交了折扣申请', '实施团队更新了交付计划'][index % 3],
   time: `${9 + (index % 8)}:${index % 2 === 0 ? '00' : '30'}`,
 }))
 </script>
@@ -23,13 +19,7 @@ const activityItems = Array.from({ length: 300 }, (_, index) => ({
   <section id="virtual-list" class="panel">
     <h2>虚拟列表</h2>
     <div class="virtual-list-demo">
-      <SuVirtualList
-        :items="customers"
-        :height="320"
-        :item-height="56"
-        item-key="id"
-        :buffer="4"
-      >
+      <SuVirtualList :items="customers" :height="320" :item-height="56" item-key="id" :buffer="4">
         <template #default="{ item, index }">
           <div class="virtual-list-demo__customer">
             <div>
@@ -38,9 +28,7 @@ const activityItems = Array.from({ length: 300 }, (_, index) => ({
             </div>
             <div>
               <SuTag size="small" type="primary">{{ item.stage }}</SuTag>
-              <span class="virtual-list-demo__amount">
-                ¥{{ item.amount.toLocaleString() }}
-              </span>
+              <span class="virtual-list-demo__amount"> ¥{{ item.amount.toLocaleString() }} </span>
               <span class="virtual-list-demo__index">#{{ index + 1 }}</span>
             </div>
           </div>

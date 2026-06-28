@@ -66,12 +66,8 @@ function handleSelect(option: CommandPaletteOption) {
     <h2>命令面板</h2>
 
     <div class="command-palette-demo">
-      <SuButton type="primary" @click="basicVisible = true">
-        打开命令面板
-      </SuButton>
-      <SuButton variant="outline" @click="customVisible = true">
-        自定义命令项
-      </SuButton>
+      <SuButton type="primary" @click="basicVisible = true"> 打开命令面板 </SuButton>
+      <SuButton variant="outline" @click="customVisible = true"> 自定义命令项 </SuButton>
       <SuButton @click="controlledVisible = true">受控搜索词</SuButton>
     </div>
 

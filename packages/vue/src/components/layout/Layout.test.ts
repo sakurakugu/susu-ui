@@ -67,15 +67,9 @@ describe('Layout', () => {
       },
     })
 
-    expect(wrapper.find('.su-layout__header').attributes('style')).toContain(
-      'height: 72px',
-    )
-    expect(wrapper.find('.su-layout__sider').attributes('style')).toContain(
-      'width: 80px',
-    )
-    expect(wrapper.find('.su-layout__footer').attributes('style')).toContain(
-      'min-height: 48px',
-    )
+    expect(wrapper.find('.su-layout__header').attributes('style')).toContain('height: 72px')
+    expect(wrapper.find('.su-layout__sider').attributes('style')).toContain('width: 80px')
+    expect(wrapper.find('.su-layout__footer').attributes('style')).toContain('min-height: 48px')
   })
 
   it('支持受控折叠和自定义触发器', async () => {
@@ -90,10 +84,8 @@ describe('Layout', () => {
         },
       },
       slots: {
-        default: ({ collapsed: slotCollapsed }) =>
-          slotCollapsed ? '精简菜单' : '完整菜单',
-        trigger: ({ collapsed: slotCollapsed }) =>
-          slotCollapsed ? '展开菜单' : '收起菜单',
+        default: ({ collapsed: slotCollapsed }) => (slotCollapsed ? '精简菜单' : '完整菜单'),
+        trigger: ({ collapsed: slotCollapsed }) => (slotCollapsed ? '展开菜单' : '收起菜单'),
       },
     })
 

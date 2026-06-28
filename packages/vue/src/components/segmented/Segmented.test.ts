@@ -40,9 +40,7 @@ describe('Segmented', () => {
     expect(wrapper.classes()).toContain('su-segmented--medium')
     expect(wrapper.attributes('role')).toBe('radiogroup')
     expect(wrapper.findAll('.su-segmented__item')).toHaveLength(3)
-    expect(wrapper.find('.su-segmented__item').attributes('aria-checked')).toBe(
-      'true',
-    )
+    expect(wrapper.find('.su-segmented__item').attributes('aria-checked')).toBe('true')
   })
 
   it('支持 v-model 更新和 change 事件', async () => {
@@ -110,9 +108,7 @@ describe('Segmented', () => {
     expect(wrapper.classes()).toContain('su-segmented--large')
     expect(wrapper.classes()).toContain('is-block')
     expect(wrapper.classes()).toContain('is-disabled')
-    expect(
-      wrapper.find('.su-segmented__item').attributes('disabled'),
-    ).toBeDefined()
+    expect(wrapper.find('.su-segmented__item').attributes('disabled')).toBeDefined()
   })
 
   it('跟随表单尺寸和禁用状态', () => {
@@ -134,8 +130,6 @@ describe('Segmented', () => {
 
     expect(wrapper.classes()).toContain('su-segmented--small')
     expect(wrapper.classes()).toContain('is-disabled')
-    expect(
-      wrapper.find('.su-segmented__item').attributes('disabled'),
-    ).toBeDefined()
+    expect(wrapper.find('.su-segmented__item').attributes('disabled')).toBeDefined()
   })
 })

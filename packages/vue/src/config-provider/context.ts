@@ -1,10 +1,4 @@
-import {
-  computed,
-  inject,
-  provide,
-  type ComputedRef,
-  type InjectionKey,
-} from 'vue'
+import { computed, inject, provide, type ComputedRef, type InjectionKey } from 'vue'
 import { zhCN, type DeepPartial, type SusuLocale } from '../locale'
 
 export type SusuConfig = {
@@ -19,8 +13,7 @@ export const defaultConfig: SusuConfig = {
   locale: zhCN,
 }
 
-export const configProviderKey: InjectionKey<ComputedRef<SusuConfig>> =
-  Symbol('configProvider')
+export const configProviderKey: InjectionKey<ComputedRef<SusuConfig>> = Symbol('configProvider')
 
 export function mergeConfig(config?: SusuConfigProviderProps): SusuConfig {
   return {
@@ -30,10 +23,7 @@ export function mergeConfig(config?: SusuConfigProviderProps): SusuConfig {
   }
 }
 
-function mergeLocale(
-  defaultLocale: SusuLocale,
-  locale?: DeepPartial<SusuLocale>,
-): SusuLocale {
+function mergeLocale(defaultLocale: SusuLocale, locale?: DeepPartial<SusuLocale>): SusuLocale {
   if (!locale) {
     return defaultLocale
   }

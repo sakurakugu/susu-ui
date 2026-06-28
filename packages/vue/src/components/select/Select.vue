@@ -59,15 +59,11 @@ const locale = useLocale()
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
 
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
 
 const showPlaceholder = computed(() => Boolean(props.placeholder))
 
-const showClear = computed(
-  () => props.clearable && !mergedDisabled.value && model.value !== '',
-)
+const showClear = computed(() => props.clearable && !mergedDisabled.value && model.value !== '')
 
 const hasOptions = computed(() => Boolean(props.options?.length))
 
@@ -188,11 +184,7 @@ defineExpose({
 }
 
 .su-select:hover:not(.is-disabled) {
-  border-color: color-mix(
-    in srgb,
-    var(--su-color-primary) 48%,
-    var(--su-color-border)
-  );
+  border-color: color-mix(in srgb, var(--su-color-primary) 48%, var(--su-color-border));
 }
 
 .su-select:focus-within {
@@ -270,11 +262,7 @@ defineExpose({
 }
 
 .su-select.is-empty .su-select__inner {
-  color: color-mix(
-    in srgb,
-    var(--su-color-text-muted) 72%,
-    var(--su-color-text)
-  );
+  color: color-mix(in srgb, var(--su-color-text-muted) 72%, var(--su-color-text));
 }
 
 .su-select__clear {

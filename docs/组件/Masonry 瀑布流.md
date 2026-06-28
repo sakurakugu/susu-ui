@@ -37,12 +37,7 @@
 
 ```vue
 <template>
-  <SuMasonry
-    :items="reports"
-    item-key="id"
-    item-tag="article"
-    min-column-width="240px"
-  >
+  <SuMasonry :items="reports" item-key="id" item-tag="article" min-column-width="240px">
     <template #item="{ item, index }">
       <h3>{{ index + 1 }}. {{ item.title }}</h3>
       <p>{{ item.summary }}</p>

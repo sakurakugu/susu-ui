@@ -17,12 +17,8 @@ describe('Badge', () => {
     expect(wrapper.classes()).not.toContain('is-standalone')
     expect(wrapper.find('button').text()).toBe('消息')
     expect(wrapper.find('.su-badge__content').text()).toBe('8')
-    expect(wrapper.find('.su-badge__content').classes()).toContain(
-      'su-badge--error',
-    )
-    expect(wrapper.find('.su-badge__content').classes()).toContain(
-      'su-badge--top-right',
-    )
+    expect(wrapper.find('.su-badge__content').classes()).toContain('su-badge--error')
+    expect(wrapper.find('.su-badge__content').classes()).toContain('su-badge--top-right')
   })
 
   it('支持最大值显示', () => {
@@ -88,9 +84,7 @@ describe('Badge', () => {
 
     return wrapper.vm.$nextTick().then(() => {
       expect(wrapper.find('.su-badge__content').text()).toBe('新')
-      expect(wrapper.find('.su-badge__content').classes()).toContain(
-        'su-badge--bottom-left',
-      )
+      expect(wrapper.find('.su-badge__content').classes()).toContain('su-badge--bottom-left')
     })
   })
 })

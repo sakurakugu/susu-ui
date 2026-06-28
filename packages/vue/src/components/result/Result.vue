@@ -41,8 +41,7 @@ const iconText = computed(() => {
 })
 
 const iconStyle = computed(() => {
-  const size =
-    typeof props.iconSize === 'number' ? `${props.iconSize}px` : props.iconSize
+  const size = typeof props.iconSize === 'number' ? `${props.iconSize}px` : props.iconSize
 
   return {
     width: size,
@@ -76,11 +75,7 @@ const iconStyle = computed(() => {
 <style>
 .su-result {
   --su-result-color: var(--su-color-primary);
-  --su-result-bg: color-mix(
-    in srgb,
-    var(--su-color-primary-soft) 72%,
-    var(--su-color-bg-elevated)
-  );
+  --su-result-bg: color-mix(in srgb, var(--su-color-primary-soft) 72%, var(--su-color-bg-elevated));
 
   display: flex;
   align-items: center;
@@ -96,29 +91,17 @@ const iconStyle = computed(() => {
 
 .su-result--success {
   --su-result-color: var(--su-color-success);
-  --su-result-bg: color-mix(
-    in srgb,
-    var(--su-color-success-soft) 72%,
-    var(--su-color-bg-elevated)
-  );
+  --su-result-bg: color-mix(in srgb, var(--su-color-success-soft) 72%, var(--su-color-bg-elevated));
 }
 
 .su-result--warning {
   --su-result-color: var(--su-color-warning);
-  --su-result-bg: color-mix(
-    in srgb,
-    var(--su-color-warning-soft) 72%,
-    var(--su-color-bg-elevated)
-  );
+  --su-result-bg: color-mix(in srgb, var(--su-color-warning-soft) 72%, var(--su-color-bg-elevated));
 }
 
 .su-result--error {
   --su-result-color: var(--su-color-error);
-  --su-result-bg: color-mix(
-    in srgb,
-    var(--su-color-error-soft) 72%,
-    var(--su-color-bg-elevated)
-  );
+  --su-result-bg: color-mix(in srgb, var(--su-color-error-soft) 72%, var(--su-color-bg-elevated));
 }
 
 .su-result__icon {

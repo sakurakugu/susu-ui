@@ -98,26 +98,20 @@ describe('Tour', () => {
     })
 
     await wrapper.vm.$nextTick()
-    document.body
-      .querySelector<HTMLButtonElement>('.su-tour__button--primary')
-      ?.click()
+    document.body.querySelector<HTMLButtonElement>('.su-tour__button--primary')?.click()
     await wrapper.vm.$nextTick()
     await wrapper.vm.$nextTick()
 
     expect(wrapper.emitted('update:current')?.[0]).toEqual([1])
     expect(wrapper.emitted('change')?.[0]).toEqual([1, steps[1]])
-    expect(document.body.querySelector('.su-tour')?.textContent).toContain(
-      '导出报表',
-    )
+    expect(document.body.querySelector('.su-tour')?.textContent).toContain('导出报表')
 
     document.body.querySelector<HTMLButtonElement>('.su-tour__button')?.click()
     await wrapper.vm.$nextTick()
     expect(wrapper.emitted('update:current')?.[1]).toEqual([0])
 
     await wrapper.setProps({ current: 1 })
-    document.body
-      .querySelector<HTMLButtonElement>('.su-tour__button--primary')
-      ?.click()
+    document.body.querySelector<HTMLButtonElement>('.su-tour__button--primary')?.click()
     await wrapper.vm.$nextTick()
     expect(wrapper.emitted('finish')).toHaveLength(1)
     expect(wrapper.emitted('close')?.[0]).toEqual(['finish'])
@@ -199,15 +193,9 @@ describe('Tour', () => {
     expect(tour?.classList.contains('su-tour--right')).toBe(true)
     expect(tour?.style.width).toBe('360px')
     expect(document.body.querySelector('.su-tour__mask')).toBeNull()
-    expect(document.body.querySelector('.custom-title')?.textContent).toBe(
-      '自定义标题',
-    )
-    expect(
-      document.body.querySelector('.custom-description')?.textContent,
-    ).toBe('自定义描述')
-    expect(document.body.querySelector('.custom-footer')?.textContent).toBe(
-      '我知道了',
-    )
+    expect(document.body.querySelector('.custom-title')?.textContent).toBe('自定义标题')
+    expect(document.body.querySelector('.custom-description')?.textContent).toBe('自定义描述')
+    expect(document.body.querySelector('.custom-footer')?.textContent).toBe('我知道了')
 
     wrapper.unmount()
   })
@@ -224,12 +212,8 @@ describe('Tour', () => {
     await wrapper.vm.$nextTick()
     await wrapper.vm.$nextTick()
 
-    expect(document.body.querySelector('.su-tour')?.textContent).toContain(
-      '全局介绍',
-    )
-    expect(
-      document.body.querySelector<HTMLElement>('.su-tour')?.style.top,
-    ).not.toBe('')
+    expect(document.body.querySelector('.su-tour')?.textContent).toContain('全局介绍')
+    expect(document.body.querySelector<HTMLElement>('.su-tour')?.style.top).not.toBe('')
 
     wrapper.unmount()
   })

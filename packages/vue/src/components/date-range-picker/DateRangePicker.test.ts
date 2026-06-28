@@ -36,12 +36,8 @@ describe('DateRangePicker', () => {
       .find((item) => item.attributes('aria-label') === '2026-06-12')
       ?.trigger('click')
 
-    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([
-      ['2026-06-12', '2026-06-20'],
-    ])
-    expect(wrapper.emitted('change')?.[0]).toEqual([
-      ['2026-06-12', '2026-06-20'],
-    ])
+    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([['2026-06-12', '2026-06-20']])
+    expect(wrapper.emitted('change')?.[0]).toEqual([['2026-06-12', '2026-06-20']])
 
     await pickers[1].find('.su-date-picker__trigger').trigger('click')
     await pickers[1]
@@ -49,9 +45,7 @@ describe('DateRangePicker', () => {
       .find((item) => item.attributes('aria-label') === '2026-06-22')
       ?.trigger('click')
 
-    expect(wrapper.emitted('update:modelValue')?.[1]).toEqual([
-      ['2026-06-12', '2026-06-22'],
-    ])
+    expect(wrapper.emitted('update:modelValue')?.[1]).toEqual([['2026-06-12', '2026-06-22']])
     expect(onChange).toHaveBeenCalledTimes(2)
   })
 
@@ -91,8 +85,7 @@ describe('DateRangePicker', () => {
 
   it('支持 disabledDate 按位置禁用日期', async () => {
     const disabledDate = vi.fn(
-      (date: Date, type: 'start' | 'end') =>
-        type === 'end' && date.getDay() === 0,
+      (date: Date, type: 'start' | 'end') => type === 'end' && date.getDay() === 0,
     )
     const wrapper = mount(DateRangePicker, {
       props: {
@@ -146,9 +139,7 @@ describe('DateRangePicker', () => {
     })
 
     expect(disabledWrapper.classes()).toContain('is-disabled')
-    expect(
-      disabledWrapper.findAll('input')[0].attributes('disabled'),
-    ).toBeDefined()
+    expect(disabledWrapper.findAll('input')[0].attributes('disabled')).toBeDefined()
     await disabledWrapper.find('.su-date-picker__trigger').trigger('click')
     expect(disabledWrapper.find('.su-date-picker__panel').exists()).toBe(false)
 
@@ -159,9 +150,7 @@ describe('DateRangePicker', () => {
     })
 
     expect(readonlyWrapper.classes()).toContain('is-readonly')
-    expect(
-      readonlyWrapper.findAll('input')[0].attributes('readonly'),
-    ).toBeDefined()
+    expect(readonlyWrapper.findAll('input')[0].attributes('readonly')).toBeDefined()
   })
 
   it('转发原生属性和事件', async () => {

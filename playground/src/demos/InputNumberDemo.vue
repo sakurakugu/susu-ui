@@ -27,24 +27,14 @@ const percentValue = ref(0.35)
       <SuInputNumber status="success" :model-value="88" />
       <SuInputNumber status="warning" :model-value="3" />
       <SuInputNumber status="error" :model-value="-1" />
-      <SuInputNumber
-        v-model="percentValue"
-        :step="0.05"
-        :precision="2"
-        placeholder="百分比"
-      >
+      <SuInputNumber v-model="percentValue" :step="0.05" :precision="2" placeholder="百分比">
         <template #suffix>%</template>
       </SuInputNumber>
       <SuInputNumber :model-value="128" :controls="false">
         <template #prefix>¥</template>
         <template #suffix>元</template>
       </SuInputNumber>
-      <SuInputNumber
-        required
-        :min="1"
-        :max="10"
-        placeholder="原生必填，范围 1 到 10"
-      />
+      <SuInputNumber required :min="1" :max="10" placeholder="原生必填，范围 1 到 10" />
     </div>
   </section>
 </template>

@@ -55,9 +55,7 @@ const failed = ref(false)
 const hasImage = computed(() => Boolean(props.src) && !failed.value)
 const showPlaceholder = computed(() => hasImage.value && !loaded.value)
 const showError = computed(() => !hasImage.value)
-const canPreview = computed(
-  () => props.preview && hasImage.value && loaded.value,
-)
+const canPreview = computed(() => props.preview && hasImage.value && loaded.value)
 
 const imageStyle = computed(() => {
   const style: Record<string, string> = {}
@@ -136,12 +134,7 @@ function handlePreview() {
 
     <div v-if="showError" class="su-image__error">
       <slot name="error">
-        <img
-          v-if="fallback"
-          class="su-image__fallback"
-          :src="fallback"
-          :alt="fallbackText"
-        />
+        <img v-if="fallback" class="su-image__fallback" :src="fallback" :alt="fallbackText" />
         <span v-else class="su-image__error-text">{{ fallbackText }}</span>
       </slot>
     </div>

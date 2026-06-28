@@ -22,9 +22,7 @@ describe('Tooltip', () => {
     const popper = document.body.querySelector('.su-tooltip__popper')
     expect(popper?.textContent).toContain('保存当前配置')
     expect(popper?.getAttribute('role')).toBe('tooltip')
-    expect(
-      wrapper.find('.su-tooltip').attributes('aria-describedby'),
-    ).toBeTruthy()
+    expect(wrapper.find('.su-tooltip').attributes('aria-describedby')).toBeTruthy()
 
     wrapper.unmount()
     vi.useRealTimers()

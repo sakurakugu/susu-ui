@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  nextTick,
-  onBeforeUnmount,
-  onMounted,
-  ref,
-  watch,
-  type CSSProperties,
-} from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch, type CSSProperties } from 'vue'
 import { useLocale } from '../../config-provider'
 
 defineOptions({
@@ -88,11 +80,7 @@ const props = withDefaults(
 const emit = defineEmits<{
   nodeClick: [node: VirtualTreeRenderNode, event: MouseEvent | KeyboardEvent]
   nodeExpand: [node: VirtualTreeRenderNode, expanded: boolean]
-  check: [
-    keys: VirtualTreeNodeKey[],
-    node: VirtualTreeRenderNode,
-    checked: boolean,
-  ]
+  check: [keys: VirtualTreeNodeKey[], node: VirtualTreeRenderNode, checked: boolean]
   scroll: [event: Event, state: VirtualTreeScrollState]
 }>()
 
@@ -104,18 +92,14 @@ defineSlots<{
 const viewportRef = ref<HTMLElement>()
 const locale = useLocale()
 const scrollTop = ref(0)
-const measuredHeight = ref(
-  typeof props.height === 'number' ? props.height : props.itemHeight * 10,
-)
+const measuredHeight = ref(typeof props.height === 'number' ? props.height : props.itemHeight * 10)
 const autoExpandedKeys = ref<VirtualTreeNodeKey[]>([])
 
 let resizeObserver: ResizeObserver | undefined
 
 const normalizedItemHeight = computed(() => Math.max(1, props.itemHeight))
 const normalizedBuffer = computed(() => Math.max(0, Math.floor(props.buffer)))
-const mergedEmptyText = computed(
-  () => props.emptyText ?? locale.value.tree.empty,
-)
+const mergedEmptyText = computed(() => props.emptyText ?? locale.value.tree.empty)
 
 const viewportStyle = computed<CSSProperties>(() => ({
   height: formatSize(props.height),
@@ -125,9 +109,7 @@ const itemStyle = computed<CSSProperties>(() => ({
   height: `${normalizedItemHeight.value}px`,
 }))
 
-const normalizedData = computed<VirtualTreeRenderNode[]>(() =>
-  normalizeNodes(props.data),
-)
+const normalizedData = computed<VirtualTreeRenderNode[]>(() => normalizeNodes(props.data))
 
 const flatNodes = computed(() => flattenNodes(normalizedData.value))
 const hasData = computed(() => normalizedData.value.length > 0)
@@ -146,20 +128,14 @@ const expandedKeySet = computed(() => new Set(mergedExpandedKeys.value))
 const checkedKeySet = computed(() => new Set(checkedKeys.value))
 
 const visibleNodes = computed(() => flattenVisibleNodes(normalizedData.value))
-const totalHeight = computed(
-  () => visibleNodes.value.length * normalizedItemHeight.value,
-)
+const totalHeight = computed(() => visibleNodes.value.length * normalizedItemHeight.value)
 
 const visibleCount = computed(() =>
   Math.max(1, Math.ceil(measuredHeight.value / normalizedItemHeight.value)),
 )
 
 const startIndex = computed(() =>
-  Math.max(
-    0,
-    Math.floor(scrollTop.value / normalizedItemHeight.value) -
-      normalizedBuffer.value,
-  ),
+  Math.max(0, Math.floor(scrollTop.value / normalizedItemHeight.value) - normalizedBuffer.value),
 )
 
 const endIndex = computed(() =>
@@ -170,9 +146,7 @@ const endIndex = computed(() =>
 )
 
 const offsetTop = computed(() => startIndex.value * normalizedItemHeight.value)
-const renderedNodes = computed(() =>
-  visibleNodes.value.slice(startIndex.value, endIndex.value),
-)
+const renderedNodes = computed(() => visibleNodes.value.slice(startIndex.value, endIndex.value))
 
 const contentStyle = computed<CSSProperties>(() => ({
   height: `${totalHeight.value}px`,
@@ -229,27 +203,18 @@ function normalizeNodes(
     ...node,
     level,
     parentKey,
-    children: node.children
-      ? normalizeNodes(node.children, level + 1, node.key)
-      : undefined,
+    children: node.children ? normalizeNodes(node.children, level + 1, node.key) : undefined,
   }))
 }
 
 function flattenNodes(nodes: VirtualTreeRenderNode[]): VirtualTreeRenderNode[] {
-  return nodes.flatMap((node) => [
-    node,
-    ...(node.children ? flattenNodes(node.children) : []),
-  ])
+  return nodes.flatMap((node) => [node, ...(node.children ? flattenNodes(node.children) : [])])
 }
 
-function flattenVisibleNodes(
-  nodes: VirtualTreeRenderNode[],
-): VirtualTreeRenderNode[] {
+function flattenVisibleNodes(nodes: VirtualTreeRenderNode[]): VirtualTreeRenderNode[] {
   return nodes.flatMap((node) => [
     node,
-    ...(hasChildren(node) && isExpanded(node)
-      ? flattenVisibleNodes(node.children ?? [])
-      : []),
+    ...(hasChildren(node) && isExpanded(node) ? flattenVisibleNodes(node.children ?? []) : []),
   ])
 }
 
@@ -272,9 +237,7 @@ function isIndeterminate(node: VirtualTreeRenderNode) {
     return false
   }
 
-  const checkedCount = childKeys.filter((key) =>
-    checkedKeySet.value.has(key),
-  ).length
+  const checkedCount = childKeys.filter((key) => checkedKeySet.value.has(key)).length
 
   return checkedCount > 0 && checkedCount < childKeys.length
 }
@@ -290,10 +253,7 @@ function getEnabledDescendantKeys(node: VirtualTreeRenderNode) {
 }
 
 function getCheckTargetKeys(node: VirtualTreeRenderNode) {
-  return [
-    node.key,
-    ...flattenNodes(node.children ?? []).map((item) => item.key),
-  ].filter((key) => {
+  return [node.key, ...flattenNodes(node.children ?? []).map((item) => item.key)].filter((key) => {
     const target = findNode(key)
     return target && !isNodeDisabled(target)
   })
@@ -399,10 +359,7 @@ function selectNode(node: VirtualTreeRenderNode) {
   selectedKey.value = node.key
 }
 
-function handleNodeClick(
-  node: VirtualTreeRenderNode,
-  event: MouseEvent | KeyboardEvent,
-) {
+function handleNodeClick(node: VirtualTreeRenderNode, event: MouseEvent | KeyboardEvent) {
   if (isNodeDisabled(node)) {
     return
   }
@@ -437,20 +394,14 @@ function handleNodeKeydown(node: VirtualTreeRenderNode, event: KeyboardEvent) {
   }
 }
 
-function scrollToIndex(
-  index: number,
-  align: 'start' | 'center' | 'end' = 'start',
-) {
+function scrollToIndex(index: number, align: 'start' | 'center' | 'end' = 'start') {
   const viewport = viewportRef.value
 
   if (!viewport || visibleNodes.value.length === 0) {
     return
   }
 
-  const targetIndex = Math.min(
-    Math.max(0, index),
-    visibleNodes.value.length - 1,
-  )
+  const targetIndex = Math.min(Math.max(0, index), visibleNodes.value.length - 1)
   const baseTop = targetIndex * normalizedItemHeight.value
   const nextTop =
     align === 'center'
@@ -464,10 +415,7 @@ function scrollToIndex(
   scrollTop.value = viewport.scrollTop
 }
 
-function scrollToKey(
-  key: VirtualTreeNodeKey,
-  align: 'start' | 'center' | 'end' = 'start',
-) {
+function scrollToKey(key: VirtualTreeNodeKey, align: 'start' | 'center' | 'end' = 'start') {
   const index = visibleNodes.value.findIndex((node) => node.key === key)
 
   if (index >= 0) {
@@ -512,17 +460,8 @@ defineExpose({
       :style="viewportStyle"
       @scroll="handleScroll"
     >
-      <div
-        v-if="hasData"
-        class="su-virtual-tree__content"
-        :style="contentStyle"
-      >
-        <ul
-          class="su-virtual-tree__list"
-          :style="listStyle"
-          role="tree"
-          :aria-disabled="disabled"
-        >
+      <div v-if="hasData" class="su-virtual-tree__content" :style="contentStyle">
+        <ul class="su-virtual-tree__list" :style="listStyle" role="tree" :aria-disabled="disabled">
           <li
             v-for="node in renderedNodes"
             :key="node.key"
@@ -576,9 +515,7 @@ defineExpose({
                   type="checkbox"
                   :checked="isChecked(node)"
                   :disabled="isNodeDisabled(node)"
-                  :aria-checked="
-                    isIndeterminate(node) ? 'mixed' : isChecked(node)
-                  "
+                  :aria-checked="isIndeterminate(node) ? 'mixed' : isChecked(node)"
                   @change="toggleCheck(node)"
                 />
                 <span class="su-virtual-tree__checkbox-box" aria-hidden="true">
@@ -658,8 +595,7 @@ defineExpose({
 }
 
 .su-virtual-tree__node:focus-visible {
-  box-shadow: 0 0 0 3px
-    color-mix(in srgb, var(--su-color-primary) 20%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--su-color-primary) 20%, transparent);
 }
 
 .su-virtual-tree__node.is-selected {
@@ -775,10 +711,8 @@ defineExpose({
   transform: none;
 }
 
-.su-virtual-tree__checkbox-input:focus-visible
-  + .su-virtual-tree__checkbox-box {
-  box-shadow: 0 0 0 3px
-    color-mix(in srgb, var(--su-color-primary) 22%, transparent);
+.su-virtual-tree__checkbox-input:focus-visible + .su-virtual-tree__checkbox-box {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--su-color-primary) 22%, transparent);
 }
 
 .su-virtual-tree__checkbox.is-disabled {

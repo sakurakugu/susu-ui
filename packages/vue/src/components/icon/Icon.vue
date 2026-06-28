@@ -14,8 +14,7 @@ const iconStyle = computed(() => {
   const style: Record<string, string> = {}
 
   if (props.size !== undefined) {
-    style.fontSize =
-      typeof props.size === 'number' ? `${props.size}px` : props.size
+    style.fontSize = typeof props.size === 'number' ? `${props.size}px` : props.size
   }
 
   if (props.color) {

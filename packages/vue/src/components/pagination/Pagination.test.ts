@@ -129,9 +129,7 @@ describe('Pagination', () => {
       },
       global: {
         provide: {
-          [configProviderKey as symbol]: computed(() =>
-            mergeConfig({ locale: enUS }),
-          ),
+          [configProviderKey as symbol]: computed(() => mergeConfig({ locale: enUS })),
         },
       },
     })

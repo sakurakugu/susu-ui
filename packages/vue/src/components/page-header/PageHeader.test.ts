@@ -2,10 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import PageHeader, { type PageHeaderBreadcrumbItem } from './PageHeader.vue'
 
-const breadcrumb: PageHeaderBreadcrumbItem[] = [
-  { label: '项目' },
-  { label: '客户增长计划' },
-]
+const breadcrumb: PageHeaderBreadcrumbItem[] = [{ label: '项目' }, { label: '客户增长计划' }]
 
 describe('PageHeader', () => {
   it('渲染标题、副标题和面包屑', () => {

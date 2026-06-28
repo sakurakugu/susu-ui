@@ -40,10 +40,7 @@ const props = withDefaults(
 )
 
 const normalizedPercentage = computed(() =>
-  Math.min(
-    100,
-    Math.max(0, Number.isFinite(props.percentage) ? props.percentage : 0),
-  ),
+  Math.min(100, Math.max(0, Number.isFinite(props.percentage) ? props.percentage : 0)),
 )
 
 const displayText = computed(() =>
@@ -139,11 +136,7 @@ const roleAttributes = computed(() =>
 <style>
 .su-progress {
   --su-progress-color: var(--su-color-primary);
-  --su-progress-track-bg: color-mix(
-    in srgb,
-    var(--su-color-border) 70%,
-    var(--su-color-bg-soft)
-  );
+  --su-progress-track-bg: color-mix(in srgb, var(--su-color-border) 70%, var(--su-color-bg-soft));
 
   display: inline-flex;
   align-items: center;

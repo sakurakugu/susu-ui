@@ -28,9 +28,7 @@ const tabsValue = ref('overview')
           禁用标签页不会响应点击和键盘切换。
         </SuTabPane>
         <template #extra>
-          <SuButton size="small" variant="text" @click="showTopMessage">
-            新增
-          </SuButton>
+          <SuButton size="small" variant="text" @click="showTopMessage"> 新增 </SuButton>
         </template>
       </SuTabs>
 

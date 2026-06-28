@@ -59,15 +59,9 @@ const emit = defineEmits<{
 
 const normalizedTotal = computed(() => Math.max(0, Math.floor(props.total)))
 const locale = useLocale()
-const mergedPrevText = computed(
-  () => props.prevText ?? locale.value.pagination.prev,
-)
-const mergedNextText = computed(
-  () => props.nextText ?? locale.value.pagination.next,
-)
-const normalizedPageSize = computed(() =>
-  Math.max(1, Math.floor(pageSize.value)),
-)
+const mergedPrevText = computed(() => props.prevText ?? locale.value.pagination.prev)
+const mergedNextText = computed(() => props.nextText ?? locale.value.pagination.next)
+const normalizedPageSize = computed(() => Math.max(1, Math.floor(pageSize.value)))
 const normalizedPagerCount = computed(() => {
   const count = Math.max(5, Math.floor(props.pagerCount))
   return count % 2 === 0 ? count + 1 : count
@@ -77,18 +71,12 @@ const pageCount = computed(() =>
   Math.max(1, Math.ceil(normalizedTotal.value / normalizedPageSize.value)),
 )
 
-const normalizedCurrentPage = computed(() =>
-  clampPage(currentPage.value, pageCount.value),
-)
+const normalizedCurrentPage = computed(() => clampPage(currentPage.value, pageCount.value))
 
-const shouldRender = computed(
-  () => !props.hideOnSinglePage || pageCount.value > 1,
-)
+const shouldRender = computed(() => !props.hideOnSinglePage || pageCount.value > 1)
 
 const isFirstPage = computed(() => normalizedCurrentPage.value <= 1)
-const isLastPage = computed(
-  () => normalizedCurrentPage.value >= pageCount.value,
-)
+const isLastPage = computed(() => normalizedCurrentPage.value >= pageCount.value)
 
 const pageItems = computed<PaginationPageItem[]>(() => {
   const totalPages = pageCount.value
@@ -173,16 +161,12 @@ function goNext() {
 
 function jumpMore(type: PaginationPageItem) {
   if (type === 'prev-more') {
-    setCurrentPage(
-      normalizedCurrentPage.value - (normalizedPagerCount.value - 2),
-    )
+    setCurrentPage(normalizedCurrentPage.value - (normalizedPagerCount.value - 2))
     return
   }
 
   if (type === 'next-more') {
-    setCurrentPage(
-      normalizedCurrentPage.value + (normalizedPagerCount.value - 2),
-    )
+    setCurrentPage(normalizedCurrentPage.value + (normalizedPagerCount.value - 2))
   }
 }
 

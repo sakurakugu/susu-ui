@@ -25,13 +25,7 @@ const accordionValue = ref<string | number>('basic')
         </SuCollapseItem>
       </SuCollapse>
 
-      <SuCollapse
-        v-model="accordionValue"
-        accordion
-        ghost
-        size="small"
-        destroy-inactive-panel
-      >
+      <SuCollapse v-model="accordionValue" accordion ghost size="small" destroy-inactive-panel>
         <SuCollapseItem title="基础信息" name="basic">
           <p>手风琴模式同一时间只展开一个面板。</p>
         </SuCollapseItem>

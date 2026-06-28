@@ -60,11 +60,7 @@ const value = ref(3)
 设置 `show-text` 显示当前分值，也可以通过 `texts` 自定义文案。
 
 ```vue
-<SuRate
-  v-model="value"
-  show-text
-  :texts="['极差', '失望', '一般', '满意', '惊喜']"
-/>
+<SuRate v-model="value" show-text :texts="['极差', '失望', '一般', '满意', '惊喜']" />
 ```
 
 ## 只读和禁用

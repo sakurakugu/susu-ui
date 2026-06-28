@@ -27,9 +27,7 @@ describe('Popconfirm', () => {
     expect(popper?.textContent).toContain('归档后项目会从当前列表移除。')
     expect(popper?.textContent).toContain('取消')
     expect(popper?.textContent).toContain('确定')
-    expect(wrapper.find('.su-popconfirm').attributes('aria-expanded')).toBe(
-      'true',
-    )
+    expect(wrapper.find('.su-popconfirm').attributes('aria-expanded')).toBe('true')
 
     wrapper.unmount()
   })
@@ -46,9 +44,7 @@ describe('Popconfirm', () => {
     })
 
     await wrapper.find('.su-popconfirm').trigger('click')
-    const buttons = document.body.querySelectorAll(
-      '.su-popconfirm__actions button',
-    )
+    const buttons = document.body.querySelectorAll('.su-popconfirm__actions button')
     buttons[1]?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
     await wrapper.vm.$nextTick()
 
@@ -70,9 +66,7 @@ describe('Popconfirm', () => {
     })
 
     await wrapper.find('.su-popconfirm').trigger('click')
-    const buttons = document.body.querySelectorAll(
-      '.su-popconfirm__actions button',
-    )
+    const buttons = document.body.querySelectorAll('.su-popconfirm__actions button')
     buttons[0]?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
     await wrapper.vm.$nextTick()
 
@@ -94,8 +88,7 @@ describe('Popconfirm', () => {
         default: '<button>审批</button>',
         icon: '<span class="custom-icon">?</span>',
         title: '<span class="custom-title">确认通过审批</span>',
-        description:
-          '<span class="custom-description">通过后进入付款流程。</span>',
+        description: '<span class="custom-description">通过后进入付款流程。</span>',
         actions: '<button class="custom-action">我知道了</button>',
       },
       attachTo: document.body,
@@ -103,23 +96,15 @@ describe('Popconfirm', () => {
 
     await wrapper.vm.$nextTick()
 
-    const popper = document.body.querySelector<HTMLElement>(
-      '.su-popconfirm__popper',
-    )
-    expect(popper?.classList.contains('su-popconfirm__popper--bottom')).toBe(
-      true,
-    )
+    const popper = document.body.querySelector<HTMLElement>('.su-popconfirm__popper')
+    expect(popper?.classList.contains('su-popconfirm__popper--bottom')).toBe(true)
     expect(popper?.style.width).toBe('320px')
     expect(document.body.querySelector('.custom-icon')?.textContent).toBe('?')
-    expect(document.body.querySelector('.custom-title')?.textContent).toBe(
-      '确认通过审批',
+    expect(document.body.querySelector('.custom-title')?.textContent).toBe('确认通过审批')
+    expect(document.body.querySelector('.custom-description')?.textContent).toBe(
+      '通过后进入付款流程。',
     )
-    expect(
-      document.body.querySelector('.custom-description')?.textContent,
-    ).toBe('通过后进入付款流程。')
-    expect(document.body.querySelector('.custom-action')?.textContent).toBe(
-      '我知道了',
-    )
+    expect(document.body.querySelector('.custom-action')?.textContent).toBe('我知道了')
     expect(document.body.querySelector('.su-popconfirm__arrow')).toBeNull()
 
     wrapper.unmount()

@@ -80,9 +80,7 @@ describe('Statistic', () => {
     expect(wrapper.find('.su-statistic__prefix').text()).toBe('约')
     expect(wrapper.find('.su-statistic__number').text()).toBe('42 个')
     expect(wrapper.find('.su-statistic__suffix').text()).toBe('进行中')
-    expect(wrapper.find('.su-statistic__description').text()).toBe(
-      '按当前筛选条件统计',
-    )
+    expect(wrapper.find('.su-statistic__description').text()).toBe('按当前筛选条件统计')
   })
 
   it('支持加载状态', () => {

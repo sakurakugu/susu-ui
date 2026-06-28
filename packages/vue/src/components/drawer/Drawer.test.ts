@@ -25,9 +25,7 @@ describe('Drawer', () => {
     const drawer = document.body.querySelector('.su-drawer')
     expect(drawer?.getAttribute('role')).toBe('dialog')
     expect(drawer?.getAttribute('aria-modal')).toBe('true')
-    expect(document.body.querySelector('.su-drawer__title')?.textContent).toBe(
-      '任务详情',
-    )
+    expect(document.body.querySelector('.su-drawer__title')?.textContent).toBe('任务详情')
     expect(document.body.querySelector('.su-drawer__body')?.textContent).toBe(
       '这里展示任务的详细信息。',
     )
@@ -122,8 +120,7 @@ describe('Drawer', () => {
     })
 
     await wrapper.vm.$nextTick()
-    const buttons =
-      document.body.querySelectorAll<HTMLButtonElement>('.su-drawer__button')
+    const buttons = document.body.querySelectorAll<HTMLButtonElement>('.su-drawer__button')
 
     buttons[0]?.click()
     await wrapper.vm.$nextTick()
@@ -133,9 +130,7 @@ describe('Drawer', () => {
     await wrapper.setProps({ modelValue: false })
     await wrapper.setProps({ modelValue: true })
     await wrapper.vm.$nextTick()
-    document.body
-      .querySelectorAll<HTMLButtonElement>('.su-drawer__button')[1]
-      ?.click()
+    document.body.querySelectorAll<HTMLButtonElement>('.su-drawer__button')[1]?.click()
     await wrapper.vm.$nextTick()
     expect(wrapper.emitted('confirm')).toHaveLength(1)
     expect(wrapper.emitted('close')).toHaveLength(1)
@@ -159,16 +154,11 @@ describe('Drawer', () => {
 
     await wrapper.vm.$nextTick()
 
-    const overlay =
-      document.body.querySelector<HTMLElement>('.su-drawer-overlay')
+    const overlay = document.body.querySelector<HTMLElement>('.su-drawer-overlay')
 
     expect(overlay?.style.zIndex).toBe('3000')
-    expect(document.body.querySelector('.custom-header')?.textContent).toBe(
-      '自定义头部',
-    )
-    expect(document.body.querySelector('.custom-footer')?.textContent).toBe(
-      '保存',
-    )
+    expect(document.body.querySelector('.custom-header')?.textContent).toBe('自定义头部')
+    expect(document.body.querySelector('.custom-footer')?.textContent).toBe('保存')
 
     wrapper.unmount()
   })

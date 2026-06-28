@@ -136,11 +136,7 @@ provide(layoutKey, {
 .su-layout__sider-trigger:hover,
 .su-layout__sider-trigger:focus-visible {
   outline: 0;
-  background: color-mix(
-    in srgb,
-    var(--su-color-primary) 12%,
-    var(--su-color-bg-soft)
-  );
+  background: color-mix(in srgb, var(--su-color-primary) 12%, var(--su-color-bg-soft));
 }
 
 .su-layout__sider--dark .su-layout__sider-trigger {

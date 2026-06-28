@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  inject,
-  nextTick,
-  onBeforeUnmount,
-  ref,
-  useAttrs,
-  watch,
-} from 'vue'
+import { computed, inject, nextTick, onBeforeUnmount, ref, useAttrs, watch } from 'vue'
 import { formKey, type FormItemStatus, type FormSize } from '../form/context'
 
 defineOptions({
@@ -97,9 +89,7 @@ const isOpen = ref(false)
 const draftTime = ref<TimePickerTime>({ hour: 0, minute: 0, second: 0 })
 
 const mergedSize = computed(() => props.size ?? form?.size.value ?? 'medium')
-const mergedDisabled = computed(
-  () => props.disabled || Boolean(form?.disabled.value),
-)
+const mergedDisabled = computed(() => props.disabled || Boolean(form?.disabled.value))
 const isInteractive = computed(() => !mergedDisabled.value && !props.readonly)
 const showSecond = computed(() => props.format === 'HH:mm:ss')
 const selectedTime = computed(() => parseTime(model.value))
@@ -109,32 +99,21 @@ const displayValue = computed(() => {
   const time = selectedTime.value
   return time ? formatTime(time) : model.value
 })
-const showClear = computed(
-  () => props.clearable && isInteractive.value && model.value.length > 0,
-)
+const showClear = computed(() => props.clearable && isInteractive.value && model.value.length > 0)
 
 const hourOptions = computed(() =>
-  createOptions(
-    24,
-    normalizedStep(props.hourStep),
-    draftTime.value.hour,
-    (value) => isColumnValueDisabled('hour', value),
+  createOptions(24, normalizedStep(props.hourStep), draftTime.value.hour, (value) =>
+    isColumnValueDisabled('hour', value),
   ),
 )
 const minuteOptions = computed(() =>
-  createOptions(
-    60,
-    normalizedStep(props.minuteStep),
-    draftTime.value.minute,
-    (value) => isColumnValueDisabled('minute', value),
+  createOptions(60, normalizedStep(props.minuteStep), draftTime.value.minute, (value) =>
+    isColumnValueDisabled('minute', value),
   ),
 )
 const secondOptions = computed(() =>
-  createOptions(
-    60,
-    normalizedStep(props.secondStep),
-    draftTime.value.second,
-    (value) => isColumnValueDisabled('second', value),
+  createOptions(60, normalizedStep(props.secondStep), draftTime.value.second, (value) =>
+    isColumnValueDisabled('second', value),
   ),
 )
 
@@ -178,9 +157,7 @@ function formatTime(time: TimePickerTime) {
   const hour = padTime(time.hour)
   const minute = padTime(time.minute)
 
-  return showSecond.value
-    ? `${hour}:${minute}:${padTime(time.second)}`
-    : `${hour}:${minute}`
+  return showSecond.value ? `${hour}:${minute}:${padTime(time.second)}` : `${hour}:${minute}`
 }
 
 function toSecondOfDay(time: TimePickerTime) {
@@ -209,10 +186,7 @@ function isTimeDisabled(time: TimePickerTime) {
   return props.disabledTime ? props.disabledTime(cloneTime(time)) : false
 }
 
-function isColumnValueDisabled(
-  column: 'hour' | 'minute' | 'second',
-  value: number,
-) {
+function isColumnValueDisabled(column: 'hour' | 'minute' | 'second', value: number) {
   const nextTime = {
     ...draftTime.value,
     [column]: value,
@@ -244,9 +218,7 @@ function createOptions(
 function getFirstEnabledTime() {
   for (const hour of hourOptions.value) {
     for (const minute of minuteOptions.value) {
-      const seconds = showSecond.value
-        ? secondOptions.value
-        : [{ value: 0, isDisabled: false }]
+      const seconds = showSecond.value ? secondOptions.value : [{ value: 0, isDisabled: false }]
 
       for (const second of seconds) {
         const time = {
@@ -595,11 +567,7 @@ defineExpose({
 }
 
 .su-time-picker:hover:not(.is-disabled) .su-time-picker__control {
-  border-color: color-mix(
-    in srgb,
-    var(--su-color-primary) 48%,
-    var(--su-color-border)
-  );
+  border-color: color-mix(in srgb, var(--su-color-primary) 48%, var(--su-color-border));
 }
 
 .su-time-picker:focus-within .su-time-picker__control,

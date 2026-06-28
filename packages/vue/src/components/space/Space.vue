@@ -97,11 +97,7 @@ export default defineComponent({
       columnGap: normalizedGap.value.column,
       rowGap: normalizedGap.value.row,
       alignItems:
-        props.align === 'start'
-          ? 'flex-start'
-          : props.align === 'end'
-            ? 'flex-end'
-            : props.align,
+        props.align === 'start' ? 'flex-start' : props.align === 'end' ? 'flex-end' : props.align,
       justifyContent: justifyMap[props.justify],
     }))
 

@@ -34,9 +34,10 @@ describe('Anchor', () => {
     })
 
     expect(wrapper.classes()).toContain('su-anchor')
-    expect(
-      wrapper.findAll('.su-anchor__link').map((link) => link.text()),
-    ).toEqual(['项目概览', '接入方式'])
+    expect(wrapper.findAll('.su-anchor__link').map((link) => link.text())).toEqual([
+      '项目概览',
+      '接入方式',
+    ])
 
     const empty = mount(Anchor)
     expect(empty.find('.su-anchor__empty').text()).toBe('暂无锚点')
@@ -62,10 +63,7 @@ describe('Anchor', () => {
       behavior: 'auto',
     })
     expect(wrapper.emitted('click')).toHaveLength(1)
-    expect(wrapper.emitted('change')?.[0]).toEqual([
-      'overview',
-      expect.any(Object),
-    ])
+    expect(wrapper.emitted('change')?.[0]).toEqual(['overview', expect.any(Object)])
     expect(wrapper.find('.su-anchor__item').classes()).toContain('is-active')
 
     wrapper.unmount()
@@ -90,13 +88,8 @@ describe('Anchor', () => {
     await vi.advanceTimersByTimeAsync(16)
     await wrapper.vm.$nextTick()
 
-    expect(wrapper.findAll('.su-anchor__item')[1].classes()).toContain(
-      'is-active',
-    )
-    expect(wrapper.emitted('change')?.[0]).toEqual([
-      'usage',
-      expect.any(Object),
-    ])
+    expect(wrapper.findAll('.su-anchor__item')[1].classes()).toContain('is-active')
+    expect(wrapper.emitted('change')?.[0]).toEqual(['usage', expect.any(Object)])
 
     wrapper.unmount()
     overview.remove()

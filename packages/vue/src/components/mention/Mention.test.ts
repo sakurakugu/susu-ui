@@ -28,15 +28,11 @@ describe('Mention', () => {
 
     expect(mention.classes()).toContain('su-mention')
     expect(mention.classes()).toContain('su-mention--medium')
-    expect(wrapper.find('input').attributes('placeholder')).toBe(
-      '输入 @ 提及成员',
-    )
+    expect(wrapper.find('input').attributes('placeholder')).toBe('输入 @ 提及成员')
 
     await wrapper.find('input').setValue('@')
 
-    expect(document.body.querySelectorAll('.su-mention__option')).toHaveLength(
-      3,
-    )
+    expect(document.body.querySelectorAll('.su-mention__option')).toHaveLength(3)
 
     wrapper.unmount()
   })
@@ -53,12 +49,8 @@ describe('Mention', () => {
 
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['请 @李'])
     expect(wrapper.emitted('input')?.[0][0]).toBe('请 @李')
-    expect(document.body.querySelectorAll('.su-mention__option')).toHaveLength(
-      1,
-    )
-    expect(document.body.querySelector('.su-mention__label')?.textContent).toBe(
-      '李明',
-    )
+    expect(document.body.querySelectorAll('.su-mention__option')).toHaveLength(1)
+    expect(document.body.querySelector('.su-mention__label')?.textContent).toBe('李明')
 
     wrapper.unmount()
   })
@@ -81,13 +73,8 @@ describe('Mention', () => {
     option?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
     await wrapper.vm.$nextTick()
 
-    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([
-      '请 @liming 确认',
-    ])
-    expect(wrapper.emitted('select')?.[0]).toEqual([
-      options[1],
-      '请 @liming 确认',
-    ])
+    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['请 @liming 确认'])
+    expect(wrapper.emitted('select')?.[0]).toEqual([options[1], '请 @liming 确认'])
     expect(onSelect).toHaveBeenCalledOnce()
 
     wrapper.unmount()
@@ -130,9 +117,7 @@ describe('Mention', () => {
     await wrapper.find('input').setValue('@周')
 
     expect(fetchSuggestions).toHaveBeenCalledWith('周', '@')
-    expect(document.body.querySelector('.su-mention__label')?.textContent).toBe(
-      '成员 周',
-    )
+    expect(document.body.querySelector('.su-mention__label')?.textContent).toBe('成员 周')
 
     wrapper.unmount()
   })
@@ -151,9 +136,7 @@ describe('Mention', () => {
     await wrapper.find('textarea').setValue('关联 #预')
 
     expect(wrapper.find('textarea').attributes('rows')).toBe('4')
-    expect(document.body.querySelectorAll('.su-mention__option')).toHaveLength(
-      1,
-    )
+    expect(document.body.querySelectorAll('.su-mention__option')).toHaveLength(1)
   })
 
   it('支持清空输入', async () => {

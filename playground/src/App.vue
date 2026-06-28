@@ -19,14 +19,10 @@ const notificationVisible = ref(false)
 const notificationKey = ref(0)
 const notificationPlacement = ref<'top-right' | 'bottom-left'>('top-right')
 
-const currentLocale = computed(() =>
-  localeName.value === 'zh-cn' ? zhCN : enUS,
-)
+const currentLocale = computed(() => (localeName.value === 'zh-cn' ? zhCN : enUS))
 
 function getHashDemoId() {
-  return typeof window === 'undefined'
-    ? playgroundNavItems[0].id
-    : window.location.hash.slice(1)
+  return typeof window === 'undefined' ? playgroundNavItems[0].id : window.location.hash.slice(1)
 }
 
 function syncDemoFromHash() {

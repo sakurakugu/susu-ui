@@ -28,10 +28,7 @@ function getTabindex(item: MenuRenderItem) {
     return -1
   }
 
-  if (
-    menu.selectedKey.value === item.key ||
-    menu.firstEnabledKey.value === item.key
-  ) {
+  if (menu.selectedKey.value === item.key || menu.firstEnabledKey.value === item.key) {
     return 0
   }
 
@@ -73,18 +70,10 @@ function getTabindex(item: MenuRenderItem) {
       <span class="su-menu__label">
         <slot :item="item">{{ item.label }}</slot>
       </span>
-      <span
-        v-if="menu.hasChildren(item)"
-        class="su-menu__arrow"
-        aria-hidden="true"
-      />
+      <span v-if="menu.hasChildren(item)" class="su-menu__arrow" aria-hidden="true" />
     </button>
 
-    <ul
-      v-if="menu.hasChildren(item) && menu.isOpen(item)"
-      class="su-menu__children"
-      role="menu"
-    >
+    <ul v-if="menu.hasChildren(item) && menu.isOpen(item)" class="su-menu__children" role="menu">
       <MenuNode v-for="child in item.children" :key="child.key" :item="child">
         <template #default="{ item: slotItem }">
           <slot :item="slotItem">{{ slotItem.label }}</slot>

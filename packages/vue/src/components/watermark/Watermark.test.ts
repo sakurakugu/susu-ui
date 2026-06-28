@@ -14,9 +14,7 @@ describe('Watermark', () => {
     expect(wrapper.find('.report-card').text()).toBe('合同审批单')
     expect(wrapper.find('.su-watermark__layer').exists()).toBe(true)
     expect(wrapper.attributes('style')).toContain('--su-watermark-image')
-    expect(wrapper.attributes('style')).toContain(
-      '--su-watermark-size: 200px 140px',
-    )
+    expect(wrapper.attributes('style')).toContain('--su-watermark-size: 200px 140px')
   })
 
   it('支持多行文本和自定义水印参数', () => {
@@ -88,8 +86,6 @@ describe('Watermark', () => {
     })
 
     expect(wrapper.classes()).toContain('is-fullscreen')
-    expect(wrapper.attributes('style')).toContain(
-      '--su-watermark-z-index: 1200',
-    )
+    expect(wrapper.attributes('style')).toContain('--su-watermark-z-index: 1200')
   })
 })

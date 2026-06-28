@@ -19,9 +19,7 @@ const loading = ref(false)
 const failed = ref(false)
 const retryCount = ref(0)
 
-const visibleActivities = computed(() =>
-  allActivities.slice(0, visibleCount.value),
-)
+const visibleActivities = computed(() => allActivities.slice(0, visibleCount.value))
 const finished = computed(() => visibleCount.value >= allActivities.length)
 
 function loadMore() {
@@ -39,10 +37,7 @@ function loadMore() {
       return
     }
 
-    visibleCount.value = Math.min(
-      visibleCount.value + pageSize,
-      allActivities.length,
-    )
+    visibleCount.value = Math.min(visibleCount.value + pageSize, allActivities.length)
     failed.value = false
     loading.value = false
   }, 520)

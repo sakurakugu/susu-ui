@@ -12,9 +12,7 @@ describe('Masonry', () => {
 
     expect(wrapper.classes()).toContain('su-masonry')
     expect(wrapper.attributes('style')).toContain('--su-masonry-columns: 3')
-    expect(wrapper.attributes('style')).toContain(
-      '--su-masonry-column-gap: var(--su-space-md)',
-    )
+    expect(wrapper.attributes('style')).toContain('--su-masonry-column-gap: var(--su-space-md)')
     expect(wrapper.text()).toContain('项目周报')
   })
 
@@ -28,12 +26,8 @@ describe('Masonry', () => {
     })
 
     expect(wrapper.attributes('style')).toContain('--su-masonry-columns: 4')
-    expect(wrapper.attributes('style')).toContain(
-      '--su-masonry-column-gap: 24px',
-    )
-    expect(wrapper.attributes('style')).toContain(
-      '--su-masonry-row-gap: var(--su-space-sm)',
-    )
+    expect(wrapper.attributes('style')).toContain('--su-masonry-column-gap: 24px')
+    expect(wrapper.attributes('style')).toContain('--su-masonry-row-gap: var(--su-space-sm)')
     expect(wrapper.attributes('style')).toContain('column-fill: auto')
   })
 
@@ -45,9 +39,7 @@ describe('Masonry', () => {
     })
 
     expect(wrapper.classes()).toContain('su-masonry--auto')
-    expect(wrapper.attributes('style')).toContain(
-      '--su-masonry-min-column-width: 220px',
-    )
+    expect(wrapper.attributes('style')).toContain('--su-masonry-min-column-width: 220px')
   })
 
   it('支持数据源和 item 插槽', () => {

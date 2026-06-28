@@ -16,6 +16,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "release": "pnpm build && pnpm check:exports && changeset publish",
+    "sync:components": "node scripts/sync-vue-component-manifest.mjs",
     "test": "vitest run",
     "typecheck": "pnpm -r --parallel --if-present typecheck",
     "version-packages": "changeset version"

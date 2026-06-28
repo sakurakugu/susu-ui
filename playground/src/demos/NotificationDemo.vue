@@ -8,12 +8,8 @@ const { showNotification } = usePlaygroundDemoContext()
   <section id="notification" class="panel">
     <h2>通知</h2>
     <div class="notification-demo">
-      <SuButton type="primary" @click="showNotification('top-right')">
-        右上通知
-      </SuButton>
-      <SuButton variant="outline" @click="showNotification('bottom-left')">
-        左下通知
-      </SuButton>
+      <SuButton type="primary" @click="showNotification('top-right')"> 右上通知 </SuButton>
+      <SuButton variant="outline" @click="showNotification('bottom-left')"> 左下通知 </SuButton>
       <span>通知用于承载标题和描述，适合较完整的系统反馈</span>
     </div>
   </section>

@@ -20,11 +20,12 @@ import { SuCard } from './components/card'
 import { SuCarousel } from './components/carousel'
 import { SuCascader } from './components/cascader'
 import { SuCheckbox, SuCheckboxGroup } from './components/checkbox'
+import { SuCodeBlock } from './components/code-block'
 import { SuCollapse, SuCollapseItem } from './components/collapse'
 import { SuColorPicker } from './components/color-picker'
 import { SuCommandPalette } from './components/command-palette'
-import { SuDateRangePicker } from './components/date-range-picker'
 import { SuDatePicker } from './components/date-picker'
+import { SuDateRangePicker } from './components/date-range-picker'
 import { SuDescriptions, SuDescriptionsItem } from './components/descriptions'
 import { SuDialog } from './components/dialog'
 import { SuDivider } from './components/divider'
@@ -38,19 +39,13 @@ import { SuImage } from './components/image'
 import { SuInfiniteScroll } from './components/infinite-scroll'
 import { SuInput } from './components/input'
 import { SuInputNumber } from './components/input-number'
-import {
-  SuContent,
-  SuFooter,
-  SuHeader,
-  SuLayout,
-  SuSider,
-} from './components/layout'
+import { SuContent, SuFooter, SuHeader, SuLayout, SuSider } from './components/layout'
 import { SuLink } from './components/link'
 import { SuList, SuListItem } from './components/list'
 import { SuLoading } from './components/loading'
 import { SuMasonry } from './components/masonry'
-import { SuMenu } from './components/menu'
 import { SuMention } from './components/mention'
+import { SuMenu } from './components/menu'
 import { SuMessage } from './components/message'
 import { SuNotification } from './components/notification'
 import { SuOtpInput } from './components/otp-input'
@@ -60,12 +55,12 @@ import { SuPopconfirm } from './components/popconfirm'
 import { SuPopover } from './components/popover'
 import { SuProgress } from './components/progress'
 import { SuQRCode } from './components/qrcode'
-import { SuRate } from './components/rate'
 import { SuRadioButton, SuRadioGroup } from './components/radio'
-import { SuResult } from './components/result'
+import { SuRate } from './components/rate'
 import { SuResizable } from './components/resizable'
-import { SuOption, SuSelect } from './components/select'
+import { SuResult } from './components/result'
 import { SuSegmented } from './components/segmented'
+import { SuOption, SuSelect } from './components/select'
 import { SuSidebar } from './components/sidebar'
 import { SuSkeleton } from './components/skeleton'
 import { SuSlider } from './components/slider'
@@ -74,13 +69,14 @@ import { SuSplitter } from './components/splitter'
 import { SuStatistic } from './components/statistic'
 import { SuSteps } from './components/steps'
 import { SuSwitch } from './components/switch'
-import { SuTabPane, SuTabs } from './components/tabs'
 import { SuTable, SuTableColumn } from './components/table'
+import { SuTabPane, SuTabs } from './components/tabs'
 import { SuTag } from './components/tag'
 import { SuTagInput } from './components/tag-input'
+import { SuTerminal } from './components/terminal'
 import { SuText } from './components/text'
-import { SuTimeRangePicker } from './components/time-range-picker'
 import { SuTimePicker } from './components/time-picker'
+import { SuTimeRangePicker } from './components/time-range-picker'
 import { SuTimeline } from './components/timeline'
 import { SuTooltip } from './components/tooltip'
 import { SuTour } from './components/tour'
@@ -108,11 +104,12 @@ export * from './components/card'
 export * from './components/carousel'
 export * from './components/cascader'
 export * from './components/checkbox'
+export * from './components/code-block'
 export * from './components/collapse'
 export * from './components/color-picker'
 export * from './components/command-palette'
-export * from './components/date-range-picker'
 export * from './components/date-picker'
+export * from './components/date-range-picker'
 export * from './components/descriptions'
 export * from './components/dialog'
 export * from './components/divider'
@@ -131,8 +128,8 @@ export * from './components/link'
 export * from './components/list'
 export * from './components/loading'
 export * from './components/masonry'
-export * from './components/menu'
 export * from './components/mention'
+export * from './components/menu'
 export * from './components/message'
 export * from './components/notification'
 export * from './components/otp-input'
@@ -142,12 +139,12 @@ export * from './components/popconfirm'
 export * from './components/popover'
 export * from './components/progress'
 export * from './components/qrcode'
-export * from './components/rate'
 export * from './components/radio'
-export * from './components/result'
+export * from './components/rate'
 export * from './components/resizable'
-export * from './components/select'
+export * from './components/result'
 export * from './components/segmented'
+export * from './components/select'
 export * from './components/sidebar'
 export * from './components/skeleton'
 export * from './components/slider'
@@ -156,13 +153,14 @@ export * from './components/splitter'
 export * from './components/statistic'
 export * from './components/steps'
 export * from './components/switch'
-export * from './components/tabs'
 export * from './components/table'
+export * from './components/tabs'
 export * from './components/tag'
 export * from './components/tag-input'
+export * from './components/terminal'
 export * from './components/text'
-export * from './components/time-range-picker'
 export * from './components/time-picker'
+export * from './components/time-range-picker'
 export * from './components/timeline'
 export * from './components/tooltip'
 export * from './components/tour'
@@ -194,12 +192,13 @@ const components = [
   SuCascader,
   SuCheckbox,
   SuCheckboxGroup,
+  SuCodeBlock,
   SuCollapse,
   SuCollapseItem,
   SuColorPicker,
   SuCommandPalette,
-  SuDateRangePicker,
   SuDatePicker,
+  SuDateRangePicker,
   SuDescriptions,
   SuDescriptionsItem,
   SuDialog,
@@ -216,18 +215,18 @@ const components = [
   SuInfiniteScroll,
   SuInput,
   SuInputNumber,
-  SuLayout,
-  SuHeader,
-  SuSider,
   SuContent,
   SuFooter,
+  SuHeader,
+  SuLayout,
+  SuSider,
   SuLink,
   SuList,
   SuListItem,
   SuLoading,
   SuMasonry,
-  SuMenu,
   SuMention,
+  SuMenu,
   SuMessage,
   SuNotification,
   SuOtpInput,
@@ -237,14 +236,14 @@ const components = [
   SuPopover,
   SuProgress,
   SuQRCode,
-  SuRate,
   SuRadioButton,
   SuRadioGroup,
-  SuResult,
+  SuRate,
   SuResizable,
+  SuResult,
+  SuSegmented,
   SuOption,
   SuSelect,
-  SuSegmented,
   SuSidebar,
   SuSkeleton,
   SuSlider,
@@ -253,15 +252,16 @@ const components = [
   SuStatistic,
   SuSteps,
   SuSwitch,
-  SuTabs,
-  SuTabPane,
   SuTable,
   SuTableColumn,
+  SuTabPane,
+  SuTabs,
   SuTag,
   SuTagInput,
+  SuTerminal,
   SuText,
-  SuTimeRangePicker,
   SuTimePicker,
+  SuTimeRangePicker,
   SuTimeline,
   SuTooltip,
   SuTour,

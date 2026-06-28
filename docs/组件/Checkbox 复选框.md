@@ -129,13 +129,7 @@ const channels = ref(['email'])
 
 ```vue
 <template>
-  <SuCheckbox
-    id="agreement"
-    name="agreement"
-    value="agree"
-    required
-    aria-label="同意协议"
-  >
+  <SuCheckbox id="agreement" name="agreement" value="agree" required aria-label="同意协议">
     同意服务协议
   </SuCheckbox>
 </template>

@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  nextTick,
-  onBeforeUnmount,
-  onMounted,
-  ref,
-  watch,
-  type CSSProperties,
-} from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch, type CSSProperties } from 'vue'
 
 defineOptions({
   name: 'SuAffix',
@@ -43,9 +35,7 @@ let activeTarget: AffixTarget | undefined
 let frame: number | undefined
 
 const mode = computed(() =>
-  props.offsetBottom !== undefined && props.offsetTop === undefined
-    ? 'bottom'
-    : 'top',
+  props.offsetBottom !== undefined && props.offsetTop === undefined ? 'bottom' : 'top',
 )
 
 function getTarget() {
@@ -96,8 +86,7 @@ function updatePosition() {
   const rootRect = root.getBoundingClientRect()
   const contentRect = content.getBoundingClientRect()
   const targetRect = getTargetRect(target)
-  const offset =
-    mode.value === 'top' ? (props.offsetTop ?? 0) : (props.offsetBottom ?? 0)
+  const offset = mode.value === 'top' ? (props.offsetTop ?? 0) : (props.offsetBottom ?? 0)
 
   if (mode.value === 'top') {
     const top = targetRect.top + offset
@@ -212,12 +201,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div
-    ref="rootRef"
-    class="su-affix"
-    :class="{ 'is-fixed': fixed }"
-    :style="placeholderStyle"
-  >
+  <div ref="rootRef" class="su-affix" :class="{ 'is-fixed': fixed }" :style="placeholderStyle">
     <div ref="contentRef" class="su-affix__content" :style="fixedStyle">
       <slot />
     </div>

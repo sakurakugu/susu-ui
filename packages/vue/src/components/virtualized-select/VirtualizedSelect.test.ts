@@ -46,9 +46,7 @@ describe('VirtualizedSelect', () => {
 
     await wrapper.find('.su-virtualized-select__trigger').trigger('click')
 
-    const renderedOptions = document.body.querySelectorAll(
-      '.su-virtualized-select__option',
-    )
+    const renderedOptions = document.body.querySelectorAll('.su-virtualized-select__option')
     expect(renderedOptions.length).toBeLessThan(largeOptions.length)
     expect(renderedOptions.length).toBe(8)
 
@@ -102,17 +100,11 @@ describe('VirtualizedSelect', () => {
       attachTo: document.body,
     })
 
-    expect(wrapper.find('.su-virtualized-select').classes()).toContain(
-      'is-disabled',
-    )
-    expect(
-      wrapper.find('.su-virtualized-select__trigger').attributes('disabled'),
-    ).toBeDefined()
+    expect(wrapper.find('.su-virtualized-select').classes()).toContain('is-disabled')
+    expect(wrapper.find('.su-virtualized-select__trigger').attributes('disabled')).toBeDefined()
 
     await wrapper.find('.su-virtualized-select__trigger').trigger('click')
-    expect(
-      document.body.querySelector('.su-virtualized-select__panel'),
-    ).toBeNull()
+    expect(document.body.querySelector('.su-virtualized-select__panel')).toBeNull()
 
     wrapper.unmount()
   })
@@ -159,9 +151,7 @@ describe('VirtualizedSelect', () => {
     await trigger.trigger('keydown', { key: 'Enter' })
 
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['beijing'])
-    expect(
-      document.body.querySelector('.su-virtualized-select__panel'),
-    ).toBeNull()
+    expect(document.body.querySelector('.su-virtualized-select__panel')).toBeNull()
 
     wrapper.unmount()
   })
@@ -180,9 +170,9 @@ describe('VirtualizedSelect', () => {
 
     await wrapper.find('.su-virtualized-select__trigger').trigger('click')
 
-    expect(
-      document.body.querySelector('.su-virtualized-select__empty')?.textContent,
-    ).toBe('没有可分配成员')
+    expect(document.body.querySelector('.su-virtualized-select__empty')?.textContent).toBe(
+      '没有可分配成员',
+    )
 
     wrapper.unmount()
   })
@@ -210,9 +200,7 @@ describe('VirtualizedSelect', () => {
     expect(trigger.attributes('id')).toBe('city')
     expect(trigger.attributes('data-field')).toBe('city')
     expect(wrapper.find('input[type="hidden"]').attributes('name')).toBe('city')
-    expect(wrapper.find('input[type="hidden"]').attributes('value')).toBe(
-      'shanghai',
-    )
+    expect(wrapper.find('input[type="hidden"]').attributes('value')).toBe('shanghai')
     expect(wrapper.emitted('focus')).toHaveLength(1)
     expect(wrapper.emitted('blur')).toHaveLength(1)
     expect(onFocus).toHaveBeenCalledOnce()
@@ -236,9 +224,7 @@ describe('VirtualizedSelect', () => {
 
     expect(select.classes()).toContain('su-virtualized-select--small')
     expect(select.classes()).toContain('is-disabled')
-    expect(
-      wrapper.find('.su-virtualized-select__trigger').attributes('disabled'),
-    ).toBeDefined()
+    expect(wrapper.find('.su-virtualized-select__trigger').attributes('disabled')).toBeDefined()
   })
 
   it('暴露控制方法', async () => {
@@ -256,9 +242,7 @@ describe('VirtualizedSelect', () => {
 
     wrapper.vm.open()
     await wrapper.vm.$nextTick()
-    expect(
-      document.body.querySelector('.su-virtualized-select__panel'),
-    ).not.toBeNull()
+    expect(document.body.querySelector('.su-virtualized-select__panel')).not.toBeNull()
 
     wrapper.vm.clear()
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([''])

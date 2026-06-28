@@ -83,11 +83,7 @@ const blockStyle = computed(() => ({
   width: 100%;
   height: 1em;
   border-radius: var(--su-radius-sm);
-  background: color-mix(
-    in srgb,
-    var(--su-color-text-muted) 14%,
-    var(--su-color-bg-soft)
-  );
+  background: color-mix(in srgb, var(--su-color-text-muted) 14%, var(--su-color-bg-soft));
 }
 
 .su-skeleton__item--text {

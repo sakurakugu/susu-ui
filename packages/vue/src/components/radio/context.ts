@@ -12,5 +12,4 @@ export interface RadioGroupContext {
   change: (value: RadioValue, event: Event) => void
 }
 
-export const radioGroupKey: InjectionKey<RadioGroupContext> =
-  Symbol('su-radio-group')
+export const radioGroupKey: InjectionKey<RadioGroupContext> = Symbol('su-radio-group')

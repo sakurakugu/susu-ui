@@ -42,9 +42,7 @@ defineSlots<{
 const normalizedColumns = computed(() => Math.max(1, Math.floor(props.columns)))
 
 const normalizedGap = computed(() => {
-  const [column, row] = Array.isArray(props.gap)
-    ? props.gap
-    : [props.gap, props.gap]
+  const [column, row] = Array.isArray(props.gap) ? props.gap : [props.gap, props.gap]
 
   return {
     column: formatSize(column),
@@ -107,9 +105,6 @@ function formatSize(size: GridSize) {
 }
 
 .su-grid--auto-fit {
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(min(100%, var(--su-grid-min-item-width)), 1fr)
-  );
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--su-grid-min-item-width)), 1fr));
 }
 </style>

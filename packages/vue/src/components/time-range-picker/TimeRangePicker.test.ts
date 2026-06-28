@@ -38,13 +38,8 @@ describe('TimeRangePicker', () => {
       .find((item) => item.text() === '10')
       ?.trigger('click')
 
-    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([
-      ['10:00:00', '18:00:00'],
-    ])
-    expect(wrapper.emitted('change')?.[0]?.[0]).toEqual([
-      '10:00:00',
-      '18:00:00',
-    ])
+    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([['10:00:00', '18:00:00']])
+    expect(wrapper.emitted('change')?.[0]?.[0]).toEqual(['10:00:00', '18:00:00'])
 
     await pickers[1].find('.su-time-picker__trigger').trigger('click')
     await pickers[1]
@@ -54,9 +49,7 @@ describe('TimeRangePicker', () => {
       .find((item) => item.text() === '19')
       ?.trigger('click')
 
-    expect(wrapper.emitted('update:modelValue')?.[1]).toEqual([
-      ['10:00:00', '19:00:00'],
-    ])
+    expect(wrapper.emitted('update:modelValue')?.[1]).toEqual([['10:00:00', '19:00:00']])
     expect(onChange).toHaveBeenCalledTimes(2)
   })
 
@@ -179,9 +172,7 @@ describe('TimeRangePicker', () => {
     })
 
     expect(disabledWrapper.classes()).toContain('is-disabled')
-    expect(
-      disabledWrapper.findAll('input')[0].attributes('disabled'),
-    ).toBeDefined()
+    expect(disabledWrapper.findAll('input')[0].attributes('disabled')).toBeDefined()
     await disabledWrapper.find('.su-time-picker__trigger').trigger('click')
     expect(disabledWrapper.find('.su-time-picker__panel').exists()).toBe(false)
 
@@ -192,9 +183,7 @@ describe('TimeRangePicker', () => {
     })
 
     expect(readonlyWrapper.classes()).toContain('is-readonly')
-    expect(
-      readonlyWrapper.findAll('input')[0].attributes('readonly'),
-    ).toBeDefined()
+    expect(readonlyWrapper.findAll('input')[0].attributes('readonly')).toBeDefined()
   })
 
   it('转发原生属性和事件', async () => {

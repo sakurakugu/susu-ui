@@ -8,18 +8,9 @@ defineOptions({
 
 type InputSize = 'small' | 'medium' | 'large'
 type InputStatus = 'default' | 'success' | 'warning' | 'error'
-type InputMode =
-  'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search'
+type InputMode = 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search'
 type InputType =
-  | 'text'
-  | 'password'
-  | 'email'
-  | 'number'
-  | 'search'
-  | 'tel'
-  | 'url'
-  | 'id-card'
-  | 'textarea'
+  'text' | 'password' | 'email' | 'number' | 'search' | 'tel' | 'url' | 'id-card' | 'textarea'
 
 const model = defineModel<string | number>({
   default: '',
@@ -108,11 +99,7 @@ const passwordVisible = ref(false)
 const isComposing = ref(false)
 
 const showClear = computed(
-  () =>
-    props.clearable &&
-    !props.disabled &&
-    !props.readonly &&
-    `${model.value}`.length > 0,
+  () => props.clearable && !props.disabled && !props.readonly && `${model.value}`.length > 0,
 )
 
 const isTextarea = computed(() => props.type === 'textarea')
@@ -127,25 +114,15 @@ const nativeInputType = computed(() =>
 
 const modelText = computed(() => `${model.value ?? ''}`)
 
-const displayValue = computed(() =>
-  props.formatter ? props.formatter(model.value) : model.value,
-)
+const displayValue = computed(() => (props.formatter ? props.formatter(model.value) : model.value))
 
 const showPasswordToggle = computed(
-  () =>
-    props.showPassword &&
-    props.type === 'password' &&
-    !props.disabled &&
-    !props.readonly,
+  () => props.showPassword && props.type === 'password' && !props.disabled && !props.readonly,
 )
 
-const showWordLimit = computed(
-  () => props.showWordLimit && props.maxlength !== undefined,
-)
+const showWordLimit = computed(() => props.showWordLimit && props.maxlength !== undefined)
 
-const wordLimitText = computed(
-  () => `${modelText.value.length}/${props.maxlength}`,
-)
+const wordLimitText = computed(() => `${modelText.value.length}/${props.maxlength}`)
 
 const textareaStyle = computed(() => ({
   resize: props.resize,
@@ -172,11 +149,7 @@ function validateIdCard(value: string) {
   const day = Number(birthDate.slice(6, 8))
   const date = new Date(year, month - 1, day)
 
-  if (
-    date.getFullYear() !== year ||
-    date.getMonth() + 1 !== month ||
-    date.getDate() !== day
-  ) {
+  if (date.getFullYear() !== year || date.getMonth() + 1 !== month || date.getDate() !== day) {
     return false
   }
 
@@ -224,19 +197,13 @@ function handleInput(event: Event) {
   const target = event.target as HTMLInputElement | HTMLTextAreaElement
   const normalizedValue = getNormalizedValue(target.value)
 
-  if (
-    props.allowInput &&
-    !props.allowInput(normalizedValue, event) &&
-    !isComposing.value
-  ) {
+  if (props.allowInput && !props.allowInput(normalizedValue, event) && !isComposing.value) {
     restoreDisplayValue(target)
     return
   }
 
   const parsedValue =
-    props.parser && !isComposing.value
-      ? props.parser(normalizedValue)
-      : normalizedValue
+    props.parser && !isComposing.value ? props.parser(normalizedValue) : normalizedValue
   model.value =
     props.type === 'number' && target instanceof HTMLInputElement
       ? Number(parsedValue)
@@ -346,8 +313,7 @@ defineExpose({
         'has-prepend': $slots.prepend,
         'has-append': $slots.append,
         'has-prefix': $slots.prefix,
-        'has-suffix':
-          $slots.suffix || showClear || showPasswordToggle || showWordLimit,
+        'has-suffix': $slots.suffix || showClear || showPasswordToggle || showWordLimit,
       },
     ]"
   >
@@ -465,11 +431,7 @@ defineExpose({
 }
 
 .su-input:hover:not(.is-disabled) {
-  border-color: color-mix(
-    in srgb,
-    var(--su-color-primary) 48%,
-    var(--su-color-border)
-  );
+  border-color: color-mix(in srgb, var(--su-color-primary) 48%, var(--su-color-border));
 }
 
 .su-input:focus-within {
