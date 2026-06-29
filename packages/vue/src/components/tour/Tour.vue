@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, ref, useId, watch, type CSSProperties } from 'vue'
+import { lockBodyScroll } from '../../utils/scroll-lock'
 
 defineOptions({
   name: 'SuTour',
@@ -106,8 +107,7 @@ const activeTarget = ref<HTMLElement>()
 const targetRect = ref<DOMRect>()
 const panelStyle = ref<CSSProperties>({})
 const tourId = `su-tour-${useId()}`
-let previousBodyOverflow = ''
-let bodyScrollLocked = false
+let releaseBodyScrollLock: (() => void) | undefined
 
 const total = computed(() => props.steps.length)
 const activeIndex = computed(() => clamp(current.value, 0, total.value - 1))
@@ -161,23 +161,9 @@ function resolveTarget(target: TourTarget) {
   return target
 }
 
-function lockBodyScroll() {
-  if (bodyScrollLocked) {
-    return
-  }
-
-  previousBodyOverflow = document.body.style.overflow
-  document.body.style.overflow = 'hidden'
-  bodyScrollLocked = true
-}
-
 function unlockBodyScroll() {
-  if (!bodyScrollLocked) {
-    return
-  }
-
-  document.body.style.overflow = previousBodyOverflow
-  bodyScrollLocked = false
+  releaseBodyScrollLock?.()
+  releaseBodyScrollLock = undefined
 }
 
 function scrollTargetIntoView(target: HTMLElement) {
@@ -367,7 +353,7 @@ watch(
     removeListeners()
 
     if (value) {
-      lockBodyScroll()
+      releaseBodyScrollLock = lockBodyScroll()
       addListeners()
       await prepareStep()
       return
@@ -413,9 +399,7 @@ watch(total, (value) => {
 
 onBeforeUnmount(() => {
   removeListeners()
-  if (visible.value) {
-    unlockBodyScroll()
-  }
+  unlockBodyScroll()
 })
 </script>
 

@@ -29,6 +29,8 @@ const options: CommandPaletteOption[] = [
 afterEach(() => {
   document.body.innerHTML = ''
   document.body.style.overflow = ''
+  document.body.style.paddingRight = ''
+  vi.restoreAllMocks()
 })
 
 describe('CommandPalette', () => {
@@ -59,7 +61,12 @@ describe('CommandPalette', () => {
     wrapper.unmount()
   })
 
-  it('打开时聚焦输入框并锁定页面滚动', async () => {
+  it('打开时聚焦输入框、锁定背景滚动并补偿滚动条宽度', async () => {
+    document.body.style.overflow = 'scroll'
+    document.body.style.paddingRight = '3px'
+    vi.spyOn(window, 'innerWidth', 'get').mockReturnValue(1200)
+    vi.spyOn(document.documentElement, 'clientWidth', 'get').mockReturnValue(1183)
+
     const wrapper = mount(CommandPalette, {
       props: {
         modelValue: true,
@@ -72,9 +79,11 @@ describe('CommandPalette', () => {
 
     expect(document.activeElement).toBe(document.body.querySelector('.su-command-palette__input'))
     expect(document.body.style.overflow).toBe('hidden')
+    expect(document.body.style.paddingRight).toBe('20px')
 
     wrapper.unmount()
-    expect(document.body.style.overflow).toBe('')
+    expect(document.body.style.overflow).toBe('scroll')
+    expect(document.body.style.paddingRight).toBe('3px')
   })
 
   it('输入时更新查询词并过滤命令', async () => {

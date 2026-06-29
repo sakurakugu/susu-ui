@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, ref, useId, watch, type CSSProperties } from 'vue'
 import { useLocale } from '../../config-provider'
+import { lockBodyScroll } from '../../utils/scroll-lock'
 
 defineOptions({
   name: 'SuDrawer',
@@ -61,8 +62,7 @@ defineSlots<{
 const drawerRef = ref<HTMLElement>()
 const locale = useLocale()
 const titleId = `su-drawer-title-${useId()}`
-let previousBodyOverflow = ''
-let bodyScrollLocked = false
+let releaseBodyScrollLock: (() => void) | undefined
 
 const mergedConfirmText = computed(() => props.confirmText ?? locale.value.common.confirm)
 const mergedCancelText = computed(() => props.cancelText ?? locale.value.common.cancel)
@@ -79,23 +79,9 @@ const overlayStyle = computed<CSSProperties>(() => ({
   zIndex: props.zIndex,
 }))
 
-function lockBodyScroll() {
-  if (bodyScrollLocked) {
-    return
-  }
-
-  previousBodyOverflow = document.body.style.overflow
-  document.body.style.overflow = 'hidden'
-  bodyScrollLocked = true
-}
-
 function unlockBodyScroll() {
-  if (!bodyScrollLocked) {
-    return
-  }
-
-  document.body.style.overflow = previousBodyOverflow
-  bodyScrollLocked = false
+  releaseBodyScrollLock?.()
+  releaseBodyScrollLock = undefined
 }
 
 function requestClose(reason: DrawerCloseReason) {
@@ -140,7 +126,7 @@ watch(
   async (value) => {
     if (value) {
       emit('open')
-      lockBodyScroll()
+      releaseBodyScrollLock = lockBodyScroll()
       document.addEventListener('keydown', handleKeydown)
       await nextTick()
       drawerRef.value?.focus()
@@ -157,9 +143,7 @@ watch(
 
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleKeydown)
-  if (visible.value) {
-    unlockBodyScroll()
-  }
+  unlockBodyScroll()
 })
 </script>
 

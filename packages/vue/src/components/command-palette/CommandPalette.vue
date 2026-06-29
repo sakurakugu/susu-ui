@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, ref, useId, watch, type CSSProperties } from 'vue'
+import { lockBodyScroll } from '../../utils/scroll-lock'
 
 defineOptions({
   name: 'SuCommandPalette',
@@ -73,8 +74,7 @@ const inputRef = ref<HTMLInputElement>()
 const activeIndex = ref(-1)
 const titleId = `su-command-palette-title-${useId()}`
 const listboxId = `su-command-palette-listbox-${useId()}`
-let previousBodyOverflow = ''
-let bodyScrollLocked = false
+let releaseBodyScrollLock: (() => void) | undefined
 
 const normalizedQuery = computed(() => query.value.trim().toLowerCase())
 
@@ -137,23 +137,9 @@ function getShortcutKeys(shortcut: string | string[] | undefined) {
   return Array.isArray(shortcut) ? shortcut : shortcut ? [shortcut] : []
 }
 
-function lockBodyScroll() {
-  if (bodyScrollLocked) {
-    return
-  }
-
-  previousBodyOverflow = document.body.style.overflow
-  document.body.style.overflow = 'hidden'
-  bodyScrollLocked = true
-}
-
 function unlockBodyScroll() {
-  if (!bodyScrollLocked) {
-    return
-  }
-
-  document.body.style.overflow = previousBodyOverflow
-  bodyScrollLocked = false
+  releaseBodyScrollLock?.()
+  releaseBodyScrollLock = undefined
 }
 
 function focusInput() {
@@ -238,7 +224,7 @@ watch(
   async (value) => {
     if (value) {
       emit('open')
-      lockBodyScroll()
+      releaseBodyScrollLock = lockBodyScroll()
       resetActiveIndex()
       document.addEventListener('keydown', handleKeydown)
       await nextTick()

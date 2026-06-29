@@ -31,10 +31,15 @@ describe('Tour', () => {
   afterEach(() => {
     document.body.innerHTML = ''
     document.body.style.overflow = ''
+    document.body.style.paddingRight = ''
     vi.restoreAllMocks()
   })
 
   it('根据当前步骤渲染标题、描述和计数', async () => {
+    document.body.style.overflow = 'scroll'
+    document.body.style.paddingRight = '3px'
+    vi.spyOn(window, 'innerWidth', 'get').mockReturnValue(1200)
+    vi.spyOn(document.documentElement, 'clientWidth', 'get').mockReturnValue(1183)
     createTarget('publish', {
       top: 100,
       bottom: 132,
@@ -68,8 +73,11 @@ describe('Tour', () => {
     expect(tour?.textContent).toContain('1 / 1')
     expect(document.body.querySelector('.su-tour__highlight')).not.toBeNull()
     expect(document.body.style.overflow).toBe('hidden')
+    expect(document.body.style.paddingRight).toBe('20px')
 
     wrapper.unmount()
+    expect(document.body.style.overflow).toBe('scroll')
+    expect(document.body.style.paddingRight).toBe('3px')
   })
 
   it('支持前进、后退和完成事件', async () => {

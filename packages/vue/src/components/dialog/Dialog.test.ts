@@ -9,6 +9,8 @@ describe('Dialog', () => {
   afterEach(() => {
     document.body.innerHTML = ''
     document.body.style.overflow = ''
+    document.body.style.paddingRight = ''
+    vi.restoreAllMocks()
   })
 
   it('渲染标题、内容和默认页脚', async () => {
@@ -173,8 +175,12 @@ describe('Dialog', () => {
     wrapper.unmount()
   })
 
-  it('打开时锁定页面滚动，卸载后恢复', async () => {
-    const originalOverflow = document.body.style.overflow
+  it('打开时锁定背景滚动并补偿滚动条宽度，关闭后恢复', async () => {
+    document.body.style.overflow = 'scroll'
+    document.body.style.paddingRight = '4px'
+    vi.spyOn(window, 'innerWidth', 'get').mockReturnValue(1200)
+    vi.spyOn(document.documentElement, 'clientWidth', 'get').mockReturnValue(1183)
+
     const wrapper = mount(Dialog, {
       props: {
         modelValue: true,
@@ -184,13 +190,16 @@ describe('Dialog', () => {
 
     await wrapper.vm.$nextTick()
     expect(document.body.style.overflow).toBe('hidden')
+    expect(document.body.style.paddingRight).toBe('21px')
 
     await wrapper.setProps({ modelValue: false })
-    expect(document.body.style.overflow).toBe(originalOverflow)
+    expect(document.body.style.overflow).toBe('scroll')
+    expect(document.body.style.paddingRight).toBe('4px')
 
     await wrapper.setProps({ modelValue: true })
     wrapper.unmount()
-    expect(document.body.style.overflow).toBe(originalOverflow)
+    expect(document.body.style.overflow).toBe('scroll')
+    expect(document.body.style.paddingRight).toBe('4px')
   })
 
   it('支持生命周期事件', async () => {
