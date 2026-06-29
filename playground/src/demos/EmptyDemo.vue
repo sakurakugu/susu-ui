@@ -11,7 +11,7 @@ const { showTopMessage } = usePlaygroundDemoContext()
       <SuEmpty />
       <SuEmpty description="没有搜索结果">
         <template #footer>
-          <SuButton type="primary" @click="showTopMessage"> 清空筛选 </SuButton>
+          <SuButton type="primary" @click="showTopMessage('筛选条件已清空')"> 清空筛选 </SuButton>
         </template>
       </SuEmpty>
       <SuEmpty image-size="72px">

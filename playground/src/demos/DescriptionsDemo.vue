@@ -20,7 +20,9 @@ const { showTopMessage } = usePlaygroundDemoContext()
 
       <SuDescriptions title="项目信息" :column="2" border label-width="88px">
         <template #extra>
-          <SuButton size="small" variant="text" @click="showTopMessage"> 编辑 </SuButton>
+          <SuButton size="small" variant="text" @click="showTopMessage('项目信息已进入编辑')">
+            编辑
+          </SuButton>
         </template>
         <SuDescriptionsItem label="项目">Susu UI</SuDescriptionsItem>
         <SuDescriptionsItem label="版本">0.1.0</SuDescriptionsItem>

@@ -142,6 +142,11 @@
       "import": "./dist/empty.js",
       "require": "./dist/empty.cjs"
     },
+    "./float-button": {
+      "types": "./dist/components/float-button/index.d.ts",
+      "import": "./dist/float-button.js",
+      "require": "./dist/float-button.cjs"
+    },
     "./form": {
       "types": "./dist/components/form/index.d.ts",
       "import": "./dist/form.js",

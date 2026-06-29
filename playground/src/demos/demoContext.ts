@@ -3,12 +3,12 @@ import { inject, provide, type InjectionKey } from 'vue'
 export type PlaygroundNotificationPlacement = 'top-right' | 'bottom-left'
 
 export interface PlaygroundDemoCallbacks {
-  showMessage: () => void
+  showMessage: (message?: string) => void
   showNotification: (placement: PlaygroundNotificationPlacement) => void
 }
 
 export interface PlaygroundDemoContext {
-  showTopMessage: () => void
+  showTopMessage: (message?: string | Event) => void
   showNotification: (placement: PlaygroundNotificationPlacement) => void
 }
 
@@ -17,7 +17,9 @@ const playgroundDemoContextKey: InjectionKey<PlaygroundDemoContext> =
 
 export function providePlaygroundDemoContext(callbacks: PlaygroundDemoCallbacks) {
   const context: PlaygroundDemoContext = {
-    showTopMessage: callbacks.showMessage,
+    showTopMessage(message) {
+      callbacks.showMessage(typeof message === 'string' ? message : undefined)
+    },
     showNotification: callbacks.showNotification,
   }
   provide(playgroundDemoContextKey, context)

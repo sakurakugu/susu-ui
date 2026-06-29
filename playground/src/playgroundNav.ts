@@ -77,6 +77,13 @@ export const playgroundNavItems: PlaygroundNavItem[] = [
     scenarios: ['列表页', '文档页', '运营配置页'],
   },
   {
+    id: 'float-button',
+    label: '浮动按钮',
+    group: 'navigation',
+    description: '用于在页面固定位置放置高频操作入口，并支持展开一组快捷命令。',
+    scenarios: ['全局新建', '快捷联系', '页面辅助操作'],
+  },
+  {
     id: 'dialog',
     label: '对话框',
     group: 'feedback',

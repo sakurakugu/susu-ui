@@ -11,12 +11,12 @@ const dialogConfirmLoading = ref(false)
 
 function confirmBasicDialog() {
   basicDialogVisible.value = false
-  showTopMessage()
+  showTopMessage('内容已发布')
 }
 
 function confirmCustomDialog() {
   customDialogVisible.value = false
-  showTopMessage()
+  showTopMessage('说明已保存并提交')
 }
 
 function confirmAsyncDialog() {
@@ -24,7 +24,7 @@ function confirmAsyncDialog() {
   window.setTimeout(() => {
     dialogConfirmLoading.value = false
     asyncDialogVisible.value = false
-    showTopMessage()
+    showTopMessage('成员已删除')
   }, 900)
 }
 </script>

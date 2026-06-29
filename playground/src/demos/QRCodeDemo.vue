@@ -8,7 +8,7 @@ const paymentCode = ref('PAY-20260628-0930-128600')
 
 function handleRefresh() {
   paymentCode.value = `PAY-${Date.now()}`
-  showTopMessage()
+  showTopMessage('付款码已刷新')
 }
 </script>
 

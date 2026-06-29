@@ -12,7 +12,7 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  showMessage: []
+  showMessage: [message?: string]
   showNotification: [placement: PlaygroundNotificationPlacement]
   selectDemo: [id: string]
 }>()
@@ -37,8 +37,8 @@ const nextNavItem = computed(() =>
 )
 
 providePlaygroundDemoContext({
-  showMessage() {
-    emit('showMessage')
+  showMessage(message) {
+    emit('showMessage', message)
   },
   showNotification(placement) {
     emit('showNotification', placement)

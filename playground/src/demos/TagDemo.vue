@@ -18,7 +18,7 @@ const { showTopMessage } = usePlaygroundDemoContext()
       <SuTag type="success" variant="solid">实心标签</SuTag>
       <SuTag size="small">小标签</SuTag>
       <SuTag size="large" round>大圆角标签</SuTag>
-      <SuTag closable @close="showTopMessage">可关闭</SuTag>
+      <SuTag closable @close="showTopMessage('标签已关闭')">可关闭</SuTag>
       <SuTag closable disabled>禁用关闭</SuTag>
       <SuTag type="primary">
         <template #prefix>

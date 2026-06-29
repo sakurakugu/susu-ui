@@ -10,7 +10,7 @@ const { showTopMessage } = usePlaygroundDemoContext()
     <div class="card-demo">
       <SuCard title="项目概览">
         <template #extra>
-          <SuButton variant="text" @click="showTopMessage">详情</SuButton>
+          <SuButton variant="text" @click="showTopMessage('已打开项目详情')">详情</SuButton>
         </template>
         <p>今日访问量较昨日提升 12%，核心流程保持稳定。</p>
       </SuCard>
@@ -23,7 +23,9 @@ const { showTopMessage } = usePlaygroundDemoContext()
           <span>本周目标完成率</span>
         </div>
         <template #footer>
-          <SuButton type="primary" size="small" @click="showTopMessage"> 继续处理 </SuButton>
+          <SuButton type="primary" size="small" @click="showTopMessage('任务处理已继续')">
+            继续处理
+          </SuButton>
         </template>
       </SuCard>
       <SuCard padding="small" shadow="never">

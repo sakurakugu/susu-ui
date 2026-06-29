@@ -14,7 +14,7 @@ function validateKeyword(tag: string) {
 }
 
 function handleInvalid() {
-  showTopMessage()
+  showTopMessage('标签不符合输入规则')
 }
 </script>
 

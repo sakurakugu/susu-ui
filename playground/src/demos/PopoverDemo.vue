@@ -28,7 +28,9 @@ const popoverVisible = ref(false)
         <template #content>
           <div class="popover-demo-content">
             <p>可以放入说明、状态、按钮或其他组件。</p>
-            <SuButton size="small" type="primary" @click="showTopMessage"> 立即处理 </SuButton>
+            <SuButton size="small" type="primary" @click="showTopMessage('任务已进入处理流程')">
+              立即处理
+            </SuButton>
           </div>
         </template>
       </SuPopover>

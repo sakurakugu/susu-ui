@@ -14,8 +14,8 @@ const { showTopMessage } = usePlaygroundDemoContext()
         description="内容已经同步到线上环境，可以继续查看详情或返回列表。"
       >
         <template #footer>
-          <SuButton type="primary" @click="showTopMessage"> 查看详情 </SuButton>
-          <SuButton @click="showTopMessage">返回列表</SuButton>
+          <SuButton type="primary" @click="showTopMessage('发布详情已打开')"> 查看详情 </SuButton>
+          <SuButton @click="showTopMessage('已返回发布列表')">返回列表</SuButton>
         </template>
       </SuResult>
 

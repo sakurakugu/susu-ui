@@ -39,6 +39,7 @@
 - [Dropdown 下拉菜单](./组件/Dropdown%20下拉菜单.md)
 - [Empty 空状态](./组件/Empty%20空状态.md)
 - [Form 表单](./组件/Form%20表单.md)
+- [FloatButton 浮动按钮](./组件/FloatButton%20浮动按钮.md)
 - [Grid 网格](./组件/Grid%20网格.md)
 - [Icon 图标](./组件/Icon%20图标.md)
 - [Image 图片](./组件/Image%20图片.md)

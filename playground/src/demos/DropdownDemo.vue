@@ -15,8 +15,9 @@ const actionOptions = [
 ]
 
 function handleDropdownCommand(value: string | number) {
-  dropdownCommand.value = `已选择：${value}`
-  showTopMessage()
+  const selectedOption = actionOptions.find((option) => option.value === value)
+  dropdownCommand.value = `已选择：${selectedOption?.label ?? value}`
+  showTopMessage(`${selectedOption?.label ?? value}操作已选择`)
 }
 </script>
 

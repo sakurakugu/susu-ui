@@ -7,7 +7,7 @@ const imageCover =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 200'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%231677ff'/%3E%3Cstop offset='.58' stop-color='%2316a34a'/%3E%3Cstop offset='1' stop-color='%23f97316'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='320' height='200' rx='20' fill='url(%23g)'/%3E%3Ccircle cx='72' cy='68' r='34' fill='white' fill-opacity='.86'/%3E%3Cpath d='M0 168l76-62 52 42 45-34 96 74H0z' fill='white' fill-opacity='.76'/%3E%3Cpath d='M202 52h72M202 78h52M202 104h38' stroke='white' stroke-width='12' stroke-linecap='round' stroke-opacity='.86'/%3E%3C/svg%3E"
 
 function handleImagePreview() {
-  showTopMessage()
+  showTopMessage('已打开图片预览')
 }
 </script>
 

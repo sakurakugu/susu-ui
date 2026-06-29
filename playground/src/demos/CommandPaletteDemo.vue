@@ -57,7 +57,7 @@ const commands: CommandPaletteOption[] = [
 
 function handleSelect(option: CommandPaletteOption) {
   selectedCommand.value = `已执行：${option.label}`
-  showTopMessage()
+  showTopMessage(`${option.label}已执行`)
 }
 </script>
 

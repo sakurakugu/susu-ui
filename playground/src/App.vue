@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { enUS, zhCN, type SusuLocale } from '@susu-ui/vue'
+import { enUS, SuMessage, zhCN, type SusuLocale } from '@susu-ui/vue'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import PlaygroundContent from './components/PlaygroundContent.vue'
 import PlaygroundSidebar from './components/PlaygroundSidebar.vue'
@@ -13,8 +13,6 @@ const currentDemoId = ref(
     ? initialDemoId
     : playgroundNavItems[0].id,
 )
-const messageVisible = ref(false)
-const messageKey = ref(0)
 const notificationVisible = ref(false)
 const notificationKey = ref(0)
 const notificationPlacement = ref<'top-right' | 'bottom-left'>('top-right')
@@ -32,15 +30,14 @@ function syncDemoFromHash() {
   }
 }
 
-function showTopMessage() {
-  messageKey.value += 1
-  messageVisible.value = true
-}
-
 function showNotification(placement: 'top-right' | 'bottom-left') {
   notificationKey.value += 1
   notificationPlacement.value = placement
   notificationVisible.value = true
+}
+
+function showPlaygroundMessage(message = '操作已完成') {
+  SuMessage.success(message)
 }
 
 function selectDemo(id: string) {
@@ -70,15 +67,6 @@ onBeforeUnmount(() => {
       <div class="playground-main">
         <PlaygroundToolbar @locale-change="localeName = $event" />
         <main class="playground">
-          <SuMessage
-            v-if="messageVisible"
-            :key="messageKey"
-            type="success"
-            @close="messageVisible = false"
-          >
-            消息会在顶部展示，并于 3 秒后消失
-          </SuMessage>
-
           <SuNotification
             v-if="notificationVisible"
             :key="notificationKey"
@@ -92,7 +80,7 @@ onBeforeUnmount(() => {
 
           <PlaygroundContent
             :active-id="currentDemoId"
-            @show-message="showTopMessage"
+            @show-message="showPlaygroundMessage"
             @show-notification="showNotification"
             @select-demo="selectDemo"
           />

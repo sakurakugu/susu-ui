@@ -32,6 +32,7 @@ import { SuDivider } from './components/divider'
 import { SuDrawer } from './components/drawer'
 import { SuDropdown } from './components/dropdown'
 import { SuEmpty } from './components/empty'
+import { SuFloatButton, SuFloatButtonGroup } from './components/float-button'
 import { SuForm, SuFormItem } from './components/form'
 import { SuGrid, SuGridItem } from './components/grid'
 import { SuIcon } from './components/icon'
@@ -116,6 +117,7 @@ export * from './components/divider'
 export * from './components/drawer'
 export * from './components/dropdown'
 export * from './components/empty'
+export * from './components/float-button'
 export * from './components/form'
 export * from './components/grid'
 export * from './components/icon'
@@ -206,6 +208,8 @@ const components = [
   SuDrawer,
   SuDropdown,
   SuEmpty,
+  SuFloatButton,
+  SuFloatButtonGroup,
   SuForm,
   SuFormItem,
   SuGrid,

@@ -21,7 +21,7 @@ const cityOptions = [
 ]
 
 function submitDemoForm() {
-  showTopMessage()
+  showTopMessage('表单已提交')
 }
 
 function resetDemoForm() {

@@ -11,12 +11,12 @@ const drawerConfirmLoading = ref(false)
 
 function confirmBasicDrawer() {
   basicDrawerVisible.value = false
-  showTopMessage()
+  showTopMessage('任务详情已确认')
 }
 
 function confirmFilterDrawer() {
   filterDrawerVisible.value = false
-  showTopMessage()
+  showTopMessage('筛选条件已应用')
 }
 
 function confirmAsyncDrawer() {
@@ -24,7 +24,7 @@ function confirmAsyncDrawer() {
   window.setTimeout(() => {
     drawerConfirmLoading.value = false
     asyncDrawerVisible.value = false
-    showTopMessage()
+    showTopMessage('配置已保存')
   }, 900)
 }
 </script>

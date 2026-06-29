@@ -42,6 +42,10 @@ const cardItems = [
     description: '下午 3 点与北区渠道团队同步续约方案。',
   },
 ]
+
+function handleBannerChange(index: number) {
+  showTopMessage(`已切换到${bannerItems[index]?.title ?? '下一张活动'}`)
+}
 </script>
 
 <template>
@@ -54,7 +58,7 @@ const cardItems = [
         :interval="3600"
         height="260px"
         label="运营活动轮播"
-        @change="showTopMessage"
+        @change="handleBannerChange"
       />
 
       <div class="carousel-demo-grid">
@@ -87,7 +91,13 @@ const cardItems = [
             <span>工作提醒</span>
             <strong>{{ item.title }}</strong>
             <p>{{ item.description }}</p>
-            <SuButton type="primary" size="small" @click="showTopMessage"> 查看详情 </SuButton>
+            <SuButton
+              type="primary"
+              size="small"
+              @click="showTopMessage(`${item.title}详情已打开`)"
+            >
+              查看详情
+            </SuButton>
           </div>
         </template>
       </SuCarousel>

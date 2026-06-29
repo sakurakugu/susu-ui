@@ -29,8 +29,10 @@ const compactBreadcrumbItems = [{ label: '订单中心', href: '#' }, { label: '
         </template>
 
         <template #extra>
-          <SuButton variant="outline" @click="showTopMessage">导出</SuButton>
-          <SuButton type="primary" @click="showTopMessage">新建跟进</SuButton>
+          <SuButton variant="outline" @click="showTopMessage('客户增长计划已导出')">导出</SuButton>
+          <SuButton type="primary" @click="showTopMessage('新建跟进入口已打开')">
+            新建跟进
+          </SuButton>
         </template>
 
         <div class="page-header-demo__metrics">
@@ -64,11 +66,15 @@ const compactBreadcrumbItems = [{ label: '订单中心', href: '#' }, { label: '
         show-back
         size="small"
         ghost
-        @back="showTopMessage"
+        @back="showTopMessage('已返回售后工单列表')"
       >
         <template #extra>
-          <SuButton size="small" variant="outline" @click="showTopMessage"> 转交 </SuButton>
-          <SuButton size="small" type="primary" @click="showTopMessage"> 完成处理 </SuButton>
+          <SuButton size="small" variant="outline" @click="showTopMessage('工单转交入口已打开')">
+            转交
+          </SuButton>
+          <SuButton size="small" type="primary" @click="showTopMessage('售后工单已完成处理')">
+            完成处理
+          </SuButton>
         </template>
       </SuPageHeader>
     </div>

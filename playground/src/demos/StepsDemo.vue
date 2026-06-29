@@ -31,7 +31,7 @@ const simpleSteps: StepsItem[] = [
 
 function handleStepChange(value: string | number) {
   stepsCurrent.value = Number(value)
-  showTopMessage()
+  showTopMessage(`已切换到${publishSteps[stepsCurrent.value]?.title ?? '指定步骤'}`)
 }
 </script>
 

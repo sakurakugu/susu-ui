@@ -8,7 +8,7 @@ const controlledVisible = ref(false)
 const confirming = ref(false)
 
 function handleArchive() {
-  showTopMessage()
+  showTopMessage('项目已归档')
 }
 
 function handleAsyncConfirm() {
@@ -17,7 +17,7 @@ function handleAsyncConfirm() {
   window.setTimeout(() => {
     confirming.value = false
     controlledVisible.value = false
-    showTopMessage()
+    showTopMessage('付款审批已提交')
   }, 1200)
 }
 </script>
@@ -63,7 +63,9 @@ function handleAsyncConfirm() {
         <template #description> 启用后，系统会向项目群发送变更说明和新的交付时间。 </template>
         <template #actions>
           <SuButton size="small" variant="text">仅保存</SuButton>
-          <SuButton size="small" type="primary" @click="showTopMessage"> 保存并通知 </SuButton>
+          <SuButton size="small" type="primary" @click="showTopMessage('项目成员已通知')">
+            保存并通知
+          </SuButton>
         </template>
       </SuPopconfirm>
 

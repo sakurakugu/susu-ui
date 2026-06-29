@@ -79,6 +79,7 @@ import CheckboxDemo from './CheckboxDemo.vue'
 import RadioDemo from './RadioDemo.vue'
 import SwitchDemo from './SwitchDemo.vue'
 import FormDemo from './FormDemo.vue'
+import FloatButtonDemo from './FloatButtonDemo.vue'
 import ButtonDemo from './ButtonDemo.vue'
 
 export const playgroundDemos = [
@@ -163,5 +164,6 @@ export const playgroundDemos = [
   { id: 'radio', component: RadioDemo },
   { id: 'switch', component: SwitchDemo },
   { id: 'form', component: FormDemo },
+  { id: 'float-button', component: FloatButtonDemo },
   { id: 'button', component: ButtonDemo },
 ]
