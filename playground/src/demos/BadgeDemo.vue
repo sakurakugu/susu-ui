@@ -20,6 +20,12 @@
       <SuBadge value="热" type="warning" position="bottom-right">
         <SuTag type="warning" variant="outline">活动</SuTag>
       </SuBadge>
+      <SuBadge value="失败" type="error" position="bottom-left">
+        <SuButton variant="outline">同步</SuButton>
+      </SuBadge>
+      <SuBadge value="12" type="success" size="small">
+        <SuTag type="success">队列</SuTag>
+      </SuBadge>
       <SuBadge value="离线" type="info" size="small" />
       <SuBadge dot type="success" />
     </div>

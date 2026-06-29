@@ -4,6 +4,11 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import PlaygroundContent from './components/PlaygroundContent.vue'
 import PlaygroundSidebar from './components/PlaygroundSidebar.vue'
 import PlaygroundToolbar from './components/PlaygroundToolbar.vue'
+import type {
+  PlaygroundNotificationOptions,
+  PlaygroundNotificationPlacement,
+  PlaygroundNotificationType,
+} from './demos/demoContext'
 import { playgroundNavItems } from './playgroundNav'
 
 const localeName = ref<SusuLocale['name']>('zh-cn')
@@ -15,7 +20,14 @@ const currentDemoId = ref(
 )
 const notificationVisible = ref(false)
 const notificationKey = ref(0)
-const notificationPlacement = ref<'top-right' | 'bottom-left'>('top-right')
+const notificationType = ref<PlaygroundNotificationType>('warning')
+const notificationTitle = ref('构建提醒')
+const notificationDescription = ref('当前任务队列还有 3 个检查项需要处理。')
+const notificationPlacement = ref<PlaygroundNotificationPlacement>('top-right')
+const notificationDuration = ref(4500)
+const notificationShowIcon = ref(true)
+const notificationClosable = ref(true)
+const notificationIconText = ref('')
 
 const currentLocale = computed(() => (localeName.value === 'zh-cn' ? zhCN : enUS))
 
@@ -30,9 +42,16 @@ function syncDemoFromHash() {
   }
 }
 
-function showNotification(placement: 'top-right' | 'bottom-left') {
+function showNotification(options: PlaygroundNotificationOptions) {
   notificationKey.value += 1
-  notificationPlacement.value = placement
+  notificationType.value = options.type ?? 'warning'
+  notificationTitle.value = options.title ?? '构建提醒'
+  notificationDescription.value = options.description ?? '当前任务队列还有 3 个检查项需要处理。'
+  notificationPlacement.value = options.placement ?? 'top-right'
+  notificationDuration.value = options.duration ?? 4500
+  notificationShowIcon.value = options.showIcon ?? true
+  notificationClosable.value = options.closable ?? true
+  notificationIconText.value = options.iconText ?? ''
   notificationVisible.value = true
 }
 
@@ -70,12 +89,16 @@ onBeforeUnmount(() => {
           <SuNotification
             v-if="notificationVisible"
             :key="notificationKey"
-            type="warning"
-            title="构建提醒"
+            :type="notificationType"
+            :title="notificationTitle"
             :placement="notificationPlacement"
+            :duration="notificationDuration"
+            :show-icon="notificationShowIcon"
+            :closable="notificationClosable"
             @close="notificationVisible = false"
           >
-            当前任务队列还有 3 个检查项需要处理。
+            <template v-if="notificationIconText" #icon>{{ notificationIconText }}</template>
+            {{ notificationDescription }}
           </SuNotification>
 
           <PlaygroundContent

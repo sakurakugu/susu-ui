@@ -4,6 +4,12 @@ const breadcrumbItems = [
   { label: '组件', href: '#' },
   { label: 'Breadcrumb 面包屑' },
 ]
+
+const disabledBreadcrumbItems = [
+  { label: '工作台' },
+  { label: '销售中心', disabled: true },
+  { label: '客户详情' },
+]
 </script>
 
 <template>
@@ -18,6 +24,11 @@ const breadcrumbItems = [
           </span>
         </template>
       </SuBreadcrumb>
+      <SuBreadcrumb :items="disabledBreadcrumbItems">
+        <template #separator>
+          <span class="breadcrumb-demo-separator">›</span>
+        </template>
+      </SuBreadcrumb>
     </div>
   </section>
 </template>
@@ -29,5 +40,10 @@ const breadcrumbItems = [
 
 .breadcrumb-demo-current {
   color: var(--su-color-primary);
+}
+
+.breadcrumb-demo-separator {
+  color: var(--su-color-primary);
+  font-weight: 600;
 }
 </style>

@@ -19,6 +19,15 @@ const paginationSize = ref(10)
         show-quick-jumper
       />
       <SuPagination v-model="paginationPage" :total="236" size="small" simple />
+      <SuPagination
+        v-model="paginationPage"
+        :total="236"
+        size="large"
+        prev-text="上一批"
+        next-text="下一批"
+      />
+      <SuPagination v-model="paginationPage" :total="236" :pager-count="5" />
+      <SuPagination :total="6" hide-on-single-page />
       <SuPagination :total="80" disabled />
     </div>
   </section>

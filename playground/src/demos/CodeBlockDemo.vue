@@ -13,6 +13,17 @@ const responseCode = `{
   "totalAmount": 26800,
   "currency": "CNY"
 }`
+
+const envCode = `VITE_API_BASE_URL=https://api.example.com
+VITE_ANALYTICS_ENABLED=true
+VITE_RELEASE_CHANNEL=internal-preview
+VITE_LONG_CALLBACK_URL=https://callback.example.com/orders/synchronization/retry-with-a-very-long-path-for-wrap-preview`
+
+const slotCode = `pnpm --filter @susu-ui/vue test -- Button`
+
+function handleCopy(code: string) {
+  console.log('已复制代码片段', code.slice(0, 24))
+}
 </script>
 
 <template>
@@ -29,6 +40,23 @@ const responseCode = `{
         :max-height="220"
         wrap
       />
+
+      <SuCodeBlock
+        title="环境变量"
+        language="dotenv"
+        :code="envCode"
+        :max-height="120"
+        wrap
+        @copy="handleCopy"
+      >
+        <template #actions>
+          <SuTag size="small" type="success">预览环境</SuTag>
+        </template>
+      </SuCodeBlock>
+
+      <SuCodeBlock language="bash" :copyable="false" :show-header="false">
+        {{ slotCode }}
+      </SuCodeBlock>
     </div>
   </section>
 </template>

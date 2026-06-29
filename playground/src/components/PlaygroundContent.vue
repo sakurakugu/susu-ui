@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { playgroundDemos } from '../demos'
 import {
   providePlaygroundDemoContext,
-  type PlaygroundNotificationPlacement,
+  type PlaygroundNotificationOptions,
 } from '../demos/demoContext'
 import { playgroundGroups, playgroundNavItems } from '../playgroundNav'
 
@@ -13,7 +13,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   showMessage: [message?: string]
-  showNotification: [placement: PlaygroundNotificationPlacement]
+  showNotification: [options: PlaygroundNotificationOptions]
   selectDemo: [id: string]
 }>()
 

@@ -23,6 +23,7 @@ function disableWeekend(date: Date) {
       />
       <SuCalendar size="small" model-value="2026-06-15" />
       <SuCalendar size="large" model-value="2026-06-15" readonly />
+      <SuCalendar model-value="2026-06-15" :show-today="false" disabled />
     </div>
   </section>
 </template>
