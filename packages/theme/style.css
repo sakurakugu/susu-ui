@@ -17,6 +17,7 @@
   --su-color-info: #2563eb; /* 信息色 */
   --su-color-info-hover: #3b82f6; /* 信息色悬停态 */
   --su-color-info-active: #1d4ed8; /* 信息色激活态 */
+  --su-radius-xs: 2px; /* 极小圆角 */
   --su-radius-sm: 4px; /* 小圆角 */
   --su-radius-md: 6px; /* 中圆角 */
   --su-radius-lg: 8px; /* 大圆角 */
@@ -26,9 +27,11 @@
   --su-space-md: 12px; /* 中间距 */
   --su-space-lg: 16px; /* 大间距 */
   --su-space-xl: 24px; /* 超大间距 */
+  --su-font-size-xs: 11px; /* 极小字号 */
   --su-font-size-sm: 12px; /* 小字号 */
   --su-font-size-md: 14px; /* 默认字号 */
   --su-font-size-lg: 16px; /* 大字号 */
+  --su-font-size-xl: 20px; /* 超大字号 */
   --su-font-line-height: 1.5; /* 默认行高 */
 }
 
@@ -45,7 +48,9 @@
   ); /* 柔和背景色 */
   --su-color-text: #1f2329; /* 主要文字色 */
   --su-color-text-muted: #646a73; /* 次要文字色 */
+  --su-color-text-secondary: var(--su-color-text-muted); /* 次级文字色 */
   --su-color-border: color-mix(in srgb, var(--su-color-primary) 16%, #d9d9d9); /* 边框色 */
+  --su-color-border-strong: color-mix(in srgb, var(--su-color-primary) 28%, #b8bec8); /* 强边框色 */
   --su-color-success-text: var(--su-color-success-active); /* 成功文字色 */
   --su-color-success-border: #86efac; /* 成功边框色 */
   --su-color-success-border-soft: #bbf7d0; /* 成功柔和边框色 */
@@ -68,6 +73,7 @@
   --su-color-info-soft: #dbeafe; /* 信息柔和背景色 */
   --su-shadow-sm: 0 1px 2px rgb(0 0 0 / 8%); /* 小阴影 */
   --su-shadow-md: 0 6px 16px rgb(0 0 0 / 12%); /* 中阴影 */
+  --su-shadow-lg: 0 10px 24px rgb(0 0 0 / 16%); /* 大阴影 */
 }
 
 /* ===深色主题=== */
@@ -78,7 +84,9 @@
   --su-color-bg-soft: color-mix(in srgb, oklch(0.22 0.02 var(--su-theme-hue)) 82%, #141414);
   --su-color-text: #f0f0f0;
   --su-color-text-muted: #a6a6a6;
+  --su-color-text-secondary: var(--su-color-text-muted);
   --su-color-border: color-mix(in srgb, var(--su-color-primary) 24%, #424242);
+  --su-color-border-strong: color-mix(in srgb, var(--su-color-primary) 36%, #5a5a5a);
   --su-color-success-text: #86efac;
   --su-color-success-border: color-mix(
     in srgb,
@@ -137,6 +145,7 @@
   --su-color-info-soft: color-mix(in srgb, var(--su-color-info) 22%, var(--su-color-bg-elevated));
   --su-shadow-sm: 0 1px 2px rgb(0 0 0 / 32%);
   --su-shadow-md: 0 6px 16px rgb(0 0 0 / 36%);
+  --su-shadow-lg: 0 10px 24px rgb(0 0 0 / 44%);
 }
 
 /* ===跟随系统主题=== */
@@ -149,7 +158,9 @@
     --su-color-bg-soft: color-mix(in srgb, oklch(0.22 0.02 var(--su-theme-hue)) 82%, #141414);
     --su-color-text: #f0f0f0;
     --su-color-text-muted: #a6a6a6;
+    --su-color-text-secondary: var(--su-color-text-muted);
     --su-color-border: color-mix(in srgb, var(--su-color-primary) 24%, #424242);
+    --su-color-border-strong: color-mix(in srgb, var(--su-color-primary) 36%, #5a5a5a);
     --su-color-success-text: #86efac;
     --su-color-success-border: color-mix(
       in srgb,
@@ -216,6 +227,7 @@
     --su-color-info-soft: color-mix(in srgb, var(--su-color-info) 22%, var(--su-color-bg-elevated));
     --su-shadow-sm: 0 1px 2px rgb(0 0 0 / 32%);
     --su-shadow-md: 0 6px 16px rgb(0 0 0 / 36%);
+    --su-shadow-lg: 0 10px 24px rgb(0 0 0 / 44%);
   }
 }
 

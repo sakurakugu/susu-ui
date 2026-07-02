@@ -131,7 +131,7 @@ function handleBreadcrumbClick(item: PageHeaderBreadcrumbItem, index: number, ev
   width: 100%;
   border: 1px solid var(--su-color-border);
   border-radius: var(--su-radius-lg);
-  background: var(--su-color-surface);
+  background: var(--su-color-bg-elevated);
   color: var(--su-color-text);
 }
 

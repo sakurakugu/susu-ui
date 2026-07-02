@@ -322,7 +322,7 @@ defineExpose({
 }
 
 .su-infinite-scroll__status.is-error {
-  color: var(--su-color-danger);
+  color: var(--su-color-error);
 }
 
 .su-infinite-scroll__spinner {

@@ -171,7 +171,7 @@ function reportByItem(item: unknown) {
 }
 
 .masonry-demo__card--rose {
-  border-top: 3px solid var(--su-color-danger);
+  border-top: 3px solid var(--su-color-error);
 }
 
 .masonry-demo__meta {
